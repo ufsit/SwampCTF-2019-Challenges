@@ -1,0 +1,164 @@
+Opening Program Files
+
+Opening Program Files 1/5
+
+Ghidra Tools can open an exist
+ing Ghidra program file and pr
+esent it for review and analys
+is. Programs from other viewed
+ projects or viewed
+repositories may also be opene
+d.
+A program can be opened in the
+ currently displayed tool or c
+an be displayed in a new insta
+nce of a Tool.
+
+Opening a Program File in the 
+Current Tool
+1. To open a program file in t
+he currently displayed tool, s
+elect File
+2. The Open Program dialog is 
+displayed.
+
+Open... from the Ghidra Tool's
+ menu.
+
+This allows selection of any f
+ile that is part of the active
+ project.
+3. Select the program file to 
+open.
+4. Click the OK button OR doub
+le click on the program to ope
+n.
+
+The selected program is opened
+ and displayed in the tool. Mo
+re than one program can be ope
+ned at the same time, but only
+ one of
+them can be active at a time. 
+The Code Browser window shows 
+a tab for each program that yo
+u have opened. Select a tab to
+ make
+that program the active one, a
+s shown in the image below.
+
+In addition to selecting a fi
+le, this dialog can be used to
+ perform some basic directory/
+file operations. Right click o
+n a program to get the
+Opening Program Files 2/5
+directory/file menu.
+
+History
+The History button on the Open
+ Program dialog expands the di
+alog to show previous versions
+ of a program (if the selected
+ program is
+shared), allowing the user to 
+view a read-only previous vers
+ion of the program.
+
+The History panel shows all pr
+evious versions for the select
+ed program. Each entry shows w
+hich user created the version,
+ the date and time the
+version was created, the versi
+on number, and the comment for
+ that version. To open a histo
+ry file, select it in the Vers
+ion History table, and
+
+The History panel shows all p
+revious versions for the selec
+ted program. Each entry shows 
+which user created the version
+, the date and time the
+version was created, the versi
+on number, and the comment for
+ that version. To open a histo
+ry file, select it in the Vers
+ion History table, and
+Opening Program Files 3/5
+press the "OK" button. The ver
+sion history can be hidden by 
+pressing the "No History" butt
+on.
+
+Opening a Program in a New Too
+l via Drag and Drop
+1. Locate the program to open 
+in the Ghidra Project Window.
+
+2. Left mouse press on the pro
+gram in the tree, drag it to t
+he Tool Chest, and drop it on 
+the desired tool by releasing 
+the left mouse button.
+
+The
+
+icon in the Tool Chest indicat
+es the CodeBrowser tool.
+
+3. A new instance of the tool 
+is launched with the selected 
+program open. The Running Tool
+s area of the Ghidra Project W
+indow now shows the newly
+launched tool.
+
+Opening Program Files 4/5
+
+Alternatively, programs can be
+ dropped onto running tools (e
+ither the icon in the Running 
+Tools area or onto the tool it
+self). In this case, the
+program is opened in the exist
+ing tool in addition to any pr
+ograms that are already open.
+
+Opening a Versioned Program Fi
+le
+If you attempt to open a versi
+oned program file that is not 
+checked out, a dialog is displ
+ayed to warn you of this. You 
+will not be allowed to
+save changes to this file unle
+ss you check it out.
+
+If you are working in a shared
+ project, AND if you plan to m
+ake drastic changes to memory,
+ e.g., add or remove memory bl
+ocks, select the
+checkbox on the dialog to obta
+in an exclusive lock on the pr
+ogram file.
+If you choose the "No" option,
+ the program will be opened re
+ad only, thus you will have to
+ save your changes to another 
+filename.
+
+Provided by: ProgramManagerPlu
+gin
+
+Related Topics:
+Ghidra Programs
+Importing Programs
+Closing Programs
+Shared Project
+
+Opening Program Files 5/5
+
+

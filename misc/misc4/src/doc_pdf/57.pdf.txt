@@ -1,0 +1,153 @@
+Translate Strings 1/3
+
+Translate Strings
+The Translate Strings Plugin p
+rovides a framework to allow s
+trings found in a
+program to be decorated with a
+n alternate value that is more
+ meaningful to the Ghidra
+user.
+This plugin doesn't perform an
+y natural language translation
+ by itself. The user must
+install string translation ser
+vices that do the actual trans
+lation. Extensions to Ghidra
+are installed via the File
+Install Extensions... menu.
+When a string has been transla
+ted, the translated value will
+ be shown in place of the
+original value, bracketed with
+ »chevrons«
+
+Translate Menu
+The Data
+Translate menu will appear in 
+the popup menu of the Listing
+window when a string or string
+-like datatype is selected, an
+d in the Defined
+Strings table (found under Win
+dow
+Defined Strings).
+
+Manual string translation
+Allows the user to specify a t
+ranslated string value manuall
+y, by
+typing a value in a pop-up dia
+log.
+Select an existing string inst
+ance in the Listing window and
+ right
+click and select Data
+Translate
+Manual to enter a manual
+translation.
+In the Defined Strings table s
+elect a row or a range of rows
+ and
+right click and select Transla
+te
+Manual.
+Clear translated values
+Removes the stored translated 
+value for the selected string 
+data
+
+Removes the stored translated
+ value for the selected string
+ data
+instances.
+
+Translate Strings 2/3
+
+The selected string instances 
+will default back to their tru
+e value.
+Select an existing string inst
+ance in the Listing window and
+ right
+click and select Data
+Translate
+Clear translated values to
+clear the translated value.
+In the Defined Strings table s
+elect a row or a range of rows
+ and
+right click and select Transla
+te
+Clear translated values.
+Toggle show translated values
+Toggles the display of the tra
+nslated string with the origin
+al value.
+Select an existing string inst
+ance in the Listing window and
+ right
+click and select Data
+Translate
+Toggle show translated
+values to toggle the display o
+f the translated value of each
+ of the
+strings.
+In the Defined Strings table s
+elect a row or a range of rows
+ and
+right click and select Transla
+te
+Toggle show translated values.
+
+String translation services
+String translation services, w
+hich are separate from this Tr
+anslate Strings Plugin,
+can be installed that will all
+ow the user to translate strin
+gs.
+Once installed, the translatio
+n service plugins, like all pl
+ugins, can be found in
+the File
+Configure... window and must b
+e enabled before they will app
+ear in
+the Data
+Translate menu.
+Each string translation servic
+es will operate in a different
+ way, please consult the
+documentation from the service
+ for specifics.
+The Manual string translation 
+service is always available.
+
+Creating a String translation 
+service
+
+Creating a String translation
+ service
+Translate Strings 3/3
+
+Please see the SampleStringTra
+nslationPlugin.java source fil
+e for an example of
+how to create your own transla
+tion service.
+Alternatively, you could custo
+mize the TranslateStringsScrip
+t.java file and
+operate directly on the string
+ instances without using this 
+plugin.
+
+Provided by: Translate Strings
+ Plugin
+Related Topics:
+Code Browser
+View Defined Strings
+
+

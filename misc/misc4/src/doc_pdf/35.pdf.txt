@@ -1,0 +1,387 @@
+The Byte Viewer 1/7
+
+The Byte Viewer
+The Byte Viewer displays bytes
+ in memory in various formats,
+ e.g., Hex, Ascii, Octal, etc.
+ The figure
+below shows the Byte Viewer pl
+ugin in a separate window from
+ the default tool, the Code Br
+owser.
+
+To show the Byte Viewer, selec
+t the icon,
+Window Bytes: ... menu.
+
+, on the Code Browser toolbar,
+ OR, choose the
+
+The following paragraphs descr
+ibe the Byte Viewer.
+
+Data Formats
+This section describes the for
+mats that Ghidra provides by d
+efault. Each format is an inst
+ance of a
+DataFormatModel interface, so 
+any new formats that you provi
+de will automatically show up 
+in the
+Byte Viewer Options dialog tha
+t lists the data formats that 
+may be added to your view. To 
+add or
+remove a data format view from
+ the tool, press the
+icon to bring up the Byte View
+eer Options
+dialog. Select the formats tha
+t you want and press the OK bu
+tton.
+Hex
+The Hex view shows each byte a
+s a two character hex value. C
+hange the group size for
+the Hex format to show the byt
+es grouped in that size. When 
+you add the Byte Viewer
+plugin to a tool and then open
+ a program, the Hex view is au
+tomatically displayed by
+default.
+This view supports byte editin
+g.
+
+This view supports byte editi
+ng.
+
+The Byte Viewer 2/7
+
+Ascii
+The Ascii view shows each byte
+ as its equivalent Ascii chara
+cter. For those bytes that
+do not represent an Ascii char
+acter, the format shows it as 
+a tic (".").
+This view supports byte editin
+g.
+Address
+The Address view displays a ti
+c (".") for all bytes whose fo
+rmed address does not fall
+within the range of memory for
+ the program. For those addres
+ses that can be formed
+and are in memory, the view sh
+ows the symbol,
+So if you go to that address i
+n the
+Code Browser, and make a Point
+er data type, the address poin
+ted to is in memory.
+Conversely, if you go to a "ti
+c" address in the Code Browser
+ and make a pointer, the
+address pointed to is not in m
+emory (the operand is rendered
+ in red).
+This view does not support edi
+ting.
+Disassembled
+The Disassemble view shows a "
+box" ( ) symbol for each addre
+ss that has undefined
+bytes. For those addresses tha
+t are instructions or defined 
+data, the view shows a tic
+("."). With this view, you can
+ easily see what areas of the 
+program have been
+disassembled.
+This view does not support edi
+ting.
+HexInteger
+This format shows four byte nu
+mbers represented as an eight 
+digit hex number.
+This view supports editing. Wh
+en a byte is changed, all four
+ bytes associated with this
+address are rendered in red to
+ denote the change.
+Integer
+This view shows four byte numb
+ers represented in decimal for
+mat.
+This view does not support edi
+ting.
+Octal
+
+Octal
+
+The Byte Viewer 3/7
+
+The octal view shows each byte
+ as a three character octal va
+lue.
+This view supports editing.
+Binary
+The binary view shows each byt
+e as an eight character binary
+ value.
+This view supports editing.
+
+Status Fields
+The labels below the scroll pa
+ne that contains the views sho
+ws the following information:
+
+Start
+
+The minimum address of Memory
+
+End
+
+The maximum address of Memory
+
+Offset
+
+Displayed in decimal, the numb
+er of bytes
+added to each block of memory 
+that is being
+displayed. This number is calc
+ulated when
+you set the alignment address 
+or the number
+of bytes per line.
+
+Insertion
+
+The address of your current cu
+rsor location
+
+Editing Memory
+To enable byte editing,
+1. Toggle the Enable/Disable E
+dit toolbar button
+so that it appears pushed-in.
+2. Click in a view that suppor
+ts editing, e.g., Hex or Ascii
+3. The cursor changes to red t
+o indicate that this view can 
+be edited.
+Changing bytes is allowed only
+ if your cursor is at an addre
+ss that does not contain an in
+struction.
+If you attempt to change a byt
+e of an instruction, an "editi
+ng not allowed" message is dis
+played in
+the status area of the tool.
+Changed bytes are rendered in 
+red. This color can be changed
+ via the Byte Viewer Edit Opti
+ons by
+
+Changed bytes are rendered in
+ red. This color can be change
+d via the Byte Viewer Edit Opt
+ions by
+The Byte Viewer 4/7
+double-clicking on the Edit Co
+lor field.
+Undo the edit by hitting the U
+ndo button (
+Redo your edit by hitting the 
+Redo button (
+
+) on the tool. The byte revert
+s to its original value.
+).
+
+To turn off byte editing, clic
+k the Enable/Disable Edit tool
+bar button
+pushed-in.
+
+so that it no longer appears
+
+If you have two Byte Viewers r
+unning, you can connect the tw
+o tools for the "Byte Block
+Edit" event so that when you m
+ake changes in one Byte Viewer
+, the other will reflect those
+ changes
+in red.
+
+Cursor Colors
+The format view that currently
+ has focus shows its cursor in
+ magenta. (Cursor colors can b
+e
+changed via the Options dialog
+) If the byte editing is enabl
+ed and the view that is in foc
+us supports
+editing, then the cursor is re
+d.
+
+Byte Viewer Options:
+The Byte Viewer Options dialog
+ can be used to add and remove
+ views, set the Alignment Addr
+ess, set the
+number of bytes per line, and 
+set the group size to be used 
+by the hex view. To launch the
+ Byte Viewer
+Options dialog, press the
+icon on the Byte Viewer toolba
+r.
+
+Alignment Address
+
+The Byte Viewer 5/7
+
+The alignment address specifie
+s what address should appear i
+n column 0. Any address
+can be specified, but the addr
+ess will be normalized to be n
+ear the program's miminum
+address. This enables you to v
+iew bytes in an offcut manner 
+and to identify patterns in
+the bytes. Changing the alignm
+ent address affects the offset
+, which is the column that
+would display the bytes for ad
+dress 0 if it existed. The off
+set is affected by both the
+alignment address and the byte
+s per line. The offset is disp
+layed as a label below the
+scroll pane containing the vie
+ws.
+Sometimes you might see a byte
+ pattern such that you want al
+l the bytes to line
+up in the first column of the 
+display. Consider the cursor p
+osition in the image below.
+If you want to see the fourth 
+column of bytes (values of 00)
+ to appear in the first
+column, you would enter an ali
+gnment address of 0040b003, as
+ indicated by your
+cursor position.
+
+The result of setting the alig
+nment address to 0040b003 is s
+hown below. The calculated
+offset is 13, the number of by
+tes added to each memory block
+ to create a new
+alignment. The first line of t
+he display shows the "remainde
+r" bytes of 16 (bytes per
+line) divided by 13, the offse
+t. If you were to put your cur
+sor on the starting byte of
+the first line, you would see 
+that your insertion point is 0
+040b000, in this example.
+
+The Byte Viewer 6/7
+
+Set Bytes Per Line
+The bytes per line indicates h
+ow many bytes are displayed in
+ one line in a view. The
+default value is 16.
+All formats shown must be able
+ to support the new value. For
+ example, since the
+HexInteger and Integer formats
+ show bytes in groups of four,
+ the bytes per line must
+be a multiple of four. If a se
+lected format cannot support a
+ value for the bytes per line,
+an error message will appear a
+nd the OK button will be disab
+led.
+Set Group Size
+The group size is the number o
+f bytes that the Hex view show
+s as a "unit." For
+example, a group size of two m
+eans to show two bytes grouped
+ together with no spaces.
+View Selection
+Each potential view is listed 
+as a checkbox. Select the chec
+kboxes corresponding to the
+views to be shown. Red text in
+dicates a view cannot be displ
+ayed since it doesn't
+support the specified number o
+f bytes per line.
+
+Reorder Views
+The various views in the ByteV
+iewer can be reordered by drag
+ging the view header to the le
+ft or
+right of its current position.
+ The view positions are swappe
+d.
+
+The various views in the Byte
+Viewer can be reordered by dra
+gging the view header to the l
+eft or
+right of its current position.
+ The view positions are swappe
+d.
+
+The Byte Viewer 7/7
+
+Writing Your Own Format Plugin
+To supply your own format to b
+e added to the list of views d
+isplayed in the Byte Viewer,
+1. Write an implementation of 
+the ghidra.app.plugin.core.for
+mat.DataFormatModel
+interface, which determines th
+e format of how the bytes shou
+ld be represented.
+2. Edit your Plugin path to in
+clude your class files if you 
+are running Ghidra in producti
+on
+mode versus development mode; 
+in development mode, you will 
+have to add your class files
+to your classpath in your deve
+lopment environment.
+3. Restart Ghidra.
+
+Provided by: Byte Viewer Plugi
+n
+Related Topics:
+Byte Viewer Options
+Pointer data types
+Code Browser
+Configure Tool
+Select Bytes
+
+

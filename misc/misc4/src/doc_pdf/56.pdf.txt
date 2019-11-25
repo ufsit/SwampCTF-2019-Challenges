@@ -1,0 +1,144 @@
+Enum Editor 1/3
+
+Enum Data Type Editor
+An Enumeration data type ("Enu
+m") is a C-style data type tha
+t allows the substitution of a
+ value for a
+more meaningful name. Ghidra p
+rovides a special editor for E
+num data types.
+Create an Enum data type using
+ the Data Type Manager display
+. The editor for an Enum is sh
+own below.
+
+Enum Editor Fields
+The Name column in the table i
+s the name of the enum entry.
+The Value column in the table 
+is the value of the enum entry
+.
+The Name field below the table
+ shows the name of the enum. E
+dit this field to change the
+name.
+The Description field shows a 
+short description for the enum
+; edit this field to update th
+e
+description.
+The Category field shows where
+ the enum resides which corres
+ponds to the folder you were
+selecting when creating the en
+um; the field is not editable,
+ however, you can move it usin
+g
+the Data Type Manager after yo
+u have created it if you want 
+to move it.
+The Size field shows the numbe
+r of bytes required when you a
+pply the enum. To edit this
+field, use the dropdown menu t
+o choose a new size. Note: If 
+you are applying an enum to a
+data definition and do not see
+ expected results in the decom
+piler it is probably because t
+he
+size is incorrect.
+When you make any change to th
+e enum, the
+
+(Apply ) button is enabled.
+
+Edit an Enum Entry
+To edit an entry in the enum t
+able, select an entry; double 
+click in the field that you wa
+nt to
+change, OR press F2. A cell ed
+itor is displayed; enter the v
+alue (press the <Enter> key).
+
+While editing, you can use th
+e Tab key to navigate the edit
+ing to the next cell,
+the Shift-Tab key to navigate 
+backwards, the Up key to move 
+editing to the cell
+above, and the Down to move ed
+iting to the cell below the cu
+rrently edited cell.
+
+Enum Editor 2/3
+
+Names and values must be uniqu
+e.
+
+Add an Enum Entry
+Create an new enum entry by se
+lecting the
+(Add) button on the editor's t
+ool bar. An entry with
+default values is added to the
+ table; the default name is "N
+ew Name;" the default value is
+ the next
+highest value. Double click on
+ the fields to change the entr
+ies.
+
+Delete an Enum Entry
+To delete enum entries, select
+ the entries that you want to 
+remove. Right mouse-click and 
+choose
+the Delete option, OR select t
+he
+button on the editor's tool ba
+r.
+
+Apply Changes
+When you have completed making
+ changes, select the
+button on the editor's tool ba
+r. If you
+have changed the name of the e
+num, the Data Type Manager dis
+play is updated to reflect the
+ new
+name in the tree.
+
+Change the Sort Order
+As with most tables in Ghidra,
+ you can change the sort order
+ of a column by clicking on th
+e
+column header. The icons on th
+e header indicates the sort or
+der, ascending (
+
+), or descending
+
+(
+). You can also rearrange the 
+columns in the table by clicki
+ng on the column header and
+dragging it to the new positio
+n. Changing the sort order has
+ no effect on the enum.
+
+Provided By: Data Type Manager
+ Plugin
+Related Topics:
+
+Related Topics:
+Create Enum using the Data Man
+ager
+
+Enum Editor 3/3
+
+

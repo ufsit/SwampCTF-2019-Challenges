@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Created-By: 1.8.0_191 (Oracle Corporation)
+Main-Class: com.swampctf.serialkiller.Server
+Class-Path: commons-collections-3.2.2.jar

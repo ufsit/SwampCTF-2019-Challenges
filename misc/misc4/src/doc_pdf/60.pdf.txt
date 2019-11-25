@@ -1,0 +1,61 @@
+References 1/1
+
+References
+Within Ghidra, the term "Refer
+ence" covers two very broad ar
+eas:
+1. Forward References from a d
+ata or instruction code unit t
+o a memory, external, stack,
+or register location
+2. Back References to a locati
+on of interest (e.g., code uni
+t, variable, data-type, etc.).
+
+Forward References
+Forward References can be expl
+icitly defined within the prog
+ram, on data or
+instruction code units. This i
+s accomplished during disassem
+bly, auto-analysis or
+manually by the user. In addit
+ion, Forward References to fun
+ction parameters and
+variables may also be inferred
+. Both explicit and inferred F
+orward References can
+affect the code unit rendering
+ and XRefs (i.e., Back Referen
+ces) displayed within the
+CodeBrowser listing. The effec
+t of Forward References on the
+ rendering of code unit
+operands can be somewhat contr
+olled by means of various Code
+ Browser Options (see
+Operands Field options).
+Management capabilities for ex
+plicit Forward References is p
+rovided by the
+ReferencesPlugin and is discus
+sed in detail within the Forwa
+rd References help
+section.
+
+Back References
+Back References (also referred
+ to as "Location References") 
+include both the inverse of
+Forward References, and the id
+entification of listing locati
+ons where specific
+data-types are utilized. The v
+iewing of Location/Back Refere
+nces is provided by the
+LocationReferencesPlugin and d
+iscussed in more detail on the
+ Location References
+Dialog help section.
+
+

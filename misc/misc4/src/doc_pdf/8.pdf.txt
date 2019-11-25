@@ -1,0 +1,33 @@
+Ghidra Server 1/1
+
+GhidraServer
+
+Ghidra Server
+The Ghidra Server provides fil
+e access to multiple users ena
+bling a team to collaborate
+on a single effort. It provide
+s network storage for shared p
+roject repositories while
+controlling user access.
+
+Running the Server
+The Ghidra Server capability i
+s incorporated into the standa
+rd distribution of Ghidra.
+Please refer to the svrREADME.
+html file located within the G
+hidra installation
+directory (<your installation 
+directory>/server/svrREADME.ht
+ml). This file will
+provide information regarding 
+the installation, configuratio
+n and administration of the
+Ghidra Server.
+Related Topics:
+Project Repository
+Creating a Shared Project
+Project Access List
+
+

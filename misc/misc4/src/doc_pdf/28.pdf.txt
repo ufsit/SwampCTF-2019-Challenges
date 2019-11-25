@@ -1,0 +1,2912 @@
+Merge Program Files
+
+Merge Program Files 1/30
+
+The Ghidra Server provides fil
+e access to multiple users ena
+bling a team to collaborate on
+ a single effort. It provides 
+network storage for shared pro
+ject repositories while contro
+lling user access. Together th
+e Ghidra Server and
+the shared project repository 
+allow multiple users to concur
+rently:
+Check out the same version of 
+a program file
+Make changes to the program fi
+le
+Check the changed program file
+ back into the shared project 
+repository
+Merging is necessary to integr
+ate changes made to a single v
+ersion of a program file by mu
+ltiple users. The following st
+eps show a typical merge scena
+rio:
+Check in / Merge Sequence:
+1.
+
+A file is added to version con
+trol, creating Version 0.
+
+2.
+
+A user checks out Version 0, m
+akes changes, and checks it in
+ to create Version 1.
+
+3.
+
+User A checks out Version 1.
+
+4.
+
+User B checks out Version 1 an
+d makes changes.
+
+5.
+
+User B checks in his changed f
+ile, creating Version 2 in the
+ project repository. Because n
+o other versions were created 
+since User B originally checke
+d out his file, Version 2 can 
+be created
+automatically. This new versio
+n will be the changed file cre
+ated by User B (Step 4). In th
+is case, merging is not involv
+ed in the check in process.
+
+6.
+
+User A completes his changes a
+nd checks in the file.
+
+7.
+
+During the check in process, t
+he Ghidra Server determines th
+at a new version of the progra
+m file has been added since Us
+er A originally checked out th
+e file (Step 3). The latest ve
+rsion of the file
+contained in the repository, V
+ersion 2, is not the same file
+ that User A had checked out, 
+Version 1. A merge is required
+ since a new version of the fi
+le was added to the repository
+ after User A checked
+out the file.
+
+If a new version of a file has
+ been added since the user che
+cked out the file, a merge is 
+required at check in. This is 
+the only time a merge is requi
+red.
+
+The Ghidra Server starts the m
+erge process by making a copy 
+of Version 2. Changes from Use
+r A's checked in file are appl
+ied to this copy to create the
+ new file, Version 3. There ar
+e two types of
+merges - automatic and manual.
+ If changes made by User A and
+ User B do not conflict automa
+tic merging is done. If change
+s made by User A and User B do
+ conflict, then User A must ma
+nually
+resolve the conflicts. Note th
+at the last user checking in c
+hanges must resolve conflicts.
+ A conflict results when User 
+A and User B make the same typ
+e of changes at a location in 
+the program.
+
+The figure below illustrates t
+his typical scenario where two
+ users check out a file, as de
+scribed above. The sequence of
+ events are numbered in parent
+heses in the diagram, and corr
+espond with the Check in/Merge
+ Sequence
+above:
+
+To begin the merge process, se
+lect the Check In option on th
+e Ghidra Project Window. A pro
+gress bar is displayed while t
+he merge is in progress. The m
+erge begins with a copy of the
+ latest version of the file fr
+om the repository.
+All changes are applied to thi
+s copy. At the conclusion of t
+he merge, this copy along with
+ the applied changes will be s
+aved in the repository, and wi
+ll become the newest version o
+f the file.
+The merge processes program el
+ements in the following order:
+Memory
+Program Trees
+Data Types and Categories
+Program Context Registers
+Listing
+Code Units
+Externals
+Functions
+Symbols
+Equates
+User Defined Properties
+References
+Bookmarks
+Comments
+
+Comments
+External Program Names
+Property Lists
+
+Merge Program Files 2/30
+
+Within each program element an
+ automatic merge is attempted 
+first. If conflicts arise, the
+ user must manually resolve co
+nflicts before moving on to th
+e next program element. For ex
+ample, the Program Tree merge 
+performs the
+auto merge, and then requests 
+user input to resolve conflict
+s, as required. Once the Progr
+am Tree has been merged, with 
+all conflicts resolved, the me
+rge of Data Types and Categori
+es begins.
+If you cancel the merge at any
+ time, you are canceling the e
+ntire check in process and you
+r file remains checked out. No
+ne of the changes that was mad
+e as a result of the merge is 
+applied to the program that yo
+u have checked out.
+While the auto merge is occurr
+ing and conflicts are being de
+termined the merge status is d
+isplayed in the merge tool. Th
+e following image shows an exa
+mple of the merge tool when th
+e merge process is auto mergin
+g code units.
+
+At this point the Memory, Prog
+ram Trees, Data Types and Prog
+ram Context phases have alread
+y completed as indicated by th
+e Completed icon, . The Bytes 
+& Code Units sub-phase of the 
+Listing is currently In Progre
+ss,
+The Progress In Current Phase 
+progress bar provides the user
+ with an idea of how much of t
+he phase has completed. The ot
+her sub-phases of Listing, the
+ External Programs and Propert
+y Lists have not been merged y
+et as
+indicated by the Pending icon,
+ . The message below the curre
+nt phase progress bar gives ad
+ditional information about wha
+t is currently happening in th
+e phase.
+At the bottom of the merge too
+l is a progress bar and messag
+e for an immediate task. When 
+multiple of these smaller task
+s are combined sequentially th
+ey perform the merge of the cu
+rrent phase.
+The following sections describ
+e the auto merge process and c
+onflict resolution process in 
+greater detail.
+
+Auto Merge
+For each program element, the 
+Auto Merge is the first of the
+ two merges which is performed
+. The following paragraphs des
+cribe how Auto Merging applies
+ to each program element.
+Memory
+Program memory is organized in
+ memory blocks. The only chang
+es to a memory block that can 
+be merged are:
+Name
+Permissions
+Comments
+You can make changes to the me
+mory structure (add a block, r
+emove a block, etc.) only when
+ you have checked out the prog
+ram with an exclusive lock. Th
+is restriction prevents drasti
+c changes in memory that
+could potentially have a major
+ impact on other users. Typica
+lly, all users working on the 
+same program should agree on m
+emory structure changes and th
+en have one user make them. An
+ exclusive lock prevents
+anyone else from checking out 
+the program while the exclusiv
+e lock exists. When you check 
+in your changes, merging is no
+t necessary as no other versio
+ns were created while you had 
+the program checked out.
+Your program becomes the new v
+ersion.
+Comments on the memory block a
+re replaced in the results pro
+gram during the merge process.
+ You must resolve all memory c
+onflicts before the merge proc
+ess can continue with the next
+ program element,
+program trees.
+Program Trees
+If you make any change to a pr
+ogram tree, it is marked as ch
+anged and may be merged. No fu
+rther inspection of changes is
+ done. If the tree was not cha
+nged in the latest version, th
+en the automatic merge can be
+done. If the tree was changed 
+in the latest version, this is
+ considered a conflict that yo
+u must resolve before the merg
+e process can continue with th
+e next program elements, data 
+types and categories.
+Data Types and Categories
+Data types can be created, ren
+amed, edited (contents), or de
+leted. During merging, newly c
+reated data types are added au
+tomatically (if a data type wi
+th the same name already exist
+s in the parent category, then
+your new data type is created 
+with a ".conflict" appended to
+ the name). All other changes 
+to data types are merged.
+When merging data types, there
+ is only one way that data typ
+e conflicts can occur. A confl
+ict results only if in both fi
+les the same type of change (r
+ename, edit contents, delete) 
+was made to a particular data 
+type.
+Other than this, no conflicts 
+can occur and the data type yo
+u changed can be merged automa
+tically. For example, if you r
+enamed a structure data type a
+nd in the latest version the c
+ontents of that data type were
+edited, this will not cause a 
+conflict and your change can b
+e applied automatically during
+ the merge process.
+Categories can be renamed, mov
+ed, deleted, or restructured (
+add/remove data types and cate
+gories). Note that moving a da
+ta type to a different parent 
+category is considered a categ
+ory change, not a data type
+change.
+As with data types, there is o
+nly one way that category conf
+licts can occur. A conflict re
+sults only if, in both files, 
+the same type of change (renam
+e, move, delete, restructure) 
+was made to a particular categ
+ory.
+Other than this, no conflicts 
+can occur and the category you
+ changed can be merged automat
+ically. For example, if you re
+named a category and in the la
+test version the category was 
+moved to a different parent
+category, this will not cause 
+a conflict and your change can
+ be applied automatically duri
+ng the merge process.
+All conflicts must be resolved
+ before the merge process can 
+continue with the next program
+ element, Program Context Regi
+sters.
+
+.
+
+Program Context Registers
+
+Merge Program Files 3/30
+
+For any of the registers defin
+ed by the program's language y
+ou can set a register value fo
+r an address or range of addre
+sses. If you set a register va
+lue or remove a register value
+ at an address, it will automa
+tically
+change the value during the me
+rge process if the value wasn'
+t changed at that address in t
+he latest version. If your ver
+sion and the latest version ch
+ange the register to the same 
+value at an address, it will a
+lso get
+merged automatically.
+Automatic merging of all the r
+egisters will happen before yo
+u are prompted to resolve any 
+conflicting register values.
+You must resolve all register 
+conflicts before the merge pro
+cess can continue with the nex
+t program element, Listing.
+Listing
+Various parts of the program a
+re merged in the Listing merge
+. These include the bytes, cod
+e units, functions, symbols, e
+quates, user defined propertie
+s, references, bookmarks, and 
+comments. For each of these
+parts the auto merge will occu
+r followed by a manual merge o
+f any conflicts.
+Code Units
+If you make any change to the 
+memory bytes or to a code unit
+, such as creating or clearing
+ an instruction or defining da
+ta, the code unit gets marked 
+as changed and may be merged. 
+If you change
+the memory bytes and the lates
+t version doesn't have memory 
+byte or code unit changes, you
+r byte changes will be merged 
+automatically. If you changed 
+the code unit and it does not 
+conflict with a
+change in the latest version, 
+the change to the code unit wi
+ll be merged automatically.
+If the latest version had any 
+of the following changes, the 
+code unit is in conflict and m
+ust be manually merged:
+The latest version and your ve
+rsion have memory bytes change
+d to different values
+The latest version changed mem
+ory bytes where you changed th
+e code unit or vice versa
+The latest version created or 
+cleared instructions or data d
+ifferently than you did
+The latest version created, ch
+anged, or removed an equate fo
+r the code unit you changed or
+ vice versa
+You must resolve all byte and 
+code unit conflicts before the
+ merge process can continue wi
+th the next program element, F
+unctions.
+External Functions and Labels
+If you make any change to the 
+external locations (external f
+unctions or external labels) d
+efined within the program, suc
+h as creating, updating, or re
+moving an external location, t
+he external location
+gets marked as changed and it 
+may be merged.
+The following types of changes
+ will get merged automatically
+:
+Changing the name, external me
+mory address, or data type for
+ an external location as long 
+as the latest version didn't c
+hange the same attribute of th
+e external location.
+Changing from an external labe
+l to an external function as l
+ong as the latest version didn
+'t set the data type for the s
+ame external label or remove t
+he label.
+Changing from an external func
+tion to a label or removing an
+ external function as long as 
+the latest version didn't chan
+ge the external function.
+Setting the data type on an ex
+ternal label as long as the la
+test version didn't also set t
+he data type or change the lab
+el into an external function.
+Changing an external function 
+as long as the latest version 
+also didn't make changes to th
+e function.
+Conflicts could be:
+another variable at the same o
+ffsets on the stack frame
+another register variable with
+ the same named register and f
+irst use address.
+
+You must resolve all external 
+location conflicts before the 
+merge process can continue wit
+h the next program element, Fu
+nctions.
+Functions
+If you make any change to the 
+functions defined within the p
+rogram, such as creating, upda
+ting, or removing a function, 
+the entry point of the functio
+n gets marked as changed and t
+he function may
+be merged.
+The following types of changes
+ will get merged automatically
+:
+Adding a function with a body 
+that doesn't overlap any funct
+ion body in the latest version
+.
+Removing a function as long as
+ the latest version did not ch
+ange this function or its stac
+k frame.
+Making changes to the function
+ name, return type, parameters
+, parameter offset, return typ
+e offset, etc. as long as the 
+latest version didn't also cha
+nge the same part of the funct
+ion.
+If a variable name conflicts w
+ith a variable or symbol of th
+e same name in the function's 
+namespace of the latest versio
+n, that variable will automati
+cally be renamed to a conflict
+ name. This
+eliminates the name conflict.
+Making changes to existing par
+ameters such as the name, data
+ type, or description if the l
+atest version didn't change th
+e same part of the parameter.
+All local variables will be au
+tomatically added if they don'
+t conflict with changes to the
+ latest version.
+Conflicts could be:
+another variable at the same o
+ffsets on the stack frame
+another register variable with
+ the same named register and f
+irst use address.
+another symbol with the same n
+ame in the function's namespac
+e
+the name, datatype, or comment
+ for a local variable is chang
+ed to different values in your
+ version and the latest versio
+n.
+
+You must resolve all function 
+conflicts before the merge pro
+cess can continue with the nex
+t program element, Symbols.
+Symbols
+Whenever you add, remove, or r
+ename a symbol, the program ge
+ts marked as changed. It also 
+gets marked if you change the 
+primary symbol at an address o
+r if you make an address an ex
+ternal entry
+point. The symbol phase of the
+ Listing merge will merge labe
+ls, namespace symbols, class s
+ymbols, and external symbols. 
+Symbols associated with functi
+ons, function parameters, and 
+function local
+variables have already been re
+solved by the function phase o
+f the Listing merge.
+The following types of changes
+ will get merged automatically
+:
+Any symbol you removed will au
+tomatically be removed if the 
+latest version didn't change t
+hat symbol.
+Any symbol you added will auto
+matically be added if latest v
+ersion did not create the same
+ named symbol at that address 
+with a different parent namesp
+ace.
+If each program has a symbol n
+amed the same within a namespa
+ce but at a different address.
+ These are resolved automatica
+lly by merging your symbol usi
+ng a .conflict name. In other 
+words,
+your symbol will have a .confl
+ict suffix added to its name w
+hen it is merged. You are noti
+fied at the end of the symbol 
+merge phase of any symbols tha
+t were renamed to avoid a conf
+lict.
+Any symbol you renamed will au
+tomatically get renamed if the
+ latest version didn't rename 
+that symbol to a different nam
+e.
+If you change which symbol is 
+primary, it will be automatica
+lly set to primary unless the 
+latest version set a different
+ symbol to primary.
+Entry points that you added or
+ removed will be added or remo
+ved automatically.
+You must resolve all symbol co
+nflicts before the merge proce
+ss can continue with the next 
+Listing merge phase, the Addre
+ss Based Listing Merge.
+Address Based Listing Merge
+During this phase of the Listi
+ng merge each of the address b
+ased listing elements (the equ
+ates, user defined properties,
+ references, bookmarks, and co
+mments) will get merged. First
+ an auto merge
+will occur for each of these e
+lements. When all of the auto 
+merges are complete, conflict 
+resolution will proceed in add
+ress order for each address th
+at has a conflict for any of t
+he address based
+
+During this phase of the List
+ing merge each of the address 
+based listing elements (the eq
+uates, user defined properties
+, references, bookmarks, and c
+omments) will get merged. Firs
+t an auto merge
+will occur for each of these e
+lements. When all of the auto 
+merges are complete, conflict 
+resolution will proceed in add
+ress order for each address th
+at has a conflict for any of t
+he address based
+listing elements. At each addr
+ess with a conflict you will h
+ave to resolve all of the conf
+licts (equates, user defined p
+roperties, references, bookmar
+ks, and comments) before proce
+eding to the next
+address with conflicts. The fo
+llowing sub-sections describe 
+the auto merge for each of the
+ address based listing element
+s.
+
+Merge Program Files 4/30
+
+Equates
+An equate associates a display
+ name with a scalar operand or
+ sub-operand at a particular a
+ddress in the program. Wheneve
+r you create, rename, or remov
+e an equate the program gets
+marked as changed. An equate c
+onflict can arise between your
+ version and the latest versio
+n. The following types of equa
+te changes will get merged aut
+omatically:
+If an equate was set on a scal
+ar and the latest version didn
+'t set an equate on that scala
+r, the equate will be added au
+tomatically.
+If an equate name's associated
+ value differs between the two
+ versions then there is an equ
+ate conflict that will be reso
+lved automatically by changing
+ your version's equate name to
+ a
+conflict name by appending "_c
+onflict" to your equate name.
+If your version's scalar had i
+ts associated equate removed, 
+it will get automatically remo
+ved if the latest version didn
+'t change the named equate for
+ that scalar.
+If your version's scalar had i
+ts associated equate name chan
+ged, it will get automatically
+ renamed if the latest version
+ didn't remove or rename it di
+fferently.
+If an equate is changed for a 
+scalar operand or sub-operand 
+differently in the latest and 
+your versions, then you must r
+esolve the conflict.
+The equate conflicts will need
+ to be resolved after all of t
+he address based auto merges c
+omplete. After the Equates aut
+o merge completes, an auto mer
+ge will begin for User Defined
+Properties.
+User Defined Properties
+A user defined property change
+ gets marked in the program wh
+enever the named property gets
+ added, removed or changed at 
+an address. An example propert
+y is the Space property
+created by the Format plugin.
+A user defined property change
+ will get merged automatically
+ if the latest version didn't 
+change the same named property
+ at the same address in the pr
+ogram. If the named property w
+as
+changed at an address in your 
+version of the program and in 
+the latest version then a user
+ defined property conflict exi
+sts.
+The user defined property conf
+licts will need to be resolved
+ after all of the address base
+d auto merges complete. After 
+the User Defined Properties au
+to merge completes, an auto me
+rge
+will begin for References.
+References
+References consist of memory r
+eferences, variable (stack and
+ register) references, and ext
+ernal references. Changes to t
+hese include adding references
+, changing references, and rem
+oving
+references. The references in 
+your checked out version and t
+he latest version are compared
+ for each of the mnemonic and 
+operands at an address to dete
+rmine whether a conflict exist
+s or
+the changes can be automatical
+ly merged.
+The following types of changes
+ will get merged automatically
+:
+If
+If
+If
+If
+If
+
+you added, changed, or removed
+ a reference for a mnemonic or
+ operand at an address and the
+ latest version didn't change 
+the references.
+your version and the latest ve
+rsion only have memory referen
+ces for the mnemonic or operan
+d.
+your reference is a stack vari
+able reference and the latest 
+version has a stack reference 
+to the same stack frame offset
+ or no references.
+your reference is a register v
+ariable reference and the late
+st version has a register refe
+rence to the same register or 
+no references.
+your reference is an external 
+reference and the latest versi
+on has the same external refer
+ence or no references.
+
+If your checked out version an
+d the latest version both have
+ changes to the references for
+ a mnemonic or operand, the re
+ferences are in conflict whene
+ver your version and the lates
+t
+version have references that a
+re different types (for exampl
+e, one has memory references a
+nd the other has an external r
+eference).
+The reference conflicts will n
+eed to be resolved after all o
+f the address based auto merge
+s complete. After the Referenc
+es auto merge completes, an au
+to merge will begin for Bookma
+rks.
+Bookmarks
+Bookmarks allow you to associa
+te a description with an addre
+ss in the program. The bookmar
+k has a type and category asso
+ciated with it. Bookmarks that
+ the user has entered via the 
+GUI
+are Note type bookmarks. Ghidr
+a plugins can also add bookmar
+ks of various other types. For
+ example Auto Analysis adds An
+alysis type bookmarks. Only on
+e bookmark of a particular
+type and category can exist at
+ an address. However, only one
+ Note type of bookmark can exi
+st at an address regardless of
+ the category.
+Changes to bookmarks include a
+dding a new bookmark, removing
+ a bookmark, changing the desc
+ription for a bookmark, and ch
+anging the category for a note
+ bookmark.
+Any changes to the bookmarks w
+ill get automatically merged a
+s long as your changes and the
+ latest versions changes do no
+t result in one of the followi
+ng conflict situations:
+your version and the latest ve
+rsion added or changed a Note 
+bookmark resulting in a differ
+ent category or description fo
+r the two versions.
+your version and the latest ve
+rsion added or changed the sam
+e bookmark type and category r
+esulting in a different descri
+ption for the two versions.
+The bookmark conflicts will ne
+ed to be resolved after all of
+ the address based auto merges
+ complete. After the Bookmarks
+ auto merge completes, an auto
+ merge will begin for Comments
+.
+Comments
+If you make a change to a comm
+ent (Plate, Pre, End-of-line, 
+Repeatable, or Post) and the l
+atest version did not have any
+ changes to that type of comme
+nt at the same address, the ch
+ange
+is automatically accepted. Com
+ment changes include adding, r
+emoving, or updating the comme
+nt. If the latest version has 
+a change to the same comment t
+hen the conflict will need to 
+be
+resolved manually.
+The comment conflicts will nee
+d to be resolved after all of 
+the address based auto merges 
+complete. After the Comments a
+uto merge completes, the confl
+ict merge will begin for addre
+ss
+based listing elements (the eq
+uates, user defined properties
+, references, bookmarks, and c
+omments) at each of the addres
+ses with a conflict.
+After all address based confli
+cts are resolved, the auto mer
+ge process continues with the 
+next program element, External
+ Program Names.
+
+External Program Names
+Each external reference has an
+ associated external program n
+ame. The external name provide
+s an association to the extern
+al program. Changing an extern
+al program name is marked as a
+ change and may be
+merged. Changes include adding
+ or removing an external progr
+am name, and changing the Ghid
+ra program associated with an 
+external program name. If the 
+change doesn't conflict with a
+ change in the latest
+version then it will be merged
+ automatically.
+A conflict occurs whenever you
+r version removes an external 
+program name and the latest ve
+rsion changes the associated G
+hidra program or vice versa. A
+ conflict can also occur if th
+e latest version and your
+version both change the Ghidra
+ program associated with a par
+ticular external program name.
+You must resolve all external 
+program name conflicts before 
+the merge process can continue
+ with the next program element
+, Property Lists.
+Property Lists
+Property lists are lists of op
+tions that are saved as part o
+f the program. You can view an
+d edit these properties throug
+h the Program Options Dialog. 
+A property will be merged auto
+matically if it is a new
+property or it was not changed
+ in the latest version. A conf
+lict results when you change a
+ property that was either remo
+ved or changed in the latest v
+ersion.
+
+Resolving Conflicts
+
+Resolving Conflicts
+
+Merge Program Files 5/30
+For each program element, the 
+Conflict Resolution Merge is t
+he second of the two merges wh
+ich is performed. The first ti
+me a conflict is encountered, 
+the merge process displays a M
+erge Tool. Use this tool to re
+solve each
+conflict one at a time. To res
+olve any conflict, you must ch
+oose a radio button or check b
+ox depending on the type of co
+nflict. Most conflicts require
+ you to select from the follow
+ing:
+Latest version (changes from t
+he Latest version that is chec
+ked into the repository)
+Checked Out version (your chan
+ges)
+Original version (values from 
+the file when you originally c
+hecked it out)
+However, there may be other co
+nflict options that let you ch
+oose to add or rename the type
+ of item that is in conflict i
+n addition to keeping the one 
+that was checked in the Latest
+ version in the repository. So
+me conflicts,
+such as comment conflicts, all
+ow you to check one or both ch
+eck boxes for the comment conf
+lict. This allows you to keep 
+the Latest comment, your comme
+nt, or a combined copy of both
+ the Latest and your (Checked 
+Out)
+comments.
+Memory
+All memory conflicts that rema
+in after the auto merge must b
+e resolved.
+The only conflicts on a memory
+ block will be changes to the 
+name, permissions, or comments
+. A conflict occurs when you c
+hange the name of a memory blo
+ck and another user has change
+d the name of the
+same memory block. Similarly, 
+if you changed the permissions
+ or comments on a memory block
+, and another user has changed
+ the permissions or comments o
+n the same memory block you wi
+ll have to select
+which changes to keep.
+The image below is the panel t
+hat is shown when there is a c
+onflict on the block name. In 
+this sample image, the user wh
+o created the latest version h
+ad changed the block name to "
+LatestText" (radio button for
+Latest). You changed the block
+ name to "MY_Text" (radio butt
+on for Checked Out). The block
+ name in the original program 
+(the version that you had orig
+inally checked out) is shown a
+s ".text" (radio button
+for Original).
+
+To resolve the conflict, you m
+ust select a radio button. Aft
+er you select a radio button, 
+the Apply button becomes enabl
+ed. Click on the Apply button 
+to continue the merge process.
+ In this example, there was
+only one conflict in the Memor
+y merge, as indicated by the C
+urrent Conflict area of the pa
+nel. The progress bar on the l
+ower right corner of the Merge
+ Tool indicates progress only 
+for the Memory Block merge,
+not the entire merge process.
+The merge process continues wi
+th Program Trees.
+Program Trees
+All program tree conflicts tha
+t remain after the auto merge 
+must be resolved.
+If you make any change to a pr
+ogram tree, it is marked as ch
+anged and may be merged. There
+ is no finer granularity than 
+detecting that the tree change
+d, so the merge is going to do
+ "all or nothing" on the
+program tree. For example, if 
+you change the tree (add a fol
+der, rename a fragment, etc.) 
+and another user changed the s
+ame tree, you will get a choic
+e to keep your changes, keep t
+he changes from the latest,
+keep the tree from the origina
+l program that you checked out
+, or rename your tree to a new
+ name. The last option to rena
+me your tree allows you to cre
+ate your tree in the program t
+hat results in the latest
+version, and not lose anyone e
+lse's changes. The image below
+ shows this scenario:
+
+Merge Program Files 6/30
+
+The conflict resolution panel 
+shows what kind of change it i
+s, name change versus a struct
+ure change; the checkbox indic
+ates the change
+Latest Version
+in
+and Current Checked Out Versio
+n. In this example,
+another user changed the name 
+of a program tree to "Tree3_XX
+X" (Latest). You changed the n
+ame of the same program tree t
+o "MY TREE 3" (Checked Out). T
+he original name of the tree w
+as "Tree Three"
+(Original). The Resolve Tree N
+ame Conflict area of the panel
+ shows radio buttons for each 
+option:
+Use name 'Tree3_XXX' (Latest) 
+- select this option to lose y
+our changes and keep what is i
+n the latest version
+Use name 'MY TREE 3 (Checked O
+ut) - select this option to re
+name the tree in the program t
+hat will become the latest ver
+sion; the tree is renamed to '
+MY TREE 3'
+Add new tree named 'MY TREE 3'
+ - select this option to creat
+e a new tree named 'MY TREE 3'
+ in the program that will beco
+me the latest version; changes
+ by other users are retained
+Use name 'Tree Three' (Origina
+l) - select this option to los
+e your changes; 'Tree3_XXX' wi
+ll be renamed to 'Tree Three' 
+which is the name from the pro
+gram that you had originally c
+hecked out
+Select an option to resolve th
+e conflict, then click on Appl
+y. In this example, the next c
+onflict will be displayed that
+ must be resolved. The progres
+s bar on the lower right corne
+r of the Merge Tool indicates
+progress only for the Program 
+Tree merge, not the entire mer
+ge process.
+After all program tree conflic
+ts are resolved, the merge pro
+cess continues with data types
+ and categories.
+Data Types and Categories
+All data type or category conf
+licts that remain after the au
+to merge must be resolved.
+If you make a change (rename, 
+edit contents, delete) to a da
+ta type, and the same type of 
+change was made in the latest 
+version, then a conflict arise
+s that you must resolve. The m
+erge process for data types an
+d
+categories handles these confl
+icts one at a time. The Curren
+t Conflict area of the panel s
+hows:
+Conflict # x of n
+where x is the current conflic
+t number, and n is the total n
+umber of data type and categor
+y conflicts that must be resol
+ved. Data type conflicts are r
+esolved first.
+The image below shows the scen
+ario where you:
+renamed Foo
+My_Foo
+moved /MISC
+/Category1
+changed undefined
+char
+In the latest version:
+moved /MISC
+/Category1/Category2/Category3
+changed undefined
+byte
+The conflict arises because in
+ both versions the file was mo
+ved and also because the secon
+d component was changed to a d
+ifferent data type. The rename
+ of Foo to My_Foo doesn't caus
+e a conflict. If you had
+only renamed the data type (wi
+thout moving it or changing th
+e undefined), there would not 
+have been a conflict.
+
+Merge Program Files 7/30
+
+These are the options to resol
+ve the conflict:
+Latest - select this option to
+ keep what is in the latest ve
+rsion (lose your changes)
+Checked Out - select this opti
+on to apply your changes; (cha
+nges in the latest version are
+ lost)
+Original - select this option 
+to apply what was in the progr
+am that you had originally che
+cked out (your changes and tho
+se in the latest version are l
+ost)
+Select a radio button to resol
+ve the conflict.
+In the Merge Tool window above
+, the title indicates the proj
+ect, program and new version n
+umber that will result from th
+e merge. Version 5 of "helloPr
+ogram" in the "SampleProject" 
+will be created by
+the merge. The source archive 
+is indicated for each data tpe
+ in the conflict window. The "
+Foo" data type was added to "h
+elloProgram" from the "MyTestA
+rchive" data type archive and 
+is still associated with it in
+each program version (Latest, 
+Checked Out and Original.)
+Category conflicts are resolve
+d after data type conflicts. I
+f you make a category change (
+rename, move, delete, restruct
+ure) in your version of the fi
+le, and the same type of chang
+e was made in the latest versi
+on
+of the file, then a conflict a
+rises that you must resolve.
+The image below shows the scen
+ario where you:
+moved /MISC
+
+/Category1/MISC
+
+In the latest version:
+moved /MISC
+
+/Category1/Cateogry2/Category3
+/MISC
+
+The options to resolve the con
+flict are:
+Latest - select this option to
+ keep what is in the latest ve
+rsion (lose your changes)
+Checked Out - select this opti
+on to apply your changes
+Original - select this option 
+to apply what was in the progr
+am that you had originally che
+cked out (your changes and tho
+se in the latest version are l
+ost)
+Select a radio button to resol
+ve the conflict.
+After all data type and catego
+ry conflicts are resolved, the
+ merge process continues with 
+Program Context Registers.
+For data types a source archiv
+e conflict can occur if the na
+me of an associated source arc
+hive changes to a different na
+me in each of the two programs
+ being merged. In the followin
+g, the "helloProgram" in the
+"SampleProject" (as indicated 
+by the Merge Tool title) has a
+ data type that originated fro
+m "MyTestArchive". Before you 
+checked in your last changes t
+o the program, the source data
+ type archive was renamed
+to "TestArchiveTwo". Before so
+meone checked in the Latest ch
+anges the source archive had b
+een renamed "TestArchiveOne".
+
+to "TestArchiveTwo". Before s
+omeone checked in the Latest c
+hanges the source archive had 
+been renamed "TestArchiveOne".
+
+Merge Program Files 8/30
+
+Name: This is the name of the 
+source archive in that version
+ of the program.
+Last Sync Time: This is when t
+he program was last synchroniz
+ed with the source archive.
+Changed Since Last Sync? yes, 
+means that one of the program'
+s data types associated with t
+he source archive has been cha
+nged since the last time it wa
+s synchronized.
+To resolve the conflict, selec
+t the radio button associated 
+with the current name of the a
+rchive.
+Program Context Registers
+All register value conflicts t
+hat remain after the auto merg
+e must be resolved.
+Register values can be set on 
+an individual address or a ran
+ge of addresses. When a regist
+er's value at an address or ad
+dress range is changed in both
+ the latest version and your c
+hecked out version and the two
+values are different, this res
+ults in a conflict. For each c
+onflict, the merge tool will d
+isplay the address or address 
+ranges where the two versions 
+conflict.
+The conflict window will prese
+nt you with each register that
+ has value conflicts. For each
+ of these registers you will h
+ave to resolve each of the add
+ress ranges that has a conflic
+t. The conflict information ar
+ea at
+the top of the window indicate
+s the register name. It also i
+ndicates which address range y
+ou are resolving of all the ra
+nges in conflict for this regi
+ster.
+The following image illustrate
+s a conflict due to the DIRECT
+ION register's value being cha
+nged in the latest version and
+ cleared in your checked out v
+ersion of the program. The add
+ress range affected by this
+particular conflict is from ad
+dress 01002329 to 0100233b. Th
+is is indicated in the conflic
+t resolution area below the pr
+ogram listings. The affected a
+ddresses are also indicated by
+ the gray background in the
+program listings.
+
+The scrolled listings allow yo
+u to see the code units in the
+ different program versions, w
+hich may help determine the co
+rrect register value to choose
+. The layout of the Merge Prog
+ram Context window is
+very similar to the Merge List
+ing window.
+
+The scrolled listings allow y
+ou to see the code units in th
+e different program versions, 
+which may help determine the c
+orrect register value to choos
+e. The layout of the Merge Pro
+gram Context window is
+very similar to the Merge List
+ing window.
+
+Merge Program Files 9/30
+
+The options to resolve the con
+flict are:
+Latest - select this option to
+ keep what is in the latest ve
+rsion (lose your changes)
+Checked Out - select this opti
+on to apply your changes (over
+writes change in the latest ve
+rsion)
+Original - select this option 
+to restore the original regist
+er values (your changes and th
+ose in the latest version are 
+lost)
+Select a radio button to resol
+ve the conflict and then press
+ the Apply button to continue 
+merging.
+After all register conflicts a
+re resolved, the merge process
+ continues with the Listing.
+Listing
+
+Various parts of the program a
+re merged in the Listing merge
+ phase. These include the byte
+s and code units, functions, s
+ymbols, equates, user defined 
+properties, references, bookma
+rks, and comments. Listing
+conflicts must be resolved in 
+the order they are presented b
+efore moving to the next confl
+ict and eventually completing 
+the merge process.
+Listing Conflict Window
+Listing conflicts are presente
+d in a Merge Listing Window. T
+he Merge Listing Window displa
+ys four program listings:
+Result
+
+The new program version that w
+ill result from this merge.
+
+Latest
+
+The latest checked-in version 
+of the program.
+
+Checked Out
+
+Your checked out version of th
+e program to be merged.
+
+Original
+
+The version of the program tha
+t you originally checked out.
+
+The following shows the Merge 
+Listing Window and describes (
+in red text) some of the featu
+res of the conflict window.
+The Merge Listing on the top l
+eft side of the window indicat
+es that you are in the Listing
+ phase of the merge. The Resol
+ve Byte / Code Unit Conflict a
+rea title indicates you are in
+ the Code Unit phase of
+Listing Merge. This area provi
+des the following information:
+the addresses for the conflict
+ currently being resolved
+number of conflicts at the ind
+icated address(es)
+current conflict
+how many sets of conflicts the
+re are to resolve in this phas
+e of the Listing merge
+
+Each of the listings in the ab
+ove image displays the associa
+ted program (Result, Latest, e
+tc). This allows you to look a
+t each of the programs involve
+d in the merge whenever you ar
+e trying to resolve a Listing
+conflict. You can use the
+expand icon in the Result list
+ing's toolbar to adjust the fi
+elds that are displayed in all
+ of the listings like in the C
+ode Browser. The GoTo is also 
+available for navigating withi
+n the
+listings.
+Scroll Locks for the Listings
+Initially, the four programs s
+croll together. Each listing h
+as a lock icon
+
+associated with it. When the l
+ock icon
+
+will also cause all other lock
+ed listings to scroll to the s
+ame address. When a listing is
+ displaying the unlocked icon
+cause any of the other listing
+s to scroll.
+
+is displayed for a listing, sc
+rolling that listing or naviga
+ting within that listing
+, it will not scroll when the 
+other listings scroll. Likewis
+e, scrolling it will not
+
+Code Units
+The first type of Listing conf
+lict you may encounter is a by
+te or code unit conflict. All 
+byte and code unit conflicts t
+hat remain after the auto merg
+e must be resolved.
+The following types of changes
+ will result in code unit conf
+licts that need resolving.
+
+The following types of change
+s will result in code unit con
+flicts that need resolving.
+
+Merge Program Files 10/30
+
+The same bytes had their value
+s changed to different values 
+in the latest version and your
+ checked out version.
+A byte was changed in one vers
+ion where a code unit was chan
+ged in the other version.
+The code units were changed in
+ your version and the latest v
+ersion but not to the same new
+ code units.
+For example, latest created an
+ instruction and your version 
+created data at an address. An
+other example would be that a 
+different structure was applie
+d in your version and the late
+st version at
+the same address.
+An instruction was cleared in 
+one version and an equate was 
+set in the other version.
+An instruction had a flow over
+ride applied in one version an
+d a reference was added in the
+ other version.
+
+If an instruction change confl
+icts with a reference change, 
+the references can be viewed b
+y right clicking on an instruc
+tion in one of the four listin
+gs (Result, Latest, Checked Ou
+t, Original) and
+choosing the View Instruction 
+Details... action. This will p
+op up a dialog indicating any 
+fallthrough override or flow o
+verride and the references for
+ that instruction.
+Example : The following image 
+shows a code unit conflict tha
+t occurred because you changed
+ the second component of the S
+ampleStructure from a word to 
+an array of two characters and
+ the word
+was changed in the latest vers
+ion to two separate characters
+.
+
+Notice that the listings allow
+ you to open and close the str
+ucture in the same way that yo
+u can in the CodeBrowser by cl
+icking on the + in the listing
+. The addresses with the gray 
+background in the
+listing indicate the code unit
+(s) that you are currently try
+ing to resolve.
+Note that you will have alread
+y resolved all data type confl
+icts by this time; this confli
+ct is due to different data ty
+pes being applied at the same 
+address. You are resolving whi
+ch data type to apply at
+the address.
+In this case the options to re
+solve the conflict are:
+'Latest' version - select this
+ option to keep the structure 
+containing two separate charac
+ters as in the latest version 
+(lose your changes)
+'Checked Out' version - select
+ this option to apply your str
+ucture containing the 2 charac
+ter array (overwrites change i
+n the latest version)
+'Original' version - select th
+is option to restore the origi
+nal structure containing the w
+ord (your changes and those in
+ the latest version are lost)
+Depending on which option you 
+choose, you may end up with a 
+"SampleStructure.conflict" as 
+the data type name.
+Select a radio button to resol
+ve the conflict and press the 
+Apply button to continue with 
+the merge process.
+After all byte and code unit c
+onflicts are resolved, the mer
+ge process continues with any 
+Function conflicts in the List
+ing.
+External Functions and Labels
+All external location conflict
+s that remain after the auto m
+erge must be resolved.
+The following types of changes
+ to external locations will re
+sult in conflicts that need re
+solving between your checked o
+ut version and the latest vers
+ion in the repository.
+If you add an external functio
+n or label and it appears to b
+e the same external as one tha
+t was added in the latest vers
+ion. (i.e. It has the same nam
+e or is referenced from the sa
+me code.)
+If an existing external functi
+on or label is removed in your
+ version and changed in the la
+test version in any way or vic
+e versa.
+If you change an external labe
+l into an external function an
+d the latest sets the data typ
+e on the external label or vic
+e versa.
+If you change the number of pa
+rameters, the parameter storag
+e, or the parameter type (stac
+k versus register) and the lat
+est also changed parameters in
+ any way, then you must select
+ to keep all
+of your parameters or all of t
+he latest version's parameters
+. The same is true if the late
+st version changed the number 
+or type of parameters and you 
+changed parameters in any way.
+If you change a piece of an ex
+ternal functions information a
+nd the latest version changes 
+the same piece of function inf
+ormation to a different value.
+For example, if one changes th
+e function's name and the othe
+r changes the return type, the
+n both changes occur without a
+ conflict. If both change the 
+name, this is a conflict.
+If you change a piece of stack
+ information and the latest ve
+rsion changes the same piece o
+f stack information to a diffe
+rent value.
+Stack information includes:
+return address offset
+parameter offset
+stack purge size
+If you change a piece of param
+eter information and the lates
+t version changes the same pie
+ce of parameter information to
+ a different value.
+Parameter information includes
+:
+
+Parameter information include
+s:
+name
+data type
+comment
+offset
+register
+
+Merge Program Files 11/30
+
+Example 1 : The following imag
+e illustrates a possible Add c
+onflict. In this case, an exte
+rnal label was added to the La
+test program and an external f
+unction was added to the Check
+ed Out program.
+Both external locations refer 
+to the same external memory ad
+dress and may be intended as t
+he same external.
+
+In this case you must select t
+he radio button indicating whi
+ch external(s) to keep:
+Keep 'Latest' will keep the ex
+ternal label.
+Keep 'Checked Out' will keep t
+he external function.
+Keep Both will keep Both the e
+xternal label and the external
+ function. If the label and fu
+nction had the same name, the 
+function would get renamed wit
+h a new name containing a conf
+lict
+extension.
+Merge Together will merge the 
+external label and function to
+gether. In this case, the resu
+lt would be an external functi
+on, but after pressing the App
+ly button, you would be prompt
+ed with
+an additional name conflict th
+at you would need to resolve.
+Select a radio button and pres
+s the Apply button to continue
+ with the merge process.
+Example 2 : The following imag
+e illustrates a conflict due t
+o an external label having its
+ data type set in the latest v
+ersion while you changed it in
+to a function.
+
+Merge Program Files 12/30
+
+In this case you must select t
+he radio button indicating whi
+ch change to keep:
+Keep 'Latest' will result in t
+he external label with a Float
+ data type and the change to a
+ function is discarded.
+Keep 'Checked Out' will keep t
+he external as a function and 
+the data type change will be d
+iscarded.
+Select a radio button and pres
+s the Apply button to continue
+ with the merge process.
+Example 3 : The following imag
+e illustrates a conflict becau
+se you created the same extern
+al function as was created in 
+the latest version. However, p
+arameter storage has been defi
+ned differently in
+each version. You must choose 
+which parameter signature and 
+its associated storage should 
+be kept.
+
+Merge Program Files 13/30
+
+In this case the options to re
+solve the conflict are:
+Use Latest version. will use t
+he function parameter storage 
+as it is in the Latest version
+.
+Use Checked Out version will u
+se the function parameter stor
+age as it is in your Checked O
+ut version.
+Select a radio button and pres
+s the Apply button to continue
+ with the merge process.
+After all external label and e
+xternal function conflicts are
+ resolved, the merge process c
+ontinues with any regular Func
+tion conflicts in the Listing.
+Functions
+All function conflicts that re
+main after the auto merge must
+ be resolved.
+The following types of changes
+ to functions will result in c
+onflicts that need resolving b
+etween your checked out versio
+n and the latest version in th
+e repository.
+If you create or change a func
+tion causing its body to overl
+ap one or more functions that 
+are defined in the latest vers
+ion.
+Functions with bodies that hav
+e addresses in common are said
+ to overlap if their entry poi
+nts and bodies are not exactly
+ the same.
+In this case you must choose w
+hich version's function(s) to 
+keep.
+If an existing function is rem
+oved in your version and chang
+ed in the latest version in an
+y way or vice versa.
+If both versions add a functio
+n with the same entry point, b
+ut all parts of the function a
+re not the same.
+If you change the number of pa
+rameters or the parameter type
+ (stack versus register) and t
+he latest also changed paramet
+ers in any way, then you must 
+select to keep all of your par
+ameters or
+all of the latest version's pa
+rameters. The same is true if 
+the latest version changed the
+ number or type of parameters 
+and you changed parameters in 
+any way.
+If you change a piece of funct
+ion information and the latest
+ version changes the same piec
+e of function information to a
+ different value.
+Function information includes:
+name
+body
+return data type
+For example, if one changes th
+e function's name and the othe
+r changes the return type, the
+n both changes occur without a
+ conflict. If both change the 
+name, this is a conflict.
+If you change a piece of stack
+ information and the latest ve
+rsion changes the same piece o
+f stack information to a diffe
+rent value.
+Stack information includes:
+return address offset
+parameter offset
+local size
+stack purge size
+If you change a piece of param
+eter information and the lates
+t version changes the same pie
+ce of parameter information to
+ a different value.
+Parameter information includes
+:
+name
+data type
+comment
+offset
+register
+
+offset
+register
+If you change a piece of local
+ variable information and the 
+latest version changes the sam
+e piece of local variable info
+rmation to a different value.
+Local variable information inc
+ludes:
+
+Merge Program Files 14/30
+
+name
+data type
+comment
+offset
+register
+
+Example 1 : The following imag
+e illustrates a function param
+eter with multiple conflicts. 
+In this case the conflict reso
+lution area below the listings
+ is different than many of the
+ other listing conflict
+resolution areas. Each row of 
+the table provides you with a 
+separate conflict and a choice
+ that must be made.
+Notice in the image that the p
+arameter name and the paramete
+r type are each in conflict. Y
+ou must choose a radio button 
+on each row to indicate what y
+ou want to keep in the version
+ that will get
+checked in.
+
+The function FUN_01002b44 has 
+two conflicts for its second p
+arameter.
+In this case the options to re
+solve the conflict are:
+Conflict column - indicates wh
+at specific part of the functi
+on is in conflict.
+Latest column - select the ite
+m from this column to keep the
+ latest version's change (lose
+ your changes).
+Checked Out column - select th
+e item from this column to kee
+p your change (overwrites chan
+ge in the latest version).
+Select a radio button on each 
+row to resolve the conflicts a
+nd press the Apply button to c
+ontinue with the merge process
+.
+Example 2 : The following imag
+e illustrates a conflict due t
+o overlapping function bodies.
+ In this case you created a fu
+nction at address 01001984 and
+ the latest version created a 
+function at address
+01001979. The two functions do
+n't have the same entry point,
+ but their bodies overlap. Sin
+ce function bodies can't overl
+ap, you must choose which vers
+ion's functions should be kept
+. The Resolve
+Function Overlap Conflict area
+ indicates the address range(s
+) that are in conflict. This i
+s also indicated by the gray b
+ackground in the listings.
+
+Merge Program Files 15/30
+
+In this case you must select t
+he radio button indicating whi
+ch version's functions to keep
+:
+Latest - select the radio butt
+on in front of Latest to keep 
+the latest version's functions
+ for the indicated address ran
+ges (lose your functions).
+Checked Out - select the radio
+ button in front of Checked Ou
+t to keep the your functions f
+or the indicated address range
+s (overwrites change in the la
+test version).
+Select a radio button and pres
+s the Apply button to continue
+ with the merge process.
+Example 3 : The following imag
+e illustrates a conflict becau
+se you changed the return type
+ and the function was deleted 
+in the latest version. You mus
+t choose whether to keep the f
+unction or remove
+it.
+
+Merge Program Files 16/30
+
+In this case the options to re
+solve the conflict are:
+Delete function as in 'Latest'
+ version. - select this option
+ to remove the function as in 
+the latest version (lose your 
+changes)
+Keep function 'FUN_010031ee' a
+s in 'Checked Out' version - s
+elect this option to keep the 
+function and your changes to i
+t (overwrites change in the la
+test version)
+Select a radio button and pres
+s the Apply button to continue
+ with the merge process.
+After all function conflicts a
+re resolved, the merge process
+ continues with any Symbol con
+flicts in the Listing.
+Symbols
+All symbol conflicts that rema
+in after the auto merge must b
+e resolved.
+The symbol phase of the Listin
+g merge will merge labels, nam
+espace symbols, class symbols,
+ and external symbols.
+The following are the types of
+ symbol conflicts that require
+ manual resolution:
+Removed symbol in one version 
+and changed it in other.
+Symbol was renamed differently
+ in each version.
+Same named symbol at the same 
+address in each version, but i
+n different namespaces (symbol
+s with different scope).
+Each version set a different s
+ymbol to primary at an address
+.
+Example 1 : The following imag
+e shows a symbol conflict that
+ occurred because you changed 
+the label "DDD" from global sc
+ope to function scope (in the 
+FUN_01004444 function's namesp
+ace) and
+the latest version removed the
+ symbol.
+
+Merge Program Files 17/30
+
+In the Resolve Symbol Conflict
+ area you must choose an optio
+n to resolve the conflict. Eac
+h row shows the information fo
+r a different version of the p
+rogram. The Option column allo
+ws you to
+choose a version change or sim
+ply indicates which version's 
+information follows it in the 
+row. The Symbol column gives t
+he symbol name. The Scope give
+s the namespace containing the
+ symbol.
+The address indicates the addr
+ess where the symbol is locate
+d. The Type indicates whether 
+the symbol is a label, namespa
+ce, class, etc. Primary indica
+tes whether the symbol is the 
+primary symbol at
+the address in that version.
+In this case the options to re
+solve the conflict are:
+Remove as in 'Latest' version 
+- select this option to leave 
+the label DDD removed (lose yo
+ur changes)
+Change as in 'Checked Out' ver
+sion - select this option to c
+hange the label DDD to be in t
+he function's scope (overwrite
+s change in the latest version
+)
+'Original' version - this is n
+ot selectable, but shows the s
+ymbol in the original version 
+you checked out.
+Select a radio button to resol
+ve the conflict and press the 
+Apply button to continue with 
+the merge process.
+
+Example 2 : The following imag
+e shows a symbol conflict that
+ occurred because you changed 
+the label "AAA" to "ME" and ch
+anged it to global scope, but 
+the latest version only rename
+d the symbol.
+
+Merge Program Files 18/30
+
+In this case the options to re
+solve the conflict are:
+Rename as in 'Latest' version 
+- select this option if ME sho
+uld be in the function's scope
+ (lose your changes)
+Rename as in 'Checked Out' ver
+sion - select this option if M
+E should have global scope (ov
+erwrites change in the latest 
+version)
+'Original' version - this is n
+ot selectable, but shows the s
+ymbol in the original version 
+you checked out.
+Select a radio button to resol
+ve the conflict and press the 
+Apply button to continue with 
+the merge process.
+
+Example 3 : The following imag
+e shows a symbol conflict that
+ occurred because you added th
+e label "Bud" to the function 
+scope (in the FUN_01004bc0 fun
+ction's namespace) and the lat
+est version
+added the same named symbol at
+ the same address, but gave it
+ global scope.
+
+Merge Program Files 19/30
+
+In the Resolve Symbol Conflict
+ area you must choose an optio
+n to resolve the conflict. Eac
+h of the first two rows shows 
+the information for a differen
+t version of the program. Belo
+w these rows are
+two radio buttons that let you
+ choose to either discard your
+ symbol or rename it so that i
+ts name will not conflict with
+ the one from the latest versi
+on.
+In this case the options to re
+solve the conflict are:
+'Latest' version - this is not
+ selectable, but shows the sym
+bol in the latest version.
+'Checked Out' version - this i
+s not selectable, but shows yo
+ur symbol.
+Discard 'Checked Out' symbol -
+ select this option to not inc
+lude your symbol (lose your ch
+anges).
+Rename 'Checked Out' symbol to
+ 'Bud_conflict1' - select this
+ option to rename your symbol 
+to avoid the conflict.
+Select a radio button to resol
+ve the conflict and press the 
+Apply button to continue with 
+the merge process.
+
+Example 4 : The next image sho
+ws a symbol conflict about whi
+ch symbol to make the primary 
+symbol at an address. In the f
+ollowing scenario, you added t
+he label "Bar" and the latest 
+version added
+the label "Foo" at the same ad
+dress. Both labels can exist a
+t the same address since they 
+have different names, but they
+ cannot both be the primary sy
+mbol. So you must choose which
+ label is the
+primary one.
+
+Merge Program Files 20/30
+
+In this case the options to re
+solve the conflict are:
+Set 'Latest' to primary - sele
+ct this option if Foo should b
+e the primary symbol.
+Set 'Checked Out' to primary -
+ select this option if Bar sho
+uld be the primary symbol.
+'Original' version - this is n
+ot selectable, but shows the s
+ymbol in the original version 
+you checked out. In this case 
+there was no label originally.
+Notice that both symbol are ke
+pt as shown in the Result prog
+ram's listing.
+Select a radio button to resol
+ve the conflict and press the 
+Apply button to continue with 
+the merge process.
+Symbol Merge Information Dialo
+g
+At the end of the Symbol merge
+ phase, a Symbol Merge Informa
+tion dialog will appear if any
+ namespaces could not be remov
+ed as expected. You might indi
+cate to remove a
+namespace when it is in confli
+ct with another symbol or it m
+ay have been removed by auto m
+erge. However, if another symb
+ol gets placed into that names
+pace as a result of
+resolving a conflict, the name
+space must be retained. The di
+alog is simply to inform you t
+hat this has occurred. The fol
+lowing image illustrates that 
+the namespace called
+SecondNamespace was not remove
+d since it contained at least 
+one other symbol.
+
+Press the OK button on this di
+alog to continue with the merg
+e process.
+The Symbol Merge Information d
+ialog can also have symbol con
+flict information. If a symbol
+ must be renamed as part of th
+e merge process, you are notif
+ied of the new symbol names at
+ the end of
+the Symbol merge phase.
+Conflicting symbols are rename
+d by adding a suffix of "_conf
+lict" and an incremented numbe
+r to make the name unique. The
+ following image shows two ren
+amed symbols. The first is the
+ global
+symbol ME which was renamed to
+ ME_conflict1. The second is t
+he symbol YOU in the FUN_01001
+ae3 namespace which was rename
+d YOU_conflict1.
+
+Press the OK button to continu
+e with the merge process.
+After all symbol conflicts are
+ resolved, the merge process c
+ontinues with any Address Base
+d Listing Merge conflicts.
+
+After all symbol conflicts ar
+e resolved, the merge process 
+continues with any Address Bas
+ed Listing Merge conflicts.
+
+Merge Program Files 21/30
+Address Based Listing Merge
+All of the address based listi
+ng elements (equates, user def
+ined properties, references, b
+ookmarks, and comments) has al
+ready been auto merged before 
+any of their conflicts are pre
+sented for conflict
+resolution. Conflict resolutio
+n will proceed in address orde
+r for each address that has a 
+conflict for any of the addres
+s based listing elements. At e
+ach address with a conflict yo
+u will have to resolve
+all of the conflicts (equates,
+ user defined properties, refe
+rences, bookmarks, and comment
+s) before proceeding to the ne
+xt address with conflicts. The
+ following sub-sections descri
+be conflict merging
+for each of the address based 
+listing elements.
+Equates
+All equate conflicts that rema
+in after the auto merge must b
+e resolved.
+Equates associate a name with 
+a scalar. If your version and 
+the latest version change the 
+equate for a scalar and they a
+re different as a result of th
+e change, then the equates are
+ in conflict
+and must be resolved manually.
+ Changes include adding an equ
+ate to a scalar, removing an e
+quate for a scalar, changing t
+he equate name for a scalar.
+If an equate is changed differ
+ently in the latest and your v
+ersions, then you must resolve
+ the conflict.
+Example : The following illust
+rates an equate conflict on th
+e scalar 0x1 of operand 0 at 0
+1001d0b. The scalar originally
+ had an equate of 01. Each ver
+sion changed the equate on 0x1
+ to a
+new name.
+The image below shows the scen
+ario where you:
+changed 01
+
+PEAR
+
+In the latest version:
+changed 01
+
+ORANGE
+
+The options to resolve the con
+flict are:
+Keep 'Latest' version - select
+ this option to keep the equat
+e for the latest version (lose
+ your changes)
+Keep 'Checked Out' version - s
+elect this option to keep your
+ equate
+'Original' version - this row 
+simply indicates the original 
+value at the time you checked 
+out the program
+Select the radio button for ei
+ther the latest or checked out
+ version and press the Apply b
+utton to continue with the mer
+ge process.
+After all equate conflicts are
+ resolved, the merge process c
+ontinues with the User Defined
+ Properties.
+User Defined Properties
+All user defined property conf
+licts that remain after the au
+to merge must be resolved.
+User defined properties are in
+dividual named properties asso
+ciated with addresses in the p
+rogram. Individual plugins can
+ create one or more property. 
+All of the conflicts for a nam
+ed
+property are presented to you 
+and must be resolved before th
+e next named property with con
+flicts is presented.
+If the named property was chan
+ged at an address in your vers
+ion of the program and changed
+ differently in the latest ver
+sion then a user defined prope
+rty conflict exists.
+Example : The image below show
+s the scenario where you:
+Added a Space property with a 
+value of 4.
+
+Added a Space property with a
+ value of 4.
+In the latest version:
+
+Merge Program Files 22/30
+
+Added a Space property with a 
+value of 3.
+
+The options to resolve the con
+flict are:
+Keep 'Latest' version - select
+ this option to keep what is i
+n the latest version (lose you
+r changes)
+Keep 'Checked Out' version - s
+elect this option to apply you
+r changes (overwrites change i
+n the latest version)
+Keep 'Original' version - sele
+ct this option to restore the 
+original value of the property
+ (your changes and those in th
+e latest version are lost)
+Select the radio button for th
+e value of the Space property 
+you want to have in the checke
+d in version.
+You can resolve the remaining 
+conflicts for the same named p
+roperty by selecting the check
+box, Use the selected option f
+or resolving all remaining 'Sp
+ace' property conflicts. The s
+ame program
+version option that you select
+ed will be applied to the rema
+ining conflicts for the same n
+amed property. In the example 
+above, the 'Check Out' version
+ option would be used for the 
+remaining
+conflicts for the Space proper
+ty.
+When you Apply after selecting
+ the radio button and checkbox
+ as illustrated in the example
+ above, your changes (the Chec
+ked Out version) would be chos
+en for the Space property at t
+he indicated
+address and for all remaining 
+addresses that have the Space 
+property in conflict. Because 
+you selected the checkbox, you
+ will no longer be prompted to
+ resolve conflicts for that pr
+operty type.
+Selecting the Use the selected
+ option for resolving all ... 
+checkbox for the Space propert
+y would not affect the resolvi
+ng of conflicts for any other 
+named property. However, the u
+ser can select
+the checkbox for each differen
+t named property with conflict
+s.
+After all user defined propert
+y conflicts are resolved, the 
+merge process continues with t
+he References.
+References
+All reference conflicts that r
+emain after the auto merge mus
+t be resolved.
+References consist of memory r
+eferences, stack references, r
+egister references and externa
+l references. The references i
+n your checked out version and
+ the latest version are compar
+ed for
+each mnemonic and operand at a
+n address to determine if a co
+nflict exists.
+References conflict if the two
+ versions of the program (your
+ version and the latest versio
+n) have a reference at the sam
+e address and operand, but the
+y are different types of refer
+ences
+(memory, stack, register, exte
+rnal). References can also con
+flict when they are the same t
+ype if both versions changed t
+he reference and one or more p
+arts are now different. The
+following indicates the parts 
+of a reference that can confli
+ct with another reference of t
+he same type.
+Parts of an external reference
+ that may conflict:
+external program name
+referenced label
+referenced address
+whether or not it is user defi
+ned
+Parts of a stack reference tha
+t may conflict:
+stack offset
+referenced variable name
+first-use address
+Parts of a register reference 
+that may conflict:
+the register
+referenced variable name
+first-use address
+Parts of a memory reference th
+at may conflict:
+offset
+
+offset
+label
+reference type (computed call,
+ computed jump, data, read, wr
+ite, flow, etc.)
+whether or not it is a user re
+ference
+
+Merge Program Files 23/30
+
+The following types of changes
+ will result in reference conf
+licts:
+Your version and the latest ve
+rsion each added a different r
+eference type (memory, stack, 
+or external).
+If your checked out version an
+d the latest version both have
+ changes to the references for
+ a mnemonic or operand, the re
+ferences are in conflict whene
+ver your version and the
+latest version have references
+ that are different types (for
+ example, one has memory refer
+ences and the other has an ext
+ernal reference.)
+You removed a reference and th
+e latest version changed the s
+ame reference or vice versa.
+Your version and the latest ve
+rsion both changed a reference
+ and it now differs in one of 
+the ways they can conflict as 
+indicated above.
+Your version and the latest ve
+rsion both added the same type
+ of reference with the same fr
+om and to addresses, but diffe
+red such that they conflict.
+Your version and the latest ve
+rsion both set the primary ref
+erence, but not to the same re
+ference.
+
+The first operand of an instru
+ction is numbered as operand 0
+.
+Example 1 : The following imag
+e illustrates an external refe
+rence conflict. Your version a
+nd the latest version both cha
+nged the external reference at
+ address 01001000 operand 0. T
+he
+latest version caused it to be
+come user defined and you chan
+ged it to refer to the symbol 
+"bud" instead of "IsTextUnicod
+e".
+
+The options to resolve the con
+flict are:
+Change as in 'Latest' version 
+- select this option to keep w
+hat is in the latest version (
+lose your changes). In this ca
+se, keep the reference to "IsT
+extUnicode."
+Change as in 'Checked Out' ver
+sion - select this option to a
+pply your changes (overwrites 
+change in the latest version).
+ In this case keep the referen
+ce to "bud."
+'Original' version - This fiel
+d is not selectable, but is pr
+ovided to show the value in th
+e Original version that you ch
+ecked out.
+Select the radio button for wh
+ether to keep the reference to
+ 0x10 or 0x14 and select the A
+pply button to continue with t
+he merge process.
+
+Example 2 : The following imag
+e illustrates conflicting refe
+rence types being added in you
+r version and the latest versi
+on. Possible reference types a
+re memory, stack, register or 
+external.
+In this case, you added a stac
+k reference and the latest ver
+sion has a register reference 
+added at address 010018cd oper
+and 0.
+
+Merge Program Files 24/30
+
+Once again, select the radio b
+utton for which reference to k
+eep and select the Apply butto
+n to continue with the merge p
+rocess.
+Example 3 : The next image ill
+ustrates a memory reference co
+nflict where you changed an ex
+isting memory reference from a
+ DATA reference to a WRITE ref
+erence and the latest version
+changed the memory reference t
+o a READ_WRITE reference.
+
+Select the radio button for wh
+ich reference to keep and sele
+ct the Apply button to continu
+e with the merge process.
+Example 4 : The following illu
+strates a conflict when differ
+ent reference types are added 
+in your version and the latest
+ version. In this case you add
+ed an external reference at ad
+dress
+01002510 operand 0 and the lat
+est version added multiple mem
+ory references.
+
+Merge Program Files 25/30
+
+The options to resolve the con
+flict are:
+Use all in 'Latest' version - 
+select this option to keep wha
+t is in the latest version (lo
+se your changes). This would k
+eep all of the memory referenc
+es and lose the external
+reference.
+Use 'Checked Out' version - se
+lect this option to apply your
+ changes (overwrites change in
+ the latest version). This wou
+ld keep the external reference
+ and lose all of the memory
+references.
+'Original' version - This fiel
+d is not selectable, but is pr
+ovided to show the value in th
+e Original version that you ch
+ecked out. In this case there 
+was no reference originally.
+Select the radio button for wh
+ich references to keep and pre
+ss the Apply button to continu
+e with the merge process.
+After all reference conflicts 
+are resolved, the merge proces
+s continues with the Bookmarks
+.
+Bookmarks
+All bookmark conflicts that re
+main after the auto merge must
+ be resolved.
+Note bookmarks are in conflict
+ when any of the following occ
+ur:
+your version and the latest ve
+rsion both add a Note bookmark
+ and the category or descripti
+on differ.
+your version removes a bookmar
+k and the latest version chang
+es the category or description
+ or vice versa.
+your version and the latest ve
+rsion change the category and/
+or description so that they no
+ longer match.
+All other bookmarks are in con
+flict when any of the followin
+g occur:
+your version and the latest ve
+rsion both add a non-Note book
+mark with the same category bu
+t different description.
+your version removes a non-Not
+e bookmark of a specific categ
+ory and the latest version cha
+nges the description for that 
+bookmark type and category or 
+vice versa.
+You cannot directly change the
+ description on a non-Note boo
+kmark through regular bookmark
+ editing in Ghidra, but a plug
+in could change it programmati
+cally.
+your version and the latest ve
+rsion change the description f
+or a bookmark of a particular 
+type and category so that they
+ no longer match.
+Example 1 : The next image ill
+ustrates a conflict due to you
+r version and the latest versi
+on both adding different Note 
+bookmarks at the same address.
+
+Merge Program Files 26/30
+
+When bookmarks are in conflict
+, you can:
+Keep 'Latest' version - select
+ this option to keep the bookm
+ark change in the latest versi
+on (lose your changes)
+Keep 'Checked Out' version - s
+elect this option to apply you
+r bookmark changes at the addr
+ess (overwrites change in the 
+latest version)
+'Original' version - This fiel
+d is not selectable, but is pr
+ovided to show the value in th
+e Original version that you ch
+ecked out
+
+Notice that the above bookmark
+s conflict even though they ar
+e not in the same category. Th
+is is because only one Note bo
+okmark is allowed at an addres
+s regardless of its category.
+Select either the latest versi
+on or your checked out version
+ and then select Apply to cont
+inue with the merge.
+
+Example 2 : The next image ill
+ustrates an Analysis bookmark 
+where another user changed the
+ comment in the latest version
+, but you removed the bookmark
+.
+
+Merge Program Files 27/30
+
+Select Keep 'Latest' version t
+o keep the other user's change
+s or select Remove as in 'Chec
+ked Out' version if you don't 
+want the bookmark in the resul
+ting program. Then select the 
+Apply
+button to continue merging.
+Comments
+All comment conflicts that rem
+ain after the auto merge must 
+be resolved at each conflict a
+ddress.
+Only comments of the same type
+ and at the same address can c
+onflict with each other. The t
+ypes of comments are Plate, Pr
+e, End-of-Line, Repeatable, an
+d Post.
+If a comment is removed in one
+ version and changed in the ot
+her version, you must choose w
+hether to keep or remove it. T
+his scenario is shown in the i
+mage below.
+
+Merge Program Files 28/30
+
+If both versions added the sam
+e type of comment at an addres
+s and the two comments don't m
+atch, then you must decide to 
+keep the latest version's comm
+ent, your comment, or both
+comments.
+Similarly, if a particular com
+ment was changed in both versi
+ons and the two comments no lo
+nger match then you must decid
+e to keep the latest version's
+ comment, your comment, or
+both comments. This scenario i
+s shown in the image below.
+
+If you choose to keep both com
+ments by placing checkmarks in
+ both boxes, your comment is a
+ppended to the latest comment 
+with a new line separating the
+m. If one of the
+comments is contained within t
+he other comment, then the lon
+ger comment is kept instead of
+ combining them with a new lin
+e separator.
+After all address based listin
+g conflicts are resolved, the 
+merge process continues with E
+xternal Program Names.
+
+After all address based listi
+ng conflicts are resolved, the
+ merge process continues with 
+External Program Names.
+
+Merge Program Files 29/30
+External Program Names
+All external program name conf
+licts that remain after the au
+to merge must be resolved.
+A conflict occurs if :
+both versions add the same ext
+ernal program name with differ
+ent paths
+both versions changed the path
+ for an existing name
+one version removes the extern
+al program name and the other 
+redefines the Ghidra program p
+ath associated with that name
+Example 1 : The following imag
+e shows a conflict when the la
+test and your versions changed
+ the path for an external prog
+ram name.
+
+Select the version (Latest or 
+Checked Out) of Ghidra program
+ path to associate with the ex
+ternal program name and then s
+elect the Apply button to proc
+eed with the merge.
+Example 2 : The image below sh
+ows a conflict due to an exter
+nal program name being removed
+ in one version and changed in
+ the other.
+
+In the above scenario, the ext
+ernal program name "ADVAPI32.D
+LL" was removed in the latest 
+version. However, the program 
+path indicating which Ghidra p
+rogram is associated with the 
+external program
+name, was modified in your che
+cked out version.
+The options to resolve the con
+flict are:
+Remove as in 'Latest' version 
+- select this option to remove
+ the External Program Name def
+inition for ADVAPI32.DLL (lose
+ your changes)
+Keep 'Checked Out' version - s
+elect this option to apply you
+r changes resulting in a new p
+rogram path for ADVAPI32.DLL (
+overwrites change in the lates
+t version)
+'Original' version - This fiel
+d is not selectable, but is pr
+ovided to show the value in th
+e Original version that you ch
+ecked out
+Select the radio button for th
+e desired result and then sele
+ct the Apply button to proceed
+ with the merge.
+When you remove an external pr
+ogram name that is in conflict
+, it will get added back later
+ as a result of choosing a ref
+erence that refers to that ext
+ernal program name.
+Property Lists
+All property list conflicts th
+at remain after the auto merge
+ must be resolved.
+A property list conflict will 
+result when you change a prope
+rty that was either deleted or
+ changed in the latest version
+. The image below shows this s
+cenario:
+
+Merge Program Files 30/30
+
+Here, in the Analysis Disassem
+bly Property Group, another us
+er changed the Mark Bad Disass
+embly property. You changed th
+e same property. You have foll
+owing choices:
+Keep the other user's changes 
+(Latest), and lose your change
+Keep your changes (Checked Out
+) and lose the change in lates
+t version
+Keep the values from the origi
+nal version of the program (Or
+iginal), lose your changes and
+ lose changes made in the late
+st version. In this example, i
+f you choose this option, the 
+property will
+be deleted.
+To resolve the conflict, selec
+t a radio button, and then cli
+ck on the Apply button to go t
+o the next property conflict. 
+In this example, there are thr
+ee property list conflicts (no
+ted in the Current
+Conflict area of this window).
+ The progress bar on the lower
+ right corner of the Merge Too
+l indicates progress only for 
+the Property List merge, not t
+he entire merge process.
+After you resolve all conflict
+s, the check in process is com
+plete. The Ghidra Server will 
+contain a new version of the p
+rogram file.
+Related Topics:
+Shared Project Repository
+Check in
+Memory Blocks
+Program Trees
+Data Types and Categories
+Program Options
+Property lists
+Symbols
+Property Viewer
+
+

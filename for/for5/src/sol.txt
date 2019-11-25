@@ -1,0 +1,7 @@
+flag{this_is_a_flag}
+
+jhead -de <file_name>.jpg (removes existing exif header) 
+jhead -mkexif <file_name>.jpg (makes exif header)
+exif -e <file> --output <output_file> (extracts thumbnail)
+exif -n <file to be thumbnail> <file to get thumbnail> 
+	--insert-thumbnail=<FILE> 

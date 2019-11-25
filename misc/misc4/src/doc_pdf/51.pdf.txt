@@ -1,0 +1,690 @@
+Auto Analysis
+
+Auto-analysis 1/6
+
+Auto Analysis watches for chan
+ges to the program, such as di
+sassembling a new area of memo
+ry or definition of a function
+. When a change is noticed, it
+ kicks off Auto
+Analyzer plugins interested in
+ the change. Auto Analyzer plu
+gins evaluate the changes and 
+may decide to make further cha
+nges to the program. Any chang
+es an Analyzer
+makes to the program may cause
+ additional Analyzers to run. 
+An example chain of auto analy
+sis might be:
+
+1.
+2.
+3.
+4.
+5.
+
+User Disassembles
+Function Analyzer - looks at a
+ll calls and creates Functions
+Stack Analyzer - looks at all 
+new functions and builds a sta
+ck based on stack references
+Operand Analyzer - looks at sc
+alar operands for possible add
+ress references
+Data Reference Analyzer - look
+s at references for possible s
+trings or pointers to code.
+References to code are disasse
+mbled.
+..... Cycle repeats with 2) as
+ additional code is disassembl
+ed.
+
+One program change might cause
+ several Analyzers to become a
+ctive, however only one Analyz
+er is run at a time. Each Anal
+yzer has a run priority. For i
+nstance, the
+Operand Analyzer will always r
+un before the Data Reference A
+nalyzer because the operand an
+alyzer could create new refere
+nces that the Data Reference A
+nalyzer would
+need to analyze.
+Auto Analyzers normally change
+ the program only if the Analy
+zer can be certain the change 
+is correct. For instance creat
+ing a function at the destinat
+ion of a call is a
+fairly safe bet. Randomly look
+ing for undefined data that co
+uld be disassembled where ther
+e are no actual code reference
+s would not be a good idea.
+Auto Analysis
+A program imported through Fro
+nt End will have no initial an
+alysis applied to it. To force
+ analysis, use the Analysis
+Options dialog is displayed to
+ allow changes to the analysis
+ options before beginning anal
+ysis.
+
+Auto Analysis menu item. The A
+uto Analysis
+
+The display of this dialog ma
+y be controlled from the Auto 
+Analysis Tool Options. Select 
+the Auto Analysis node in the 
+Edit
+Tool
+Auto-analysis
+Options menu and check or unch
+eck Show Analysis Options. Whe
+n unchecked, the next time Aut
+o Analysis is chosen, the opti
+ons dialog is
+skipped, and analysis begins i
+mmediately.
+Without a selection in the Cod
+e Browser, the entire program'
+s memory space is analyzed. To
+ restrict the analysis to cert
+ain areas of the program, sele
+ct the area in the
+code browser before choosing A
+uto Analysis. If there is a cu
+rrent selection, Auto Analysis
+ will be restricted to only to
+ those areas of the program wi
+thin the selection.
+Areas outside the selection ma
+y be changed by analysis. For 
+example, if the OperandReferen
+ceAnalyzer finds a reference w
+ithin the selected area, a str
+ing or a function
+could be created at the refere
+nced location.
+When the Analyze button is pre
+ssed, the Options dialog will 
+disappear. At the bottom of th
+e Code Browser window, the bac
+kground task bar will display.
+ Any Analyzer
+activity status messages are w
+ithin the task bar.
+
+To Cancel the analysis, press 
+the
+
+button.
+
+Analyze All Open
+This action will auto-analyze 
+all open programs. The options
+ will be displayed only one ti
+me and re-used for each progra
+m.
+
+When you choose options to use
+ for analyzing a program, they
+ are based upon the architectu
+re of the current program. Whe
+n analyzing all open
+programs, any programs besides
+ the current program will only
+ be analyzed if their architec
+ture (language ID and compiler
+ spec ID) match that of the cu
+rrent
+program. Any other open progra
+ms with an architecture differ
+ing from the current program w
+ill not be analyzed using this
+ action.
+If the option to show the anal
+ysis dialog is disabled, then 
+using this action will analyze
+ all open programs using their
+ current analysis settings. To
+disable the analysis dialog go
+ to Edit
+Tool Options... to show the op
+tions dialog upon which, selec
+t the Auto Analysis options an
+d de-select Show
+Analysis Options.
+
+One Shot Analysis
+Those specific analyzers which
+ support on-demand analysis ar
+e available as One Shot Analyz
+ers in the Analysis menu. Only
+ those analyzers which support
+ one-shot use
+and are applicable to the curr
+ent program will be available 
+within the One Shot sub-menu.
+
+Auto Analysis Options Panel
+Each Analyzer can be turned of
+f using the Analysis panel in 
+the Edit
+
+ProgramOptions dialog.
+
+The Analysis panel configures 
+Analyzer specific options and 
+which Analyzers are enabled to
+ run. To view these options, c
+hoose Edit
+the Analysis node in the Optio
+ns tree. Each analyzer is repr
+esented as a leaf under the An
+alysis folder node.
+
+Program Options...; then open
+
+An analyzer may be marked as (
+Prototype). These analyzers ca
+n be very useful on certain pr
+ograms, but have not been exer
+cised on a large number of
+programs. Use them with cautio
+n.
+
+2/6
+
+Auto-analysis 3/6
+
+A separate dialog showing the 
+Analysis options is also displ
+ayed after a new program has b
+een imported, or the Analysis
+is chosen.
+
+Auto Analysis menu item
+
+Some analyzers only work on ce
+rtain processors. For example,
+ the MIPS Instruction Analyzer
+ only works on MIPS processors
+. Their options will only
+show up if the currently open 
+program can be analyzed with t
+he analyzer.
+
+Auto Analyzers
+The following is a description
+ of the Auto Analyzers that ha
+ve been implemented. Please no
+te that this list may not be c
+omplete since additional Analy
+zers are
+continuously being added to Gh
+idra and can be supplied by ad
+d-on modules/contribs.
+
+Address Table Analyzer
+Looks at all undefined data lo
+cations to find possible addre
+ss tables.
+You can also find and create a
+ddress tables manually via the
+ Search for Address Tables
+Started By: Importing or addin
+g to a program, Auto Analyze c
+ommand
+ARM Analyzer
+This analyzer works only again
+st the ARM processor. It looks
+ at multiple instructions to d
+iscover references that are pu
+t together by multiple instruc
+tions.
+Since the ARM is a RISC proces
+sor and each instruction is on
+ly 32 bits wide, many referenc
+es must be created by multiple
+ instructions.
+Started By: New disassembled c
+ode
+ASCII Strings Analyzer
+This analyzer searches for val
+id ASCII strings and automatic
+ally creates them in the binar
+y. Candidate strings are found
+ using the same method (and mo
+st of
+the same associated options) a
+s Search for Strings. Of the c
+andidate strings found, valid 
+strings are identified using a
+ model trained on pre-identifi
+ed valid
+strings. This analyzer runs at
+ a very low priority.
+Set options for this analyzer 
+by selecting ASCII Strings on 
+the options panel. Some option
+s such as Require null termina
+tion for string and String sta
+rt
+alignment work the same way as
+ in Search for Strings.
+
+Options
+
+Auto-analysis 4/6
+Create strings containing exis
+ting strings - if checked, str
+ings will be created even if t
+hey contain existing substring
+s (existing strings will be
+cleared). The string will be c
+reated only if existing string
+s (a) are wholly contained wit
+hin the potential string, (b) 
+do not share the same starting
+address as the potential strin
+g, (c) share the same ending a
+ddress as the potential string
+, and (d) are the same datatyp
+e as the potential string to b
+e
+created).
+Create strings containing refe
+rences - if checked, strings t
+hat contain, but do not start 
+with, one or more references w
+ill be created.
+Force model reload - if checke
+d, forces the model to be relo
+aded every time the analyzer i
+s run (in cases where the user
+ wishes to see the effect of
+changing a model without resta
+rting Ghidra).
+Minimum string length - specif
+ies the smallest number of cha
+racters in a string for it to 
+be considered a valid string. 
+For this analyzer, null
+termination characters are ign
+ored for the purposes of count
+ing characters. Note that smal
+ler numbers will result in a l
+arger number of false positive
+s.
+String length must be at least
+ 4.
+Model file - Specifies the mod
+el file built using the BuildS
+tringModels class (default is 
+'StringModel.sng'). Note that 
+the location of the model file
+does not need to be specified,
+ as models should always be pl
+aced in the 'Ghidra/Features/B
+ase/data/stringngrams' directo
+ry.
+Require null termination for s
+tring - if checked, only null-
+terminated strings are created
+.
+Search only in accessible memo
+ry blocks - if checked, search
+es only in memory blocks that 
+have at least one of the Read 
+(R), Write (W), or Execute
+(X) permissions set to true. E
+nabling this option ensures st
+rings are not created in areas
+ such as overlays or debug sec
+tions.
+String end alignment - specifi
+es the byte alignment requirem
+ent for the end of the string.
+ An alignment of 1 means the s
+tring can end at any address.
+Alignments greater than 1 requ
+ire that (a) the 'require null
+ termination' option be enable
+d, and (b) if the null-termina
+ted string does not end at an
+aligned boundary, that there e
+xist enough trailing '0' bytes
+ following the string to allow
+ alignment. If neither (a) nor
+ (b) apply, end alignment is n
+ot
+enforced.
+String start alignment - speci
+fies the byte alignment requir
+ement for the start of the str
+ing. An alignment of 1 means t
+hat strings can start at any
+address. An alignment of 2 mea
+ns that strings must start on 
+an even address. An alignment 
+of 4 means that strings must s
+tart on an address that is a
+multiple of 4.
+Started By: Auto Analyze comma
+nd
+Data Archive Analyzer
+This analyzer looks at all the
+ labels defined in the program
+ and applies function signatur
+es from standard data type lib
+raries. For programs identifie
+d as
+"Microsoft Windows" executable
+s, the data archive applied we
+re parsed from the standard wi
+ndows header files. All other 
+executables will have function
+signatures applied from the st
+andard "C" header files (stdio
+, fcntl, ...). For example, if
+ a label exists for strcmp upo
+n import, the analyzer will as
+sume this is
+the standard C-library strcmp 
+and apply a function signature
+ of "int strcmp(char *, char *
+)".
+Started By: Importing or addin
+g to a program, Auto Analyze c
+ommand
+Data Reference Analyzer
+Looks at all data references w
+ithin newly disassembled code 
+for Unicode/Ascii strings and 
+functions. When a valid functi
+on is found, the code is disas
+sembled
+starting at the referenced loc
+ation. When a valid string is 
+found, a string data type is c
+reated.
+Enable this option by selectin
+g Ascii String References, Uni
+code String References, or Sub
+routine References on the opti
+ons panel for Instructions.
+Started By: New disassembled c
+ode
+Decompiler Parameter ID Analyz
+er
+For each function created, run
+ the decompiler and import the
+ information recovered about t
+he given function. The informa
+tion includes:
+passed parameters
+local variables defined on the
+ stack
+local variables defined in reg
+isters
+return value
+the prototype or calling conve
+ntion (stdcall, cdecl, thiscal
+l, fastcall, ...)
+switch tables recovered by dat
+a flow analysis
+Applying type information reco
+vered by the decompiler can be
+ extremely useful if you have 
+type information for library f
+unctions. You can apply functi
+on
+signatures to your library fun
+ctions, and as code is disasse
+mbled, type information will b
+e propogated from the library 
+functions up into the paramete
+rs and
+local variables of the functio
+ns calling them.
+Switch tables recovered by the
+ decompiler can be applied to 
+improve the disassembly of cod
+e. At times the basic switch t
+able analysis cannot recover
+complex jump tables. The decom
+piler can also recover the val
+ue used to "switch" on for eac
+h case in the switch table. Th
+e label created at each switch
+ case is
+created based on the recovered
+ switch value.
+This analyzer is being enhance
+d to pull more information gle
+aned from running the decompil
+er.
+Enable this option by selectin
+g Decompiler Parameter ID on t
+he options panel for Functions
+.
+Started By: Creating a functio
+n, or Re-Analyzing a program w
+ith functions already defined.
+Demangler Analyzer
+This analyzer examines the nam
+e of the newly created functio
+n. If the name appears to be a
+ GCC v3 or Microsoft Visual St
+udio mangled symbol, then it w
+ill
+demangle the name and create a
+ new primary symbol for the de
+mangled name. It will also ass
+ign the appropriate datatypes 
+to the parameters and return t
+ype.
+
+Started By: New defined funct
+ions
+
+Auto-analysis 5/6
+Entry Point Analyzer
+Disassembles code starting at 
+all Symbols in the symbol tabl
+e marked as External Entry Poi
+nts.
+Enable this option by selectin
+g Disassemble Entry Points on 
+the options panel for Byte.
+Started By: Importing or addin
+g to a program, Auto Analyze c
+ommand
+Image Analyzer
+This analyzer searches the pro
+gram for images. If a valid im
+age is found an appropriate im
+age data type is applied at th
+at location with the correspon
+ding
+visual representation of the i
+mage. Also, a bookmark is adde
+d to indicate an image.
+Started By: Importing or addin
+g to a program, Auto Analyze c
+ommand
+MIPS address markup Analyzer
+This analyzer works only again
+st the MIPS R4000 processor. I
+t looks at multiple instructio
+ns to discover references that
+ are put together by multiple
+instructions. Since the R4000 
+is a RISC processor and each i
+nstruction is only 32 bits wid
+e, many references must be cre
+ated by multiple instructions.
+It will also look for certain 
+types of switch or jump tables
+ and automatically create a ju
+mp table.
+Started By: New disassembled c
+ode
+PowerPC address markup Analyze
+r
+This analyzer works only again
+st the PowerPC processor. It l
+ooks at multiple instructions 
+to discover references that ar
+e put together by multiple ins
+tructions.
+Since the PowerPC is a RISC pr
+ocessor and each instruction i
+s only 32 bits wide, many refe
+rences must be created by mult
+iple instructions.
+It will also look for "bcctr" 
+type switch statements and aut
+omatically create a switch tab
+le including references.
+Started By: New disassembled c
+ode
+Propagate External Parameters 
+Analyzer
+This analyzer uses external Wi
+ndows function call parameter 
+information to populate commen
+ts next to pushed parameters. 
+In some cases, data is labeled
+ and
+commented as well
+Started By: Auto Analyze comma
+nd
+Scalar Operand Analyzer
+Looks for scalar operands that
+ are actually address referenc
+es at each instruction operand
+ within newly disassembled cod
+e.
+Enable this option by selectin
+g Scalar Operand References on
+ the options panel for Instruc
+tions.
+Started By: New disassembled c
+ode
+Stack Analyzer
+Creates a stack frame (paramet
+ers and local variables) based
+ on references to the stack fo
+und in newly defined functions
+.
+Enable this option by selectin
+g Stack References on the opti
+ons panel for Function.
+Started By: New defined functi
+ons
+Subroutine Reference Analyzer
+Creates a function at each des
+tination of a call instruction
+. If the destination would cre
+ate a complex function, the fu
+nction is not created. A compl
+ex function
+is one with multiple entry poi
+nts, or shared code with funct
+ion.
+Enable this option by selectin
+g Create Functions on the opti
+ons panel for Function.
+Started By: New disassembled c
+ode
+Windows x86 PE Analyzers
+
+The Windows x86 PE Analyzers 
+analyze a Windows PE program f
+or MS Visual Studio data struc
+tures and code. They currently
+ attempt to identify RTTI
+structures, virtual function t
+ables, and exception handling 
+code. One also analyzes the ex
+ternal functions and attempts 
+to propagate the data typesAut
+o-analysis
+associated
+with the parameters.
+These analyzers only run on PE
+ programs.
+Started By: Analyzing the prog
+ram or creating instructions o
+r defined data with a Windows 
+x86 PE Analyzer analysis optio
+n selected.
+
+(Prototype) Auto Analysis Plug
+ins
+The following is a description
+ of the prototype Auto Analyze
+rs that have been implemented.
+
+Aggressive Instruction Finder
+This analyzer runs at the lowe
+st priority after there are no
+ other analyzers needing to ru
+n. It looks at undefined bytes
+ to see if code were disassemb
+led at the
+start of an area it would form
+ a valid subroutine. There can
+ be no invalid instructions, a
+nd the subroutine must not "fl
+ow" into any existing code.
+Needless to say this analyzer 
+will not work well on every pr
+ogram, but on some it finds al
+l code with no mistakes. Your 
+mileage may vary. There's alwa
+ys
+undo...
+Started By: Importing or addin
+g to a program, Auto Analyze c
+ommand
+Condense Filler Bytes Analyzer
+This analyzer searches the pro
+gram for all specified filler 
+bytes and collapses them. Some
+ examples of filler bytes are:
+ 0, 00, 90, cc. If you do not 
+specify a
+certain byte pattern to search
+ for then the default will be 
+used. The default is the word 
+Auto and it will allow the pro
+gram to determine the best val
+ue to use
+based on the greatest count. Y
+ou also have the option to cha
+nge the minimum number of byte
+s to collapse. The default for
+ this is 1.
+Started By: Auto Analyze comma
+nd
+
+Provided by: AutoAnalysisPlugi
+n
+Related Topics:
+Disassembly
+Functions
+
+6/6
+
+

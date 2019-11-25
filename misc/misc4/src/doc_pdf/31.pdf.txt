@@ -1,0 +1,435 @@
+Tool Options Dialog
+
+Tool Options Dialog 1/4
+
+Each tool has an Options dialo
+g that shows options in a tree
+ format. When you click on the
+ node, the associated options 
+appear in a panel to the right
+ of the tree. At
+a minimum, the tree has a node
+ for key bindings and tool opt
+ions . Select the node to show
+ the corresponding options tha
+t you can change. Plugins may 
+provide
+their own options, in which ca
+se new nodes in the tree or ne
+w options for the tool may sho
+w up. Options provide a flexib
+le way for changing plugin beh
+avior or
+functionality.
+
+The Tool Options dialog has a 
+filter text field that can be 
+used to quickly find options r
+elating to a keyword. Any opti
+ons names or
+descriptions that contain the 
+keyword text will be displayed
+.
+To display the Options dialog,
+ select Edit
+
+Tool Options... from the tool 
+menu.
+
+Restoring Default Settings
+You can restore any currently 
+selected options panel to its 
+default settings by pressing t
+he Restore Defaults button at 
+the bottom of the options pane
+l. Use
+caution when executing this ac
+tion, as it cannot be undone.
+
+Key Bindings
+You can create a new "hot key"
+ for a Plugin's action or modi
+fy the default key binding. Th
+e hot key (or accelerator) tha
+t you add can be used to execu
+te the
+action with a keystroke combin
+ation.
+
+You can also change key bindin
+gs from within Ghidra by press
+ing F4 while the mouse is over
+ any toolbar icon or menu item
+. Click here for
+more info.
+The Key Bindings panel has a t
+able containing the Action Nam
+e, Key Binding, and Plugin Nam
+e. You can sort the columns in
+ ascending or descending order
+.
+(By default, the Action Name c
+olumn is sorted in ascending o
+rder.) The Plugin name is the 
+name of the plugin supplying t
+he action.
+Click on the category header t
+o change the sort order.
+Change the order of the column
+s by dragging the column heade
+r to another position in the t
+able.
+The text field below the table
+ captures keystroke combinatio
+ns entered.
+If an action has a description
+ to explain what it does, it w
+ill be displayed below the tex
+t field.
+
+The table entries are not edit
+able.
+The display below shows the ke
+y bindings panel for the Proje
+ct Window. Using the Key Bindi
+ngs Options panel works the sa
+me as for a regular Ghidra Too
+l.
+
+Tool Options Dialog 2/4
+
+Change a Key Binding
+To change the Key Binding,
+1.
+2.
+3.
+4.
+
+Select Edit
+Tool Options... from the main 
+menu.
+Select the Key Bindings node i
+n the options tree.
+Select an action name to eithe
+r set a key binding or change 
+the existing key binding.
+Click in the text field and ty
+pe the key or keystroke combin
+ation (e.g., Ctrl x).
+When a key is mapped to multip
+le actions, the action name is
+ listed below the text field.
+
+5. Click on the OK or Apply bu
+tton.
+
+When a key is mapped to multip
+le actions, and more than one 
+of these actions is valid in t
+he current context (i.e., the 
+action is enabled), then a dia
+log is
+displayed for you to choose wh
+at action you want to perform.
+To avoid the extra step of cho
+osing the action from the dial
+og, do not map the same key to
+ actions that are applicable i
+n the same context.
+Remove a Key Binding
+To remove a Key Binding,
+1.
+2.
+3.
+4.
+5.
+6.
+
+Select Edit
+Tool Options... from the main 
+menu.
+Select the Key Bindings node i
+n the options tree.
+Select an action name for the 
+key binding that you want to r
+emove.
+Click in the text field for th
+e key binding.
+Press the <Enter> or <Backspac
+e> to clear it.
+Click on the OK or Apply butto
+n.
+
+Import Key Bindings
+To import a Key Binding,
+1. Select Edit
+
+Tool Options... from the main 
+menu.
+
+1.
+2.
+3.
+4.
+5.
+6.
+
+Select Edit
+Tool Options... from the main 
+menu.
+Select the Key Bindings node i
+n the options tree.
+Press the Import... button.
+On the warning dialog, press t
+he Yes button to import key bi
+ndings or the No button to can
+cel the process.
+On the file chooser dialog, ch
+oose a previously exported fil
+e from which to import key bin
+dings.
+Press OK to import the key bin
+dings.
+
+Tool Options Dialog 3/4
+
+Importing key bindings will ov
+erride your current key bindin
+gs settings. It is suggested t
+hat you export your key bindin
+gs before you import
+so that you may revert to your
+ previous settings if necessar
+y.
+After importing you must save 
+your tool (File
+
+Save Tool) if you want you cha
+nges to persist between tool i
+nvocations.
+
+Key Binding Short-Cut
+A key binding can be applied t
+o any menu item or toolbar ico
+n. For example:
+File
+Data
+
+Close
+Cycle
+
+Cycle: Float, Double
+
+Apply key bindings to menu ite
+ms or icons that are frequentl
+y accessed. To do this:
+1. Display a menu item.
+2. Place the cursor on the men
+u item or let the mouse hover 
+over an icon on the toolbar.
+
+This menu item or icon will be
+ associated with the Key Bindi
+ng. When the Key Binding key i
+s used, this menu item or acti
+on associated
+with the icon will be applied.
+3. Press the <F4> key to displ
+ay Set Key Binding dialog:
+
+4. Enter a key combination in 
+the Set Key Binding dialog, Th
+e panel below the text field t
+hat accepts the key input show
+s the other actions
+that are mapped to the key. Th
+ese are potential collisions i
+f these actions are enabled at
+ the same time. Press OK to ch
+ange the key binding.
+5. The key combination that is
+ entered in this dialog will b
+e the key binding for the menu
+ item.
+
+Export Key Bindings
+To export a Key Binding,
+1.
+2.
+3.
+4.
+5.
+6.
+
+Select Edit
+Options... from the Tool menu.
+Select the Key Bindings node i
+n the options tree.
+Press the Export... button.
+If you have made changes, then
+ you will be promted to apply 
+those changes before continuin
+g.
+On the file chooser dialog, ch
+oose a file to which to export
+ key bindings.
+Press OK to export the key bin
+dings.
+
+Tool
+Tool is a default node in the 
+options tree that shows up in 
+each tool's options window. Th
+e Tool panel defines the optio
+ns for the Tool. The table bel
+ow lists
+the basic options. Plugins may
+ add their own options to the 
+Tool options. If a tool does n
+ot have a plugin that uses an 
+option, the option will not sh
+ow up on
+the Tool panel. For example, t
+he Ghidra Project Window does 
+not have plugins that use the 
+Max Go to Entries, Search Limi
+t, or Subroutine Model so thes
+e
+options will not appear on the
+ Tool panel. If an option has 
+a description, it will show up
+ in the description panel belo
+w the tree when you pass the m
+ouse
+pointer over the component in 
+the options panel.
+
+options will not appear on th
+e Tool panel. If an option has
+ a description, it will show u
+p in the description panel bel
+ow the tree when you pass the 
+mouse
+pointer over the component in 
+the options panel.
+
+Tool Options Dialog 4/4
+Tool Options
+Option
+
+Description
+
+Docking Windows On Top
+
+Selected means to show each un
+docked window on top of its pa
+rent tool window; the
+undocked window will not get "
+lost" behind its parent window
+. Unselected means
+that the undocked window may g
+o behind other windows once it
+ loses focus. Use the
+Windows menu to make the undoc
+ked window visible.
+
+Max Goto Entries
+
+Number of past entries to keep
+ in the Go to Address or Label
+ dialog
+
+Search Limit
+
+Numeric: The maximum number of
+ search hits to allow; for exa
+mple, when you
+search for text in the Program
+, the search is stopped when t
+he number of matches
+exceeds this limit, or the max
+ number of addresses displayed
+ while doing a Go To for
+an entry that has multiple mat
+ches.
+
+Subroutine Model
+Use C-like Numeric Formatting
+for Addresses
+
+Sets the default subroutine mo
+del. This setting is mainly us
+ed when creating call
+graphs. See Block Models for a
+ description of the valid Mode
+ls.
+Selected means to attempt to i
+nterpret the value entered in 
+the Go To dialog as a
+number as follows:
+interpret the value as a hex n
+umber if it starts with "0x"
+interpret the value as an octa
+l number if it starts with "0"
+interpret the value as a binar
+y number if it ends with a "b"
+
+To change Tool Options,
+1.
+2.
+3.
+4.
+
+From the tool, select Edit
+Tool Options...
+Select the Tool node in the op
+tions tree.
+Change the value for the optio
+n.
+Click on the OK or Apply butto
+n.
+
+Tool
+Some Tool options can only be 
+set from the Front End. Some o
+f those are described below.
+
+Tool Options
+Option
+
+Description
+
+Swing Look and Feel
+
+This controls the appearance o
+f the UI widgets for things su
+ch as colors and fonts.
+Each operating system provides
+ a different default Look and 
+Feel. Some of these
+work better than others.
+
+Use Inverted Colors
+
+This is a prototype feature th
+at allows the user to invert e
+ach color of the UI.
+Doing this effectively creates
+ a Dark Theme, which some user
+s find less visually
+straining.
+As a prototype feature, this f
+eature has many known issues,
+including:
+Pre-generated content, such as
+ images, icons and help files 
+will
+have inverted colors,
+Some color combinations will b
+e difficult to read
+
+Related Topics:
+Go to Address or Label
+Subroutine Model
+
+

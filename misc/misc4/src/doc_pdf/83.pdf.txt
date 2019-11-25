@@ -1,0 +1,143 @@
+Search for Direct References 1
+/2
+
+Search for Direct References
+
+Search for Direct References w
+ill search the entire program 
+for possible direct references
+ to the current location or to
+ locations within the
+current selection in the progr
+am. This search attempts to fi
+nd the actual bytes that make 
+up the address of the current 
+location/selection.
+The search takes into account 
+the endianness of the processo
+r. The results are displayed i
+n a Query Results table. The f
+ollowing table
+shows the results of searching
+ for direct references to a lo
+cation (i.e. the program doesn
+'t have a selection). You can 
+navigate to any
+resulting reference by selecti
+ng it in the table.
+
+The Search Results Table shows
+ the following for a search on
+ a location:
+From Location - address of the
+ possible direct reference
+Label - primary label at the l
+ocation of the possible direct
+ reference
+From Preview - current definit
+ion of the code unit at the lo
+cation of the possible direct 
+reference
+To Location - address that is 
+being referred to directly
+To Preview - current definitio
+n of the code unit at the "ref
+erred to" location
+To search for possible direct 
+references to an address,
+1. Click on the address in the
+ Code Browser.
+2. Select Search
+for Direct References...
+3. If the search will take a w
+hile, an "in progress" dialog 
+pops up so that you can see th
+e search progress, as well as 
+cancel the
+search at any time.
+4. A Query Results window is d
+isplayed to show the results o
+f the search.
+If you have a selection in you
+r program when you perform the
+ search, Search For Direct Ref
+erences will search for
+possible references to any of 
+the addresses in the selection
+. This can be very useful for 
+finding references into an are
+a of
+memory that currently has no r
+eferences to it.
+To search for all possible ref
+erences within the current pro
+gram's memory space, press Ctr
+l+A to select the entire
+program before performing the 
+search
+
+If you use this search multipl
+e times on different addresses
+ without closing the window, o
+ne window will show all the re
+sults. Each
+result for an address is displ
+ayed when you click on the tab
+ at the bottom of the window.
+This plugin works with 16-bit,
+ 16-bit segmented, and 32-bit 
+programs.
+
+Restoring the Search Selection
+
+Restoring the Search Selectio
+n
+
+Search for Direct References 2
+/2
+
+If your search results came fr
+om searching on a selection, y
+ou can restore the program's s
+election that was used for the
+ search. To do
+this, click the
+menu button in the Search Resu
+lts button bar and select Rest
+ore Search Results. This will 
+set the program
+selection back to what it was 
+when you initially performed t
+he search.
+
+Filtering Results Based on Ali
+gnment
+Once you have search results y
+ou can filter them based on th
+e address alignment of the Fro
+m Location. To do this, click 
+the
+menu button in the Search Resu
+lts button bar, pull right on 
+Alignment, and select the desi
+red alignment (1, 2, 4, or 8).
+ This will
+limit the displayed results to
+ those where the From Location
+ is an address that matches th
+e selected byte alignment.
+
+Actions
+
+Make Selection
+See Make Selection.
+Selection Navigation
+See Selection Navigation.
+
+Provided by: FindPossibleRefer
+encesPlugin
+Related Topics:
+Code Browser
+Query Results
+
+

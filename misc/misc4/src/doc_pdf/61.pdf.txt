@@ -1,0 +1,1465 @@
+Forward References
+
+Forward References 1/14
+
+This page covers the follow to
+pics relating to explicit forw
+ard references and the specifi
+c functionality provided by th
+e
+ReferencesPlugin:
+Introduction
+Types of References
+Reference Destination Symbols
+Ref-Types
+Actions for Creating and Delet
+ing References from a Code Uni
+t
+Viewing and Editing References
+Adding a Reference
+Editing a Reference
+Memory Reference Panel
+External Reference Panel
+Stack Reference Panel
+Register Reference Panel
+Adding Memory References from 
+a Selection
+
+Introduction
+Explicit forward references ex
+ist within a program to identi
+fy execution flow or a data re
+lationship between a 'source'
+referent and a 'destination'. 
+Inferred forward references ar
+e sometimes rendered automatic
+ally within the Listing to aid
+ the
+user (e.g., inferred function 
+variable references). This pag
+e only covers the management o
+f "explicit" forward reference
+s
+which are stored within the Pr
+ogram file.
+A forward reference source is 
+either an instruction or data 
+code unit within the program i
+dentified by a memory address.
+In addition, the source is qua
+lified by an operand-index whi
+ch identifies the mnemonic or 
+operand of an instruction whic
+h
+is making the reference. Assoc
+iating a reference to the corr
+ect operand allows the Listing
+ to render the data or instruc
+tion
+in a more friendly fashion and
+ also facilitates navigation w
+ithin the program when you dou
+ble click on an operand field
+within the Listing.
+When a reference is placed on 
+an operand, it will only chang
+e the rendering of that operan
+d within the program
+listing if the reference is ma
+rked as 'primary'.
+If a reference is placed on an
+ instruction mnemonic within t
+he Listing, the instruction mn
+emonic will be underlined.
+If a non-primary reference exi
+sts for an operand (i.e., not 
+reflected in the instruction m
+arkup), the corresponding
+instruction operand within the
+ Listing will be underlined.
+
+Types of References
+The following types of explici
+t forward references may be de
+fined from a mnemonic or opera
+nd of an instruction or data
+code unit:
+Memory Reference (includes Off
+set and Offcut references)
+External Reference
+Stack Reference
+Register Reference
+
+Ghidra does not permit mixing
+ "types of references" for a g
+iven mnemonic or operand.
+
+Forward References 2/14
+
+With the exception of Memory R
+eferences, only a single refer
+ence may be placed on a given 
+mnemonic/operand.
+Memory References
+
+All Memory Reference have a de
+stination defined by a memory 
+address within the current pro
+gram. A variation of the
+typical memory reference is th
+e Offset Reference which permi
+ts the destination address to 
+be specified as some base
+memory address plus a 64-bit s
+igned offset.
+Memory References are used to 
+specify either a data access o
+r execution flow within the Pr
+ogram. This distinction is mad
+e
+by specifying an appropriate R
+ef-Type on the reference. Addi
+ng and removing certain flow r
+eferences may change the set
+of instructions which make up 
+subroutine and code blocks. Si
+nce function bodies are establ
+ished based upon the Block
+Models, it may be necessary to
+ redefine the body of Function
+s affected by a new flow refer
+ence.
+Any Memory Reference can be ch
+aracterized as an Offcut Refer
+ence if its destination addres
+s is contained within a data o
+r
+instruction code unit and does
+ not correspond to the minimum
+ address of that code unit. Su
+ch Offcut References produce
+an offcut label which uses a s
+pecial label color. In additio
+n, since the corresponding lab
+el is hidden within a code uni
+t, a
+special OFF_<address> label ap
+pears on the containing code u
+nit within the Listing. Double
+-clicking the similarly
+colored XRefs within the Listi
+ng will allow you to quickly i
+dentify the source of the memo
+ry reference (see Code Browser
+Navigation). In general, the p
+resence of an Offcut Reference
+ may indicate an error within 
+the disassembly.
+External References
+External References are used t
+o define either a data access 
+or execution flow to a memory 
+destination located within a
+different Program file. This t
+ype of reference is typically 
+used when linking to a library
+ module. An External Reference
+destination is defined by a Ex
+ternal Program Name and memory
+ location which may be identif
+ied by a label or address
+contained within the External 
+Program File. The resulting de
+stination symbol takes on the 
+name of the external label or
+EXT_<address>if only an extern
+al address was specified. All 
+external destination symbols h
+ave a namespace which
+corresponds to the associated 
+External Program Name (e.g., M
+SVCRT.DLL::_controlfp).
+An External Program Name is co
+nsidered to be "resolved" when
+ it has been linked to a Progr
+am file contained within the
+same project. All external sym
+bol names, corresponding to un
+resolved External Program Name
+s, will be displayed in red.
+The External Program Names... 
+action/dialog can be used to s
+et or modifying these external
+ Program file linkages.
+External References currently 
+utilize the single RefType of 
+EXTERNAL.
+Stack References
+Stack References define data a
+ccess to a function parameter 
+or local variable located on t
+he stack. All Stack References
+have a destination defined by 
+a stack offset within the cont
+aining function's stack frame.
+ If a real frame-pointer is no
+t
+used, the Function analysis wi
+ll track the stack pointer usa
+ge and establish a virtual sta
+ck frame for the purpose of de
+fining
+stack parameters and local var
+iables. When creating a Stack 
+Reference, a corresponding sta
+ck parameter/variable may be
+explcitly bound to the referen
+ce (see Function Variables), a
+lthough this is generally unne
+cessary since this relationshi
+p can
+generally be determined from t
+he stack offset. The sign of t
+he stack frame offset makes th
+e distinction between a
+parameter or local variable as
+signment. Stack usage conventi
+ons are established by the Lan
+guage module in use.
+Stack References should be pla
+ced on all stack parameter/var
+iable data access operands.
+Stack References may only be s
+pecified for source code units
+ contained within a function.
+
+Register References
+
+Forward References 3/14
+
+Register References define dat
+a access to a function paramet
+er or local variable located w
+ithin a register. All Register
+References have a destination 
+defined by a register within t
+he context of a containing fun
+ction. When creating a Registe
+r
+Reference a corresponding regi
+ster variable may be explcitly
+ bound to the reference (see F
+unction Variables), although t
+his
+is generally unnecessary since
+ this relationship can general
+ly be determined from the regi
+ster used.
+Register References should be 
+placed only on register variab
+le data assignment operands.
+Register References may only b
+e specified for source code un
+its contained within a functio
+n.
+
+Reference Destination Symbols
+An important characteristic of
+ all references is that a symb
+ol is created for all destinat
+ions. These symbols generally 
+appear
+within the listing and can alw
+ays be found within the Symbol
+ Table or Symbol Tree. The fol
+lowing default symbol names
+are produced by the creation o
+f a reference.
+Symbol Name Format
+
+Type
+
+Namespace
+
+LAB_<address>
+
+Memory
+
+Global
+
+A memory address "label"
+identifying a branch flow memo
+ry
+reference destination.
+
+SUB_<address>
+
+Memory
+
+Global
+
+A memory address "label"
+identifying a call flow memory
+reference destination.
+
+DAT_<address>
+
+Memory
+
+Global
+
+A memory address "label"
+identifying a data memory
+reference destination. If the
+address correspnds to defined 
+data,
+the DAT prefix will be replace
+d by
+the corresponding data-type (e
+.g.,
+BYTE_<address>,
+DWORD_<address>).
+
+OFF_<address>
+
+Memory
+
+Global
+
+A memory address "label"
+identifying a memory reference
+destination which is located a
+t an
+offcut address within a code u
+nit.
+These labels only appears with
+in
+the listing to flag the exista
+nce of a
+hidden offcut label.
+Double-clicking the correspond
+ing
+offcut XRef will take you to t
+he
+code unit which has the offcut
+reference,
+
+Stack/Register/
+Memory
+
+Function Name
+
+A function parameter associate
+d
+with stack, register or memory
+location. Parameter references
+identified by a parameter name
+which by default includes its
+ordinal position.
+
+Register
+
+Function Name
+
+A local function variable asso
+ciated
+with register references. In
+
+param_<ordinal>
+
+local_<reg-name>[_<firstUseOff
+set>]
+
+Description
+
+local_
+with register references. In
+Forward References
+addition, the first-use-offset
+within 4/14
+the function is included if no
+n-zero.
+local_<offset>[_<firstUseOffse
+t>]
+
+<ext-label>
+
+Stack
+
+External
+
+Function Name
+
+A local function variable asso
+ciated
+with stack references identifi
+ed by
+an absolute offset within the 
+stack
+frame. In addition, the
+first-use-offset within the fu
+nction
+is included if non-zero.
+
+EXTERNAL_NAME A external progr
+am location
+associated with external refer
+ences
+and identified by a label name
+ or
+address within the external pr
+ogram
+file. Each EXTERNAL_NAME can
+be associated with a specific
+program file within your Ghidr
+a
+project (see External Program
+Names). If only an address is
+specified when creating an ext
+ernal
+reference, a label format of
+EXT_<addr> is used.
+
+The above symbol name colors c
+orrespond to the default color
+ scheme (see Code Browser Opti
+ons). Memory Reference
+destinations outside the Progr
+am's memory map, and unresolve
+d External Reference destinati
+ons utilize the "Bad Reference
+Address" color (e.g., DAT_0001
+0000) in place of the normal c
+olor shown.
+The presence of
+The actual default label utili
+zed for a memory location can 
+change dynamically and is prod
+uced by considering the
+following naming precendence (
+listed highest to lowest). Not
+e that some of the following l
+abel types are not a result of
+ a
+reference, but are considered 
+when producing the default lab
+el name.
+1.
+2.
+3.
+4.
+5.
+
+FUN_<addr> : Function entry po
+int
+EXT_<addr> : External entry po
+int
+SUB_<addr> : Call flow referen
+ce destination
+LAB_<addr> : Branch flow refer
+ence destination
+DAT_<addr> : Data reference de
+stination
+
+Ref-Types
+The term Ref-Type, as used wit
+hin Ghidra, is rather ambiguou
+s - and will hopefully be chan
+ged in a future release of
+Ghidra. While the following "t
+ypes of references" are suppor
+ted in Ghidra: memory, stack, 
+register and external. We
+define Ref-Type as the "type o
+f data access" or "type of flo
+w" associated with a reference
+. The following table attempts
+ to
+clarify the various Ref-Types 
+and when they can be used.
+Ref-Type
+DATA
+
+*Reference Flow/Data Descripti
+on
+MSR
+
+Data
+
+General data/pointer reference
+
+M
+
+Data
+
+General indirect data referenc
+e
+
+MSR
+
+Data
+
+Direct data read reference
+
+READ_IND
+
+M
+
+Data
+
+Indirect data read reference
+
+WRITE
+
+MSR
+
+Data
+
+Direct data write reference
+
+M
+
+Data
+
+Indirect data write reference
+
+MSR
+
+Data
+
+Direct data read/write referen
+ce
+
+DATA_IND
+READ
+
+WRITE_IND
+READ_WRITE
+
+READ_WRITE
+
+MSR
+
+Data
+
+Direct data read/write referen
+ce
+
+READ_WRITE_IND
+
+M
+
+Data
+
+Indirect data read/write refer
+ence
+
+STACK_READ (Note 1)
+
+S
+
+Data
+
+Direct stack read reference
+
+STACK_WRITE (Note 1)
+
+S
+
+Data
+
+Direct stack write reference
+
+EXTERNAL_REF (Note 2)
+
+E
+
+-
+
+INDIRECTION
+
+M
+
+Flow
+
+Indirect flow via a pointer (r
+eference should be from an
+instruction to a pointer). Alt
+ernatively, a COMPUTED
+CALL or JUMP reference could b
+e placed from an
+instruction to one or more ind
+irect destination
+instructions.
+
+COMPUTED_CALL
+
+M
+
+Flow
+
+Computed call flow from an ins
+truction
+
+COMPUTED_JUMP
+
+M
+
+Flow
+
+Computed jump flow from an ins
+truction
+
+UNCONDITIONAL_CALL
+
+M
+
+Flow
+
+Unconditional call flow from a
+n instruction
+
+UNCONDITIONAL_JUMP
+
+M
+
+Flow
+
+Unconditional jump flow from a
+n instruction
+
+CONDITIONAL_CALL
+
+M
+
+Flow
+
+Conditional call flow from an 
+instruction
+
+CONDITIONAL_JUMP
+
+M
+
+Flow
+
+Conditional jump flow from an 
+instruction
+
+Forward References 5/14
+
+External program reference (fl
+ow or data access
+unspecified)
+
+*In the above table, the Refer
+ence column indicates the "typ
+e of reference" for which the 
+Ref-Type is applicable: Memory
+,
+Stack, Register and External.
+NOTES:
+1. The use of STACK_READ and S
+TACK_WRITE Ref-Types will like
+ly be replaced with READ and W
+RITE Ref-Types in
+a future release of Ghidra.
+2. The EXTERNAL_REF is a gener
+al purpose Ref-Type used for a
+ll External references. At thi
+s time, the type of flow or
+data access for an external re
+ference is unspecified.
+3. If you need to alter the FA
+LL_THROUGH flow behavior of an
+ instruction, modify the Fallt
+hrough Address instead of
+adding a memory reference.
+
+Actions for Creating and Delet
+ing References From a Code Uni
+t
+There are three actions provid
+ed by the ReferencesPlugin whi
+ch are accessible from the Cod
+eBrowser Listing while the
+current cursor location is on 
+the mnemonic or operand of an 
+instruction or data code unit.
+ The create and delete referen
+ce
+actions may be disabled under 
+certain conditions.
+References from
+Add Reference from...
+Create Default Reference (menu
+ item varies based upon curren
+t operand)
+Delete References (menu item v
+aries based upon mnemonic/oper
+and current references)
+
+Default key-bindings for actio
+ns are indicated with {}'s.
+Add Reference From
+While there is a separate acti
+on for creating a default refe
+rence on an operand (see Creat
+ing a Default Reference below)
+, an
+arbitrary reference may be als
+o be added directly to a mnemo
+nic or operand by using the po
+pup menu action References
+Add Reference from... . This w
+ill cause the Add Reference Di
+alog to be displayed, allowing
+ the user to specify any of th
+e
+permitted reference types.
+Creating a Default Reference {
+Alt-R}
+
+Creating a Default Reference 
+{Alt-R}
+
+Forward References 6/14
+
+While the current cursor locat
+ion is on the operand of an in
+struction or data code unit wi
+thin the CodeBrowser Listing, 
+the
+popup menu item References
+Create Default Reference* may 
+be selected to create the defa
+ult primary reference for an
+operand. This action will be d
+isabled if the current locatio
+n does not correspond to an op
+erand field or a default refer
+ence
+can not be determined.
+When creating a default Memory
+ reference on a scalar operand
+, for programs with multiple m
+emory spaces, repeatedly
+invoking this action will cycl
+e the default reference throug
+h all suitable memory spaces. 
+If the wrong memory space was
+used in creating the Memory re
+ference, simply repeat the act
+ion.
+When adding a Stack or Registe
+r reference, a corresponding p
+arameter or variable may be cr
+eated. If a local variable is
+created, the first-use-offset 
+of the variable will correspon
+d to the source instruction lo
+cation. For this reason, it is
+recommended that the first ref
+erence to a variable be create
+d on the the first "assignment
+" instruction. If a newly crea
+ted
+variable is unwanted, it may b
+e deleted by clicking on it wi
+thin the Listing and hitting t
+he "Delete" key. Keep in mind 
+that
+when a variable is deleted, an
+y explicit bindings to that va
+riable will be cleared.
+*The popup menu item name Crea
+te Default Reference may diffe
+r based upon the type of refer
+ence which will get
+created: Create Memory Referen
+ce, Create Stack Reference, Cr
+eate Register Reference.
+Deleting References from a Cod
+e Unit {Delete}
+While the current cursor locat
+ion is on the mnemonic/operand
+ of an instruction or data cod
+e unit within the CodeBrowser
+Listing, the popup menu item R
+eferences
+Delete References* may be sele
+cted to delete all references 
+on the current
+mnemonic/operand. This action 
+will be disabled if the curren
+t location does not correspond
+ to a mnemonic/operand field
+or references do not exist on 
+the current mnemonic/operand.
+*The popup menu item name Dele
+te References may differ based
+ upon the existing reference(s
+): Delete Memory
+References, Delete Stack Refer
+ence, Delete Register Referenc
+e, Delete External Reference.
+
+Viewing and Editing References
+ (Add/Edit...) {'R'}
+All references "from" a data o
+r instruction code unit can be
+ edited and/or viewed by click
+ing on the code unit (or a spe
+cific
+operand) within the Listing an
+d activating the Add/Edit... a
+ction via the popup menu item 
+References
+Add/Edit... {'R'}.
+Each time this action is invok
+ed a new instance of the Refer
+ences Editor panel will be dis
+played. Once the panel is
+displayed, the
+toggle button may be pushed-in
+ to have the source location f
+ollow the current location wit
+hin the Listing
+display.
+
+Forward References 7/14
+
+Source
+The references displayed and m
+anaged within this panel are a
+ll "from" a single source inst
+ruction or data
+code unit. The current source 
+code unit is displayed at the 
+top of the References Editor p
+anel as it
+would appear in the Listing. U
+sing this display, you can cli
+ck on either the code unit Mne
+monic or an
+individual operand to highligh
+t the corresponding references
+ within the table below and to
+ set the
+operand target when adding add
+itional references. The select
+ed Source operand will be trea
+ted as the
+"active source operand" used f
+or Add actions. These operand 
+labels will also act as drag-n
+-drop target
+zones for code unit selections
+ dragged from the Listing (see
+ Adding Memory References from
+ a
+Selection).
+The table entries that match t
+he selected source element wil
+l be gray in color.
+The Home Button
+
+can be used to set the current
+ Listing location to the Sourc
+e code unit address.
+
+References Table
+All references "from" the curr
+ent source code unit are liste
+d within the table with the fo
+llowing columns:
+Operand - Indicates on which p
+ortion of the code unit the re
+ference has been placed
+(MNEMONIC,OP-0,OP-1,OP-2,...
+).
+Destination - Indicates the de
+stination location associated 
+with the reference. The destin
+ation
+displayed for each type of ref
+erence utilizes a different fo
+rmat:
+<address> : indicates a memory
+ destination
+<address><signed-offset> : ind
+icates an offset memory refere
+nce relative to a base
+address.
+Stack[<signed-offset>] : indic
+ates a stack reference with a 
+specified stack frame
+offset.
+<register> : indicates a regis
+ter reference for the specifie
+d register.
+External : indicates an extern
+al reference
+Label - Indicates the namespac
+e-qualified symbol name associ
+ated with the destination (See
+Reference Destination Symbols)
+.
+*Ref-Type - Identifies the typ
+e of data access or instructio
+n flow associated with a refer
+ence.
+*Primary? - Allows the user to
+ choose a single memory refere
+nce which will be reflected in
+ the
+rendering of a code unit opera
+nd.
+
+*Primary? - Allows the user t
+o choose a single memory refer
+ence which will be reflected i
+n the
+rendering of a code unit opera
+nd.
+Forwardwill
+References 8/14
+User Ref? - References which w
+ere manually added by the user
+ or by means of auto-analysis
+have a check displayed.
+
+*With the exception of Externa
+l references, both the Ref-Typ
+e and Primary? choices may be
+changed directly within this t
+able.
+References and symbol names co
+rresponding to memory referenc
+es outside of the program's de
+fined
+memory blocks will be displaye
+d in red (e.g., DAT_00000000).
+ These red references frequent
+ly
+correspond to well-known memor
+y locations, although they cou
+ld point out a bad reference. 
+Creating
+memory blocks for valid fixed 
+memory locations (e.g., memory
+ mapped I/O regions) will help
+ to resolve
+some of these apparent "BAD" r
+eferences.
+Actions
+The following actions are avai
+lable from the References Edit
+or panel. For those actions wi
+th a default
+key-binding or mouse-click-bin
+ding, this has been indicated 
+with {}'s.
+Add Reference {Insert-key} - I
+nvoking this action will launc
+h the Add Reference Dialog for
+ the
+current code unit (see Adding 
+a Reference).
+Delete References {Delete-key}
+ - Invoking this action will d
+elete all selected references.
+Edit Reference {Enter-key or d
+ouble-click a row} - Invoking 
+this action will popup the Edi
+t
+Reference Dialog for the selec
+ted reference (see Editing a R
+eference). This action is only
+ available
+when a single reference row is
+ selected.
+Select Memory Reference Destin
+ation - With one or more memor
+y references selected in the t
+able,
+invoking this action will caus
+e the corresponding locations 
+within the Listing to become s
+elected.
+Follow Tool Location Changes -
+ Once enabled (i.e., button pu
+shed-in), any location change 
+within
+the tool (e.g., Listing panel)
+ will cause the currently disp
+layed source code unit and ass
+ociated
+references to reflect the new 
+location.
+Send Location Change for Selec
+ted Reference Destination - On
+ce enabled (i.e., button pushe
+d-in),
+selecting a single row within 
+the references table will send
+ a location change to the tool
+ corresponding to
+the selected destination. This
+ will have the effect of scrol
+ling the Listing to selected d
+estination. In the
+case of an external location, 
+an attempt will be made to ope
+n the corresponding program an
+d scrolling to
+the corresponding external lab
+el within that program.
+GoTo Reference Source Location
+ - Invoking this action will s
+end a location change to the t
+ool
+corresponding to the source co
+de unit. This will have the ef
+fect of scrolling the Listing 
+to the current
+source code unit.
+
+Adding a Reference
+Invoking the Add... action fro
+m the References Editor window
+ will cause the Add Reference 
+Dialog to be displayed for the
+current Source code unit. Once
+ displayed, the Source code un
+it mnemonic or operand may be 
+selected by clicking on it, as
+well as the Type of Reference.
+ The available choices for Typ
+e of Reference may be constrai
+ned based upon the choosen
+operand.
+
+Forward References 9/14
+In general, only flow referenc
+es should be set on an instruc
+tion mnemonic, unless of cours
+e the instruction has no
+operands. References from data
+ code units (e.g., addr/pointe
+r) should always specify the s
+calar operand as the source, n
+ot
+the mnemonic (i.e., data-type)
+.
+
+Stack and register references 
+may only be specified for sour
+ce code units contained within
+ a function. Register
+references may only be set on 
+operands containing a single r
+egister and in general should 
+correspond to a WRITE
+Ref-Type.
+With the exception of memory r
+eferences, only a single refer
+ence may be set for a given op
+erand or mnemonic.
+An External reference may not 
+be set on a mnemonic.
+
+Based upon the choosen Type of
+ Reference, the lower portion 
+of the dialog will change. The
+ following sections discuss th
+e
+input panels for each of the f
+our possible choices:
+1.
+2.
+3.
+4.
+
+Memory Reference Panel (includ
+es Offset and Offcut reference
+s)
+External Reference Panel
+Stack Reference Panel
+Register Reference Panel
+Once the appropriate reference
+ panel has been filled-in as r
+equired, the Add button may be
+ clicked to complete the
+operation.
+When adding a Stack or Registe
+r reference, a corresponding p
+arameter or variable may be cr
+eated. If a local variable is
+created, the first-use-offset 
+of the variable will correspon
+d to the source instruction lo
+cation. For this reason, it is
+recommended that the first ref
+erence to a variable be create
+d on the the first "assignment
+" instruction. If a newly crea
+ted
+variable is unwanted, it may b
+e deleted by clicking on it wi
+thin the Listing and hitting t
+he "Delete" key. Keep in mind 
+that
+when a variable is deleted, an
+y explicit bindings to that va
+riable will be cleared.
+
+Editing a Reference
+
+Editing a Reference
+Forward References 10/14
+Invoking the Edit... action fr
+om the References Editor windo
+w will cause the Edit Referenc
+e Dialog to be displayed for
+the current Source code unit. 
+Once displayed, the Source cod
+e unit mnemonic or operand cor
+responding to the edited
+reference will be selected, as
+ well as the Type of Reference
+. Neither the Source operand n
+or the Type of Reference may b
+e
+changed when editing a referen
+ce. If you wish to change eith
+er of these settings you must 
+delete the reference and add a
+new reference.
+
+The Edit Reference Dialog uses
+ the same layout as the Add Re
+ferences Dailog with the only 
+exception being the dialog tit
+le
+and the Add button which is na
+med Update in the Edit mode. S
+imilarly, the lower portion of
+ the dialog will vary based
+upon the Type of Reference. Th
+e following sections discuss t
+he input panels for each of th
+e four possible choices:
+1.
+2.
+3.
+4.
+
+Memory Reference Panel (includ
+es Offset and Offcut reference
+s)
+External Reference Panel
+Stack Reference Panel
+Register Reference Panel
+Once the specific reference pa
+nel settings have been modifie
+d, the Update button may be cl
+icked to complete the operatio
+n.
+
+Memory Reference Panel
+A Memory Reference identifies 
+a data access or instruction f
+low to another memory location
+ within the same program
+space. A memory reference may 
+optionally be specified as an 
+Offset Reference relative to a
+ specified Base Address. The
+term Offcut is used to charact
+erize a memory reference or it
+s resulting label whose destin
+ation address does not corresp
+ond
+to the start of a data or inst
+ruction code unit (see Offcut 
+References).
+Below is an image of the Memor
+y Reference Panel as it might 
+appear in the Add Reference or
+ Edit Reference Dialog. The
+two views reflect a regular me
+mory reference and an Offset r
+eference (Note the Address lab
+el change based upon the
+Offset selection state).
+
+Offset
+If the Offset checkbox is "che
+cked", this memory reference w
+ill be treated as an Offset Re
+ference relative
+to the specified Base Address.
+ The actual "to" address will 
+be computed by adding the spec
+ified signed
+Offset value to the Base Addre
+ss. The number format is assum
+ed to be decimal unless the "0
+x" prefix is
+used when entering a Hex value
+.
+
+Offset value to the Base Addr
+ess. The number format is assu
+med to be decimal unless the "
+0x" prefix is
+used when entering a Hex value
+.
+Forward References 11/14
+To Address
+[
+
+Offset] The To Address entry i
+s required for normal memory r
+eferences and specifies the re
+ference
+
+destination as a memory offset
+. This entry is always interpr
+etted as a unsigned hex value 
+(i.e., the "0x"
+entry prefix is assumed). For 
+those processors with multiple
+ address-spaces, a pull-down i
+s also provided
+allowing the address-space to 
+be selected.
+Base Address
+[
+
+Offset] The Base Address entry
+ is required for offset memory
+ references and specifies the 
+offset base
+
+location as a memory offset. T
+his entry is always interprett
+ed as a unsigned hex value (i.
+e., the 0x entry
+prefix is assumed). For those 
+processors with multiple addre
+ss-spaces, a pull-down is also
+ provided
+allowing the address-space to 
+be selected.
+Address History Button
+The Address History pulldown b
+utton may be used to recall a 
+previously applied To Address 
+or Base
+Address entry. Only the last t
+en (10) address entries are ma
+intained for each open Program
+.
+Ref-Type
+Allows selection of the data a
+ccess or instruction flow type
+ associated with this referenc
+e (see Ref-Types).
+
+External Reference Panel
+An External Reference identifi
+es a memory destination within
+ another Program file. Such re
+ferences are generally used to
+indicate a library module link
+age. The memory location withi
+n the External Program is iden
+tified by either a Label or an
+Address.
+Below is an image of the Exter
+nal Reference Panel as it migh
+t appear in the Add Reference 
+or Edit Reference Dialogs:
+
+ 
+Name
+
+This field identifies a names
+pace name corresponding to the
+ External Program and may be t
+yped-in or
+Forward References 12/14
+choosen from the pull-down lis
+t of those previously defined.
+ This is a required input.
+Path (Clear/Edit)
+This field identifies the Prog
+ram file within the Ghidra Pro
+ject which corresponds to the 
+selected Name.
+Associating the External Progr
+am Name with a Program file Pa
+th is optional, but can be use
+ful to
+facilitate navigation to an as
+sociated library if it is cont
+ained within the same project.
+ This Name/Path
+association can easily be "res
+olved" at a later time via the
+ External Program Names Dialog
+.
+Label / Address
+The specific memory location w
+ithin the External Program is 
+identified by either a Label d
+efined within
+the corresponding Program file
+, or via a specific Address. I
+f both a Label and Address are
+ specified, the
+Label will take precendence du
+ring navigation. The Address f
+ield is always interpretted as
+ a hex value
+(i.e., the 0x entry prefix is 
+assumed) offset within the def
+ault address space.
+
+Stack Reference Panel
+A Stack Reference identifies a
+ data access to a function par
+ameter or local variable withi
+n the containing function's st
+ack
+frame.
+Below is an image of the Stack
+ Reference Panel as it might a
+ppear in the Add Reference or 
+Edit Reference Dialogs:
+
+ 
+Stack Offset
+Specifies a signed offset with
+in the containing function's s
+tack frame. The number format 
+is assumed to
+be decimal unless the "0x" pre
+fix is used when entering a He
+x value.
+Ref-Type
+Allows selection of the data a
+ccess or instruction flow type
+ associated with this referenc
+e (see Ref-Types).
+Variable Name
+An optional entry which identi
+fies the variable name to be a
+ssociated with this reference.
+ Selecting an
+existing variable will automat
+ically change the Stack Offset
+ to match the selected variabl
+e. Entering a
+new name which does not exist 
+will cause a new stack paramet
+er or variable to be created w
+ith the
+reference. Clearing this field
+ will have the same effect as 
+keeping the initial default va
+riable choice.
+
+Register Reference Panel
+
+Forward References 13/14
+
+A Register Reference identifie
+s a data access (i.e., value a
+ssignment) to a function local
+ variable within the containin
+g
+function's stack frame.
+Below is an image of the Regis
+ter Reference Panel as it migh
+t appear in the Add Reference 
+or Edit Reference Dialogs:
+
+Register
+Indicates the selected operand
+'s register to which a local r
+egister variable reference wil
+l be established.
+Ref-Type
+Allows selection of the data a
+ccess or instruction flow type
+ associated with this referenc
+e (see Ref-Types).
+Variable Name
+An optional entry which identi
+fies the variable name to be a
+ssociated with this reference.
+ Entering a new name which
+does not exist will attempt to
+ create a new local register v
+ariable with the reference. Cl
+earing this field will have th
+e
+same effect as keeping the ini
+tial default variable choice.
+
+Adding Memory References from 
+a Selection
+A code unit selection from the
+ CodeBrowser Listing may be dr
+agged and dropped onto the Ref
+erences Editor panel to
+create Memory References in bu
+lk for the current Source. Thi
+s capability must be used care
+fully since a seperate referen
+ce
+will be created "to" every cod
+e unit contained within the se
+lection.
+The specific mnemonic/operand 
+which will be used as the sour
+ce for the new memory referenc
+es depends on where the
+selection is "dropped" within 
+the References Editor panel (s
+ee figure below). The preferre
+d method is to "drop" the
+selection on the correct monc/
+operand within the Source code
+ unit area (i.e., Operand-spec
+ific Drop Zone). Alternatively
+,
+the selection may be "dropped"
+ on the reference table (i.e.,
+ Active-operand Drop Zone) to 
+utilize the current
+mnemonic/operand choice from t
+he Source code unit area. When
+ "dropping" on the table, be c
+areful "dragging" the
+selection across te Source cod
+e unit area since this could c
+hange the active Source mnemon
+ic/operand for the panel.
+
+selection across te Source co
+de unit area since this could 
+change the active Source mnemo
+nic/operand for the panel.
+Forward References 14/14
+
+Provided By: ReferencesPlugin
+Related Topics:
+Resolving External Names
+Show References to a location
+Code Browser Navigation
+
+

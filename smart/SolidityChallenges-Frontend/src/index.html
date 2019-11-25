@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="/swampctf.css">
+    <link rel="stylesheet" type="text/css" href="/my.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/">Solidity Challenges</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse navbar-brand" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Challenges
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="/challenge/1">Challenge 1</a>
+                    <a class="dropdown-item" href="/challenge/2">Challenge 2</a>
+                    <a class="dropdown-item" href="/challenge/3">Challenge 3</a>
+                    <a class="dropdown-item" href="/challenge/4">Challenge 4</a>
+                    <a class="dropdown-item" href="#"><s>Challenge 5</s></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/faq">FAQ</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                <li class="navbar-item">
+                    <a class="nav-link" href="https://metamask.io/">MetaMask</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container mb-5 text-center">
+        <div class="container mx-auto mt-5">
+            <h1>SwampCTF Solidity Challenges</h1>
+        </div>
+        <div class="container mx-auto mt-3 mb-5">
+            <h6>PART OF SWAMPCTF COMPETITION</h6>
+        </div>
+        <div class="container mx-auto mt-3">
+            <a href="/challenge/1" class="btn btn-primary btn-lg" role="button" aria-pressed="true">Challenge 1</a>
+            <a href="/challenge/2" class="btn btn-primary btn-lg" role="button" aria-pressed="true">Challenge 2</a>
+            <a href="/challenge/3" class="btn btn-primary btn-lg" role="button" aria-pressed="true">Challenge 3</a>
+            <a href="/challenge/4" class="btn btn-primary btn-lg" role="button" aria-pressed="true">Challenge 4</a>
+            <a href="#" class="btn btn-primary btn-lg" role="button" aria-pressed="true"><s>Challenge 5</s></a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-1"></div>
+        <div class="col-10"><hr></div>
+        <div class="col-1"></div>
+    </div>
+    <div class="container pt-5">
+        <div class="row text-center">
+            <div class="col-sm">
+                <h4 class="mb-4">What is this?</h4>
+                <p class="text-left">
+                    This is a site for deploying and checking completion of Solidity challenges for
+                    <a target="_blank" href="https://swampctf.com/">SwampCTF</a>. We need a way to securely verify
+                    competitors have completed a challenge. Best way to see if competitors were able to understand and
+                    execute an exploit for the challenge is to have them exploit an actual live contract on
+                    the test network. 
+                </p>
+            </div>
+            <div class="col-sm">
+                <h4 class="mb-4">What do I need to play?</h4>
+                <p class="text-left">Create an Ethereum account using the <a target="_blank" href="https://metamask.io/">MetaMask</a> extension.
+                    Change your network to <code>Ropsten Test Network</code>. Copy the challenge contract code into a file on
+                    <a target="_blank" href="https://remix.ethereum.org">Remix</a> (or any tool which can interact with the Ropsten test net)
+                    and paste the deployed contract's address into the <b>At Address</b> space in the <b>Run</b> tab. You can interact with
+                    the contract through <a target="_blank" href="https://remix.ethereum.org">Remix</a>. Make sure your environment in 
+                    <a target="_blank" href="https://remix.ethereum.org">Remix</a> is <code>Inject Web3</code> on <code>Ropsten</code> and 
+                    you've set the correct compiler version listed at the top of the contract next to <code>pragma solidity</code>. Get
+                    Ether at <a target="_blank" href="https://faucet.ropsten.be/">Ropsten Faucet</a> or <a target="_blank" href="https://faucet.metamask.io/">MetaMask Faucet</a>.
+                </p>
+            </div>
+            <div class="col-sm">
+                <h4 class="mb-4">How do I play?</h4>
+                <p class="text-left">Navigate to the challenge page and click <code>Deploy</code>. Once the transaction has completed and the
+                    contract is deployed on the test net, the address will be returned. Interact with the on-chain contract and complete the
+                    challenge. Each challenge goal is defined in the <code>isComplete()</code> function of the contract. Click the <code>Check Solution</code>
+                    button to verify you've completed the challenge, and once the verification has completed, click <code>Get Flag</code> to
+                    retrieve the flag to submit to CTFd.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <footer class="page-footer font-small blue pt-4">
+        <!-- Footer Links -->
+        <div class="container-fluid text-center text-md-left">
+            <div class="footer-copyright text-center py-3">@ 2018
+            <a href="https://swampctf.com/"> SwampCTF</a>
+            </div>
+        </div>
+        <!-- Copyright -->
+    </footer>        
+
+    <script>
+    window.addEventListener('load', function() {
+    // Checking if Web3 has been injected by the browser (Mist/MetaMask)
+        if (typeof web3 !== 'undefined') {
+            // Use Mist/MetaMask's provider
+            web3 = new Web3(web3.currentProvider);
+        } else {
+            // Handle the case where the user doesn't have web3. Probably 
+            // show them a message telling them to install Metamask in 
+            // order to use our app.
+            // For example
+            // web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
+            console.log("No web provider");
+        }
+        // Now you can start your app & access web3js freely:
+    });
+    </script>
+</body>
+</html>

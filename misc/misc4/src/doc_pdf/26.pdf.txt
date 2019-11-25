@@ -1,0 +1,996 @@
+Ghidra Project Window
+
+Ghidra Front End 1/12
+
+The Project Window is displaye
+d when you run Ghidra. From th
+is window, you manage your pro
+jects, workspaces, Programs, a
+nd tools. If
+you are running Ghidra for the
+ first time, you will need to 
+create a new project to get st
+arted.
+The Project Window is a tool a
+nd may be configured with "spe
+cial" plugins that provide gen
+eral capabilities that may be 
+required at a high
+level. By default, the Project
+ Window contains plugins for i
+mporting and exporting Program
+s, archiving a project, and re
+storing an archived
+project. These plugins may be 
+added to other tools.
+The options for archiving and 
+restoring a project will show 
+up only in the Ghidra Project 
+window, even though the plugin
+s providing
+these options can be added to 
+other tools.
+
+The following sections describ
+e the Project Window:
+Tool Chest
+Active Project Panel
+Read-Only Project Data Panel
+Workspaces
+Running Tools
+Project Repository
+Ghidra Server Connection Statu
+s
+Data Tree
+Data Table
+File Icons
+Console
+Configure Project Window
+Edit Menu Options
+
+Configure Project Window
+Edit Menu Options
+Manage Tools
+Getting Help
+Exit Ghidra
+
+Ghidra Front End 2/12
+
+Tool Chest
+The Tool Chest shows the tools
+ that you currently have in yo
+ur <user home dir>/.ghidra/.gh
+idra-<version>/tools folder. T
+he tools are
+placed there when you initiall
+y install Ghidra. These tools 
+are always available to your c
+urrently open project. See Ghi
+dra Tool
+Administration for information
+ on managing tools. The Tool C
+hest panel is a tool bar with 
+an icon that represents each t
+ool in your Tool
+Chest.
+You can launch a tool by click
+ing on the icon. You can launc
+h a tool with a Program by dra
+gging a Program file from the 
+Project data
+tree and dropping it on the to
+ol icon in the Tool Chest.
+
+Active Project
+The Active Project view shows 
+your programs and datatype arc
+hives in a tree view or a tabl
+e view. The tree view is usefu
+l for organizing
+your files into folders and su
+b-folders. The table view is u
+seful for sorting all your fil
+es on some particular attribut
+e such as size,
+processor, or modification dat
+e. In either view, you open an
+d perform various actions on p
+rogram files or datatype archi
+ves.
+Project Data Tree
+
+The data tree shows all files 
+in the project orgnanized into
+ folders and sub-folders. Icon
+s for files indicate whether t
+hey are
+under version control and whet
+her you have the file checked 
+out. Open this view by activat
+ing the "Tree View" tab.
+
+Tree Only Actions
+The data tree supports the fol
+lowing operations:
+Create New Folder
+To create a new folder,
+1. Select a folder that you ow
+n.
+2. Right mouse click and choos
+e the New Folder option.
+3. A new node is created in th
+e tree; a cell editor is displ
+ayed, containing the default n
+ame, New Folder; enter a new
+name, or the <Escape> key to c
+ancel the editing.
+
+3.
+name, or the <Escape> key to c
+ancel the editing.
+
+Ghidra Front End 3/12
+You cannot create a sub-folder
+ of a folder that you do not o
+wn.
+Copy Folders and Files
+To copy folders and files to a
+nother folder that you own,
+1. Select a file or folder; yo
+u may also select multiple fol
+ders and files.
+If you select a folder, then a
+ny selections that are descend
+ants of this folder are ignore
+d.
+2. Right mouse click and choos
+e the Copy option.
+3. Select a destination folder
+.
+4. Right mouse click and choos
+e the Paste option. For very l
+arge files, an "in progress" d
+ialog is displayed. You may
+cancel the paste operation at 
+any time.
+
+Move Folders and Files
+To move folders and files to a
+nother folder that you own,
+1. Select a file or folder; yo
+u may also select multiple fol
+ders and files.
+If you select a folder, then a
+ny selections that are descend
+ants of this folder are ignore
+d.
+2. Right mouse click and choos
+e the Cut option; the icon wil
+l change to a dithered image t
+o indicate the cut operation.
+3. Select a destination folder
+.
+4. Right mouse click and choos
+e the Paste option.
+
+You cannot move a file that is
+ in use.
+Drag/Drop for Copy
+You can get the same effect of
+ Copy/Paste using Drag and Dro
+p.
+1. Select a folder or file (or
+ multiple folders and files).
+2. Hold the Ctrl key down and 
+drag the object to another fol
+der.
+3. Drop the object on a folder
+.
+
+You will not get a valid drop 
+target for folders that you do
+ not own.
+If you release the Ctrl key du
+ring the drag, the operation c
+hanges to a move if you are dr
+agging from a folder that you
+own. Dragging files from anoth
+er user always results in a co
+py, regardless of whether you 
+hold down the Ctrl key.
+Drag/Drop for Move
+You can get the same effect of
+ Cut/Paste using Drag and Drop
+.
+1. Select a folder or file and
+ drag it to a folder that you 
+own.
+2. Release the mouse button wh
+en you get a valid drop target
+.
+
+If a folder or file already ex
+ists in the destination folder
+, Ghidra will append a ".copy"
+ to the name to make it unique
+.
+Expand/Collapse
+To expand a folder and all of 
+its descendant folders,
+
+To expand a folder and all of
+ its descendant folders,
+1. Select a folder.
+2. Right mouse click and choos
+e the Expand All option.
+
+Ghidra Front End 4/12
+
+To collapse a folder and all o
+f its descendant folders,
+1. Select a folder.
+2. Right mouse click and choos
+e the Collapse All option.
+
+Project Data Table
+
+The data table shows all files
+ in the project in a table sor
+ted by some attribute of the f
+ile. In the example above, the
+ files are
+sorted on file type. Icons for
+ files indicate whether they a
+re under version control and w
+hether you have the file check
+ed out.
+To open this view, active the 
+"Table View" tab.
+
+Actions for Both the Data Tree
+ and the Data Table
+
+Delete
+Deleting folders is a recursiv
+e operation, so all descendant
+ folders and files are also de
+leted. This is a permanent ope
+ration.
+To delete a folder or file,
+1. Select the folder or file o
+r select multiple folders and 
+files.
+If you select a folder, then a
+ny selections that are descend
+ants of this folder are ignore
+d.
+2. Right mouse click and choos
+e the Delete option.
+
+The Delete option is disabled 
+for a file that is in use.
+Rename
+To rename a folder or file,
+1. Select the folder or file.
+2. Right mouse click and choos
+e the Rename option.
+3. A cell editor is displayed;
+ enter the new name.
+
+3. A cell editor is displayed
+; enter the new name.
+Duplicate names are not allowe
+d within the same folder.
+
+Ghidra Front End 5/12
+
+You cannot rename a file that 
+is in use.
+You cannot rename your project
+ folder.
+Select All
+To select a folder and all of 
+its descendants,
+1. Select a folder.
+2. Right mouse click and choos
+e the Select All option.
+
+Read-Only
+To mark a file as read only,
+1. Select a file.
+2. Right mouse click and choos
+e the Read-Only option.
+The icon for the file is updat
+ed to indicate the read only s
+tate. When you right mouse cli
+ck, a check mark shows up in t
+he
+Read-Only option.
+A read-only Program must be sa
+ved to a new name if you make 
+changes to it.
+You cannot change the read-onl
+y state of a file while it is 
+in use.
+Drag File to a Tool
+To launch a tool with a specif
+ic file, drag a file to the to
+ol icon in the Tool Chest.
+To open a file in a running to
+ol, drag a file to the tool ic
+on in the Running Tools tool b
+ar, OR drag the file to the to
+ol window.
+
+Open a File in the Default Too
+l
+To open a file in the tool tha
+t was specified as the "defaul
+t," double click on the Progra
+m that you want to open, OR ri
+ght mouse
+click on the file and choose O
+pen in Default Tool.
+
+Open a File With a Specific To
+ol
+To launch a tool with a specif
+ic file,
+1. Select the file.
+2. Right mouse click and choos
+e Open With
+
+<tool name>.
+
+Refresh
+The
+button on the tool bar refresh
+es the list of files in the se
+lected folders. This is a way 
+to sync the project folder/fil
+e
+structure with the project rep
+ository. The list of files and
+ folders in the Project Data T
+ree is updated. This button is
+ enabled
+only for selected folders. You
+ can also refresh folders from
+ a viewed project or viewed re
+pository.
+About
+
+About
+
+Ghidra Front End 6/12
+
+To view information about a fi
+le, right mouse click on the f
+ile in the data tree and choos
+e the About... option.
+
+Version Control Actions
+There are numerous actions rel
+ated to version control. See P
+roject Repository for details.
+
+File Icons
+The Project Data Tree shows ic
+ons for the following types of
+ files:
+- A program
+- A project data type archive 
+(a data type file stored in th
+e project)
+The Project Data Tree shows mo
+difications to these icons for
+ files in the following states
+:
+
+File Status
+
+Sample Icon in Project Data
+Tree
+
+Description
+
+Versioned File not checked
+out.
+
+The program named "Example" is
+ versioned as
+indicated by the light purple 
+background. It is
+not checked out , since there 
+is no circle with a
+check mark. Version 1 is the l
+atest version, as
+indicated by "(1)"; the versio
+n will be the
+latest version when the file i
+s not checked out.
+
+Versioned File is Checked out
+exclusively by you.
+
+Version 1 of the program named
+ "Example" is
+checked out, as indicated by "
+(1 of 1)";
+Version 1 is the latest versio
+n. The blue check
+mark icon indicates that the f
+ile is checked out
+with an exclusive lock.
+If your project is not associa
+ted with a Ghidra
+Server, you will always have t
+he latest version
+checked out and the check out 
+will always be
+exclusive, since the project i
+s not shared.
+
+Versioned File is Checked
+Out; the project is associated
+with a Ghidra Server
+
+Version 3 of the program named
+ "Example" is
+checked out; Version 3 is the 
+latest version on
+the server, as indicated by "(
+3 of 3)" and the
+green circle with a check mark
+. The asterisk
+indicates you have changes to 
+the file which
+have not been checked in yet.
+
+Versioned File is Checked
+Out; the project is associated
+with a Ghidra Server. A
+newer version exists on the
+server.
+
+Version 2 of the program named
+ "Example" is
+checked out; a Version 3 has b
+een created since
+Version 2 was checked out, as 
+indicated by "(2
+of 3)" and the magenta circle 
+with a check
+mark. The asterisk indicates y
+ou have changes
+to the file which have not bee
+n checked in yet.
+
+Private File
+
+A program named "Example" is n
+ot under
+version control, exists only o
+n your local
+machine, and is not visible to
+ other users.
+
+Hijacked File
+
+The private file "Example" exi
+sts on your
+computer, but another user add
+ed "Example" to
+version control, which caused 
+the private file to
+appear as hijacked, (i.e., the
+ file can be saved
+"as is" using "Save As" since 
+you do not have
+the the file checked out that 
+is on the Ghidra
+Server.) Hijacked files may al
+so result from a
+checkout that was terminated. 
+The shared
+version of "Example" will not 
+be visible in
+
+Hijacked File
+
+checkout that was terminated. 
+The shared
+version of "Example" will not 
+be visible in
+Ghidra
+your project until you undo th
+e hijack.
+You Front End 7/12
+can also either rename the hij
+acked "Example",
+move it to another folder, del
+ete it, or use the
+Undo Hijack action. Then the s
+hared
+"Example" will appear in your 
+data tree as a
+versioned file.
+
+Read-Only Project Data
+You can view data from other P
+rojects or remote Repositories
+ and copy data into your curre
+nt Project's data folders.
+View Other Projects
+To view the data from another 
+project:
+1.
+2.
+3.
+4.
+
+Select Project
+View Project...
+A file chooser is displayed; t
+he default location is the pro
+jects folder in the installati
+on folder.
+Choose a project; the file ext
+ension is "gpr."
+A new tab for the data tree is
+ created in the "READ-ONLY Pro
+ject Data" panel in the Projec
+t Window, next to the
+Active Project panel; the tab 
+shows the name of the project.
+5. The list of recent projects
+ menu is updated to include th
+is project.
+
+You can copy and paste folder
+s (via menus or drag and drop)
+ and files from the other view
+ to your folders.
+
+Ghidra Front End 8/12
+
+You do not have to hold the Ct
+rl key down when you drag from
+ the other view since this can
+not be a move operation,
+as this view is always read-on
+ly.
+View a Shared Project
+You view a shared project the 
+same way you would a non-share
+d project; the difference is t
+hat when you view the shared
+project, an attempt is made to
+ connect to the Ghidra Server 
+associated with that project. 
+Depending on the user
+authentication mode of the Ghi
+dra Server for the other share
+d project, you may have to ent
+er a password. If the connecti
+on
+to the Ghidra Server is unsucc
+essful, then the only files av
+ailable to you are your privat
+e files.
+View a Repository
+To view the data from a server
+-based repository:
+1. Select Project
+View Repository...
+2. A repository chooser is dis
+played; allowing you to specif
+y a Ghidra Server network addr
+ess and select one of its
+repositories...
+3. Enter the Ghidra Server add
+ress and port. The default por
+t is 13100.
+4. Click the Refresh button to
+ the right of the host name an
+d port fields. This will conne
+ct to the specified Ghidra Ser
+ver
+and list available repositorie
+s for which you have been gran
+ted access. You may be prompte
+d for a password should
+user authentication be needed.
+5. Select the desired reposito
+ry from the list of those avai
+lable.
+6. Click the Select Repository
+ button. A new tab for the dat
+a tree is created in the "READ
+-ONLY Project Data" panel
+in the Project Window, next to
+ the Active Project panel; the
+ tab shows the URL of the remo
+te repository.
+7. The list of recent projects
+/repositories menu is updated 
+to include this repository.
+
+View Recent
+Ghidra maintains a list of Pro
+jects and remote Repositories 
+that were recently viewed.
+To view a recently opened proj
+ect or repository,
+1. Select Project
+View Recent
+<project path or repository UR
+L>
+2. Select a project or reposit
+ory from the menu.
+If the project/repository is n
+ot in the view, a new tab is c
+reated in the "READ-ONLY Proje
+ct Data" panel in
+the Project Window; the tab sh
+ows the name of the project or
+ repository URL.
+If the tab is in the view, the
+n the tab for this project/rep
+ository is selected.
+
+Close View
+To close a view, select Projec
+t Close View
+<project path/repository URL>,
+ OR click on the small 'X' on 
+the specific
+view tab, OR right mouse click
+ on the corresponding view tab
+ and choose the Close option.
+The tab is removed from the "R
+EAD-ONLY Project Data" panel i
+n the Project Window.
+Close All Read-Only Views
+To close all read-only views a
+t once, select Project
+
+Close View
+
+Close All Read-Only Views.
+
+The tabbed pane for read-only 
+Project data is removed from t
+he Project Window.
+
+Workspaces
+
+A workspace contains a set of
+ running tools, and the tools'
+ opened data. A workspace is a
+nalogous to a virtual desktop.
+ When you switch
+Ghidra
+to another workspace, you swit
+ch to a different set of runni
+ng tools. The tools from the o
+ther workspace remain running,
+butFront
+are notEnd 9/12
+visible until you switch back 
+to that workspace.
+The workspace names are listed
+ in a combo box in the Running
+ Tools panel. Switch to anothe
+r workspace by choosing a name
+ from the
+list. The default workspace, n
+amed "Workspace," is created i
+n the project.
+The workspace state, i.e., run
+ning tools, tool connections, 
+tool configuration, etc., is m
+aintained when you exit Ghidra
+ or close the
+Project.
+To create a new workspace,
+1. Select Project
+Workspace Add...
+2. A dialog is displayed; ente
+r a new workspace name. Duplic
+ate workspace names are not al
+lowed.
+3. Click on the OK button; the
+ newly created workspace becom
+es the current workspace; the 
+name is added to the list of w
+orkspaces
+in the combo box.
+If you leave "Workspace" as th
+e new workspace name in the di
+alog and click on OK, a one-up
+ number is appended to the
+name to make it unique.
+To rename the current workspac
+e,
+1. Select Project Workspace Re
+name...
+2. A dialog is displayed.
+3. Enter the new name for the 
+current workspace. Duplicate w
+orkspace names are not allowed
+. The list of workspace names 
+is
+updated to reflect the new nam
+e.
+To delete the current workspac
+e,
+1. Select Project Workspace De
+lete...
+2. A dialog is displayed to co
+nfirm your delete request.
+3. Choose the Delete button to
+ delete the workspace.
+Tools in the workspace are clo
+sed.
+If you made changes to a file 
+that is not open in any other 
+tool, a dialog will be display
+ed to prompt you to save your
+changes.
+The oldest workspace becomes t
+he current workspace. If the d
+eleted workspace was the last 
+one, then the default
+workspace ("Workspace") become
+s the current workspace.
+
+To switch workspaces,
+1. Select Project Workspace Sw
+itch...
+2. Switches sequentially throu
+gh the list of workspaces (in 
+creation order), wrapping back
+ to the first after the last h
+as been reached.
+For example: WS1, WS2, WS3, th
+en WS1.
+3. If only 1 workspace exists,
+ this action will do nothing.
+
+Running Tools
+The Running Tools panel shows 
+an icon for each tool that is 
+running in the current workspa
+ce. Click on the icon to bring
+ that tool
+forward on your console. To cl
+ose the tool from the Running 
+Tools panel, right mouse click
+ on the icon for the tool and 
+choose the
+Close option.
+To connect running tools, drag
+ one icon onto another icon. T
+hose tools are connected for a
+ll tool events.
+Tools running in different wor
+kspaces may be connected.
+
+Ghidra Server Connection Statu
+s
+
+If your project is associated
+ with a Ghidra Server, then be
+low the Running Tools panel yo
+u will see a connection status
+ panel that shows
+Ghidra
+the name of the Project Reposi
+tory, your access privileges, 
+and an indication of whether y
+ou are currently connected
+to the Front
+GhidraEnd 10/12
+Server. The status button,
+indicates that your project re
+pository is connected to the G
+hidra Server; the status butto
+n,
+indicates that your project re
+pository is associated with a 
+Ghidra Server but it is not co
+nnected to it.
+If your project is not associa
+ted with a Ghidra Server, then
+ this status panel is empty.
+
+Edit Project Access List
+If your project is shared, the
+ Project menu has an option to
+ edit the project access list.
+ This list controls what users
+ have access to the
+project and what privileges th
+e users have. If you have admi
+nistrative privilege in the pr
+oject, the option for Project 
+Edit Project
+Access List will be enabled. T
+he dialog displayed when you s
+elect this option shows a pane
+l that is the same as the one 
+you see in the
+New Project Wizard when you se
+t up the user list for new pro
+ject. As in the New Project Wi
+zard, this dialog allows you t
+o add and
+remove users, and change users
+' privileges in the project.
+
+In order for a user to show up
+ in the Known Users list, the 
+server administrator must add 
+a new user to the Ghidra Serve
+r. This is
+accomplished from a command sh
+ell on the server system using
+ the svrAdmin command. Refer t
+o the server/svrREADME.htmlfil
+e
+in the installation directory 
+for use of this administration
+ command.
+If the user does not have admi
+nistrative privilege in the pr
+oject, the user will not be ab
+le to view this full dialog an
+d make edits.
+Instead, the option for Projec
+t View Project Access List wil
+l be enabled, which will displ
+ay the following dialog and al
+low the user
+to view the project users and 
+their current access privilege
+s only.
+
+Change Password
+
+Change Password
+
+Ghidra Front End 11/12
+
+If your project is associated 
+with a Ghidra Server that is u
+sing Ghidra password authentic
+ation, then the menu item, Pro
+ject Change
+Password... will be present. U
+se this option when you want t
+o change your password. A dial
+og is displayed to confirm you
+r request, as
+shown below.
+
+If you select Continue, a dial
+og is displayed for you to ent
+er your new password, and to r
+e-enter your password.
+
+When you initially connect to 
+the Ghidra Server using passwo
+rd authentication, your defaul
+t password is "changeme". The
+default password expires after
+ 24 hours so you must change y
+our password as soon as possib
+le. If your password expires o
+r if a user
+forgets their password, the Gh
+idra Server administrator must
+ reset your password. This is 
+accomplished from a command sh
+ell on the
+server system using the svrAdm
+in command. Refer to the serve
+r/svrREADME.htmlfile in the in
+stallation directory for use o
+f this
+administration command.
+
+Console
+Click on the console icon
+
+to display the system console.
+
+Log messages, including the st
+andard output and error stream
+s, are redirected to the conso
+le. If you are running Ghidra 
+in development
+mode (i.e., through Eclipse or
+ some other IDE), you will see
+ standard output and errors in
+ your IDE's console as well as
+ the Ghidra
+console.
+Errors and other informational
+ messages are logged to a file
+ in <user home>/.ghidra/ghidra
+User.log. Messages are appende
+d to the file
+every time you launch Ghidra. 
+Once the log file has reached 
+500KB in size, however, it wil
+l be rolled to a backup file n
+amed
+ghidraUser.log.0. Older backup
+ files are similarly rolled to
+ another file with a one-up di
+git suffix as well. Ghidra sto
+res a maximum of
+three backup files (ghidraUser
+.log.0, ghidraUser.log.1, ghid
+raUser.log.2) at a time. The l
+og files can be used by Ghidra
+ developers for
+troubleshooting.
+The field next to the icon in 
+the Ghidra Project Window show
+s the last message sent to the
+ console (error messages are i
+n red).
+
+Getting Help
+
+Context Sensitive Help
+
+Context Sensitive Help
+Ghidra provides context sensit
+ive help that pops up when you
+ hit the <F1> or <Help> key.
+
+Ghidra Front End 12/12
+
+To get help on a menu option,
+1.
+2.
+3.
+4.
+
+Display the menu (either from 
+the tool menu or the popup) th
+at has the option you want hel
+p on.
+Position the mouse pointer ove
+r the option.
+Press the <F1> or <Help> key.
+The Help Viewer is displayed a
+nd shows the appropriate help 
+contents.
+
+To get help on a dialog or too
+l window, click somewhere in t
+hat window and press the <F1> 
+or <Help> key.
+If no specific help exists, th
+en a default page for Ghidra h
+elp is displayed.
+About Ghidra
+The About Ghidra option shows 
+build information about the Gh
+idra application.
+Related Topics:
+Tool Administration
+Projects
+Program
+Import Program
+Export Program
+Welcome to Ghidra Help
+Create a Shared Project
+Project Repository
+Project Info dialog
+
+

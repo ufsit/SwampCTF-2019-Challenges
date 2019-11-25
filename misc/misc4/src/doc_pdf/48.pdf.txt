@@ -1,0 +1,1160 @@
+Function Graph Plugin
+
+Function Graph Plugin 1/10
+
+The Function Graph Plugin is a
+ simple graph display that sho
+ws the code blocks of the func
+tion containing the cursor in 
+the Listing.
+The display consists of the Pr
+imary View and the Satellite V
+iew. There is also a group of 
+actions that apply to the enti
+re graph.
+
+What's New
+Added the Nested Code Layout. 
+This layout shows the code blo
+cks in a structure that more c
+losely resembles the flow of C
+ code.
+Small tweaks (6.0)
+Detachable Satellite View
+Function signature now include
+d by default
+Added a regroup action to allo
+w for regrouping vertices afte
+r ungrouping.
+Articulated edges will now dis
+appear if the connected vertic
+es are dragged outside of the 
+original angles.
+Moved some actions to the cont
+ext popup menu, specifically:
+Edit Label
+Fullscreen Mode
+Jump to XRef
+Layout Compressing (5.6)
+Keyboard zooming and panning (
+5.6)
+Vertex Grouping (5.5)
+
+Primary View
+The Primary View displays the 
+Vertices (or Blocks) and Edges
+ (or Control Flow) of the grap
+h. From this view you can inte
+ract with blocks, both for edi
+ting and
+arrangement.
+The graph rendered in the Prim
+ary View may represent an unde
+fined function, such as a subr
+outine. If this is the case, t
+hen the background of the Prim
+ary View will
+be a gray color, such in the f
+ollowing image:
+
+Function Graph Plugin 2/10
+
+By default, as changes to the 
+program are detected, the grap
+h will not relayout to account
+ for these changes. The image 
+below shows the bottom of the 
+Primary View
+when the graph has detected ch
+anges and is considered stale
+
+Once a graph is stale, you can
+ press the refresh button at a
+ny time to have the graph re-c
+reate itself without performin
+g a relayout. The green box in
+ the image
+above contains the refresh but
+ton. Alternatively, you can pr
+ess the relayout action to ref
+resh the stale graph and perfo
+rm a relayout, which we reposi
+tion the vertices
+of the graph to their preferre
+d locations.
+If you would like to change th
+e default behavior on program 
+changes to perform a full grap
+h update, then you can change 
+this value via the tool option
+s. You can
+access these options by right-
+clicking in graph and selectin
+g the Properties action. Alter
+natively, you can click on the
+ tool's menu bar Edit->Tool Op
+tions... to
+launch the options. From there
+ you can find the option at Fu
+nction Graph-> Automatic Graph
+ Relayout
+
+Satellite View
+The Satellite View provides an
+ overview of the graph. From t
+his view you may also perform 
+basic adjustment of the overal
+l graph location. In addition 
+to the
+complete graph, the satellite 
+view contains a lens (the whit
+e rectangle) that indicates ho
+w much of the current graph fi
+ts into the primary view.
+When you single left mouse cli
+ck in the satellite view the g
+raph is centered around the co
+rresponding point in the prima
+ry view. Alternatively, you ma
+y drag the lens
+of the satellite view to the d
+esired location by performing 
+a mouse drag operation on the 
+lens.
+You may hide the satellite vie
+w by right-clicking anywhere i
+n the Primary View and deselec
+ting the Display Satellite Vie
+w toggle button from the popup
+ menu.
+
+If the Primary View is paintin
+g sluggishly, then hiding the 
+Satellite View cause the Prima
+ry View to be more responsive.
+Detached Satellite
+The Satellite View is attached
+, or docked, to the Primary Vi
+ew by default. However, you ca
+n detach, or undock, the Satel
+lite View, which will put the
+view into a Component Provider
+, which itself can be moved, r
+esized and docked anywhere in 
+the Tool you wish.
+To undock the Satellite View, 
+right-click in the graph and d
+eselect the Dock Satellite Vie
+w menu item.
+To re-dock the Satellite View,
+ right-click in the graph and 
+select the Dock Satellite View
+ menu item.
+
+To reshow the Satellite View i
+f it is hidden, whether docked
+ or undocked, you can press th
+e
+corner of the graph and is onl
+y visible if the Satellite Vie
+w is hidden or undocked.
+
+button. This button is in the 
+lower-right hand
+
+Vertices (Blocks)
+Each vertex in the displayed g
+raph represents a code block w
+ithin the graphed function. Th
+e term block is used synonymou
+sly with the term vertex. The 
+block display
+consists of a header and a cod
+e listing. The fields containe
+d in the listing are a subset 
+of the available fields. You m
+ay change the fields displayed
+ from the Edit Code
+Block Fields action.
+The header contains the name o
+f the block, as defined by the
+ label at that location, or th
+at address if no label exists.
+ The header also contains butt
+ons that allow you to
+perform some common operations
+ on the block.
+As long as you are within the 
+interaction threshold, you may
+ interact with the block's lis
+ting just as you would with Gh
+idra's primary Listing.
+The following actions are avai
+lable from the primary view.
+
+The following actions are ava
+ilable from the primary view.
+
+Function Graph Plugin 3/10
+Selecting Blocks
+Left-clicking a block will sel
+ect that block. To select mult
+iple blocks, hold down the Ctr
+l key (or the equivalent for y
+our OS) while
+clicking. To deselect a block,
+ hold the Ctrl key while click
+ing the block. To clear all se
+lected blocks, click in an emp
+ty area of the primary
+view. When selected, a block i
+s adorned with a halo.
+You may also select multiple b
+locks in one action by holding
+ the Ctrl key while performing
+ a drag operation. Press the C
+trl key and start
+the drag in an empty area of t
+he primary view (not over a co
+de block). This will create a 
+bounding rectangle on the scre
+en that will select any
+blocks contained therein when 
+the action is finished.
+Navigating Blocks
+If you double-click a block he
+ader, then the Zoom Level of t
+he Primary View will change. I
+f the block is not at full zoo
+m (1:1), then the
+zoom level will be changed to 
+full zoom. Otherwise, the zoom
+ level will be changed to full
+y zoomed out. If you are zoome
+d past the
+interaction threshold, then yo
+u can double-click anywhere in
+ the block to trigger a full z
+oom.
+Assuming you are not zoomed pa
+st the interaction threshold, 
+then double-clicking a field i
+nside the block's listing will
+ perform a navigation
+as determined by that listing.
+ If you are zoomed past the in
+teraction threshold, then doub
+le-clicking anywhere in the bl
+ock will trigger
+navigation in the same way as 
+double-clicking the block head
+er.
+Block Information
+You can hover over a block to 
+get descriptive information. D
+epending upon the Zoom Level o
+f the primary view, you will g
+et different
+hovers. When zoomed past the i
+nteraction threshold, the hove
+r action will trigger a popup 
+window showing a preview of th
+e block. At full
+zoom, you will only receive po
+pup windows as determined by t
+he listing inside of the block
+. You may disable popups as de
+sired.
+
+Vertex Actions
+
+The
+button allows you to set the b
+ackground color for the vertex
+. You may press the button to 
+choose the color currently dis
+played in the icon, or
+you may use the drop-down menu
+ to pick a previously used col
+or. Additionally, from the dro
+p-down menu you can clear the 
+color or choose a new color
+to set.
+
+By default, colors applied to 
+a vertex are also applied to t
+he primary disassembly Listing
+.
+
+The
+
+button will group all selected
+ vertices.
+
+Popup Menu Vertex Actions
+
+The
+
+button allows you to set the l
+abel for the code block (this 
+will also change the block hea
+der).
+
+The
+toggle button allows you to qu
+ickly view the contents of the
+ block in a full window view, 
+which uses the same format
+as Ghidra's primary Listing. T
+o restore the graph view from 
+the full window view, click th
+is action again, which will th
+en have
+this icon:
+The
+
+.
+button will show a table of xr
+efs to the entry point of the 
+currently graphed function.
+
+This action will also appear i
+n the vertex containing the fu
+nction entry point, for conven
+ience.
+
+Grouped Vertex Actions
+
+Function Graph Plugin 4/10
+
+This section describes vertex 
+grouping, which is covered lat
+er in this document.
+The
+button allows you to set the b
+ackground color for the vertex
+. You may press the button to 
+choose the color currently dis
+played in the icon, or
+you may use the drop-down menu
+ to pick a previously used col
+or. Additionally, from the dro
+p-down menu you can clear the 
+color or choose a new color
+to set.
+Group Vertex Coloring Algorith
+m
+This group color feature allow
+s you to easily color large nu
+mbers of vertices after you ha
+ve grouped them and to keep al
+ready set
+user-defined colors as you are
+ grouping vertices.
+The Function Graph will automa
+tically color your group verte
+x, depending on the color stat
+e of the vertices being groupe
+d:
+If none, or some but not all, 
+of the vertices being grouped 
+have a user-defined color, the
+n the group vertex will be mad
+e the default
+color (which you can change fr
+om the options).
+If all of the vertices being g
+rouped have a user-defined col
+or, but that color is not the 
+same, then the group vertex wi
+ll be made the
+default color.
+If all of the vertices being g
+rouped have the same user-defi
+ned color, then the new group 
+vertex will be made the color 
+of the
+vertices.
+When a group vertex has a user
+-defined color, then all verti
+ces grouped therein will take 
+on that color.
+
+Via the options you can disabl
+e this feature.
+
+The
+button allows you to set the t
+ext displayed in the group ver
+tex. Unlike the action when us
+ed in a non-grouped vertex, th
+is action will not edit the
+label at the start address of 
+the vertex.
+The
+
+button will ungroup the given 
+vertex.
+
+The
+
+button will group all selected
+ vertices.
+
+The
+
+button will add to the given g
+roup vertex all other selected
+ vertices.
+The difference between group a
+nd add to group is somewhat su
+btle. The group action creates
+ a new group vertex with each 
+selected vertex
+as a child, contained inside o
+f the new grouped vertex. Alte
+rnatively, the add to group ac
+tion adds to the existing grou
+p node chosen all other
+selected vertices.
+
+The regroup
+button is included in the head
+er of any uncollapsed vertex, 
+which is a vertex that is the 
+member of a group, where that 
+group has been
+ungrouped. This action will re
+group (or collapse) all vertic
+es in the same group as the ve
+rtex containing the action. To
+ regroup is to convert all mem
+bers
+of a given group back into a s
+ingle grouped vertex.
+
+To remove an uncollapsed verte
+x from group membership, right
+-click on that vertex and sele
+ct Ungroup Selected Vertices.
+
+Edges
+The Edges of the vertices repr
+esent a flow from one code blo
+ck to another. One end of each
+ edge has an arrowhead that re
+presents the direction of the 
+flow.
+Furthermore, the color of the 
+edge provides a visual indicat
+ion as to the type of the flow
+. The default flow colors are:
+Fallthrough - the negative cas
+e of a conditional check
+Conditional - the positive cas
+e of a conditional check
+Unconditional - An uncondition
+al flow
+The following actions are avai
+lable from the primary view.
+Selecting Edges
+You may select an edge by left
+-clicking it. To select multip
+le edges, hold down the Ctrl (
+or the equivalent for your OS)
+ while clicking. To deselect a
+n
+edge, hold the Ctrl key while 
+clicking the edge. To clear al
+l selected edges, click in an 
+empty area of the primary view
+.
+
+Navigating Edges
+
+Function Graph Plugin 5/10
+Double-clicking an edge will n
+avigate to the one of the inci
+dent blocks. The navigation wi
+ll first take you to the desti
+nation block if it is not alre
+ady
+selected. Otherwise, the navig
+ation will take you to the sou
+rce block.
+Edge Information
+You can hover over an edge to 
+get descriptive information. W
+hen you hover over an edge you
+ will be presented with a popu
+p window showing a preview
+for the source and destination
+ blocks for the hovered edge. 
+You may disable popups as desi
+red.
+Articulated Edges
+Some graph layouts create arti
+culated edges, which are edges
+ that contain bends in them to
+ route around vertices. As you
+ drag vertices around the grap
+h
+the bends in the articulations
+ in the dragged edge may disap
+pear if the articulation cause
+s the edge to contain awkward 
+angles.
+
+Vertex Grouping
+
+Selected Vertices - Before Gro
+uping
+
+Grouped Vertices
+
+You may select 2 or more verti
+ces to be turned into a single
+ grouped vertex. This allows y
+ou to organize vertices to red
+uce the amount of information 
+displayed in the
+
+You may select 2 or more vert
+ices to be turned into a singl
+e grouped vertex. This allows 
+you to organize vertices to re
+duce the amount of information
+ displayed in the
+graph. As an example, you may 
+wish to place all branches of 
+a switch statement into a sing
+le grouped vertex.
+Function Graph Plugin 6/10
+
+You can select a single vertex
+ to group. This allows you to 
+annotate a given vertex with t
+ext, without editing the label
+ at the vertex address, which 
+is
+the default behavior of the ed
+it label action. In addition t
+o setting the text for the gro
+uped vertex, it will remove th
+e disassembly. In this regard,
+ grouping a
+single vertex is a form of inf
+ormation hiding.
+Before a group vertex is creat
+ed you are prompted to enter t
+ext that will be displayed in 
+the body of the group vertex. 
+By default, the titles of each
+ grouped vertex will
+be listed as the text of the g
+rouped vertex.
+
+Grouped Vertex Text Input Dial
+og
+
+The default contents of the gr
+oup vertex text entry dialog a
+re generated from the titles o
+f each vertex being grouped. W
+hen grouping a vertex which is
+ itself
+a group, the text of that grou
+p vertex will be used in the t
+ext entry dialog in addition t
+o its title.
+
+Grouped vertices may contain o
+ther grouped vertices.
+As you group vertices, the gra
+ph may perform a relayout of t
+he vertices, depending upon th
+e Function Graph Options, as d
+escribed below.
+The Ungrouping Process
+Ungrouping a grouped vertex wi
+ll restore to the graph all ve
+rtices contained in the groupe
+d vertex. The layout behavior 
+of the graph after performing 
+an
+ungroup operation is dependent
+ upon the graph options; speci
+fically, the Automatic Graph R
+elayout option. The default se
+tting for automatic relayout i
+s
+Vertex Grouping Changes Only. 
+This means that as you group a
+nd ungroup vertices, the graph
+ will relayout its vertices, w
+hich may be a drastic layout
+change. To prevent the graph f
+rom performing a relayout duri
+ng grouping or ungrouping, set
+ the option listed above to be
+ Block Mode Changes Only or
+Never.
+
+You can access the Function Gr
+aph Options by right-clicking 
+in an empty area of the graph 
+and clicking the Properties me
+nu item.
+You can ungroup all group vert
+ices in the graph via the righ
+t-click popup menu by selectin
+g Ungroup All Vertices. Warnin
+g: this will ungroup all group
+s,
+which is an operation that can
+not be undone.
+
+Ungrouped vertices can be regr
+ouped by executing the regroup
+ action. This action is execut
+ed from an individual vertex, 
+but will apply
+to all vertices in its group.
+
+Graph Actions
+The following actions are butt
+ons in the Function Graph Plug
+in header.
+
+The
+button will perform a copy act
+ion in one or more vertex list
+ings. See the Clipboard help f
+or more information on using c
+opy in the Listing and
+Listing-based views.
+The
+button will perform a paste ac
+tion in one or more vertex lis
+tings. See the Clipboard help 
+for more information on using 
+paste in the Listing and
+Listing-based views.
+The
+
+button will navigate to and se
+lect the entry point block.
+
+The
+
+button will navigate to and se
+lect the entry point block.
+
+The
+
+button clear all position and 
+grouping changes made to the g
+raph and then perform a reload
+ and relayout of the graph.
+
+Function Graph Plugin 7/10
+
+The
+button allows you to both chan
+ge the layout used to arrange 
+the graph and to perform a rel
+ayout of the graph using the c
+urrent layout. Simply
+pressing the button will trigg
+er a relayout, whereas clickin
+g on the drop-down arrow will 
+allow you to choose a new layo
+ut.
+
+This action allows you to perf
+orm a graph relayout without l
+osing grouping information
+
+The
+
+button allows you to change th
+e fields of the blocks' listin
+g.
+By default, the format configu
+ration of the vertices is grea
+tly condensed. This is done to
+ fit as many vertices on the s
+creen as is possible. You
+can make the vertices larger o
+r smaller as you see fit. Form
+ more information about adding
+ and removing fields, as well 
+as adjusting the size
+of the fields in the vertex li
+sting display, see the Listing
+ Panel's format help.
+
+The
+
+button will create a Snapshot 
+of the current graph.
+
+Path Highlight Actions
+The focus and hover path highl
+ighting modes are designed to 
+help show the flow of executio
+n through the code blocks in a
+ function, as well
+as illustrate some of the stru
+cture. Hover highlights are tr
+iggered when you move the mous
+e over a block. Focus highligh
+ts are triggered by
+selecting a block and only wor
+k from one selected block, not
+ with multiple selected blocks
+.
+The focus highlight paints the
+ edges between certain code bl
+ocks with a bold stroke, thick
+er than the regular edges. The
+ hover highlight
+paints a dashed, thicker strok
+e that also moves in the direc
+tion of flow for a limited per
+iod of time.
+The path highlighting modes (d
+escribed in the table below) a
+re available for both focus an
+d hover, except in special cas
+es, as noted.
+Icon
+
+Name
+
+Description
+
+Show Scoped Flow From Block
+
+Highlights control flow to cod
+e blocks that are only reachab
+le if
+the current code block is exec
+uted. This is useful to see a 
+local
+neighborhood of blocks that fo
+llow the current block.
+
+Show Scoped Flow To Block
+
+Highlights control flow from c
+ode blocks that must eventuall
+y
+reach the current code block. 
+This is useful to see a local
+neighborhood of blocks that pr
+ecede the current block.
+
+Show Paths To/From Block
+
+Highlights control flow from c
+odes blocks that can reach the
+current code block, as well as
+ control flow to code blocks t
+hat
+can be reached from the curren
+t block. This is useful to sho
+w
+all possible flows before and 
+after the current block.
+
+Show Paths From Block
+
+Highlights control flow to cod
+e blocks that can be reached f
+rom
+the current code block. This i
+s useful to show all possible 
+flows
+after the current block.
+
+Show Paths To Block
+
+Highlights control flow from c
+odes blocks that can reach the
+current code block. This is us
+eful to show all possible flow
+s
+before the current block.
+
+Show Loops Containing Block
+
+Highlights the control flow be
+tween all possible looped bloc
+ks
+(cycles) that pass through the
+ current block. If a function 
+has
+multiple non-intersecting loop
+s, this helps resolve the loop
+s
+from each other in the case th
+at the graph layout has placed
+them too close to differentiat
+e.
+
+Show Paths From Focus to Hover
+(hover mode only)
+
+Highlights the control flow fr
+om the currently focused code
+block to the currently hovered
+ code block. If there are no p
+aths
+possible, no edges will be hig
+hlighted. This is useful to se
+e
+reachability between two secti
+ons of the function.
+
+Show All Loops In Function
+(focus mode only)
+
+Highlights the control flow be
+tween all possible looped bloc
+ks
+(cycles) in the current functi
+on. This mode doesn't actually
+depend on a focused code block
+; instead, selecting it highli
+ghts
+all loops immediately.
+
+Function Graph Options
+The Automatic Graph Relayout o
+ption describes when the graph
+ will perform an automatic rel
+ayout of the vertices as the g
+raph changes. The available va
+lues are:
+Always - always perform a grap
+h relayout anytime the code bl
+ocks change or when graph grou
+ps change
+
+Always - always perform a gra
+ph relayout anytime the code b
+locks change or when graph gro
+ups change
+Block Mode Changes Only - only
+ performs a relayout when the 
+code blocks of the graph chang
+e (e.g., from an external edit
+)Function Graph
+Vertex Grouping Changes Only -
+ only performs a relayout when
+ the state of the graph groups
+ changes (during a group or un
+group operation)
+Never - never perform a relayo
+ut of the graph automatically
+
+Plugin 8/10
+
+The Scroll Wheel Pans option s
+ignals to move the graph verti
+cal when scrolling the mouse s
+croll wheel. Disabling this op
+tion restores the original fun
+ction graph
+scroll wheel behavior of zoomi
+ng when scrolled.
+The Start Fully Zoomed Out opt
+ion causes the initial graph t
+o zoom out far enough that the
+ entire graph is displayed. Wh
+en this option is off a new gr
+aph rendering
+will zoom all the way in (no s
+caling) to the active vertex.
+The Update Vertex Colors When 
+Grouping option signals to the
+ graph to make the color of th
+e grouped vertex be that of th
+e vertices being grouped.
+The Use Animation option signa
+ls to the graph whether to ani
+mate mutative graph operations
+ and navigations.
+The Use Condensed Layout optio
+n signals to the graph to brin
+g vertices as close together a
+s possible when laying out the
+ graph. Using this option to f
+it as many
+vertices on the screen as poss
+ible. Disable this option to m
+ake the overall layout of the 
+graph more aesthetic.
+The Use Mouse-relative Zoom op
+tion signals zoom the graph to
+ and from the mouse location w
+hen zooming from the middle-mo
+use. The default for this opti
+on is
+off, which triggers zoom to wo
+rk from the center of the grap
+h, regardless of the mouse loc
+ation.
+There are various edge color a
+nd highlight color options ava
+ilable to change. The highligh
+t colors are those to be used 
+when the flow animations take 
+place.
+
+Creating Program Selections
+
+From Paths
+You may create Program Selecti
+ons from the current path high
+lights by clicking Program Sel
+ection
+Edges from the popup menu of a
+ block. If not paths are highl
+ighted, then these actions wil
+l be disabled.
+
+From Hovered Edges and From Fo
+cused
+
+From Code Blocks
+You may select all Code Units 
+in a Code Block by clicking Pr
+ogram Selection
+Select All Code Units from the
+ popup menu (or by using the d
+efault
+keybinding, Ctrl-A). This acti
+on will select all Code Units 
+in all selected Code Blocks in
+ the graph. If no Code Blocks 
+are selected, then a Program
+Selection will be created for 
+all Code Units in all Code Blo
+cks in the graph.
+Clearing Selections
+You may clear the current Prog
+ram Selection by clicking Prog
+ram Selection
+
+Clear Selection from the popup
+ menu.
+
+Popups
+The primary view provides vari
+ous popup windows to provide i
+nformation as you hover over t
+he blocks and edges in the gra
+ph. To enable and disable popu
+ps in the
+primary view, right-click anyw
+here in the primary view and s
+elect the Display Popup Window
+s toggle button from the popup
+ menu.
+
+Grouping
+The following popup menu items
+ provide additional grouping f
+unctionality.
+Group Selected Vertices - Grou
+ps all selected vertices
+Group Selected Vertices - Add 
+to Group - Adds the selected v
+ertices to group vertex in the
+ selection. This action will n
+ot be enabled if there is not 
+one, and
+only one, group vertex in the 
+selection.
+Remove From Group - Removes th
+e uncollapsed vertex from its 
+group.
+Ungroup All Vertices - Ungroup
+s all vertices in the graph, n
+ot just those selected or visi
+ble. This operation cannot be 
+undone!
+Ungroup Selected Vertices - Un
+groups the selected group vert
+ices
+
+Panning
+There are various ways to move
+ the graph. To move the graph 
+in any direction you can drag 
+from the whitespace of the gra
+ph.
+By default, to move the graph 
+vertically you can use the mou
+se wheel. In previous releases
+ the scroll wheel was used to 
+zoom. Now there is an option t
+o restore that
+behavior, the Scroll Wheel Pan
+s option. When this option is 
+on, you can zoom by holding th
+e Control key (Command key on 
+the Mac) while using the scrol
+l
+wheel. Alternatively, you can 
+move the graph left to right u
+sing the mouse while while hol
+ding Control-Alt.
+
+The satellite viewer may also
+ be used to move the primary g
+raphs view by dragging and cli
+cking inside of the satellite 
+viewer.
+
+Function Graph Plugin 9/10
+Zooming
+At full zoom, or block level z
+oom, each block is rendered at
+ its natural size, which is th
+e same scale as Ghidra's prima
+ry Listing. From that point, w
+hich is a 1:1
+zoom level, you can zoom out i
+n order to fit more of the gra
+ph into the display.
+To change the zoom you may use
+ the mouse scroll wheel while 
+holding the Control key (Comma
+nd key on the Mac). This works
+ whether the mouse is
+over the primary viewer or the
+ satellite viewer. Also, you m
+ay use the context popup menu 
+from the primary viewer in ord
+er to quickly zoom to the bloc
+k
+level (1:1) or to the window l
+evel (zoomed out far enough to
+ fit the entire graph in the w
+indow). These actions are Zoom
+ to Vertex and Zoom to
+Window, respectively.
+To have the scroll wheel zoom 
+without holding the Control ke
+y, you can disable the Scroll 
+Wheel Pans option.
+
+To zoom the graph incrementall
+y using the keyboard you can u
+se the Zoom In and Zoom Out ac
+tions. These actions have defa
+ult keybindings of
+Control-Minusand Control-Equal
+s.
+The satellite viewer is always
+ zoomed out far enough to fit 
+the entire graph into its wind
+ow.
+Vertex Quick Zoom
+If you double-click a block he
+ader, then the Zoom Level of t
+he Primary View will change. I
+f the block is not at full zoo
+m (1:1), then the zoom level w
+ill be changed to full
+zoom. Otherwise, the zoom leve
+l will be changed to fully zoo
+med out. If you are zoomed pas
+t the interaction threshold, t
+hen you can double-click anywh
+ere in the block to
+trigger a full zoom.
+Interaction Threshold
+While zooming out (away from t
+he blocks) you will eventually
+ reach a point where you can n
+o longer interact with the lis
+ting inside of the block. The 
+blocks provide
+a subtle visual indication whe
+n they are zoomed past this le
+vel, in the form of a drop-sha
+dow. The image below shows thi
+s drop-shadow. The block on th
+e left is not
+past the interaction threshold
+, but the block on the right i
+s, and thus has a drop-shadow.
+ This example is for illustrat
+ive purposes only and during n
+ormal usage all
+blocks will share the save zoo
+m level. So, if one block is z
+oomed past the interaction thr
+eshold, all other blocks will 
+be as well.
+
+Interaction with blocks that a
+re past the interaction thresh
+old is simplified; for example
+, when scaled past the interac
+tion threshold, dragging in th
+e listing area of a
+block will drag the block, ins
+tead of making a selection in 
+the listing, as would happen w
+hen not scaled past the intera
+ction threshold.
+
+Painting Threshold
+While zooming out (away from t
+he blocks) you will eventually
+ reach a point where contents 
+each block will not be painted
+. Instead, each block will be 
+painted by a
+rectangle that is painted with
+ the current background color 
+of the block.
+
+Zooming past the painting thre
+shold will improve the renderi
+ng speed of the Primary View.
+
+Saving View Information
+The Function Graph Plugin will
+ automatically save your chang
+es to the graph, specifically,
+ coloring nodes, grouping node
+s, zooming and panning. This h
+appens as
+your change the function displ
+ayed in the graph and when you
+ close the graph window.
+
+Changes made to Snapshots wil
+l not be saved. This is done t
+o avoid conflict between chang
+es made to the connected view
+and any ofGraph
+the snapshots
+Function
+Plugin
+
+Provided by: Function Graph Pl
+ugin
+Related Topics:
+Code Browser
+Snapshots
+
+10/10
+
+

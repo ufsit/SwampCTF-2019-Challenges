@@ -1,0 +1,148 @@
+Assembler
+
+Assembler 1/3
+
+The Patch Instruction action w
+ill allow you to edit the curr
+ent assembly instruction in th
+e listing. The first time you 
+use the action, it
+may take a moment to prepare t
+he assembler for your processo
+r. You can then edit the text 
+of the instruction, optionally
+ replacing it
+altogether. As you edit, a con
+tent assists will provide comp
+letion suggestions. It will pr
+esent a list of byte sequences
+ when the text
+comprises a complete instructi
+on. Activating a completion su
+ggestion will input that text 
+at your cursor. Activating a b
+yte sequence will
+complete the action, replacing
+ the instruction at your curso
+r. Pressing ESC or clicking ou
+tside of the assembly editor w
+ill cancel the
+action.
+
+Assembly Editor
+To edit assembly, select Patch
+ Instruction from the Listing 
+View context menu or press CTR
+L-SHIFT-G on the instruction t
+o
+modify. Click the plus button 
+below the content assist to ex
+haust the undefined bits.
+Ghidra's assembler is based on
+ the same SLEIGH modeling that
+ powers the disassembler. This
+ offers some nice benefits:
+There is no need for an extern
+al tool chain.
+The assembler and disassembler
+ share the same mnemonic synta
+x.
+Most Ghidra-supported processo
+rs are also supported by the a
+ssembler.
+Processors added to Ghidra aut
+omatically get an assembler.
+
+Most Ghidra-supported process
+ors are also supported by the 
+assembler.
+Processors added to Ghidra aut
+omatically get an assembler.
+
+Assembler 2/3
+
+Keep in mind, the above list i
+s in an ideal world. We are in
+ the process of improving the 
+assembly engine and processor 
+modules to
+eventually support assembly fo
+r all of Ghidra's processors. 
+In the meantime, we test sever
+al popular processors and assi
+gn a performance
+rating to each. The possible r
+atings are:
+1. Platinum: Our automated tes
+ts did not find any errors. Th
+is offers the best possible us
+er experience.
+2. Gold: You will rarely encou
+nter an error. You will find i
+t very useful.
+3. Silver: You may occasionall
+y encounter an error, but the 
+assembler is still usable. You
+ will likely find it useful wi
+th occasional
+frustration.
+4. Bronze: You are likely to e
+ncounter errors, but there are
+ enough working instructions t
+hat the assembler is useful. Y
+ou may find it
+useful, but it will probably b
+e frustrating.
+5. Poor: You are likely to enc
+ounter severe errors, and ther
+e are few instructions that as
+semble. You may or may not fin
+d it useful, but we
+consider it unusable.
+6. Unrated: The processor is n
+ot tested, or the test failed 
+before a rating could be assig
+ned. You might get lucky, but 
+don't count on it.
+
+As of this release, our tested
+ processors fall under Platinu
+m, Gold, or Poor.
+Platinum
+68000:BE:32:default
+AARCH64:BE:64:v8A
+AARCH64:LE:64:v8A
+ARM:BE:32:v7
+ARM:LE:32:v7
+avr8:LE:16:extended
+MIPS:BE:32:default
+MIPS:BE:32:micro
+MIPS:BE:32:R6
+MIPS:BE:64:64-32addr
+MIPS:BE:64:R6
+MIPS:BE:64:default
+pa-risc:BE:32:default
+PowerPC:BE:32:default
+PowerPC:BE:64:A2-32addr
+PowerPC:BE:64:A2ALT-32addr
+PowerPC:BE:64:default
+sparc:BE:32:default
+sparc:BE:64:default
+SuperH4:BE:32:default
+SuperH4:LE:32:default
+TI_MSP430X:LE:32:default
+x86:LE:32:default
+Gold
+x86:LE:64:default
+Bronze
+avr32:BE:32:default
+Poor
+dsPIC30F:LE:24:default
+
+Provided by: Assembler plugin
+Related Topics:
+Listing View
+
+Assembler 3/3
+
+

@@ -1,0 +1,409 @@
+Function Bit Patterns Explorer
+ Plugin Function Bit Patterns 
+Explorer Plugin 1/3
+The Function Bit Patterns Expl
+orer Plugin is used to discove
+r patterns in the bytes around
+ function starts and returns. 
+When analyzing a single progra
+m, such patterns can be used t
+o discover new functions based
+ on the functions that have al
+ready been found.
+The explorer can also be used 
+to analyze a collection of XML
+ files containing the function
+ start/return information for 
+a collection of binaries. Such
+ patterns can be used to guide
+ the Function Start Analyzer d
+uring auto-analysis.
+To bring up the explorer, sele
+ct Window -> Function Bit Patt
+erns Explorer from the Code Br
+owser.
+
+Data Sources
+
+Current Program
+Use the "Gather Data from Curr
+ent Program" button to gather 
+data to analyze from the curre
+nt program. You can also selec
+t Tools -> Explore Function Bi
+t Patterns in the Code Browser
+.
+Directory of XML Files
+Use the "Read XML Files" butto
+n to select a directory of XML
+ files containing data from wi
+ndows around function start/re
+turns (one XML file per progra
+m). To generate these XML file
+s, run the script DumpFunction
+PatternInfoScript.java
+
+Data Gathering Parameters
+
+Several parameters control how
+ much data is gathered around 
+each function. When analyzing 
+a single program, a dialog wil
+l pop up which allows you to e
+nter values for these paramete
+rs. When running the script Du
+mpFunctionPatternInfoScript.ja
+va you can set these parameter
+s
+by editing the file DumpFuncti
+onPatternInfoScript.properties
+. The parameters are:
+Number of First Bytes
+The number of bytes to gather 
+starting at the entry point of
+ the function.
+Number of Pre-Bytes
+The number of bytes to gather 
+immediately before (but not in
+cluding) the entry point of a 
+function.
+Number of Return Bytes
+The number of bytes to gather 
+immediately before (and includ
+ing) a return statement in a f
+unction.
+Number of First Instructions
+The number of instructions to 
+gather starting at the entry p
+oint of a function.
+Number of Pre-Instructions
+The number of instruction to g
+ather immediately before (and 
+not including) a function star
+t.
+Number of Return Instructions
+The number of instructions to 
+gather immediately before (and
+ including) a function start.
+Context Registers
+The context registers whose va
+lues you wish to record. Enter
+ a comma-separated list of reg
+isters into this field. For ex
+ample: TMode,LMode
+
+Recommended Parameters:
+Reasonable starting values for
+ the parameters controlling th
+e number of instructions to be
+ gathered are 3, 4, and 5. Whe
+n setting the number of bytes 
+to gather, it's reasonable to 
+choose a value that can hold m
+ost of the corresponding instr
+uction sequences. For example,
+suppose you're examining x64 p
+rograms and set the number of 
+first instructions to gather t
+o 4. A reasonable number of fi
+rst bytes to gather is 20, whi
+ch should be enough to hold mo
+st 4-instruction sequences (ev
+en though the maximum length o
+f an instruction on x64 is
+15 bytes).
+
+Data Views
+The main interface of this plu
+gin is a panel with multiple t
+abs. All tabs, except for the 
+Pattern Clipboard tab, are aut
+o-populated, either after read
+ing a directory of XML files o
+r clicking "OK" on the Data Ga
+thering Parameters dialog.
+
+Function Bit Patterns Explore
+r Plugin 2/3
+
+Each tab displays a different 
+view of the gathered data:
+Byte Sequence Tabs
+Instruction Sequence Tabs
+Function Start Alignment Tab
+Context Register Information T
+ab
+Pattern Clipboard
+
+Byte Sequence Tabs
+There are three byte sequence 
+tabs: one for first bytes, one
+ for pre-bytes, and one for re
+turn bytes. Two types of filte
+rs can be applied to byte sequ
+ences: length filters and cont
+ext register filters. Length f
+ilters are required, but conte
+xt register filters are
+optional.
+Length Filters
+A length filter requires two p
+ieces of data: a minimum seque
+nce length and a prefix/suffix
+ length. The filter filters ou
+t all sequences which do not m
+eet the minimum length constra
+int. For each sequence that do
+es meet the constraint,
+it takes either a prefix or a 
+suffix of a appropriate length
+ (suffixes are specified as a 
+negative number in the input d
+ialog for the filter data).
+
+Context Register Filters
+These allow you to filter sequ
+ences by specifying values for
+ some or all of the tracked co
+ntext registers.
+Note: Filters for byte sequenc
+es are not shared between tabs
+.
+After applying such a filter, 
+there will be a table containi
+ng bytes sequences, all of whi
+ch have the same size. Select 
+some rows in the table, right 
+click, and select Analyze Sequ
+ences to look for patterns.
+
+Instruction Sequence Tabs
+Similar to byte sequences, the
+re are three instructions sequ
+ence tabs, containing first in
+structions, pre instructions, 
+and return instructions, respe
+ctive. These sequences are sor
+ted into a tree. Note that the
+ length of an instruction is t
+aken into account. For
+example, sequences which begin
+ with a one-byte PUSH instruct
+ion will go through a differen
+t path in the tree than sequen
+ces with begin with a two-byte
+ PUSH instruction. There are t
+wo optional filters which you 
+can apply to instruction seque
+nces:
+Percentage Filters
+Filtering by X% will remove a 
+node from the tree if the perc
+entage of paths going through 
+the node is less than X%.
+Context Register Filters
+These allow you to filter sequ
+ences by specifying values for
+ some or all of the tracked co
+ntext registers.
+Note: Filters for instruction 
+sequences are not shared betwe
+en tabs.
+If you hover over a node, you 
+can see the percentage of all 
+paths in the tree which go thr
+ough that node. To search for 
+patterns in the byte sequences
+ corresponding to a given node
+, right click on the node and 
+select Analyze Sequences.
+Function Start Alignment Tab
+This tab displays with n rows,
+ where n is the specified alig
+nment modulus. The number in r
+ow i is the number of function
+s whose addresses modulo the a
+lignment modulus is equal to i
+. This allows you to determine
+ whether function starts are a
+ligned within
+the program (for example, on x
+64, compilers will frequently 
+16-byte align function starts 
+at higher optimization levels)
+. If you know that functions a
+re aligned along a certain bou
+ndary, you don't have to searc
+h for function starts in the n
+on-aligned bytes.
+Context Register Information T
+ab
+This tab displays all values r
+ecorded for the context regist
+ers you specified.
+Pattern Clipboard
+You can send patterns you find
+ to the pattern clipboard for 
+evaluation. In the clipboard, 
+there are two types of pattern
+s: PRE and POST. PRE patterns 
+correspond to patterns that oc
+cur before the start of a func
+tion. Patterns from pre-byte a
+nd
+pre-instructions sequences are
+ considered PRE patterns, as a
+re patterns from return byte a
+nd return instruction sequence
+s (the idea being that the ret
+urn is followed by the start o
+f another function). Patterns 
+from first byte and first inst
+ruction sequences are
+considered POST patterns.
+You can edit the "Alignment" c
+olumn in the pattern clipboard
+. The context register column 
+is populated from context regi
+ster filters applied while exp
+loring the data.
+
+Evaluating Patterns
+You can evaluate a selection o
+f patterns in the clipboard by
+ selecting them, right-clickin
+g, and performing the "Evaluat
+e Selected Patterns" action. T
+his will search for the patter
+ns in the current program (if 
+there are both PRE and POST
+patterns, they will be combine
+d). A table will pop up which 
+displays all of the matches, i
+nformation about each match, a
+nd aggregated information abou
+t all of the matches.
+Clipboard Buttons
+The Pattern Clipboard tab has 
+several buttons, which allow y
+ou to:
+Create Functions from the sele
+cted patterns.
+Export selected patterns to a 
+pattern file. Such files can b
+e used by the Function Start A
+nalyzer during Auto Analysis. 
+A dialog will appear asking fo
+r two values: Total Bits and P
+ost Bits. When the Function St
+art Analyzer reads in a
+pattern file, it makes a set p
+atterns. This set consists of 
+each PRE pattern concatenated 
+with each POST pattern for whi
+ch the concatenation has at le
+ast Total Bits fixed bits, at 
+least Post Bits of which much 
+be after the PRE bits.
+Import patterns from a pattern
+ file. Note: You should only d
+o this with files generated by
+ this plugin. Arbitrary XML fi
+les from the Processors direct
+ory may contain attributes not
+ supported by this plugin.
+
+Analyzing Byte Sequences
+
+Function Bit Patterns Explorer
+ Plugin 3/3
+
+Byte sequences to analyze are 
+displayed in a table along wit
+h information about each seque
+nce, such as the number of occ
+urrences the sequence or (poss
+ibly) the disassembly of the s
+equence. You can make a select
+ion of rows in this table, rig
+ht-click, and perform the foll
+owing
+actions:
+Send Selected to Clipboard
+This will send the selected se
+quences to the Pattern Clipboa
+rd.
+Merge Selected Rows
+This will merge the selected s
+equences into one sequence. Fo
+r a given bit position in the 
+merged sequence, if all select
+ed sequences agree on that pos
+ition the the merge will conta
+in that value, otherwise it wi
+ll contain a dit in that posit
+ion.
+Send Merged to Clipboard
+If you've merged a select of s
+equences, there will be an act
+ion to send the merged sequenc
+e to the pattern clipboard.
+Mine Sequential Patterns
+If the sequences you're analyz
+ing came from a byte sequence 
+tab, there will be an action t
+o Mine Sequential Patterns.
+
+Mining Closed Sequential Patte
+rns
+A Closed Sequential Pattern is
+ a pattern such that no proper
+ super-pattern occurs more fre
+quently in the sequences that 
+you're analyzing. For example,
+ suppose the sequence "111" oc
+curs ten times. Then the seque
+nces "11.", "1.1", and ".11" a
+lso occur (at least) ten times
+. We'd
+like to avoid a combinatorial 
+explosion of patterns; restric
+ting to closed patterns ensure
+s that any sub-patterns which 
+are listed are strictly more c
+ommon than the main pattern.
+Before actually running the mi
+ning algorithm, a dialog will 
+appear which asks you to set s
+ome parameters:
+Minimum Support Percentage
+The algorithm will only return
+ patterns which occur in at le
+ast this percentage of the dat
+a being analyzed.
+Minimum Number of Fixed Bits
+Any pattern returned by the al
+gorithm will contain at least 
+this many non-ditted bits.
+Binary Sequences vs. Character
+ Sequences
+This allows you to treat seque
+nces as either sequences of ch
+aracters (nibble) or sequences
+ of bits. If bit sequences tak
+e too long to mine, you can tr
+y the character sequences opti
+on, which will find fewer patt
+erns but will run much faster.
+
+Note: The longer the algorithm
+ runs, the faster the progress
+ bar will advance, so don't be
+ too dismayed if it initially 
+seems to be taking a lot of ti
+me.
+
+Provided by: Function Bit Patt
+erns Explorer Plugin
+
+

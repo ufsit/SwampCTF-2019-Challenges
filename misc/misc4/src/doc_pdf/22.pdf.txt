@@ -1,0 +1,345 @@
+Exporting Files 1/8
+
+Exporting Files
+Ghidra provides an Exporter th
+at allows a user to output pro
+gram information into a file i
+n
+various formats.
+Some of the formats the Export
+er supports are:
+ASCII
+Binary
+C/C++
+Ghidra Zip File (.gzf)
+HTML
+Intel Hex
+XML Export Format
+
+Export Action
+The export action can be invok
+ed from the front-end project 
+window or the CodeBrowser
+tool.
+To export from the front-end p
+roject window:
+
+Steps:
+Right-click on the file to exp
+ort in the tree.
+From the popup menu that appea
+rs, select the Export... menu 
+item.
+Use the Exporter Dialog that a
+ppears to configure the export
+.
+Press the OK button to perform
+ the export.
+
+To export from the CodeBrowser
+ tool:
+
+Steps:
+Make sure the program to expor
+t is the currently open progra
+m in the
+CodeBrowser tool.
+Invoke the action from the Fil
+e Export File... menu item.
+
+CodeBrowser tool.
+Invoke the action from the Fil
+e Export File... menu item.
+Use the Exporter Dialog that a
+ppears to configure the export
+.
+Press the OK button to perform
+ the export.
+
+Export Dialog
+The Export Dialog is used to c
+onfigure the export of the cho
+sen program.
+
+Dialog Fields
+Format - This field is a drop-
+down list containing all the
+valid export file formats that
+ could be used to to export th
+e
+program. By default, the last 
+used format will be
+auto-selected.
+Output File - This field speci
+fies the the output file for
+the export. By default, the ou
+tput file's name will be the
+name of the program and the ou
+tput folder will be the
+user's home folder or the last
+ folder used for an export if
+an export has been performed i
+n the current session. Use
+the "..." button to bring up a
+ file chooser to change the
+output file.
+Selection Only - If this check
+box is selected, then only the
+areas of the program that are 
+in the current selection will
+be exported. Obviously, this o
+nly applies when exporting
+from an open program with a se
+lection in the CodeBrowser
+tool and not when exporting fr
+om the front-end project
+window. Also, not all export f
+ormats support partial
+exports. The GZF format, for e
+xample, always exports the
+entire program since it is rea
+lly just making an exported
+copy of the entire program dat
+abase.
+
+Exporting Files 2/8
+
+entire program since it is re
+ally just making an exported
+copy of the entire program dat
+abase.
+Options... - This button will 
+pop up format specific
+options for the import.
+
+Exporters
+
+Ascii
+Creates a plain text represent
+ation of the program's listing
+,
+similar to what is displayed i
+n the Code Browser Field Forma
+t.
+Ascii Options
+
+Exporting Files 3/8
+
+Exporting Files 4/8
+
+Advanced
+
+Label
+Suffix
+
+the string to
+append on
+the end of
+labels
+
+the string to
+append on
+Comment
+the
+Prefix
+begining of
+
+Prefix
+
+the
+begining of
+comments
+
+Show
+The check-boxes in this panel 
+are used to
+determine what program element
+s should
+be included in the output file
+. A selected
+check-box denotes that the
+corresponding element will be 
+included
+in the file. The checkboxes fo
+r elements
+that are present in the progra
+m are
+selected by default.
+Comments
+
+Include Pre, Post, EOL,
+and Plate comments
+
+Properties
+
+Include properties; e.g.,
+Bookmarks, Spacers
+
+Include Structures and
+Structures Unions defined on c
+ode
+units
+Include all undefined
+code units (e.g, "??") or
+Undefined
+replace with "[BYTES
+Data
+REMOVED]"
+place-holder
+
+Ref
+Headers
+
+Include the cross
+reference header
+BACK[m,n] or
+FWD[m,n]:, where m is
+the number of cross
+references and n is the
+number of offcut cross
+reference; select the
+Back Refs and/or
+Forward Refs for the
+Back/FWD header to
+show up
+
+Include the list of cross
+Back Refs references for each 
+code
+unit
+Forward
+
+Include the list of
+references to the
+
+Exporting Files 5/8
+
+Forward
+Refs
+
+Include the list of
+references to the
+mnemonic for each code
+unit
+
+Functions
+
+Include signature and
+header for each function
+
+Width
+The text-fields in this panel 
+specify the
+width, in number of characters
+, to use
+when displaying program elemen
+ts in the
+output file.
+Setting a width to zero (0)
+effectively excludes it from t
+he output file.
+
+Binary
+Creates a binary file containi
+ng only the bytes from each me
+mory
+block in the program. If the p
+rogram was originally created 
+using
+the Binary Importer, then this
+ exporter allows recreation of
+ the
+original file.
+Only initialized memory blocks
+ are included in the output
+file.
+C/C++
+Create a C/C++ file containing
+ all datatypes from the progra
+m's
+data type manager and all of t
+he functions in the program.
+C/C++ Options
+
+Exporting Files 6/8
+
+Exporting Files 7/8
+
+Create Header File (.h) - Sele
+ct to create a .h file.
+Create C File (.c) - Select to
+ create a .c file.
+Use C++ Style Comments (//) - 
+Select to use // or /* style
+comments.
+
+Ghidra Zip File (.gzf)
+Creates a zip file from a prog
+ram in your project. You may w
+ant
+to create a zip file so that y
+ou can give it to another user
+ who can
+then import into their project
+.
+HTML
+Creates a hyper-text represent
+ation of the program's listing
+,
+similar to what is displayed i
+n the Code Browser Field Forma
+t.
+The HTML output is analogous t
+o the ASCII output, however
+HTML allows format and hyper-l
+ink information to be added to
+the file. The formatting allow
+s fields to be color-matched t
+o
+those in the Code Browser. The
+ hyper-linking allows navigati
+on
+similar to that supported in t
+he Code Browser.
+The HTML Options are identical
+ the ASCII Options.
+Intel Hex
+The Intel Hex format, a printa
+ble file representing memory
+images, was originally designe
+d to program EPROM devices.
+The Intel Hex exporter creates
+ files in this format which ca
+n be
+
+images, was originally design
+ed to program EPROM devices.
+The Intel Hex exporter creates
+ files in this format which ca
+n be
+used to program these EPROM de
+vices.
+Intel Hex Options
+
+Address Space - Specifies whic
+h address space to export
+as Intel Hex format only suppo
+rts one address space. This
+option will be intialized to t
+he "default" address space.
+
+XML
+The XML Exporter creates XML f
+iles that conform to Ghidra's
+Program DTD. You can re-import
+ files in this format using th
+e
+XML Importer.
+The XML Options are identical 
+the XML Importer Options.
+Related Topics:
+Importing Files
+
+Exporting Files 8/8
+
+

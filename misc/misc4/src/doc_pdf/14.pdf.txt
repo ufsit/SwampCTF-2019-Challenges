@@ -1,0 +1,46 @@
+Re-opening a Project 1/2
+
+Reopen Project
+Ghidra maintains a list of the
+ projects that you recently op
+ened. These are available in
+the Ghidra Project Window's me
+nu. Reopening a project will c
+lose any active project
+and open the project selected 
+from the Reopen menu. The proj
+ect that was most
+recently opened is placed firs
+t in the list.
+
+Re-opening a Project 2/2
+
+To reopen a project:
+Select File
+Reopen directory path/project_
+name where
+directory_path/project_name in
+dicates the project from the l
+ist that you wish to reopen.
+Ghidra will close any active p
+roject. It then opens project_
+name and restores all of the
+project's configurations.
+If the project that you are re
+-opening is shared, then an at
+tempt is made to
+connect to the Ghidra Server. 
+If the connection was not succ
+essful, you can still access
+your private files and checked
+ out files. Other files on the
+ server will be unavailable.
+Related Topics:
+Ghidra Projects
+Close Project
+Save Project
+Open Project
+Archive Current Project
+Project Repository
+
+

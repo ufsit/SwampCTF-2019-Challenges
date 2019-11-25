@@ -1,0 +1,1491 @@
+Data 1/15
+
+Data
+
+A newly imported program consi
+sts of bytes that have not yet
+ been identified. These bytes 
+are known as undefined data an
+d
+are displayed using "??". Disa
+ssembly, analysis, and other u
+ser actions convert these byte
+s into instructions or defined
+data. In general, the term "da
+ta" refers to defined data.
+
+Data Types
+Data is created by applying Da
+ta Types to bytes in memory. D
+ata Types interpret bytes as v
+alues and provide a visual
+interpretation of those bytes 
+based on the Data Type used, e
+.g., a four byte IEEE floating
+ point number or a two byte
+little endian word. Ghidra com
+es packaged with a set of "Bui
+lt-in" Data types (e.g., byte,
+ word, float, etc). Ghidra
+also provides the capability o
+f creating "User-defined" Data
+ types (structure, array, type
+def, etc) and supports dynamic
+data types whose structure dep
+ends on the underlying data.
+It is important to note that t
+he size of many of the primiti
+ve built-in types is determine
+d by the language and
+compiler specification (e.g., 
+the size of an integer can var
+y).
+Built-In Data Types
+
+Undefined - Fixed Size Types
+Name
+
+Size
+
+undefined (default)
+
+1
+
+undefined1
+
+1
+
+undefined2
+
+2
+
+undefined3
+
+3
+
+undefined4
+
+4
+
+undefined5
+
+5
+
+undefined6
+
+6
+
+undefined7
+
+7
+
+undefined8
+
+8
+
+Settings
+Mutability (normal, volatile, 
+constant)
+
+Numeric - Fixed Size Types
+Name
+
+Mnemonic
+
+Size
+
+Signed/Unsigned
+
+byte
+
+db
+
+1
+
+Unsigned
+
+sbyte
+
+sdb
+
+1
+
+Signed
+
+word
+
+dw
+
+2
+
+Unsigned
+
+sword
+
+sdw
+
+2
+
+Signed
+
+uint3
+
+uint3
+
+3
+
+Unsigned
+
+uint3
+
+uint3
+
+3
+
+Unsigned
+
+int3
+
+int3
+
+3
+
+Signed
+
+dword
+
+ddw
+
+4
+
+Unsigned
+
+sdword
+
+sddw
+
+4
+
+Signed
+
+uint5
+
+uint5
+
+5
+
+Unsigned
+
+int5
+
+int5
+
+5
+
+Signed
+
+uint6
+
+uint6
+
+6
+
+Unsigned
+
+int6
+
+int6
+
+6
+
+Signed
+
+uint7
+
+uint7
+
+7
+
+Unsigned
+
+int7
+
+int7
+
+7
+
+Signed
+
+qword
+
+dqw
+
+8
+
+Unsigned
+
+sqword
+
+sdqw
+
+8
+
+Signed
+
+Settings
+Endian (*default, big, little)
+Format (*hex, decimal, octal, 
+binary, ascii)
+Mnemonic-style (default, *asse
+mbly, C)
+Mutability (normal, volatile, 
+constant)
+Padding (*unpadded, padded)
+
+Miscellaneous - Fixed Size Typ
+es
+Name
+
+Mnemonic
+
+Size
+
+Signed/Unsigned
+
+void
+
+void
+
+0
+
+n/a
+
+wchar16
+
+wchar16
+
+2
+
+Signed
+
+wchar32
+
+wchar32
+
+4
+
+Signed
+
+Settings
+Mutability (normal, volatile, 
+constant)
+
+Numeric - Dynamic Size Types
+size determined by data organi
+zation within compiler
+specification - order is based
+ upon relative sizes
+Name
+
+Signed/Unsigned
+
+short
+
+Signed
+
+ushort
+
+Unsigned
+
+int
+
+Signed
+
+uint
+
+Unsigned
+
+long
+
+Signed
+
+ulong
+
+Unsigned
+
+longlong
+
+Signed
+
+ulonglong
+
+Unsigned
+
+Settings (may vary)
+Endian (*default, big, little)
+Format (*hex, decimal, octal, 
+binary, ascii)
+
+Data 2/15
+
+Endian (*default, big, little
+)
+Format (*hex, decimal, octal, 
+binary, ascii)
+Mnemonic-style (default, *asse
+mbly, C)
+Mutability (normal, volatile, 
+constant)
+Padding (*unpadded, padded)
+
+Miscellaneous - Dynamic Size T
+ypes
+size determined by data organi
+zation within compiler
+specification
+Name
+
+Description
+
+char
+
+Signed ASCII character
+
+uchar
+
+Unsigned ASCII character
+
+wchar_t
+
+Signed Wide Character
+
+pointer
+
+Pointer to memory address (may
+ refer to
+another data type)
+
+float
+
+Floating point data
+
+double
+
+Double-precision floating poin
+t data
+
+longdouble
+
+Long double-precision floating
+ point data
+
+Settings
+Mutability (normal, volatile, 
+constant)
+
+String Types
+Name
+
+Charset
+
+Charsize
+
+Layout
+
+string
+
+settable
+
+from
+charset
+
+fixed length
+
+string-utf8
+
+UTF-8
+
+1-3
+
+fixed length
+
+TerminatedCString
+
+settable
+
+from
+charset
+
+null-terminated
+
+unicode
+
+UTF16
+
+2 bytes
+
+fixed length
+
+TerminatedUnicode
+
+UTF16
+
+2 bytes
+
+null-terminated
+
+unicode32
+
+UTF32
+
+4 bytes
+
+fixed length
+
+TerminatedUnicode32
+
+UTF32
+
+4 bytes
+
+null-terminated
+
+PascalString255
+
+settable
+
+from
+charset
+
+pascal 255
+max characters
+
+PascalString
+
+settable
+
+from
+charset
+
+pascal 64k
+max characters
+
+PascalUnicode
+
+UTF16
+
+2 bytes
+
+pascal 64k
+max characters
+
+Settings
+Charset (defaults to US-ASCII 
+if user settable)
+Render Unicode (all, byte sequ
+ence, escape
+
+Data 3/15
+
+Charset (defaults to US-ASCII
+ if user settable)
+Render Unicode (all, byte sequ
+ence, escape
+sequence)
+Translation
+Mutability (normal, volatile, 
+constant)
+
+User-Defined Data Types
+
+User-Defined Data Types
+Name
+
+Description
+
+structure
+
+Grouping of data types that ar
+e located consecutively in mem
+ory
+
+union
+
+Grouping of data types that sh
+are the same memory location(s
+)
+
+typedef
+
+An alias for an existing data 
+type
+
+enum
+
+A list of named integer consta
+nts
+
+pointer
+
+A reference to an address (typ
+e information optional)
+
+array
+
+A specified number of consecut
+ive data objects of the same t
+ype
+
+function definition
+
+A function signature tagged wi
+th a generic calling conventio
+n
+
+Applying Data Type
+Data is created by applying a 
+data type to undefined bytes i
+n memory. There are numerous w
+ays to apply data
+types. A status message indica
+ting whether or not data was c
+reated is displayed in the too
+l's status area.
+Regardless of how a data type 
+is applied, data is only creat
+ed if the data type will fit w
+ithin the available
+undefined bytes.
+Drag from Data Type Manager
+Use the Data Type Manager to c
+hoose a data type from the set
+ of available data types. To a
+pply a data type
+from the data type Manager:
+1.
+2.
+3.
+
+Open the Data Type Manager (se
+lect Window
+
+Data Type Manager)
+
+Select a data type from the Da
+ta Type Manager
+Drag the data type onto a sing
+le address or selection in the
+ Listing window
+
+Cycle Groups
+Cycle Groups are an easy way t
+o apply basic data types (byte
+, word, float, etc). A Cycle G
+roup is a
+collection of similar data typ
+es that are commonly associate
+d together. Cycling a data typ
+e facilitates
+changing from one data type to
+ the next data type in the sam
+e group. When the last data ty
+pe is reached,
+the cycle restarts.
+Each Cycle Group has an associ
+ated "hot key". Pressing the "
+hot key" cycles from the curre
+nt data type to
+the next one within the group.
+ Ghidra provides the following
+ Cycle Groups:
+
+Data 4/15
+
+Each Cycle Group has an assoc
+iated "hot key". Pressing the 
+"hot key" cycles from the curr
+ent data type to
+the next one within the group.
+ Ghidra provides the following
+ Cycle Groups:
+b
+
+Byte
+
+Word
+
+DoubleWord
+
+' (single
+quote)
+
+Ascii
+
+String
+
+Unicode
+
+f
+
+Float
+
+Double
+
+Float
+
+QuadWord
+
+Byte
+
+Ascii
+
+To apply a data type from a cy
+cle group:
+1. Pick a basic data type to a
+pply (for example double-word)
+2.
+3.
+
+Place the cursor on the desire
+d address or make a selection
+Using the keyboard, press the 
+associated "hot key" until the
+ data type appears ("b" in thi
+s case, 3
+times) . In this example, the 
+first time "b" is pressed, a b
+yte (db) will appear in the mn
+emonic
+field. The second time a word 
+(dw) will appear, and the last
+ time a double-word (ddw) will
+appear.
+
+4. If you pressed the "hot key
+" too many times and passed th
+e data type, continue pressing
+ the "hot
+key" until you reach the data 
+type again.
+
+Favorites
+A Favorite data type is a data
+ type that you use frequently 
+and want to apply from the Dat
+a popup
+menu. By default Ghidra sets m
+ost commonly-used data types a
+s Favorites. However, any data
+ type can
+be configured to be a favorite
+.
+To apply a favorite:
+1. Right click on cursor locat
+ion or selection
+2. Select the Data popup subme
+nu
+3. In the Data popup, select t
+he favorite data type to be ap
+plied
+
+To quickly assign a key bindin
+g to a favorite, use the Key B
+indings Shortcut. Key Bindings
+ allow
+you to assign "hot keys" to an
+y menu item.
+Recently Used Data Type
+The last applied data type is 
+always available at the bottom
+ of the data menu. By default,
+ the "hot key"
+assigned to this option is 'Y'
+. This feature is a useful sho
+rtcut for applying the same da
+ta type multiple
+times.
+
+Clearing Data
+Data and instructions can be c
+leared, reverting them back to
+ their undefined state.
+To clear defined data back to 
+an undefined state:
+1. Place the cursor on the def
+ined data to be cleared
+2. Press mouse-right, and choo
+se Clear code bytes from the p
+opup menu
+
+Data 5/15
+
+Data 6/15
+Deleting data types from the D
+ata Type Manager window is a q
+uick way to clear every instan
+ce of a data type in
+a program.
+
+Changing Data Settings
+Depending on the data type, da
+ta may have settings available
+ which affect the way it is di
+splayed. For built-in datatype
+s, the available settings are 
+indicated in the table above. 
+For example, the byte data typ
+e has a format option which
+allows the user to have the da
+ta displayed as hex, octal, et
+c. The available settings are 
+defined in the Data Type Table
+above. Data settings can be ch
+anged for an individual data i
+tem or for all data of the sam
+e data type.
+To change the settings of a si
+ngle data item:
+1. Place the cursor on the dat
+a item
+2. Press mouse-right to bring 
+up the popup menu
+3. Select Data
+Settings... to bring up the se
+ttings dialog
+
+In the screenshot above, the s
+ettings dialog is shown for a 
+byte data type applied at addr
+ess 0x01007192. The dialog
+shows all the available settin
+gs for that data type. For eac
+h setting, the dialog shows th
+e setting name, value, and a
+checkbox indicating whether or
+ not the setting matches the d
+efault setting.
+To change a setting, click on 
+its value in the Setting colum
+n. This will display a list of
+ valid choices for that
+setting. Choose a value from t
+his list of choices and press 
+OK. To reset a setting to its 
+default value, set the Use
+Default checkbox.
+The default settings for a giv
+en data type can be changed. W
+hen a default setting has been
+ changed, every data item
+currently using the default se
+tting for that data type will 
+use the new default value. Dat
+a items that have a modified
+value for that setting will no
+t be affected.
+To change the default settings
+ for a given data type:
+1. Place the cursor on a data 
+item of that type
+2. Press mouse-right to bring 
+up the popup menu
+3. Select Data
+Default Settings... to bring u
+p the default settings dialog
+
+Data 7/15
+
+In the screenshot above, the d
+efault setting dialog is shown
+ for the word data type. The d
+ialog shows all the available
+settings for that data type. F
+or each setting, the dialog sh
+ows the setting name and value
+.
+To change a setting, click on 
+its value in the Settings colu
+mn. This will display a list o
+f valid choices for that
+setting. Choose a value from t
+his list of choices and press 
+OK.
+Default settings on components
+ within a structure apply to t
+hat structure only. For exampl
+e, if Struct_1 has a byte
+component with its format set 
+as Octal, then only other inst
+ances of Struct_1 will be affe
+cted. Settings on other
+occurrences of byte are not af
+fected.
+A typedef has the same set of 
+settings as its underlying dat
+a type. For example, when you 
+create a typedef on a
+byte, the default settings on 
+the typedef will be the same a
+s the original default setting
+s of the byte. Changing the
+default settings for either th
+e typedef or its underlying da
+ta type doesn't affect the def
+ault settings of the underlyin
+g data
+type or typedef respectively.
+To change the data settings fo
+r multiple data items:
+1. Select data items of intere
+st (does not work for interior
+ array elements)
+2. Press mouse-right to bring 
+up the popup menu
+3. Select Data
+Settings... to bring up the se
+ttings dialog
+
+In the screenshot above, the c
+ommon data settings dialog is 
+shown for the current selectio
+n. The dialog shows all the
+settings common to all defined
+ data within the current selec
+tion. For each setting, the di
+alog shows the setting name
+and value, where the initial v
+alue is blank. Settings left b
+lank will not be affected, all
+owing specific settings to be
+changed without affecting othe
+rs.
+
+Creating Other Data Types
+
+Structure
+Ghidra provides two mechanisms
+ to create and modify Structur
+es. The Data Type Manager can 
+be used to
+create structures without appl
+ying them immediately. It can 
+also be used to edit them. Alt
+ernatively,
+structures can be created and 
+modified directly in the brows
+er.
+This document describes how to
+ directly create, edit and app
+ly Structures in the browser.
+Creating a new Structure
+Creating a new structure in th
+e browser uses previously defi
+ned data to define the
+structure. The structure is cr
+eated and applied at the same 
+time. To create a structure di
+rectly
+in the browser:
+1.
+2.
+3.
+4.
+
+Select a set of contiguous def
+ined or undefined Data
+Use the right-mouse popup Data
+Create Structure
+The Data items within the sele
+ction are used to define the s
+tructure
+The Create Structure dialog is
+ displayed. This dialog can be
+ used to either create a
+new structure or apply an exis
+ting structure that has a matc
+hing format. If a new
+structure is created, it will 
+be added to the Data Type Mana
+ger.
+
+The Create Structure dialog is
+ divided into two parts. In th
+e top part is used to provide 
+a
+name if you are creating a new
+ structure. It is initialized 
+with a default name. The botto
+m
+part shows a list of matching 
+structures. You can select fro
+m this list to use that struct
+ure
+instead of creating a new one.
+The method for finding matchin
+g structures is either by an e
+xact match or by a match on
+structure size. You can change
+ the type of matching used by 
+clicking the Exact or Size rad
+io
+
+Data 8/15
+
+The method for finding matchi
+ng structures is either by an 
+exact match or by a match on
+structure size. You can change
+ the type of matching used by 
+clicking the Exact or Size rad
+io
+buttons under the Matching: he
+ading.
+To create a new structure, ent
+er a unique name in the Create
+ Structure By Name text field
+and press OK.
+
+To use an existing, matching s
+tructure, find and select the 
+structure in the Use Exising
+Structure table and press OK.
+You can create nested structur
+es by following the instructio
+ns above. The only
+difference is in Step (1), sel
+ect contiguous bytes within an
+ existing structure.
+Changing a Structure Name
+1. Place the cursor on the fir
+st line of the structure
+2. Press mouse-right over the 
+structure and choose Data
+3. Change the name in the Stru
+cture Editor
+
+Edit Data Type...
+
+Changing the name of a Structu
+re member
+There are two ways to rename a
+ structure member. The first w
+ay is useful for quickly
+changing the name of a single 
+member:
+1. Right mouse click on the fi
+eld name of a structure member
+ in the Code Browser
+2. Choose the Data
+Rename Field option
+3. Enter a new name in the Ren
+ame Data Field dialog
+
+The "Field Name" field must be
+ added to the "Open Data" tab 
+in the Code
+Browser header in order for th
+e data structure field names t
+o show up in the Code
+
+Data 9/15
+
+The "Field Name" field must b
+e added to the "Open Data" tab
+ in the Code
+Browser header in order for th
+e data structure field names t
+o show up in the Code
+Browser.
+The second way is more useful 
+for changing the names of mult
+iple members:
+1. Place the cursor on the fir
+st line of the structure
+2. Press mouse-right over the 
+structure and choose Data
+3. Edit the field name for the
+ structure member
+
+Edit Data Type...
+
+You cannot set the field name 
+of undefined member
+
+Union
+Unlike structures, unions can 
+only be created using the Unio
+n Editor in the Data Type Mana
+ger. Once a
+union has been created, it can
+ be applied like any other dat
+a type.
+Enum
+An Enum (Enumeration) data typ
+e is a C-style data type that 
+allows the substitution of a v
+alue for a more
+meaningful name. Enums are cre
+ated from the Data Type Manage
+r using the Enum Editor. When 
+you
+apply the enum to a program, t
+he name of the enum appears in
+ the mnemonic field and the na
+med value
+corresponding to the byte at t
+hat location appears in the op
+erand field.
+Example: Define an enum color 
+with values red, green, and bl
+ue assigned to 0x00, 0x01, 0x0
+2
+respectively. When you apply c
+olor to:
+
+010062ab    01    ??  
+      01h
+
+the result is:
+
+010062ab    01    color�
+�    green
+
+If the byte value is not one o
+f the values defined in the en
+um, "Unknown value: <value>" i
+s displayed as
+the operand.
+Pointer
+A pointer data type points to 
+another data type, including o
+ther pointers. Pointers can be
+ typed or
+untyped. Typed pointers specif
+y the data type of the referre
+d-to location. By default, poi
+nters have the
+same size as the size of an ad
+dress for a particular process
+or. For example, the pointers 
+on a 32-bit
+processor will be 4 bytes long
+.
+To apply an untyped pointer:
+1.
+
+Place the cursor over an undef
+ined data
+
+2.
+
+Press the 'p' Quick-Key
+- or -
+
+Data 10/15
+
+2.
+
+3.
+4.
+
+Press the 'p' Quick-Key
+- or Drag a Pointer data type 
+from the Data Type Manager win
+dow
+
+Data 11/15
+
+A default-sized pointer is cre
+ated
+If a valid address can be form
+ed at the location where you c
+reated the pointer, a referenc
+e is
+created to that address.
+
+To create a typed pointer:
+1.
+2.
+3.
+
+First create an untyped pointe
+r (described above)
+Apply a data type to the untyp
+ed pointer
+The mnemonic will change from 
+'addr' to the referenced data 
+type's mnemonic (ie: for a byt
+e "db
+*", for a pointer "addr *")
+
+Pressing the 'p' key invokes t
+he pointer action. This will g
+enerally create a default poin
+ter unless the
+existing data is already a poi
+nter in which case that pointe
+r will be wrapped with an addi
+tional pointer (e.
+g., int * would become int **)
+. This action will always appl
+y a default sized pointer. Oth
+erwise you can
+drag one of the other pointer 
+types from the Data Type Manag
+er window. With existing point
+er data, the
+base type of that pointer may 
+be changed simply by applying 
+another type onto the pointer 
+(e.g., applying
+byte to default pointer become
+s db *). If you do not want th
+is pointer stacking behavior t
+o happen, it is
+best to clear the code unit(s)
+ before applying a data type v
+ia drag-n-drop or key-binding 
+actions.
+To create a pointer of a speci
+fic size apply either pointer8
+, pointer16, pointer32, or poi
+nter64 to
+create a pointer sizes of 1, 2
+, 4, 8, respectively.
+Array
+An array is a collection of da
+ta items of a single data type
+. The number of elements in th
+e array is specified
+when the array is created. Arr
+ays can also be multi-dimensio
+nal. In this case, the innermo
+st dimension is
+created first.
+To create an array,
+1. Place the cursor at the add
+ress where you want to create 
+an array
+2. Create one data item of the
+ base data type for the array.
+ Any data type is valid, inclu
+ding structures
+3. Press the '[' Quick-Key,
+- or Press mouse-right on the 
+data item and choose Data
+Create Array
+4. A dialog will prompt you fo
+r the number of elements in th
+e array. It will be initialize
+d with the
+maximum number of elements tha
+t will fit into the available 
+undefined bytes. It will also 
+let you
+know the largest array you can
+ make if you allow it to clear
+ existing data.
+5. Enter the number of element
+s in the array, and press OK
+To create a multi-dimensional 
+array:
+1. Create an array using the i
+nner dimension for the number 
+of elements
+2. Place the cursor over the n
+ew array
+3. Press the '[' Quick-Key,
+- or Press mouse-right on the 
+array and choose Data
+Create Array
+4. Enter the number of element
+s for the next dimension, and 
+press OK
+5. Repeat steps (3) and (4) un
+til all dimensions have been c
+reated
+
+Typedef
+
+Data 12/15
+
+A typedef is an alias for anot
+her data type. It is useful fo
+r giving a more meaningful nam
+e to a data
+type. For example, you might t
+ypedef dword to be int. Typede
+fs are created using the Data 
+Type Manager
+and applied like any other dat
+a type.
+Void
+A void data type can only be u
+sed as the return type (i.e., 
+<RETURN> variable) of a functi
+on and can be
+specified from the Function Ed
+itor, Set Data Type popup acti
+on menu, as well as from the D
+ata Type
+Manager using drag-and-drop.
+String Data Types
+A String consists of a sequenc
+e of characters and is general
+ly terminated by a null charac
+ter ('\0') or has a
+length value prefixed before t
+he string.
+Characters in a string
+The characters that make up a 
+string can be encoded from byt
+es in a multitude of ways:
+Single bytes from the ASCII or
+ other character set.
+16 bit or 32 bit int values fr
+om the respective Unicode char
+acter sets.
+Variable length byte/int seque
+nces that encode a single char
+acter, such as UTF-8 or UTF16.
+Size of a string
+The extent of the string is de
+termined by:
+Null terminating character ('\
+0').
+Containing field length (ie. f
+ixed length strings, or length
+ of an array of characters).
+Prefixed length value for Pasc
+al strings.
+Each Ghidra string data type w
+ill document if its null-termi
+nated or fixed length or pasca
+l in
+its description or its type na
+me.
+The difference between null-te
+rminated and fixed length stri
+ngs is subtle. A null- termina
+ted
+string will extend until a nul
+l character is found (with a s
+anity check max of 16k), regar
+dless
+of the size of the field/struc
+ture that contains the string,
+ whereas a fixed length string
+'s length
+is determined by its containin
+g field, with trailing null ch
+aracters trimmed, but interior
+ null
+characters preserved.
+In practice, the user will be 
+unable to create a null-termin
+ated string in Ghidra that exc
+eeds its
+containing field/structure as 
+the UI will size the containin
+g field to match the detected 
+length
+of the null-terminated string.
+ However, if the bytes that ma
+ke up the contents of the null
+terminated string are changed,
+ and the null-terminating char
+acters are overwritten, the st
+ring
+instance could use bytes from 
+outside of its footprint to co
+nstruct itself. In this case t
+he string
+will be displayed in red to in
+dicate that there is an issue.
+Character sets
+Character sets define how char
+acters are represented as byte
+ values, and how byte values a
+re
+converted into characters.
+
+Not all byte values are valid
+ character encodings, and may 
+result in undecode-able values
+ - for
+example, byte values from 128.
+.255 are not valid when using 
+a US-ASCII character set, but
+are valid when using IBM437.
+When a invalid mapping is enco
+untered, it will be represente
+d as the Unicode character '�
+�' ڡ‬,
+which will render on your scre
+en with an OS and font specifi
+c shape (it is called the
+"REPLACEMENT CHARACTER" and is
+ typically encoded as [\uFFFD]
+).
+The following character sets a
+re always available:
+US-ASCII
+limited to values between 0-12
+7.
+ISO-8859-1 (Latin 1)
+see also windows-1252.
+UTF-8
+variable length 1-3 byte Unico
+de encoding.
+only Unicode values greater th
+an 007F cause multi-byte seque
+nces, otherwise
+indistinguishable from US-ASCI
+I.
+UTF-16, UTF-16BE, UTF-16LE
+2 byte Unicode encoding.
+variable length, 2 or 4 bytes
+UTF-32, UTF-32BE, UTF-32LE
+4 byte Unicode encoding.
+
+Other character sets that are 
+typically implemented in the J
+ava JVM:
+IBM437
+old school extended ASCII.
+Windows-1252
+GB2312
+Chinese
+variable length 1-2 bytes
+Many many more...
+Unicode Byte Order Marks (BOM)
+Unicode strings can start with
+ a special character that sign
+als the endian-ness of the
+string. The BOM character byte
+s will be FE FF (16 bit) or 00
+ 00 FE FF (32 bit) if
+the string is big endian, othe
+rwise it will be FF FE (16 bit
+) or FF FE 00 00 (32
+bit) if the string is little e
+ndian.
+If the BOM is present, it will
+ override the endian-ness of t
+he binary that contains
+the string.
+Arrays of character elements
+Arrays of character elements (
+ie. char[16]) are treated as f
+ixed-length string data types.
+Arrays of wide char data types
+ (wchar, wchar16, wchar32) are
+ treated as Unicode strings.
+Creating string instances
+
+Data 13/15
+
+Creating string instances
+
+Data 14/15
+
+When creating a String at a lo
+cation, consecutive characters
+ will be included in the Strin
+g until
+a null character ('\0') is enc
+ountered.
+When applied to a selection, S
+tring data types absorb all by
+tes in the selection into a si
+ngle
+string ignoring terminators.
+TerminatedCStrings, on the oth
+er hand, create multiple strin
+gs for the selected bytes,
+beginning a new string at each
+ terminator.
+Settings for string instances
+Each string instance has setti
+ngs that can be customized to 
+change the way the string is d
+ecoded
+and how it is rendered when di
+splayed.
+Charset
+Any of the currently available
+ java.nio.charsets.
+Defaults to US-ASCII
+See charset_info.xml to custom
+ize display order or character
+ size.
+Not available on string types 
+that have "UTF*" or "Unicode" 
+in the name.
+Render non-ASCII Unicode
+all - attempt to render the ch
+aracter (display font may or m
+ay not provide it)
+byte sequence - show the bytes
+ that make up the problematic 
+character
+escape sequence - show as an e
+scape sequence - "\u1234"
+Translation
+Toggles display of translated 
+string value on and off.
+Same as popup menu action Data
+ | Translate | Toggle show tra
+nslated value.
+
+Dynamic Data Type
+Dynamic data types adapt to th
+e underlying bytes to which th
+ey are applied. These data typ
+es can only be
+created by writing a new Java 
+class. For example, an IP head
+er packet that has a header, b
+ody, and
+terminator might be a good can
+didate for writing a Dynamic d
+ata type. The header might spe
+cify the length
+of the body. The Dynamic data 
+type can change its size and s
+tructure based on the informat
+ion stored in the
+IP header.
+The PE (Windows Portable Execu
+table) data type is another ex
+ample of a dynamic data type t
+hat
+manufactures new data types. W
+hen you apply the PE data type
+, it creates (1) a new categor
+y (using the
+address as the name) in the pr
+ogram data type manager, (2) a
+ structure for the DOS header,
+ and (3) a
+structure, PE, that contains t
+he DOS header. In order for th
+e PE data type to be successfu
+lly applied, you
+must import a DOS program as b
+inary file.. The size of the s
+tructure varies according to t
+he information in
+the program.
+
+Provided By: Data Plugin
+Related Topics:
+
+Related Topics:
+Manage Data Types
+Structure Editor
+Enum Editor
+
+Data 15/15
+
+

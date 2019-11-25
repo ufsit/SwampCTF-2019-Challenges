@@ -1,0 +1,40 @@
+.copy-button {
+    display: contents;
+    color: white;
+}
+
+.copy-button:active {
+    color: grey;
+}
+
+.min-w-2 {
+    min-width: 170px;
+}
+
+.min-w-1 {
+    min-width: 100px;
+}
+
+.overflow-break {
+    overflow-wrap: break-word;
+}
+
+div {
+    color: white;
+}
+
+.card-header {
+    background: #4f2758 !important;
+}
+
+.card-body {
+    color: black;
+}
+
+.challenge-title {
+    color: white;
+}
+
+.btn-lg {
+    margin-bottom: 5px;
+}

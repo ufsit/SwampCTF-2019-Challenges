@@ -1,0 +1,477 @@
+Ghidra Tool Administration
+
+Ghidra Tool Administration 1/4
+
+A Ghidra Tool is a collection 
+of building blocks, called Plu
+gins. You can create tools by 
+combining different Plugins th
+at cooperate with one another 
+to achieve certain functionali
+ty. You can add tools to the T
+ool Chest or
+configure them to share data a
+nd resources with other tools.
+ Ghidra provides a set of Plug
+ins, but you may create your o
+wn Plugins to add more functio
+nality to your tools.
+
+Default Tool
+Ghidra provides a default tool
+, the Code Browser that is in 
+your Tool Chest. It has all of
+ the Core plugins already load
+ed. This tool may be re-import
+ed into your tool chest at any
+ time. If the tools exist in y
+our tool chest, then a
+one-up number is assigned to t
+he name to make them unique. (
+You will see the name in the t
+ool tip, and in the Tools
+Run menu.) Any tool that you c
+reate and add to your Tool Che
+st is always available to your
+ active
+Project. However, you should s
+ave the tool if you plan to us
+e it for other Ghidra projects
+.
+
+Tool Management
+The following sections describ
+e tool management:
+Create Tool
+Save Tool to Tool Chest
+Export Tool
+Import Tool into Tool Chest
+Configure Tool
+Run Tool
+Connect Tools
+Close Tool
+Delete Tool
+
+Create Tool
+Create Tool creates an empty t
+ool (no Plugins). What Plugins
+ you should add is dictated by
+ what you want the tool to do.
+ The following steps can help 
+you create a useful tool:
+1. Define your requirements fo
+r a tool.
+2. Determine whether the exist
+ing Plugins meet your requirem
+ents. If the Plugins do not pr
+ovide the functionality, you m
+ay need to write your own Plug
+in that does meet your require
+ments.
+3. Add these Plugins to an exi
+sting tool or to a new tool.
+To create a New Tool,
+1.
+2.
+3.
+4.
+
+From the Ghidra Project Window
+, select the Tools
+Create Tool... option.
+A new "empty" tool is displaye
+d; the Configure dialog is dis
+played.
+Configure the tool.
+Save the tool.
+
+Save Tool to Tool Chest
+When you save a tool to your T
+ool Chest, you are saving the 
+tool's configuration such that
+ it is available to your activ
+e project. (When you open any 
+project, icons for all tools f
+rom your Tool Chest will appea
+r
+in the Tool Chest panel in the
+ Ghidra Project Window). An ic
+on for a new tool shows up on 
+the Tool Chest panel of the Gh
+idra Project Window.
+
+To save a tool,
+From the tool, select File
+
+Save Tool
+
+To save a tool to a different 
+name, or to change the icon,
+1. From the tool, select File
+Save Tool As...
+2. Enter a new tool name (the 
+current tool name is shown in 
+the Tool Name field by default
+).
+3. Choose an icon from the lis
+t of icons ... OR
+Click on the file chooser butt
+on (...) to choose a filename 
+from the file system.
+4. Click on the Save button; i
+f this is a new tool that you 
+are adding to your tool chest,
+ the Tool Chest panel will sho
+w the icon for the tool; icon 
+and name changes (tool tip) an
+d are reflected in the Tool
+Chest panel as well.
+
+Export Tool
+You can export your tool to an
+ XML file in order to share yo
+ur tool with other users. You 
+may have configured your tool 
+for a particular area of resea
+rch or practice; others who ar
+e working on a similar
+
+You can export your tool to a
+n XML file in order to share y
+our tool with other users. You
+ may have configured your tool
+ for a particular area of rese
+arch or practice; others who a
+re working on a similar
+problem may find your tool use
+ful.
+
+Ghidra Tool Administration 2/4
+
+To export a tool from the menu
+:
+1. Select File
+Export Tool; a file chooser is
+ displayed.
+2. Select a folder and name fo
+r the exported file.
+3. Click on the Export button.
+To export a tool from the icon
+:
+1. In the "Tool Chest", right 
+mouse click on the icon for th
+e tool
+2. Select the Export... option
+.
+
+The Status area on the Ghidra 
+Project Window indicates wheth
+er the export was successful.
+If the tool contains Plugins t
+hat are not part of Ghidra (i.
+e., you wrote new Plugins), yo
+u will have to distribute a ja
+r file containing the class fi
+les for the Plugins along with
+ the XML file. The recipient c
+an
+then just place the jar file i
+n one of the locations where G
+hidra will search for availabl
+e Plugins.
+Import Tool
+
+Import Tool to Tool Chest
+Use the Import Tool option to 
+import an exported tool into G
+hidra. The imported tool will 
+appear in your Tool Chest with
+ the other tools. If the name 
+of the imported tool already e
+xists, a one-up number is
+assigned to the newly imported
+ tool to make the name unique.
+To import a tool,
+1. From the Ghidra Project Win
+dow, select Tools
+2. Select a file with a ".tool
+" or ".obj" extension.
+3. Click on the Import button.
+
+Import Tool to Tool Chest...
+
+If the import was successful, 
+an icon for the tool is added 
+to the Tool Chest panel. Any e
+rrors during the import are re
+ported in the Status area on t
+he Ghidra Project Window.
+If the tool that you are impor
+ting contains Plugins that are
+ not part of Ghidra, you must 
+have the jar file containing t
+he class files for the Plugins
+. Place the jar file in one of
+ the locations where Ghidra wi
+ll
+search for available Plugins a
+nd restart Ghidra.
+Import Default Tools to Tool C
+hest
+The default tool for the Code 
+Browser is part of the Ghidra 
+installation, and can be added
+ to your Tool Chest at any tim
+e. So if you delete the defaul
+t tool from your Tool Chest, y
+ou can always recover them by
+using the Import Default Tools
+ to Tool Chest option.
+To import default tools,
+1. From the Ghidra Project Win
+dow, select Tools
+Import Default....
+2. A dialog is displayed that 
+allows you to selectively impo
+rt default tools. Select the t
+ools you want to import and th
+en select OK.
+
+3. The default tools are added
+ to your Tool Chest; if the de
+fault tools already exist, the
+n a one-up number is assigned 
+to them to make the names uniq
+ue, e.g., CodeBrowser_1.
+
+Run Tool
+To launch a tool from the Tool
+ Chest,
+Click on the icon for that too
+l in the Tool Chest panel on t
+he Ghidra Project Window, OR
+From the Ghidra Project Window
+, select Tools
+Run Tool
+<tool name>
+To launch a tool with a specif
+ic Program,
+Drag a Program file from the d
+ata tree in the Ghidra Project
+ Window, and drop it onto a to
+ol icon in the Tool Chest pane
+l. The tool is launched and ha
+s the Program opened.
+
+If you bring up more than one 
+instance of the same tool, the
+ window title shows a one-up n
+umber appended to the tool nam
+e, e.g., CodeBrowser(2).
+Rename Tool
+To rename a tool from the Tool
+ Chest,
+Right-click on the icon for th
+e tool in the Tool Chest panel
+ in the Ghidra Project Window 
+and select Rename from the pop
+up menu.
+Enter the new tool name in the
+ dialog that appears and press
+ the <OK> button.
+
+Set Tool Associations
+
+For each type of file in the 
+Front End you can set the tool
+ that Ghidra uses to open that
+ file, the associated tool. As
+ an example, programs in Ghidr
+a are, by default, associated 
+with the Code Browser tool. Th
+e
+associated tool is the tool th
+at will be chosen by Ghidra to
+ open any file that is double-
+clicked. Regardless of the cur
+rent associated tool, you may,
+ at any time, drag a file in t
+he Front End onto any tool in 
+the
+Tool Chest in order to open th
+e file in that tool.
+
+Ghidra Tool Administration 3/4
+
+To change the associated tool 
+for any file type, select Tool
+s
+
+Set Tool Associations... menu.
+ This will open the Set Tool A
+ssociations Dialog
+
+This dialog shows a list of kn
+own content types and the tool
+ that is currently used to ope
+n that type when double-clicke
+d in the Front End. If the nam
+e and icon of the tool is gray
+ed-out, that means the associa
+ted
+tool is not in your tool chest
+.
+To change a tool association, 
+select the desired Content Typ
+e in the list and then click t
+he Edit button. This button wi
+ll trigger the Pick Tool dialo
+g.
+
+This dialog shows a list of al
+l tools that can open the give
+n content type. If you choose 
+a tool from the list that is n
+ot in your tool chest, then th
+at tool will be added for you 
+when you close the
+dialogs.
+The Restore Default button all
+ows you to restore the tool as
+sociation to the default setti
+ng.
+Ghidra uses tool names to stor
+e tool associations. This can 
+lead to odd behavior if you re
+name a custom tool to be the n
+ame of a default tool. If your
+ tools exhibit odd behavior, s
+uch as being unable to open
+a file that is considered to b
+e a default type, then you can
+ always delete your tools and 
+re-import the default tools ag
+ain.
+Close Tool
+To close a tool (not the Ghidr
+a Project Window),
+1. Select the File
+Close Tool option, OR
+2. Right mouse click on the ic
+on for the running tool and ch
+oose the Close option.
+
+Program Changes
+If you made changes to the Pro
+gram and not saved them before
+ you closed the tool, then a d
+ialog is displayed to ask whet
+her you want to save your chan
+ges.
+
+Choose the Save button to save
+ the Program.
+Choose the Don't Save button t
+o close the tool but do not sa
+ve the changes.
+Choose the Cancel button if yo
+u do not want to close the too
+l.
+
+This dialog is displayed when 
+the last tool is closed that h
+as this Program opened. So if 
+you have two tools running wit
+h the same Program opened and 
+you close one tool, the dialog
+ will not
+be displayed until you close t
+he second tool.
+
+You cannot close a tool while
+ a background process is runni
+ng, e.g., Disassembly or Clear
+. You must first stop the oper
+ation, then close the tool.
+
+Ghidra Tool Administration 4/4
+
+Tool Configuration Changes
+Changes to tools are automatic
+ally saved by default. If you 
+open multiple instances of the
+ same tool and make changes to
+ that tool, then Ghidra cannot
+ automatically save the tool f
+or you. In this
+case, Ghidra will ask you to m
+ake a decision regarding savin
+g the changes.
+You may configure Ghidra to no
+t automatically save the tool 
+via the Front End options (Edi
+t->Options->Tool->Automaticall
+y Save Tools).
+
+Delete Tool
+To delete a tool from your Too
+l Chest,
+From the Ghidra Project Window
+, Select the Tools
+Delete Tool
+<tool name> OR,
+Right mouse click on the icon 
+in the Tool Chest and select t
+he Delete... option.
+A dialog to confirm your delet
+e request is displayed; choose
+ the Delete button to remove t
+he tool from your Tool Chest.
+You can always get your defaul
+t tools back into your Tool Ch
+est by selecting the Import De
+fault Tools to Tool Chestoptio
+n. However, deleting your own 
+custom tool from your
+Tool Chest is a permanent oper
+ation.
+
+Tool Status Components
+The tool has a status area to 
+display messages and an area t
+o show progress for a running 
+task, e.g., disassembly. On th
+e right side of the lower port
+ion of the tool, a "write" ico
+n indicates that the
+program is being modified. The
+ progress bar shows the progre
+ss of the running task. The sp
+inning globe indicates that so
+mething is happening in the to
+ol. The cancel button allows y
+ou to cancel the
+currently running task. You ca
+n still interact with the prog
+ram while the task is running.
+
+There may be times when a task
+ is "modal" such that no user 
+interaction with the program i
+s allowed until either the tas
+k completes or you cancel it. 
+A dialog is displayed to indic
+ate what task is
+running and to allow you to ca
+ncel it. Depending on the task
+, the dialog may or may not sh
+ow a progress bar.
+
+Related Topics:
+Configure Tool
+Ghidra Project Window
+Configure Ghidra Project Windo
+w
+Code Viewer
+
+

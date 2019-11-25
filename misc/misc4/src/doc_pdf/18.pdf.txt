@@ -1,0 +1,628 @@
+Project Repository
+
+Project Repository 1/9
+
+Ghidra supports the concept of
+ a project repository such tha
+t files in the repository can 
+be versioned. Versioning allow
+s
+you to track file changes over
+ the life of the project. The 
+repository supports check out,
+ check in, version history, an
+d
+viewing what is checked out. W
+hen you check in your file, a 
+new version is created. The pr
+oject repository can be used
+with or without a Ghidra Serve
+r. If the project is associate
+d with a Ghidra Server, the pr
+oject is shared, meaning that 
+the
+files in the project are acces
+sible by multiple users concur
+rently. The Project Access Lis
+t defines which users are allo
+wed
+to access the shared repositor
+y. When you create a new proje
+ct, you can specify whether it
+ should be associated with a
+Ghidra Server.
+For projects that are not shar
+ed, all files and versions are
+ managed locally in your proje
+ct directory. For the shared
+project repository, files are 
+maintained on the Ghidra Serve
+r. When you check out a file, 
+a file is created locally in y
+our
+project directory. When you ch
+eck in a file, it is merged (i
+f necessary) with the latest v
+ersion to create a new version
+.
+Merging is necessary only for 
+shared project repositories, a
+s with a non-shared project, t
+he version you checked out is
+always the latest version.
+
+Connect to the Server
+When you open a shared project
+, Ghidra attempts to connect t
+o the server that is associate
+d with the shared project.
+Depending on what user authent
+ication mode the server is usi
+ng, you may have to enter a pa
+ssword. If the server is
+not running, you are still abl
+e to work with your checked ou
+t files while you are offline.
+ Other versioned files not
+checked out are not accessible
+. When the server comes up, Gh
+idra will reconnect as necessa
+ry. You can also
+attempt to connect "manually" 
+by selecting the connection st
+atus button
+
+on the Ghidra Project Window o
+r on
+
+the Project Info dialog. When 
+the connection is successful, 
+the connection status button c
+hanges to
+
+.
+
+If you lose the connection to 
+the server after having starte
+d Ghidra, shared files not che
+cked out "disappear" from
+the Ghidra Project Window, as 
+they are unavailable. Private 
+files remain intact and are no
+t affected by the server
+connection.
+You are authenticated only onc
+e per Ghidra session; so if yo
+u open other project repositor
+ies managed by the
+same Ghidra Server, you will b
+e prompted only once for a pas
+sword, as required.
+Troubleshooting a Failed Conne
+ction
+If you fail to connect to the 
+Ghidra Server, check the follo
+wing:
+Verify that the client machine
+ can "ping" the server machine
+.
+Verify that you are attempting
+ to login using the correct au
+thentication mode.
+Verify that the Ghidra Server 
+administrator has added you as
+ a user on the server.
+If the server is using Ghidra 
+Password authentication, you m
+ay need to have your password
+reset to "changeme" by the Ghi
+dra Server administrator.
+Verify the host name and port 
+of the Ghidra Server.
+Verify that the Ghidra Server 
+is running: from a command win
+dow, type
+
+telnet [host] [port]
+If the server is not listening
+ on that port, you will get a 
+failed connection message from
+telnet.
+
+telnet.
+Project Repository 2/9
+
+Version Control
+Except for merging, accessing 
+version control features is th
+e same regardless of whether y
+our project repository is
+shared.
+Add to Version Control
+Add a file (or multiple files 
+at once) to version control by
+ selecting the file in the Ghi
+dra Project
+Window. You can either click o
+n the tool bar icon, , or righ
+t mouse click and choose the A
+dd to
+option. A dialog is displayed 
+so that you can add comments a
+bout the file.
+Version Control...
+
+Leave the checkbox selected fo
+r Keep File Checked Out so tha
+t you do not have check out th
+e file
+after you have added it to ver
+sion control. This checkbox wi
+ll be selected and disabled au
+tomatically if
+you have the file open. The Ap
+ply to All button allows you t
+o associate the same comment f
+or
+multiple files that you are ad
+ding to version control. After
+ you add the file, the Ghidra 
+Project
+Window indicates the file's ch
+eck out state and version.
+
+Project Repository 3/9
+
+This image shows that the file
+ "Program_A" is associated wit
+h a shared project (note the b
+lue border
+on the file icon), and you are
+ now working with version 1 of
+ 1. The file "Program_B" has n
+ot been
+added to version control (note
+ the plain icon and no version
+ information). It is considere
+d to be a
+"private" file. Private files 
+are never visible to other use
+rs.
+A normal checkout is indicated
+ by a checkmark with a green b
+ackground , while an exclusive
+checkout is is indicated by ch
+eckmark with a blue background
+ . A checkmark with a red
+background indicates that a ne
+wer version has been checked-i
+n by another user.
+A tool tip on the file (let th
+e mouse pointer hover over it)
+ shows the date the file was c
+hecked out, and
+the date that is was last modi
+fied. An asterisk will appear 
+on the file icon to indicate t
+hat changes have
+been made but not checked in.
+Check Out
+To check out a file, select th
+e file in the Ghidra Project W
+indow. You can either either c
+lick on the
+check out icon
+on the tool bar, or right mous
+e click on the file and choose
+ the Check Out...
+option.
+
+Project Repository 4/9
+
+If your project repository is 
+shared, a dialog is displayed 
+to allow you to request an exc
+lusive lock on
+the file. An exclusive lock is
+ necessary if you plan to mani
+pulate the memory map in any w
+ay, e.g.,
+move or delete memory blocks, 
+change the program's language,
+ etc. An exclusive lock can be
+ granted
+if no other user has the file 
+checked out. While the exclusi
+ve lock exists, no other user 
+can check out
+the file.
+The exclusive lock is implied 
+for a non-shared project repos
+itory.
+Check In
+After you have made your chang
+es and saved them, you are rea
+dy to check in your file. (You
+ cannot
+check in a file that was not c
+hanged.) The check in creates 
+a new version for this file. T
+o check in the
+file, select the file in the G
+hidra Project Window. You can 
+either click on the check in i
+con
+on the
+tool bar, or right mouse click
+ and select the Check In... op
+tion.
+The
+
+icon is also available from th
+e tool where you have the file
+ opened.
+
+A dialog is displayed so that 
+you can enter comments that de
+scribe your changes.
+
+The checkbox for Keep File Che
+cked Out is selected and disab
+led automatically if you still
+ have the
+file open. If the file is clos
+ed and you plan to create more
+ versions, leave the checkbox 
+selected for
+Keep File Checked Out. The che
+ckbox for Create ".keep" file 
+is selected by default; this o
+ption causes
+a copy of the file that you ar
+e checking in to be created on
+ your local file system.
+In a shared project repository
+, when you check in your file,
+ the changes in your file may 
+have to be
+merged into the latest version
+ on the server. This will be t
+he case if another user checks
+ in a file since
+
+In a shared project repositor
+y, when you check in your file
+, the changes in your file may
+ have to be
+merged into the latest version
+ on the server. This will be t
+he case if another user checks
+ in a file since
+Project Repository 5/9
+you did a checkout on the file
+. Under most conditions, the m
+erge will be automatic without
+ any
+intervention required on your 
+part. However, if you made cha
+nges such that a conflict aris
+es, you will
+have to resolve the conflict a
+t the time of check in. When a
+nother user checks in his file
+, you will see
+navigation markers for changes
+ made since you checked out yo
+ur file. Potential conflicts a
+re indicated
+in red. Refer to the Merge pag
+e for more information about m
+erging.
+Undo Checkout
+You may want to undo your chec
+kout such that you lose all yo
+ur changes, and your file reve
+rts to the
+latest version on the server.
+To undo a checkout:
+1. Close the checked out file.
+2. Select the checked out file
+ in the Ghidra Project Window.
+3. You can either click on the
+ undo checkout icon
+in the tool bar, or right mous
+e click on the
+selected file and choose the U
+ndo Checkout option. If you ha
+d made changes to the file, a
+dialog is displayed confirm th
+e undo check out.
+
+If the checkbox on the dialog 
+is selected, then a private fi
+le is created with a ".keep" e
+xtension on the
+filename. The checkbox is sele
+cted by default.
+If you have the file open in t
+he Code Browser when you attem
+pt to undo the check out, you 
+will
+get an error dialog indicating
+ that the file is in use. You 
+must close the file first, the
+n undo check out.
+Update
+While you are working on a pro
+gram in a shared project repos
+itory, you may want to periodi
+cally
+update your program to receive
+ any changes made by others wh
+o are working in the same shar
+ed
+project repository. Use the Up
+date... option to bring your c
+opy into sync with the latest 
+version of
+the program in the repository.
+ If your changes conflict with
+ those made in the latest vers
+ion, you will
+be prompted to merge changes f
+rom the latest version into yo
+ur program.
+
+the program in the repository
+. If your changes conflict wit
+h those made in the latest ver
+sion, you will
+be prompted to merge changes f
+rom the latest version into yo
+ur program.
+
+Project Repository 6/9
+
+Consider this scenario: Suppos
+e you are working on version 4
+ of 5 of a program. The "5" in
+dicates
+that there are 5 versions of t
+he program in the repository. 
+The "4" indicates that your wo
+rking copy
+of the program is based on the
+ version "4" version that you 
+checked out from the repositor
+y. (To see
+the version numbers for your p
+rograms, check the file's stat
+us in the Ghidra Project Windo
+w data
+tree). When you update, you wi
+ll update to the latest versio
+n in the repository (5). After
+ the update
+is complete, your file status 
+will show "Version 5 of 5" jus
+t as though you had checked ou
+t version 5.
+The Update... option allows yo
+u to have the latest changes a
+pplied to your program without
+ your
+having to check in your file.
+To update your current program
+ either select the program in 
+the Ghidra Project Window and 
+click on
+the update icon
+in the tool bar, or right mous
+e click and choose the Update.
+.. option. The Update
+option is only enabled when th
+e latest version number on the
+ server is greater than the ve
+rsion that
+you checked out.
+The
+
+icon is also available from th
+e tool where you have the file
+ opened.
+
+The update action is not appli
+cable in a non-shared project 
+repository.
+
+Undo Hijack
+A file becomes "hijacked" when
+ it exists locally as a privat
+e file in your project and a f
+ile of the same
+name exists in the repository.
+ This will happen when user an
+other adds a file to version c
+ontrol while
+you have a private file of the
+ same name in your shared proj
+ect. It can also happen if you
+r checkout of
+the file is terminated. The fi
+le icon in the Ghidra Project 
+Window changes to indicate tha
+t it is
+hijacked. To undo the hijack:
+1. Close the file if you have 
+it open.
+2. Right mouse click on the hi
+jacked file(s) in the Ghidra P
+roject Window .
+3. Select Undo Hijack.... The 
+following dialog is displayed 
+to confirm the undo hijack.
+
+Project Repository 7/9
+
+Deselect the checkbox next to 
+the name if you do not want to
+ undo the hijack for that file
+. The
+checkbox, Save copy of the fil
+e with a .keep extension, is s
+elected by default; if the che
+ckbox is
+selected, a .keep file will be
+ created. In this example, you
+ would see SharedProgram.exe.k
+eep in
+your project data tree after y
+ou select the OK button. The c
+heckbox selection applies to a
+ll the files
+that you have selected for the
+ undo hijack.
+
+Show Version History
+To show the history on any ver
+sioned file, right mouse click
+ on the file in the Ghidra Pro
+ject Window, and select
+the Show History... option. Th
+e table shows the date on whic
+h the version was created, the
+ user that created it,
+and the comments describing th
+e version.
+
+View Version
+To view any version in the his
+tory, select the version, righ
+t mouse click and choose the O
+pen
+With <tool> where <tool> denot
+es a menu item for each tool i
+n your tool chest. The version
+ is read
+only and is opened in the sele
+cted tool. The filename shown 
+in the title of the tool indic
+ates the version
+
+With <tool> where <tool> deno
+tes a menu item for each tool 
+in your tool chest. The versio
+n is read
+only and is opened in the sele
+cted tool. The filename shown 
+in the title of the tool indic
+ates the version
+Project Repository 8/9
+number, e.g., "SharedProgram.e
+xe@10 [Read Only]" indicates y
+ou are viewing version 10 of
+SharedProgram.exe. You can mak
+e changes to the file, but you
+ must save it to a new name.
+Other ways to open a specific 
+version in a tool are:
+Drag a version from the Versio
+n History dialog to a running 
+tool, the running tool's icon,
+ or to a
+tool icon in the tool chest.
+If you have a default tool spe
+cified, double click on the ve
+rsion that you want to open.
+Choose the File Open... option
+; the Open Program dialog is d
+isplayed; from this dialog you
+can select a version to open.
+
+Delete
+You can delete the first and l
+ast version if you are the own
+er, or if you are an administr
+ator in the
+project, and if the file is no
+t checked out. If the user who
+ has the file checked out is n
+ot available to
+either undo his checkout or ch
+eck in his file, the administr
+ator may terminate the checkou
+t in order to
+delete the version.
+
+View Checkouts
+To view a list of who has a fi
+le checked out, right mouse cl
+ick on the file in the Ghidra 
+Project Window, and
+select the View Checkouts... o
+ption.
+
+The Checkout Date is when you 
+checked out the file; the Vers
+ion is the version number of t
+he file that you have
+checked out.
+If you have administrative pri
+vileges in the project reposit
+ory, you can terminate the che
+ckout. Right mouse click
+on the version and choose the 
+Terminate Checkout option. A d
+ialog is displayed to confirm 
+the terminate
+checkout action. The administr
+ator may need to do this if us
+ers who have files checked out
+ are no longer working
+on the project. If your checko
+ut is terminated, the file bec
+omes hijacked.
+
+Find Checkouts
+
+To view a list of all the fil
+es that you have checked out i
+n a folder and all of its subf
+olders, select a folder, right
+Project Repository 9/9
+mouse click and choose Find Ch
+eckouts.... In the sample imag
+e below, all checkouts from th
+e root project
+directory (pathname of "/") ar
+e displayed; one file from the
+ "TestFiles" folder is checked
+ out.
+
+Name is the name of the file;.
+ Pathname is the complete path
+ to the file. Checkout Date is
+ when you checked out
+the file. Version is the versi
+on number of the file that you
+ have checked out.
+From this dialog, you can chec
+k in your files or undo your c
+heckout. Make a selection in t
+he table, right mouse
+click and choose Check In... o
+r Undo Checkout. You can also 
+click on the toolbar icon
+to check in, or click
+on the icon
+to undo the check out.
+
+Related Topics:
+Ghidra Server
+Creating a Shared Project
+Merging Program Files
+Open a Version
+Ghidra File Status
+Project Information
+
+

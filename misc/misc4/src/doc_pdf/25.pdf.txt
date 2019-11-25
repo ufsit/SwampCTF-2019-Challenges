@@ -1,0 +1,145 @@
+Navigating Programs
+
+Navigating Program Files 1/3
+
+Open programs are represented 
+in Ghidra by tabs at the top o
+f the Listing. You may click o
+n these tabs to change the act
+ive program.
+Also, as described below, ther
+e are various actions that all
+ow you to change the active pr
+ogram.
+
+Program Tabs
+When there are more open progr
+ams than room to display their
+ respective tabs, then a butto
+n is displayed to access those
+ programs.
+This button displays the numbe
+r of hidden programs.
+
+Program Tabs 'More Button'
+To access these hidden program
+s, click the button to display
+ a menu for selecting programs
+.
+
+Program Tabs With Popup Windo
+w
+
+Navigating Program Files 2/3
+The popup window displayed all
+ows you to select a tab by cli
+cking a program name, or by us
+ing the up and down arrow keys
+ to
+select a program name and then
+ pressing the Enter key to cho
+ose the selected program. Also
+, typing text data will filter
+ the displayed
+program list. You can close th
+e popup window without making 
+a selection by pressing the Es
+cape key or by clicking a comp
+onent
+outside of the window.
+Those programs listed in bold 
+are those that are hidden.
+
+Navigation Actions
+
+Go To Next Program and Go To P
+revious Program Actions
+The next and previous actions 
+are only available via keybind
+ings, which by default are Con
+trol-F8 and Control-F9
+for previous and next, respect
+ively. You may change these bi
+ndings from the Key Bindings O
+ptions.
+The next and previous actions 
+allow you to move between open
+ tabs. For example, when the G
+o To Next Program
+action is executed, the tab to
+ the right of the current tab 
+is highlighted.
+
+Next Tab Highlighted
+After a brief pause, the highl
+ighted tab will become the act
+ive program. Quick, repeated e
+xecutions of the action
+will continue to move the high
+lighted tab to the right.
+The Go To Previous Program act
+ion works in the same way as t
+he Go To Next Program action, 
+except that it
+moves the highlight to the lef
+t instead of the right.
+The operation of tab highlight
+ing varies slightly depending 
+upon the existence of hidden t
+abs. Without hidden tabs,
+the highlighting, when startin
+g from the first or last avail
+able tab, will wrap around to 
+the other side of the tab list
+.
+In this mode, you may highligh
+t tabs with no limits with no 
+program being activated until 
+you stop.
+Contrastingly, if there are hi
+dden tabs, then when the first
+ or last tab is highlighted, t
+hen the next successive
+highlight action will trigger 
+the more tabs button to be exe
+cuted.
+
+Go To Program... Action
+The Go To Program... action wi
+ll show the program selection 
+popup window when executed. Th
+is menu allows
+you to pick a program to go to
+.
+
+Navigating Program Files 3/3
+
+Go To Program Popup Window
+To execute this action, from t
+he Tool menu, select Navigatio
+n
+
+Go To Program....
+
+Go To Last Active Program Acti
+on
+The Go To Last Active Program 
+Action will activate the last 
+program that was active before
+ the currently active
+program. Thus, this action is 
+disabled when you do not have 
+a previously active program.
+To execute this action, from t
+he Tool menu, select Navigatio
+n
+
+Provided by: Program Manager P
+lugin
+Related Topics:
+Opening Program Files
+Closing Program Files
+
+Go To Last Active Program.
+
+

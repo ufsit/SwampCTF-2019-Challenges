@@ -1,0 +1,47 @@
+Selecting 1/1
+
+Selecting Scoped Flow
+Scoped Flow is the potential f
+low through a function, removi
+ng any flow that is not in
+the selected scope. This is us
+eful for determining how to re
+ach a set of instructions.
+
+Forward and Reverse Scoped Flo
+w
+Forward scoped flow is the set
+ of addresses that can only be
+ reached by passing
+through the Basic Block contai
+ning the current address.
+Reverse scoped flow is the set
+ of addresses that must pass t
+hrough the Basic Block
+containing the current address
+.
+To create forward or reverse s
+coped selections, use one of t
+he following two
+actions, respectively:
+From the menu bar choose Selec
+t
+Flow
+From the menu bar choose Selec
+t
+
+Provided by: Select By Scoped 
+Flow Plugin
+Related Topics:
+Selecting in Ghidra
+Highlighting
+
+Scoped Flow
+
+Forward Scoped
+
+Scoped Flow
+
+Reverse Scoped Flow
+
+

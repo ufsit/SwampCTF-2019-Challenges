@@ -1,0 +1,534 @@
+Symbol Table
+
+Symbol Table 1/6
+
+The Symbol Table displays a ta
+bular view of each symbol curr
+ently defined in the program.
+A symbol, also known as a labe
+l, is an association between a
+ name and an address.
+
+Displaying the Symbol Table co
+mponent
+From the menu-bar of a tool, s
+elect Window
+Symbol Table
+From the tool-bar of a tool, c
+lick on the
+button
+
+The columns in the table are:
+Label
+
+Name of symbol.
+
+Location
+
+Address where the symbol is de
+fined.
+
+Type
+
+Symbol type (Function, Externa
+l, Class, etc).
+
+Datatype
+
+Datatype (i.e., byte, float, e
+tc.) applied at symbol address
+.
+
+Namespace Namespace of the sym
+bol; i.e., the scope.
+Source
+
+Indicates where the symbol nam
+e came from.
+
+Reference
+Count
+
+Total number of references mad
+e to this symbol.
+
+You can sort the table on any 
+column by clicking on the colu
+mn header. The column can be s
+orted in ascending or descendi
+ng order.
+The colors for bad references,
+ entry points, dead code, offc
+ut code, function names, local
+ symbols, primary and non-prim
+ary symbols
+correspond to the colors used 
+in the Code Browser. Any chang
+es you make to these colors th
+rough the Code Browser Display
+ options will be
+
+The colors for bad references
+, entry points, dead code, off
+cut code, function names, loca
+l symbols, primary and non-pri
+mary symbols
+correspond to the colors used 
+in the Code Browser. Any chang
+es you make to these colors th
+rough the Code Browser Display
+ options will be
+reflected in the Symbol Table.
+Symbol Table
+
+2/6
+
+Filter Text Field
+The filter text field allows y
+ou to filter the list of symbo
+ls. By default it will do a "C
+ontains" filter, but you can c
+hange that behavior to be "Sta
+rts With",
+"Matches Exactly", or "Regular
+ Expression". See Filter Optio
+ns for more details on the var
+ious filter text strategies.
+The Name Only checkbox allows 
+you to toggle whether to filte
+r on only the name column or a
+ll the columns in the table.
+The filter text field will acc
+ept basic globbing characters 
+such as '*' and '?' within the
+ filter text unless the "Regul
+ar Expression" filter strategy
+ is selected, in
+which case you should use stan
+dard regular expression syntax
+.
+
+Viewing Symbol References
+See Symbol References
+
+Deleting Symbols
+You can use the Symbol Table t
+o delete symbols from the prog
+ram.
+To delete symbols:
+1. Select the symbols in the S
+ymbol Table (hold the <Ctrl> k
+ey down to add to the selectio
+n) to be deleted.
+2. Right-mouse-click and selec
+t "Delete" from the popup menu
+, or click the
+button in the Symbol Table too
+lbar.
+
+Notes on deleting a symbol:
+1. You can only delete a defau
+lt symbol when it has zero (0)
+ references.
+2. If you delete a user-define
+d symbol with references, then
+ a default symbol will automat
+ically be created and assigned
+ those references.
+3. You can delete a non-primar
+y symbol with references, but 
+those references will be reass
+igned to the primary the symbo
+l.
+
+Renaming a Symbol
+You can use the Symbol Table t
+o rename a symbol.
+To rename a symbol:
+1.
+2.
+3.
+4.
+5.
+
+In the Symbol Table, double-cl
+ick in the "Label" field on th
+e row of the symbol to be rena
+med
+The field will become editable
+Enter a new name and press ret
+urn
+The new name for the symbol sh
+ould display in the table and 
+Code Browser
+If the table is being sorted o
+n the "Label" field, then the 
+new name should be sorted into
+ the table and the selection s
+hould move accordingly
+
+Edit External Location
+You can edit the external loca
+tion and associated library de
+tails for any External Data or
+ External Function symbol with
+in the symbol table. Right mou
+se click on
+the symbol table row and choos
+e the Edit External Location
+action from the popup menu (se
+e Symbol Tree - Edit External 
+Location for more discussion o
+n the
+use of the edit dialog).
+
+Making a Selection
+You can make a selection that 
+corresponds to the symbol addr
+esses that are selected in the
+ Symbol Table.
+To make a selection:
+1. Select the symbols in the S
+ymbol Table (hold the <Ctrl> k
+ey down to add to the selectio
+n) to be added to the selectio
+n.
+2. Right-mouse-click and selec
+t "Make Selection" from the po
+pup menu.
+Or, click the
+
+Pinning a Symbol
+
+button in the Symbol Table too
+lbar.
+
+Pinning a Symbol
+Symbol Table 3/6
+
+Code, data, or function labels
+ may be pinned which keeps the
+n from moving to a new address
+ in the event of a memory bloc
+k move or an image base change
+.
+To pin a label:
+1. Select the symbols to be pi
+nned in the Symbol Table (hold
+ the <Ctrl> key down to add to
+ the selection) to be added to
+ the selection.
+2. Right-mouse-click and selec
+t "Set Pinned" from the popup 
+menu.
+To unpin a label:
+1. Select the symbols to be un
+pinned in the Symbol Table (ho
+ld the <Ctrl> key down to add 
+to the selection) to be added 
+to the selection.
+2. Right-mouse-click and selec
+t "Clear Pinned Symbol(s)" fro
+m the popup menu.
+
+Filtering
+The list of displayed symbols 
+is determined by the current s
+ymbol table settings. These se
+ttings can be adjusted by clic
+king the Filter
+button in the toolbar of
+the Symbol Table window or fro
+m the right-mouse popup menu..
+ The displayed symbols will co
+rrespond to the selected check
+boxes in the Symbol Table Filt
+er
+dialog.
+
+Symbol Table Filter Dialog
+
+The Symbol Table Filter dialog
+ consists of three sets of fil
+ters - Symbol Source, Symbol T
+ypes, and miscellaneous Advanc
+ed filters which are not initi
+ally
+shown. The Symbol Types are fu
+rther divided into label symbo
+ls and non-label symbols. This
+ grouping is for informational
+ purposes only. For most situa
+tions,
+only the Source and Type filte
+rs need to be set. This will g
+enerate a query that will incl
+ude all symbols that have one 
+of the selected sources AND ha
+ve one of
+the selected types.
+Symbol Source Filters- this gr
+oup determines which symbols (
+based on how they originated) 
+should be included in the quer
+y. At least one of the source 
+filters
+must be selected.
+User Defined This filter inclu
+des all symbols named by the u
+ser in the query.
+Imported This filter includes 
+all symbols named by some impo
+rted information.
+Analysis This filter includes 
+all symbols created by auto-an
+alysis that do not have defaul
+t names.
+Default (Function) - This filt
+er includes all function symbo
+ls that have default names.
+Default (Labels) This filter i
+ncludesl all non-function symb
+ols that have default names (G
+hidra generally creates defaul
+t-named symbols at any
+address that is referenced by 
+some other location.)
+Symbol Type Filters - This gro
+up of filters determines which
+ types of symbols to include i
+n the query. All symbols in Gh
+idra are one of the following 
+types. At
+least one of these type filter
+s must be selected.
+
+Symbol Type Filters - This gr
+oup of filters determines whic
+h types of symbols to include 
+in the query. All symbols in G
+hidra are one of the following
+ types. At
+least one of these type filter
+s must be selected.
+Instruction Labels - labels at
+ addresses with instructions .
+ Note these do NOT include lab
+els where functions exist.
+Data Labels - labels at addres
+ses with data or external labe
+ls. Note these do NOT include 
+labels where functions exists.
+Functions - labels at addresse
+s where functions have been de
+fined (includes external funct
+ions).
+Namespaces - Namespace name sy
+mbols.
+Classes - C++ class names symb
+ols.
+External Library - External li
+brary name symbols.
+Parameters - Function paramete
+r name symbols.
+Local Variables - Function loc
+al variable name symbols.
+Global Register Variable - glo
+bal register variable name sym
+bols.
+
+Symbol Table 4/6
+
+Use the Select All button to s
+elect all symbol types and the
+ Clear All to de-select all ty
+pes.
+Advanced Symbol Filters - Adva
+nced filters are used to furth
+er refine a query to only incl
+ude symbols that meet various 
+specific criteria. Each of the
+ advanced
+filters only applies to a subs
+et of the symbol types, so to 
+use one of these filters, the 
+appropriate symbol type filter
+ must also be selected. Advanc
+ed filters that do
+not have any of their associat
+ed type filters set, are disab
+led. Advanced filters can be t
+ricky to use because each filt
+er only applies to a subset of
+ the types and has
+no effect on the other selecte
+d types during the query. See 
+the examples below for more in
+formation.
+Externals - Accepts only those
+ symbols which are external.
+Non-Externals - Accepts only t
+hose symbols which are not ext
+ernal.
+Primary Labels - Accepts only 
+labels that are the primary la
+bel at an address. Applies to 
+Labels and Functions.
+Non-Primary Labels - Accepts o
+nly labels that are not the pr
+imary label at an address. App
+lies to Labels and Functions.
+Globals - Accepts the symbol i
+f it is in the global namespac
+e. Applies to Labels, Function
+s, Namespaces, and classes.
+Locals - Accepts the symbol if
+ it is NOT in the global names
+pace. Applies to Labels, Funct
+ions, Namespaces, and classes.
+Register Variables - Accepts f
+unction parameters or local va
+riables that are register base
+d. Applies to Parameters and l
+ocal variables.
+Stack Variables - Accepts func
+tion parameters or local varia
+bles that are stack based. App
+lies to Parameters and local v
+ariables.
+Entry Points - Accepts labels 
+or functions at external entry
+ points. Applies to Labels and
+ Functions.
+Subroutines - Accepts labels t
+hat are "called" by some instr
+uction. (Does not include labe
+ls where functions are defined
+.) Applies to Labels.
+Not In Memory - Accepts labels
+ that are at an address not co
+ntained in memory. Applies to 
+Labels.
+Unreferenced - Accepts labels 
+or functions that have no refe
+rences to them (also known as 
+"dead code"). Applies to Label
+s and functions.
+Offcut Labels - Accepts labels
+ that are at an address that i
+s not the start of an instruct
+ion or data. Applies to Labels
+.
+Advanced Filters affect the qu
+ery using the following algori
+thm. For each symbol that matc
+hes the selected source(s) and
+ symbol type(s):
+1.
+2.
+3.
+
+Find all selected advanced fil
+ters that are appropriate for 
+the symbol's type.
+If no selected advanced filter
+s are appropriate, include the
+ symbol.
+If at least one advanced filte
+r is appropriate, then the sym
+bol is included if at least on
+e of those filters accepts the
+ symbol.
+
+Select the Use Advanced Filter
+s checkbox to see the advanced
+ filters.
+
+The Reset Filters button sets 
+all checkboxes back to their d
+efault states.
+Sample Queries
+
+Sample Queries
+
+Symbol Table 5/6
+Example 1:
+Setup - the following checkbox
+es are selected:
+Symbol Source: User Defined
+Symbol Types: Instruction Labe
+ls, Data Labels, and Function 
+Labels
+Advanced Filter: none
+Result:
+All labels and functions that 
+are "user defined" will be sho
+wn in the symbol table.
+
+Example 2:
+Setup:
+Symbol Source: User Defined, I
+mported, Analysis, and Default
+Symbol Types: Instruction Labe
+ls and Data Labels
+Advanced Filter: Subroutines
+Result:
+All labels that are the start 
+of a subroutine (not including
+ functions) are displayed.
+If you want to see all subrout
+ines including those that have
+ been defined as functions, al
+so select the Functions type f
+ilter.
+
+Example 3:
+Setup:
+Symbol Source: User Defined, I
+mported, Analysis, and Default
+Symbol Types: Functions Labels
+ and Parameters
+Advanced Filter: Stack Variabl
+es.
+Result:
+All functions are displayed
+All parameters that are stack 
+based are displayed. (Register
+ parameters have been filtered
+ out.)
+Note that the advanced filter 
+Stack Variables is applicable 
+only to Parameters, and theref
+ore did not affect the display
+ of functions.
+Example 4:
+Setup:
+Symbol Source: User Defined, I
+mported, Analysis, and Default
+Symbol Types: Instruction Labe
+ls, Data Labels, and Function 
+Labels
+Advanced Filter: Primary Label
+s and Non-primary Labels.
+Result:
+All labels are displayed
+Note that since all labels are
+ either Primary labels or Non-
+primary Labels, selecting both
+ of these advanced filters acc
+omplished nothing.
+The results would have been th
+e same if neither was selected
+.
+
+Provided by: Symbol Table Plug
+in
+Related Topics
+
+Related Topics
+Labels
+Listing Display Options
+
+Symbol Table 6/6
+
+

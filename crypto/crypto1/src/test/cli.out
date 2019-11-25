@@ -1,0 +1,41 @@
+CONNECTED(00000003)
+---
+no peer certificate available
+---
+No client certificate CA names sent
+Server Temp Key: DH, 16 bits
+---
+SSL handshake has read 313 bytes and written 154 bytes
+---
+New, TLSv1/SSLv3, Cipher is ADH-AES128-GCM-SHA256
+Secure Renegotiation IS supported
+Compression: NONE
+Expansion: NONE
+No ALPN negotiated
+SSL-Session:
+    Protocol  : TLSv1.2
+    Cipher    : ADH-AES128-GCM-SHA256
+    Session-ID: 7F3E63302C3775ED9BB7A7546FB62D08D8549C1707492C2D754DD45BE3C3E3D0
+    Session-ID-ctx: 
+    Master-Key: 0BBD6A36F14CF8A156192DC212C09D3289EA2A1886D6FE3BE6C2AEDF4DAA917F800D1C973BDC516A538A3CE22DFA5FF8
+    TLS session ticket lifetime hint: 7200 (seconds)
+    TLS session ticket:
+    0000 - 44 bc d5 b6 2c 98 58 7e-34 b4 07 51 45 f7 8e 9b   D...,.X~4..QE...
+    0010 - 23 a0 fe 82 66 1e fa 1a-3b 4f 6b 9e d7 2d 30 78   #...f...;Ok..-0x
+    0020 - a3 85 a4 58 c0 20 57 ab-34 47 0f 2a 08 00 b4 0c   ...X. W.4G.*....
+    0030 - 15 41 4c 1b f3 1a e4 d5-bc 81 fe e7 f6 cf b7 81   .AL.............
+    0040 - e5 a3 ef 61 2e 68 51 cf-66 7c 1a bd 25 af 02 ad   ...a.hQ.f|..%...
+    0050 - 6c f3 84 a0 3c d5 fb b2-b6 5a 4a 14 1e 15 f1 b4   l...<....ZJ.....
+    0060 - 99 fc 27 e2 32 03 42 b7-87 92 70 71 35 1b 69 ad   ..'.2.B...pq5.i.
+    0070 - 04 0a 79 97 ea a0 11 6c-29 3d 73 b4 8e 35 e5 7c   ..y....l)=s..5.|
+    0080 - d9 87 9a 8b be 77 12 48-3b 42 c5 9e 53 18 3d f0   .....w.H;B..S.=.
+    0090 - 7b 56 2e c6 58 b8 4a 39-de 37 54 c4 6c ff 73 e7   {V..X.J9.7T.l.s.
+
+    Start Time: 1550686100
+    Timeout   : 7200 (sec)
+    Verify return code: 0 (ok)
+---
+HTTP/1.0 200 ok
+Content-type: text/plain
+
+This is the solution!

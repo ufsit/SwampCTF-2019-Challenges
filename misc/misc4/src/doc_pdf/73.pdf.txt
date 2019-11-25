@@ -1,0 +1,398 @@
+Selecting 1/4
+
+Selecting
+Selecting is the process of hi
+ghlighting all or portions of 
+a program in order to perform 
+a task (for example,
+modular analysis) on the selec
+tion. Selecting can be done ma
+nually in providers that suppo
+rt selection, like
+the Code Browser. Selecting ca
+n be done based on subroutines
+, functions, or by following c
+ertain types of
+control flows in the program.
+Selections can be created manu
+ally within the Code Browser. 
+There are also some predefined
+ types of
+selections that are available 
+from the tool Select menu. Eac
+h predefined type of selection
+ exposes different
+characteristics of the program
+.
+To create a selection using on
+e of the predefined methods:
+From the Code Browser, select 
+the menu option Select
+
+SelectionType.
+
+The SelectionTypes and their d
+escriptions are as follows:
+
+Predefined Selection Methods
+Selection
+Type
+Program Changes
+
+Description
+Select all program changes.
+
+All Flows
+From
+
+This follows all program flows
+ from the cursor location if n
+o selection
+or from the selected code unit
+s if there is a selection. Sel
+ect All Flows
+will traverse all branches con
+ditional and unconditional. Al
+l the code
+units that are traversed are s
+elected.
+
+All Flows
+To
+
+This selects all program flows
+ to the cursor location if no 
+selection or
+to the selected code units if 
+there is a selection. Select A
+ll Flows To
+will traverse all branches con
+ditional and unconditional. Al
+l the code
+units that are traversed are s
+elected.
+In other words, this follows a
+ll program flows backwards fro
+m the
+location or selection.
+
+Limited
+Flows From
+
+The types of program flows to 
+be followed in this case are b
+ased on
+options configured on the Sele
+ction by Flow Options tab. Lim
+ited
+Flows only follows the indicat
+ed types of program flows from
+ the
+cursor location if no selectio
+n or from the selected code un
+its if there is
+a selection. All the code unit
+s that are traversed are selec
+ted.
+
+Limited
+Flows To
+
+The types of program flows to 
+be followed in this case are b
+ased on
+options configured on the Sele
+ction by Flow Options tab. Lim
+ited
+Flows To only follows the indi
+cated types of program flows t
+o the
+cursor location if no selectio
+n or to the selected code unit
+s if there is a
+selection. All the code units 
+that are traversed are selecte
+d.
+In other words, this follows t
+he types of program flows, as 
+indicated by
+the options, backwards from th
+e location or selection.
+
+Subroutine
+
+If there is no selection, this
+ selects the code units of the
+ subroutine that
+
+Subroutine
+
+Dead Subroutines
+
+If there is no selection, this
+ selects the code units of the
+ subroutine that
+Selecting 2/4
+contains the current cursor lo
+cation. If there is a selectio
+n, this selects
+all the subroutines that conta
+in the selected code units.
+Selects the code units of all 
+subroutines that not directly 
+referenced, also known
+as "dead" code.
+
+Function
+
+If there is no selection, this
+ selects the code units of the
+ function that
+contains the current cursor lo
+cation. If there is a selectio
+n, this selects
+all the functions that contain
+ the selected code units.
+
+All in View
+
+Selects all code units being d
+isplayed in the browser view.
+
+Clear
+Selection
+Complement
+
+Clears the current selection i
+n the browser view.
+Changes the selection to every
+thing in the current view that
+ is not in the current
+selection.
+
+Data
+
+Selects all the defined data i
+n the current program if there
+ isn't a selection.
+Otherwise, it selects the defi
+ned data within the current se
+lection.
+
+Instructions
+
+Selects all the instructions i
+n the current program if there
+ isn't a selection.
+Otherwise, it selects the inst
+ructions within the current se
+lection.
+
+Undefined Data
+Forward Refs
+Back Refs
+
+Selects all the undefined data
+ in the current program if the
+re isn't a selection.
+Otherwise, it selects the unde
+fined data within the current 
+selection.
+Selects all addresses that the
+ current address is referring 
+to.
+Selects all addresses that ref
+er to the current address.
+
+Selections are meant to be tem
+porary. For example, a left mo
+use click outside a selection 
+in the Code
+Browser will make the selectio
+n go away. Also, creating a ne
+w selection replaces any previ
+ous selection
+rather than adding to it. To r
+etain a selection in a manner 
+that isn't so transient, chang
+e it to a highlight.
+At any time you can restore th
+e previous selection for the c
+urrent program by pressing the
+Select Restore Selection.
+Selection by Flow Tool Options
+The Select By Flow plugin adds
+ options to the tool. To view 
+or edit the option settings:
+From the tool's menu select Ed
+it Tool Options...
+Click on the Selection by Flow
+ tree node
+The Selection by Flow tab cont
+ains options for indicating th
+e types of flows that will be 
+followed
+when selecting Limited Flows. 
+The table below lists the Sele
+ction by Flow options and thei
+r default
+settings. To follow a particul
+ar flow type simply click on t
+he box to check it.
+Flow Type to Follow
+
+Default
+
+Follow computed call
+
+false
+
+Follow computed jump
+
+false
+
+Follow computed jump
+
+false
+
+Follow conditional call
+
+false
+
+Follow conditional jump
+
+true
+
+Follow pointers
+
+false
+
+Follow unconditional call
+
+false
+
+Follow unconditional jump
+
+true
+
+Selecting 3/4
+
+Example: Given Follow conditio
+nal jump and Follow unconditio
+nal jump are the only types ch
+ecked.
+As the program flow is followe
+d the instructions that are en
+countered are added to the sel
+ection,
+wherever the program jumps wil
+l also get added to the select
+ion and the program flow is al
+so followed
+from there. If a conditional c
+all is encountered, then this 
+instruction gets added to the 
+selection. But
+the conditional call is not fo
+llowed and the code at the cal
+l's destination is not added s
+ince this type
+isn't being followed. The code
+ for the subroutine at the cal
+l's destination could still en
+d up in the
+selection, if it is flowed to 
+by a different flow path using
+ the flow types being followed
+.
+
+Provided by: Select By Flow Pl
+ugin
+
+Navigating Over a Selection
+A selection will often consist
+ of one or more address ranges
+. The address ranges do not ha
+ve to be
+contiguous. The navigation mar
+gin can be used to directly mo
+ve the location to a particula
+r selected range.
+To move to the next or previou
+s selection range relative to 
+the current cursor location us
+e the Next Selected
+Range and Previous Selected Ra
+nge buttons.
+Using the Navigation Margin
+One or more green markers will
+ appear in the Navigation Marg
+in, where each green
+marker corresponds to an addre
+ss range included in the selec
+tion. Clicking on a green
+marker will cause the Code Bro
+wser to navigate to the beginn
+ing of the corresponding
+address range.
+
+Next Selected Range
+To move the program's cursor l
+ocation to the beginning of th
+e next selected range of addre
+sses:
+
+From the menu-bar of the Code
+ Browser, select Navigation
+
+Next Selected Range
+
+Selecting 4/4
+
+OR
+From the tool-bar of the Code 
+Browser, click the Go to next 
+selected range (
+
+) button
+
+When the Code Browser is on or
+ after the last address range 
+in the selection, the "Next Se
+lected
+Range" menu-bar and tool-bar o
+ptions will be disabled.
+Previous Selected Range
+To move the program's cursor l
+ocation to the beginning of th
+e next selected range of addre
+sses:
+From the menu-bar of the Code 
+Browser, select Navigation
+
+Previous Selected Range
+
+OR
+From the tool-bar of the Code 
+Browser, click the Go to previ
+ous selected range (
+button
+
+)
+
+When the Code Browser is on or
+ before the first address rang
+e in the selection, the "Previ
+ous
+Selected Range" menu-bar and t
+ool-bar options will be disabl
+ed.
+
+Provided by: Go To Next-Previo
+us Selected Range Plugin
+Related Topics:
+Margin & Navigation Markers
+Navigation
+Highlighting
+
+

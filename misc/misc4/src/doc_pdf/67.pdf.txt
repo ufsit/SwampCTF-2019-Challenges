@@ -1,0 +1,250 @@
+Register Values
+
+Register Values Plugin 1/4
+
+Each program has a set of regi
+sters that is determined by th
+e program's language. When a p
+rogram is actually running, th
+e
+registers contain values that 
+make up the processor state at
+ any given instant. Since Ghid
+ra programs represent a static
+ view (i.e.
+not running), there is no "ins
+tant" that can be examined to 
+see register values. The best 
+approximation is to assign reg
+isters
+values at addresses. This is u
+seful if the register value ca
+n be determined to be constant
+ anytime the instruction at th
+at address is
+executed.
+For example, if an instruction
+ at address 0x1000 is "mov ax,
+20", then it might be possible
+ to assume that the value of r
+egister ax
+will be 20 for the next severa
+l instructions (assuming there
+ are no "jumps" into that code
+).
+Setting register values can so
+metimes be the critical link f
+or successfully performing var
+ious types of analysis or even
+ getting the
+correct disassembly. For examp
+le, some processors have a "mo
+de" that is stored in some reg
+ister. Depending on the mode, 
+the
+processor may have completely 
+different instruction sets. To
+ disassemble properly, the mod
+e register must be set at the 
+address
+where the disassembly begins.
+
+Register Manager
+The Register Manager displays 
+the assigned values of registe
+rs at addresses within a progr
+am.
+To display the Register Manage
+r, select the Register Manager
+ menu item from theWindow menu
+ of the toolbar or.
+
+The left side of the Register 
+Manager is a tree containing a
+ll the registers defined for t
+he program's language. If the
+registers have been grouped in
+to categories by the language,
+ those registers will appear u
+nder a folder with that group
+name. Registers that break dow
+n into smaller registers are m
+arked with the
+icon. These nodes can be furth
+er opened to
+reveal their component registe
+rs. For example, EAX can be op
+ened to show AX, which can the
+n be opened to show AL
+and AH. Registers that don't h
+ave sub pieces use the
+icon. The filter text field, l
+ocated under the register tree
+ can be
+used to quickly find any regis
+ter. As you begin to type the 
+name of a register, the tree w
+ill shrink eliminating any reg
+isters
+that don't contain the filter 
+text.
+
+The right side of the Registe
+r Manager is a table that disp
+lays ranges of addresses that 
+have assigned values for which
+ever
+Register
+Values
+register is selected in the re
+gister tree. Initially, the ta
+ble only contains values that 
+have been explicitly
+associated
+withPlugin
+the 2/4
+selected register and addresse
+s. There is an option in the d
+rop down menu that will cause 
+the table to also show default
+values for a register. Default
+ values are assigned by the la
+nguage and usually only apply 
+to context registers.
+
+Tool Buttons
+
+Toggles whether or not to sele
+ct the row in the currently se
+lected register value table wh
+ose address range
+contains the current address o
+f the cursor in the listing vi
+ew. For example, in the Regist
+er Manager image
+show above, if the user clicks
+ on any address between 804c12
+ and 804c24, then the first ro
+w of the table will
+be selected if this action tog
+gle is on.
+Deletes the register value ass
+ociations for all the selected
+ ranges in the table.
+Creates a selection in the bro
+wser for all the address range
+s selected in the register val
+ues table.
+Filters out all registers in t
+he register tree that don't ha
+ve any associated values (defa
+ult or otherwise).
+
+Menu Actions
+Show Default Values - if selec
+ted, the register manager will
+ show default register value r
+anges mixed in with
+user set register value ranges
+.
+Editing an Address Value Range
+Double click on any row in the
+ register value table to bring
+ up the Edit Register Value Ra
+nge dialog.
+
+Using the dialog, you can adju
+st the start or end address an
+d/or change the value associat
+ed with the range. If
+you change the start or end ad
+dress such that the range is s
+maller, then value association
+s for address range that
+was trucated is effectively cl
+eared. For example, in the dia
+log shown above, if you change
+ the end address to
+01001b47 and change the value 
+to 111, then addresses 01001b3
+3 to 01001b47 will have the va
+lue 111 and
+address 01001b48 will have no 
+value.
+
+Setting Register Values Over A
+ddress Ranges
+
+Setting Register Values Over 
+Address Ranges
+Register Values Plugin 3/4
+To set a value for a register 
+across an address range, first
+ create a selection in the bro
+wser and then invoke the Set R
+egister
+Values action by either using 
+the right-mouse popup or using
+ the <Ctrl>R quick key. The fo
+llowing dialog appears.
+
+Choose the register for which 
+you want to set a value, enter
+ the value and press the Ok bu
+tton. The Address(es) field sh
+ows
+the set of addresses that will
+ be affected. By default, the 
+Value field is entered as an u
+nsigned hex value, but the for
+mat
+can be changed using the adjac
+ent drop-down menu.
+If the browser cursor is on a 
+register when this dialog is i
+nvoked, then the register comb
+o will be set to that register
+.
+
+Clearing Register Values Over 
+Address Ranges
+To clear a register value over
+ an address range, first creat
+e a selection in the browser a
+nd then invoke the Clear Regis
+ter
+Values action by using the rig
+ht-mouse popup. The following 
+dialog appears.
+
+Choose the register for the as
+sociation and press the Ok but
+ton. The Address(es) field sho
+ws the set of addresses that w
+ill
+be affected.
+
+Choose the register for the a
+ssociation and press the Ok bu
+tton. The Address(es) field sh
+ows the set of addresses that 
+will
+be affected.
+Register Values Plugin 4/4
+
+Delete Exiting Register Value 
+Ranges Associations
+You can delete associated regi
+ster values using Delete Regis
+ter Value Range action when ov
+er a Register Transition field
+in the browser ("assume ESI = 
+0x20".) Activating this action
+ will remove the register asso
+ciation over the entire range
+associated with that "Assume" 
+statement.
+
+Provided by: RegisterPlugin
+
+

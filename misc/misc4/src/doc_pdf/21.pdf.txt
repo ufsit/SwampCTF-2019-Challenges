@@ -1,0 +1,793 @@
+Importer
+
+Importer Plugin 1/11
+
+Introduction
+Ghidra can import a variety of
+ different types of files into
+ a Ghidra project as Ghidra "p
+rograms." There are separate a
+ctions for
+importing single files, import
+ing multiple files, and import
+ing a file into an existing pr
+ogram. The actions for importi
+ng single or
+multiple files into a new prog
+ram are available in both the 
+front-end project window or th
+e CodeBrowser tool. The action
+ for adding to
+an existing program is only av
+ailable from the Code Browser 
+tool and only if there is a cu
+rrently open program in the to
+ol.
+
+Supported Formats
+Common Object File Format (COF
+F)
+Debug Symbols (DBG)
+Executable and Linking Format 
+(ELF)
+Ghidra Data Type Archive Forma
+t
+GZF Input Format
+Intel Hex
+Mac OS X Mach-O
+Module Definition (DEF)
+Motorola Hex
+New Executable (NE)
+Old-style DOS Executable (MZ)
+Portable Executable (PE)
+Preferred Executable Format (P
+EF)
+Program Mapfile (MAP)
+Raw Binary
+XML Input Format
+
+File Import Actions
+These actions can be used to i
+mport one or more files into a
+ Ghidra project. They can be a
+ccessed via the File menu in e
+ither the Front-end Project
+Window or the CodeBrowser Tool
+ unless otherwise specified.
+
+Import File
+This action is used to import 
+a single file into Ghidra. If 
+the file is an archive consist
+ing of multiple programs, then
+ this action will bring
+up the Batch Importer Dialog, 
+otherwise it will use the stan
+dard single file Importer Dial
+og to complete the import.
+Steps:
+Invoke the action from the Fil
+e Import File... menu item.
+Select the file to import usin
+g the filechooser that appears
+.
+Use the Importer Dialog (or th
+e Batch Importer Dialog if it 
+is an archive) that pops up to
+ configure the import.
+Press OK to initiate the impor
+t.
+A results summary dialog will 
+appear and, if successful, the
+ new program will appear in th
+e project window and if initia
+ted from
+a CodeBrowser tool, it will be
+ opened in the tool.
+
+Batch Import
+This action is used to import 
+multiple files by selecting a 
+root directory and letting it 
+recursively find programs to i
+mport.
+Steps:
+Invoke the action from the Fil
+e Batch Import... menu item.
+Use the filechooser dialog tha
+t appears to select a root dir
+ectory for searching for files
+ to import.
+Use the Batch Importer Dialog 
+that appears to select and con
+figure files for importing.
+Press OK on the dialog to init
+iate importing the selected fi
+les.
+
+Use the Batch Importer Dialog
+ that appears to select and co
+nfigure files for importing.
+Press OK on the dialog to init
+iate importing the selected fi
+les.
+Importer
+Plugin 2/11
+A results summary dialog will 
+appear and, if successful, the
+ new program(s) will appear in
+ the project window. If the
+action was
+initiated from the CodeBrowser
+ tool and only a few files wer
+e imported, they will be opene
+d in the CodeBrowser tool.
+
+Open File System
+This action is used to open th
+e File System Browser which ca
+n be used to view the contents
+ of container files (tar, zip,
+ etc.) and import
+files from within those contai
+ners.
+Steps:
+Invoke the action from the Fil
+e Open File System... menu ite
+m.
+Use the dialog that appears to
+ browse the contents of the co
+ntainer file and import files 
+as desired.
+
+Add to Program
+This action is used to import 
+data from a file into an exist
+ing program. The program must 
+be open in the tool to perform
+ this action.
+Steps:
+Invoke the action from the Fil
+e Add to Program... menu item.
+Use the filechooser dialog tha
+t appears to select a root dir
+ectory for searching for files
+ to import.
+Use the Importer Dialog to con
+figure the import.
+Press OK on the dialog to init
+iate importing the selected fi
+les.
+When the import is complete, t
+he currently open program shou
+ld have additional data in it.
+
+Other Import Actions
+
+Import Selection
+This action is used to import 
+a selection from an open progr
+am in the CodeBrowser tool.
+Steps:
+Make a selection in the Listin
+g window in the CodeBrowser to
+ol.
+Invoke the action by right-cli
+cking and from the popup menu,
+ select the Extract and Import
+... menu item.
+Use the Importer Dialog to con
+figure the import.
+Press OK on the dialog to init
+iate importing the selected fi
+les.
+When the import is complete, a
+ new program will appear in th
+e project window and also be o
+pened in a new tab in the List
+ing
+Window.
+
+Importer Dialog
+When the user initiates a sing
+le file import, the Importer D
+ialog is used to configure the
+ import for that file.
+
+Importer Plugin 3/11
+
+Dialog Fields
+Format - This field is a drop-
+down list containing all the v
+alid file formats that could b
+e used to to import the file. 
+Typically,
+there are two options availabl
+e. One for the actual format o
+f the file (if Ghidra could de
+tect it) and other is the Raw 
+Binary
+format, which is always an opt
+ion regardless of the actual f
+ile format and it will simply 
+import the bytes in the file w
+ithout any
+interpretation.
+Language - This field specifie
+s the language/compiler specif
+ication that will be used in t
+he resulting program. Often, t
+his will be
+automatically detected from th
+e file format. The Language/Co
+mpiler Spec Chooser Dialog can
+ be used to enter or change th
+e
+language/compiler spec that wi
+ll be used.
+Destination Folder - This fiel
+d is used to specify the desti
+nation folder within the curre
+nt project for where the newly
+ imported
+program will be saved. If a fo
+lder is selected in the front-
+end project window, then this 
+field will default to that fol
+der, otherwise
+the root folder will be the de
+fault. The ... will bring up a
+ dialog for changing the desti
+nation folder.
+Program Name - This field spec
+ifies the name for the newly i
+mported program. By default, i
+t will be the name of the impo
+rted
+file with any format specific 
+extenstion removed (e.g., .xml
+, .gzf). Path information at t
+he beginning of the this field
+ will be used
+to create a destination folder
+ in the current project under 
+the root folder specified by t
+he Destination Folder field.
+Options... - This button will 
+pop up format specific options
+ for the import.
+
+If this dialog appears as a re
+sult of the Add To Program act
+ion, then the Language, Destin
+ation Folder, and Filename fie
+lds will
+be disabled since these values
+ are already determined by the
+ existing program.
+
+Options
+The import options differ depe
+nding on the selected format.
+Common Options
+These options appear many of t
+he standard executable program
+ formats such as ELF, PE, etc.
+Apply Processor Defined Labels
+If this option is on, the impo
+rter will create processor lab
+els at specific addresses as d
+efined by the processor specif
+ication.
+This is usually used to label 
+things like the reset vector o
+r interrupt vector.
+Anchor Processor Defined Label
+s
+If this option is on, labels c
+reated from the processor spec
+ification are anchored. This m
+eans that if the image base is
+changed or a memory block is m
+oved, those symbols will remai
+n at the address they were ori
+ginally placed. If the option 
+is
+off, the symbols will move wit
+h the image base or the memory
+ block.
+
+Create Export Symbol Files
+
+Importer Plugin 4/11
+Creates symbol files for each 
+library used by an executable.
+ The symbol file will contain 
+stack purge information for ea
+ch
+exported symbol in the library
+. The symbol files will be sto
+red in
+<GHIDRA_INSTALL_DIR>/Ghidra/Fe
+atures/Base/data/symbols/<OS>.
+
+When running Ghidra with .symb
+ols files created from an olde
+r operating system, you may re
+ceive the following
+warning message:
+Unable to locate [symbol_name]
+ in [<filepath>.exports]. Plea
+se verify the version is corre
+ct.
+This warning message indicates
+ which symbols do not exist in
+ the corresponding .exports fi
+le. The only information lost 
+by
+not including these symbols is
+ function purge and comments. 
+If you require this informatio
+n, manually delete the .export
+s
+file and Ghidra will regenerat
+e it.
+Load External Libraries
+Recursively resolves the exter
+nal libraries used by the exec
+utable. The entire library dep
+endency tree will be traversed
+ in a
+depth-first manner and a progr
+am will be created for each li
+brary. The external references
+ in these program will be reso
+lved.
+The "..." button will bring up
+ the Library Paths Dialog
+
+COFF Options
+COFF format has all the Common
+ Options, plus:
+Attempt to link sections locat
+ed at 0x0
+If selected, sections located 
+at 0x0 will be relocated seque
+ntially in memory. This will a
+void conflicts and keeps secti
+ons
+from being ignored.
+
+ELF Options
+ELF format has all the Common 
+Options, plus:
+Perform Symbol Relocations
+If selected, Ghidra will attem
+pt to apply the relocations sp
+ecified in the ELF header.
+Image Base
+Specifies the image base to us
+e for importing the memory sec
+tions.
+Import Non-loaded Data
+If selected, Ghidra will impor
+t ELF sections that don't get 
+loaded into memory when the pr
+ogram is run. These sections w
+ill
+not be stored in a special add
+ress space called "other".
+Fixup Unresolved External Symb
+ols
+If selected, Ghidra will attem
+p to resolve external referenc
+es against other programs alre
+ady imported into Ghidra that 
+are in
+the destination folder for thi
+s import.
+
+Intel Hex Options
+
+Bass Address
+
+Bass Address
+
+Importer Plugin 5/11
+This field is used to specify 
+the start address in memory fo
+r where to load the bytes.
+Overlay
+If selected, the bytes will be
+ loaded as an overlay. A new o
+verlay space will be created w
+ith the same name as the Block
+Name.
+Block Name
+This field is used to specify 
+the name of the memory block t
+hat will contain the newly imp
+orted bytes.
+
+Mach-O Options
+The Mac OSX Mach-O format has 
+only the Common Options.
+Motorola Hex Options
+
+Bass Address
+This field is used to specify 
+the start address in memory fo
+r where to load the bytes.
+Overlay
+If selected, the bytes will be
+ loaded as an overlay. A new o
+verlay space will be created w
+ith the same name as the Block
+Name.
+Block Name
+This field is used to specify 
+the name of the memory block t
+hat will contain the newly imp
+orted bytes.
+
+MZ Options
+The MZ format has only the Com
+mon Options.
+PE Options
+The PE format has all the Comm
+on Options, plus:
+Parse CLI headers (if present)
+If selected, any CLI headers p
+resent will be processed.
+Raw Binary Options
+
+Block Name
+The name of the memory block t
+hat will contain the raw bytes
+ from the file. By default, it
+ will be the name of the defau
+lt
+address space (usually "ram")
+Base Address
+
+Base Address
+
+Importer Plugin 6/11
+This field is the address offs
+et for the block of bytes to b
+e imported. By default, this w
+ill be 0.
+File Offset
+This field is the byte offset 
+into the imported file from wh
+ich to start importing raw byt
+es. By default, this will be 0
+.
+Length
+This field is the number of by
+tes to import. By default, thi
+s will be set to the total num
+ber of bytes in the imported f
+ile.
+Apply Processor Defined Labels
+If this option is on, the impo
+rter will create processor lab
+els at specific addresses as d
+efined by the processor specif
+ication.
+This is usually used to label 
+things like the reset vector o
+r interrupt vector.
+Anchor Processor Defined Label
+s
+If this option is on, labels c
+reated from the processor spec
+ification are anchored. This m
+eans that if the image base is
+changed or a memory block is m
+oved, those symbols will remai
+n at the address they were ori
+ginally placed. If the option 
+is
+off, the symbols will move wit
+h the image base or the memory
+ block.
+
+XML Options
+The XML format is used to load
+ from a Ghidra XML formatted f
+ile. The options are simply sw
+itches for which types of prog
+ram
+information to import.
+Memory Blocks
+Imports memory block definitio
+ns (name, start address, lengt
+h, etc). See Memory Map
+Memory Contents
+Imports bytes for the memory b
+locks.
+Instructions
+Imports disassembled instructi
+ons. See Disassembly.
+Data
+Imports data types and defined
+ data. See Data Type Manager a
+nd Data.
+Symbols
+Imports user-defined symbols. 
+See Symbol Table.
+Equates
+Import equate definitions and 
+references. See Equate Table.
+Comments
+
+Comments
+
+Importer Plugin 7/11
+Imports comments (pre, post, e
+ol, plate, repeatable). See Co
+mments.
+Properties
+Imports user-defined propertie
+s.
+Bookmarks
+Imports Bookmarks.
+Trees
+Imports program organizations 
+(program trees, modules, fragm
+ents). See Program Tree.
+References
+Imports user-defined memory, s
+tack, and external references.
+ See References.
+Functions
+Imports functions, stack frame
+s and variables. See Functions
+.
+Registers
+Imports program context and re
+gisters. See Register Values.
+Relocation Table
+See Relocation Table.
+Entry Points
+Imports program entry points.
+External Libraries
+See External Program Names.
+
+Library Search Path
+The Library Search Path dialog
+ is used to specify the direct
+ories that Ghidra should use t
+o resolve external libraries (
+e.g.; *.dll, *.so) while
+importing.
+
+Importer Plugin 8/11
+
+Change the Library Path Search
+ Order
+To change the search order of 
+the paths within the list:
+1. Select a path from the list
+2. Select the
+button to move the path up in 
+the list
+3. Select the
+button to move the path down i
+n the list
+
+The search order is important 
+when you have different versio
+ns of a libraries in different
+ directories. The first direct
+ory
+in the search path that contai
+ns a required library is the o
+ne that Ghidra will use.
+
+Add Library Search Path
+1. Click the
+button
+2. Select a directory from the
+ file chooser
+3. Click the "Select Directory
+" button
+
+The newly added path will be p
+laced at the top of the list.
+
+Remove Library Search Path
+1. Select one or more paths fr
+om the list
+2. Click the
+button
+
+Reset Library Search Paths
+To reset the paths to the defa
+ult list:
+1. Click the
+button
+2. Click "Yes" on the pop-up d
+ialog to confirm path reset
+
+This option will remove any pa
+ths added manually.
+
+Language and Compiler Specifi
+cation Dialog
+
+Importer Plugin 9/11
+
+This dialog is used specify of
+ the Ghidra language (Processo
+r/Compiler Spec) of the progra
+m being imported. Certain form
+ats, like "PE", "ELF", or
+"XML", will usually choose the
+ appropriate language/compiler
+ spec. If not, this dialog can
+ be used to select one or over
+ride the default selection.
+
+Each row in the table represen
+ts a unique processor language
+/compiler spec pair. To select
+ one, simple click on the row 
+and press the OK button.
+Table Columns
+Processor - The processor for 
+this selection
+Variant - Some processors have
+ different versions of the pro
+cessor. The primary variant is
+ called "default". Any other v
+ariants should have a
+meaningful name
+Size - the size in bits of the
+ processor address space
+Endian - the endianess of the 
+processor
+Compile - the compiler specifi
+cation used to build the progr
+am
+
+Filter
+The filter can be used to redu
+ce the number of entries in th
+e table. Only the entries that
+ contain the text in this fiel
+d will be displayed.
+Description
+This field shows the currently
+ selected language/compiler sp
+ec.
+Show Only Recommended Language
+/Compiler Specs
+If selected, only the language
+s suggested by the selected im
+porter format will be shown. O
+therwise, all known languages 
+will be shown.
+Not all importer formats can d
+etermine an appropriate langua
+ge, in which case all the lang
+uages will be displayed.
+
+Batch Import Dialog
+The Batch Import Dialog is use
+d to import multiple files at 
+the same time. The files may b
+e individual files in a direct
+ory tree, and/or files from an
+archive file of some sort such
+ as a zip or tar file.
+
+Importer Plugin 10/11
+
+Import Sources
+This section manages a list of
+ folder trees or container fil
+es (e.g., zips) to scan for fi
+les to import. Initially, this
+ contains the folder or
+file that was initially select
+ed from the file chooser.
+Adding an additional import so
+urce folder.
+Pressing the Add button will b
+ring up a file chooser for pic
+king an additional folder or f
+ile (import source) to search 
+for
+import files
+Removing an import source fold
+er
+Select a folder in the import 
+sources window and press the R
+emove button.
+Depth limit
+This field specifies the depth
+ or level of nested containers
+ to search for each of the spe
+cified import sources. Note th
+at this is
+not the level of subfolders to
+ search, but rather the nestin
+g levels of archive type files
+. (i.e. zips in zips)
+Rescan
+This button will rescan the im
+port sources to the current de
+pth for files to import.
+
+Files to Import
+This section displays a table 
+showing the files that were fo
+und. Each row represents a set
+ of similar files that can be 
+imported. The table
+columns are as follows:
+<checkbox> - if checked, this 
+set of files will be imported.
+File Type - displays the file 
+extension
+Loader - displays the format (
+Loader) that will be used to i
+mport the file.
+Language - displays the langua
+ge that will be used (if appli
+cable). Clicking on this field
+ will pop up a list of accepta
+ble languages
+to choose from.
+
+Language - displays the langu
+age that will be used (if appl
+icable). Clicking on this fiel
+d will pop up a list of accept
+able languages
+to choose from.
+Files - displays the number of
+ files in the group. Clicking 
+on this field will pop up a li
+st of the files in the group. 
+Importer Plugin 11/11
+
+Import Options
+
+Strip leading path
+If selected, the newly importe
+d files will not use the relat
+ive path of the file when stor
+ing the result in the project.
+Otherwise, the file will be in
+ a corresponding relative path
+ in the project.
+Strip container paths
+If selected, the newly importe
+d files will not use the inter
+ior archive path when storing 
+the result in the project. Oth
+erwise,
+the file will be in a correspo
+nding relative path to the pat
+h the file was in its archive.
+Project Destination
+This shows the destination fol
+der in the project that will b
+e the root folder for storing 
+the imported files. Each impor
+ted file
+will be stored in a relative p
+ath to that root folder. The r
+elative path is usually the re
+lative path of the file to its
+ import
+source folder, but can be adju
+sted with some of the path opt
+ions described earlier.
+
+Provided By: Importer Plugin
+
+

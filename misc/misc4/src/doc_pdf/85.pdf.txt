@@ -1,0 +1,26 @@
+Searching 1/1
+
+PDB
+Ghidra offers the ability to d
+ownload and apply PDB debug in
+formation for Microsoft
+programs. The Download PDB Fil
+e feature allows users to down
+load a PDB file that
+matches the user's current pro
+gram, given an accessible Symb
+ol Server. The Load
+PDB File feature allows users 
+to apply a local PDB file to t
+he current program. The
+PDB Analyzer also automaticall
+y applies PDB symbols (attempt
+ing a search for
+matching PDB files locally) du
+ring Auto-Analysis.
+Related Topics:
+Download PDB File
+Load PDB File
+Auto Analysis
+
+

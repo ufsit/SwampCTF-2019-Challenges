@@ -1,0 +1,41 @@
+Saving a Ghidra Project 1/1
+
+Save Project
+Saving a Ghidra Project will c
+ommit all of the project-relat
+ed changes that were made
+since the project was opened o
+r since the project was last s
+aved. Saving a project
+retains information about:
+The plugins that are being use
+d by the Ghidra Project Window
+The plugins that are being use
+d by each of the running tools
+Options associated with the pl
+ugins and/or the tool
+The running tools' sizes and p
+ositions on the screen
+Viewed projects
+List of recently opened projec
+ts
+The active workspace
+
+To save the active Ghidra proj
+ect:
+From the Ghidra Project Window
+ menu, select File
+
+Save Project.
+
+You can also save your project
+ as you exit Ghidra.
+
+Related Topics:
+Ghidra Projects
+Ghidra Project Window
+Code Browser Options
+Tool Options
+Exit Ghidra
+
+

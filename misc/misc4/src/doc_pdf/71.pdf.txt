@@ -1,0 +1,165 @@
+Override Fallthrough Addresses
+ 1/4
+
+Fallthrough Address
+The fallthrough address on an 
+instruction is the address of 
+the next instruction that will
+be executed. You can change th
+e fallthrough address by using
+ the Set Fallthrough
+Address dialog, as shown below
+. By default, an instruction's
+ fallthrough address (or
+lack thereof) is determined by
+ the language processor. For e
+xample, a "return" or a
+"jump" instruction does not ha
+ve a fallthrough address.
+
+Set a Fallthrough Address
+The dialog shows the default f
+allthrough address of the inst
+ruction. The radio
+buttons below the Fallthrough 
+Address field indicate whether
+ the address is the
+default fallthrough or user de
+fined. When the Default button
+ is selected, the
+Fallthrough Address field is d
+isabled. If an instruction has
+ no default fallthrough
+(e.g., "jump"), the Fallthroug
+h Address field is empty. Choo
+se the User button to
+enter a new fallthrough addres
+s. When the User button is sel
+ected, the
+Fallthrough Address field is u
+pdated as you move the cursor 
+in the the Code
+
+enter a new fallthrough addre
+ss. When the User button is se
+lected, the
+Fallthrough Address field is u
+pdated as you move the cursor 
+inOverride
+the the
+Code Addresses 2/4
+Fallthrough
+Browser.
+Select the Home button to navi
+gate the Code Browser back to 
+this address. The
+home panel shows the address a
+nd the instruction when you se
+lected the Set
+option.
+To change the fallthrough addr
+ess,
+1.
+2.
+3.
+4.
+
+Position the cursor on an inst
+ruction.
+Right mouse click and select F
+allthrough Set... to display t
+he dialog.
+Select the User radio button.
+Enter an address, or click in 
+the Code Browser at the addres
+s of the new
+fallthrough.
+5. Select the Apply button to 
+change the fallthrough and lea
+ve the dialog
+intact; select the OK button t
+o change the fallthrough and d
+ismiss the
+dialog.
+You can see the effects of set
+ting the fallthrough address b
+y selecting the limited
+flows from option; the instruc
+tions that are skipped over vi
+a setting the
+fallthrough address are not in
+cluded in the selection.
+Just below the overridden addr
+ess will be a comment indicati
+ng the
+override, containing the text 
+Fallthrough Override, along wi
+th the updated
+fallthrough address.
+To clear a fallthrough address
+ using this dialog, select the
+ None button, then
+Apply or OK.
+
+Auto Override
+The "auto override" feature sk
+ips over data following an ins
+truction, finds the
+next instruction following the
+ data and sets this address as
+ the fallthrough
+address. You can automatically
+ override the fallthrough addr
+ess for a single
+instruction or override the fa
+llthrough addresses over a sel
+ection.
+To auto override,
+1. Make a selection in the Cod
+e Browser or position the curs
+or at an
+instruction.
+
+1. Make a selection in the Co
+de Browser or position the cur
+sor at an
+instruction.
+Override Fallthrough Addresses
+ 3/4
+2. Right mouse click and selec
+t Fallthrough Auto override
+
+The Auto Override option is di
+sabled for a single instructio
+n if the
+instruction's fallthrough was 
+already overridden.
+
+Clear Overrides
+To clear overridden fallthroug
+hs,
+1. Make a selection in the Cod
+e Browser or position the curs
+or at an
+instruction whose fallthrough 
+address was overridden.
+2. Right mouse click and selec
+t Fallthrough Clear Overrides
+
+The Clear Overrides option is 
+disabled for a single instruct
+ion if the
+instruction's fallthrough addr
+ess was not overridden.
+
+Provided by: FallthroughPlugin
+Related Topics:
+
+Selections
+Code Browser
+Languages
+
+Override Fallthrough Addresses
+ 4/4
+
+

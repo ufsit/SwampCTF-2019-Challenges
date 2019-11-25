@@ -1,0 +1,50 @@
+Close Project 1/2
+
+Close Project
+Closing a project will return 
+Ghidra to the NO ACTIVE PROJEC
+T state. If you have
+changed the state of your proj
+ect (e.g., launched another to
+ol, changed your program,
+etc.), Ghidra will prompt you 
+to save your project and any c
+hanges you have made to
+your program.
+To close a project:
+1. Select File Close Project f
+rom the menu.
+2. If there are unsaved change
+s, Ghidra will display the Sav
+e Modified Files dialog to
+allow you to save any changes.
+ Changed items are selected by
+ default. Deselect items
+that you do not want saved. Se
+lect the OK button close the p
+roject.
+
+The Deselect All button desele
+cts all changed items in your 
+project. If you choose
+OK, your current project state
+ is not saved and any changes 
+made to your program are
+lost.
+When the project is closed, th
+e Ghidra Project Window indica
+tes NO ACTIVE
+PROJECT.
+
+PROJECT.
+Related Topics:
+Ghidra Projects
+Ghidra Programs
+New Project
+Open Project
+Reopen Project
+Archive Current Project
+
+Close Project 2/2
+
+

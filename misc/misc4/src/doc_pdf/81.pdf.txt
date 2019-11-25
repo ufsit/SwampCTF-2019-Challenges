@@ -1,0 +1,258 @@
+Instruction Pattern Search
+
+Search Instruction Patterns 1/
+4
+
+This dialog allows users to se
+arch the current program for s
+pecific instruction sequences.
+ Operands and mnemonics may be
+ masked to allow maximum flexi
+bility in modifying the
+search pattern.
+
+Dialog Layout
+The search dialog consists of 
+two main components: the Instr
+uction Table and the Preview T
+able. The former contains all 
+instructions selected by the u
+ser; the latter displays
+the string (in binary or hex) 
+that will be used for searchin
+g
+Instruction Table
+
+This table is populated when a
+ selection is made in the code
+ listing and the
+icon is selected. All items in
+ the selection range will have
+ an entry in the table,
+even non-instructions. Users m
+ay click on an item in the tab
+le to mask it from the final s
+earch string.
+Color-coding is used to indica
+te the code unit type. Instruc
+tions are displayed in blue, d
+ata items are tan.
+
+Instruction Table Toolbar
+
+Instruction Table Toolbar
+
+Search Instruction Patterns 2/
+4
+These tools provide ways to ma
+nipulate the Instruction Table
+ and are discussed in detail b
+elow:
+[
+[
+[
+[
+[
+[
+[
+[
+
+]
+]
+]
+]
+]
+]
+]
+
+] Clears all masks.
+Masks all data (non-instructio
+ns).
+Masks all operands.
+Masks all scalar operands.
+Masks all address operands.
+Reloads the table from what is
+ currently selected in the lis
+ting.
+Allows users to manually enter
+ bytes to be loaded.
+Navigates in the listing to th
+e location defined by this set
+ of instructions.
+
+Preview Table
+
+The Preview Table shows what t
+he search string will look lik
+e, in either binary or hex for
+mat. It will change dynamicall
+y as masks are applied/removed
+ in the Instruction
+Table.
+When viewing the table in bina
+ry mode, any masked bits will 
+appear as periods [.]
+In Hex mode, if any part of a 
+byte has masked bits, the hex 
+value will not be shown; inste
+ad, the binary value with the 
+masked bits will be displayed 
+inside
+brackets. ie: [001..011]
+
+Preview Table Toolbar
+
+These tools provide ways to ma
+nipulate the Preview Table and
+ are discussed in detail below
+:
+[
+[
+[
+
+] Switches to binary display m
+ode.
+] Switches to hex display mode
+.
+] Copies the preview table con
+tents to the clipboard.
+
+Search Bounds
+By default any search will be 
+run against the entire program
+. If you only want to search a
+ particular range, that can be
+ done using the options below:
+
+Selection Scope
+Allows the user to specify wha
+t region of the program will b
+e searched. The default is to 
+search for the entire program.
+ If Search Selection is chosen
+,
+
+Selection Scope
+Allows the user to specify wha
+t region of the program will b
+e searched. The default is to 
+search for the entire program.
+ If Search Selection is chosen
+,
+whatever region is currently s
+elected in the listing will be
+ used as the search bounds.
+Search Instruction Patterns
+Search Direction
+Indicates whether subsequent i
+nvocations of the Search butto
+n will look forward or backwar
+d in the listing for the searc
+h pattern.
+
+3/4
+
+Manual Entry
+
+If the user clicks the
+button, the manual entry dialo
+g above will be displayed. Use
+rs may enter either a binary o
+r hex string here (full bytes,
+ no nibbles!) and if the strin
+g
+represents a valid set of inst
+ructions for the loaded progra
+m, then activating the Apply b
+utton will cause them to be di
+splayed in the Instruction Tab
+le.
+Search Results
+If the user clicks the Search 
+All button, all search results
+ will be shown in a single win
+dow, where each entry represen
+ts the starting address of a m
+atch. Clicking on an entry
+will take you to that spot in 
+the listing.
+If the user clicks the Search 
+button, no results table will 
+appear but the cursor will imm
+ediately move to the next matc
+h in the listing. Whether the 
+cursor moves to the next or
+previous match depends on the 
+Search Direction setting.
+
+It should be noted that the se
+arch will look for exact byte 
+pattern matches, not simply th
+e mnemonic and/or operand text
+. eg: If you load a program an
+d select a RET
+instruction, you can't expect 
+to use that same search patter
+n to find a RET instruction in
+ a different program. Unless t
+hey represent the same archite
+cture, their byte
+representations will likely be
+ different.
+
+Usage
+The most basic usage of the se
+arch dialog is as follows:
+1. Select a range of instructi
+ons in the code listing.
+2. From the Tool, select Searc
+h
+For Instruction Patterns.
+The dialog will launch and be 
+populated with the instruction
+ set.
+3. Select/deselect items in th
+e table to mask the desired in
+structions.
+4. Click the Search All button
+. A dialog will pop up showing
+ all occurrences of the patter
+n in the program.
+
+Saving a Search Pattern
+Users may copy and save the ge
+nerated search pattern by righ
+t-clicking on the preview tabl
+e and selecting one of the opt
+ions; the text will be copied 
+to the
+clipboard.
+
+Constraints
+The number of instructions tha
+t can be used in a pattern is 
+capped at 500.
+Only one range of addresses ma
+y be selected in the code brow
+ser. MULTIPLE SELECTIONS ARE N
+OT ALLOWED.
+
+Search Instruction Patterns 4/
+4
+
+Multiple Programs
+The instruction search dialog 
+will always operate on the pro
+gram currently selected in the
+ listing. If you select a set 
+of instructions in Program A, 
+then switch over
+to Program B and select the Se
+arch button, Program B will be
+ searched for the selected ins
+tructions.
+
+Provided by: InstructionSearch
+Plugin
+
+

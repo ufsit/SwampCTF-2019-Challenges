@@ -1,0 +1,542 @@
+Memory Map 1/11
+
+Memory Map
+The Memory Map window displays
+ a list of memory blocks that 
+make up the memory structure o
+f the current
+program. The component provide
+s actions for adding, renaming
+, moving, splitting, extending
+, joining, and
+deleting memory blocks.
+Ghidra supports four different
+ block types through the Memor
+y Map window:
+1. Default - The normal block 
+type that can be initialized o
+r uninitialized.
+Initialized - The block has an
+ initial value specified for t
+he bytes
+Uninitialized - The block has 
+no initial value specified for
+ the bytes
+2. Bit Mapped - The block prov
+ides a bit-addressable map ont
+o other blocks. This is useful
+ when a processor can
+access some or all of the bits
+ in memory directly using an a
+lternative addressing space.
+3. Byte Mapped - The block pro
+vides a byte-addressable map o
+nto other blocks. This can be 
+useful when the same
+bytes can be accessed via two 
+or more addresses.
+4. Overlay - The block is crea
+ted in a new overlay address s
+pace. Overlay blocks can be in
+itialized or
+unitialized. Using Overlays is
+ a way to get around the probl
+em where the program is too la
+rge to fit completely
+in the target system's memory.
+ Overlay blocks contain code t
+hat would get swapped in when 
+the program needs
+to execute it. Note that Overl
+ay blocks are fixed and may no
+t be moved, split or expanded.
+ In addition,
+Overlays do not relocate with 
+image base changes.
+To view the Memory Map, select
+ Window
+Memory Map from the main tool 
+menu, or click on the
+in the tool bar. Note that the
+ current Image Base Address is
+ specified within the title ba
+r.
+
+icon
+
+Each row displays information 
+about one of the memory blocks
+. The following summarizes the
+ information
+about each block.
+Name - Name of the memory bloc
+k.
+Start - The starting address (
+in hex) of the memory block.
+
+Start - The starting address 
+(in hex) of the memory block.
+
+Memory Map 2/11
+
+End - The Ending address (in h
+ex) of the memory block.
+Length - The length (in hex) o
+f the memory block.
+R - Indicates read permission.
+W - Indicates write permission
+.
+X - Indicates execute permissi
+on.
+Volatile - Indicates a region 
+of volatile I/O Memory.
+Type - Indicates whether the b
+lock is a Default, Bit Mapped,
+ Byte Mapped or Overlay type o
+f block.
+Initialized - Indicates whethe
+r the block has been initializ
+ed with values; this property 
+applies to Default
+and Overlay blocks.
+Source - The name of the file 
+that produced the bytes that m
+ake up this block as set by th
+e file importer;
+for Bit Mapped or Byte Mapped 
+blocks, the Source shows the m
+apped source address.
+Comment - User added comment a
+bout this memory block.
+
+Memory Block Edits
+
+Rename
+Memory Blocks can be renamed b
+y double-clicking on the name 
+field and entering a new
+name.
+Change Read Permission
+The read permission of a memor
+y block can be changed by left
+-clicking on the checkbox.
+Change Write Permission
+The write permission of a memo
+ry block can be changed by lef
+t-clicking on the checkbox.
+Change Execute Permission
+The execute permission of a me
+mory block can be changed by l
+eft-clicking on the checkbox.
+Change Volatile Setting
+
+Change Volatile Setting
+Memory Map 3/11
+
+The volatile setting of a memo
+ry block can be changed by lef
+t-clicking on the checkbox.
+Initialize Memory Block
+A memory block that is current
+ly Uninitialized can be Initia
+lized by clicking on the Initi
+alized
+checkbox. A dialog will appear
+ allowing you to enter a byte 
+value to be used to fill the b
+lock.
+Deselecting the checkbox will 
+cause the block be revert to u
+ninitialized memory. This will
+have the additional side effec
+t of removing all functions, i
+nstructions, data, and outgoin
+g
+references in that block.
+Edit Comment
+Memory Block comments can be c
+hanged by double-clicking on t
+he comment field and
+entering the new comment. The 
+comment can be a maximum of 25
+6 characters.
+
+Memory Block Operations
+The memory block operations ar
+e available through the icons 
+on the header of the Memory Ma
+p window, or
+select a block in the table, r
+ight mouse click, and choose a
+n option.
+Add
+
+Select Add to bring up the Add
+ Memory Block dialog. Fill in 
+the requested information and
+select the OK button.
+
+Memory Map 4/11
+
+Block Name - Enter the name of
+ the new memory block.
+Start Addr - Enter the start a
+ddress of the new memory block
+. If the program language
+defines multiple address space
+s, the address space must also
+ be specified. The address spa
+ce
+selection will not appear if o
+nly one is defined. Overlay sp
+aces are not included in the l
+ist of
+spaces. Within the defaul addr
+ess space, a block may not spa
+n across the current Image Bas
+e
+Address.
+Length - Enter the length of t
+he new memory block.
+Comment - Enter a comment for 
+the block if desired.
+Read - Sets the read permissio
+n.
+Write - Sets the write permiss
+ion.
+Execute - Sets the execute per
+mission.
+Volatile - Marks this block as
+ volatile I/O memory.
+Block Types - Select the block
+ type from the combo box: Defa
+ult, Bit Mapped, Byte Mapped,
+or Overlay.
+Default - A normal memory bloc
+k within the processor's addre
+ss space.
+These blocks cannot overlap an
+y other default block. Default
+ blocks can be
+either initialized or uninitia
+lized. If you select Initializ
+ed you can enter a
+byte value that will be used t
+o fill all the bytes in the ne
+w memory block.
+
+either initialized or uniniti
+alized. If you select Initiali
+zed you can enter a
+byte value that will be used t
+o fill all the bytes in the ne
+w memory block.
+Memory Map 5/11
+Overlay - An overlay block is 
+used to give an alternative se
+t of bytes (and
+related information) for a ran
+ge in memory. This is achieved
+ by creating a
+new address space related to t
+he actual processor address sp
+ace and placing
+the block in the new space at 
+the same offsets as the start 
+address in the
+processor space. Overlay block
+s can be either initialized or
+ uninitialized. If
+you select Initialized you can
+ enter a byte value that will 
+be used to fill all
+the bytes in the new memory bl
+ock.
+Bit Mapped - This is a block t
+hat allow bit addressing of a 
+section of bytes
+in memory. For example, the fi
+rst bit of the byte at memory 
+location
+0x1000 might also be addressed
+ as BIT:0. The second bit at t
+he same byte
+would then be addressed as BIT
+:1 and so on.
+The illustration below depicts
+ a Bit Mapped block of Length 
+16 with a
+Start Addr of (BIT:) 0000, and
+ a Source Address of 00008100.
+ Note that
+Bit Overlay addresses are assi
+gned from least significant bi
+t to most
+significant bit.
+
+This is used to model certain 
+processors that allow this sor
+t of addressing
+such as the INTEL 8051. When a
+ Bit Mapped block is created y
+ou must
+specify the byte address on wh
+ich the bit addressing will be
+ based.
+Byte Mapped - This is a block 
+that allows access to a range 
+of bytes in
+memory using an alternative ad
+dress. In other words, it allo
+ws the same set
+of bytes to be accessed by two
+ different logical addresses. 
+A source address
+must be specified that contain
+s the actual bytes for this bl
+ock.
+
+Memory Map 6/11
+
+Move
+
+Select Move to bring up the Mo
+ve Memory Block dialog. The Mo
+ve action is enabled when
+exactly one memory block is se
+lected. Enter either a new sta
+rt or end address to cause the
+block to be moved.
+
+Memory Map 7/11
+
+Name - Name of the memory bloc
+k to be moved (not editable).
+Start Address - Current starti
+ng address of the block to be 
+moved (not editable).
+End Address - Current ending a
+ddress of the block to be move
+d (not editable).
+Length - Length of the memory 
+block to be moved (not editabl
+e).
+New Start Address - Enter the 
+NEW starting address for the b
+lock. The NEW ending address
+will be computed.
+New End Address - Enter the NE
+W ending address for the block
+. The NEW starting address
+will be computed.
+You cannot move a block under 
+the following conditions:
+The changes specified would re
+sult in an overlap with the or
+iginal block or any other
+existing block.
+The block is an Overlay block.
+
+Split
+
+Select Split to bring up the S
+plit Block Dialog. The Split a
+ction is enabled when exactly 
+one
+memory block is selected. Use 
+the Split Block Dialog to spli
+t a memory block into two
+smaller memory blocks. There a
+re four ways to enter the spli
+t point:
+Enter
+Enter
+Enter
+Enter
+
+an end address for the first b
+lock (block to split), or
+a length for the first block (
+block to split), or
+a start address for the second
+ block (new block), or
+a length for the second block 
+(new block).
+
+Memory Map 8/11
+
+Block to Split
+Block Name - Name of block bei
+ng split (not editable)
+Start Address - Start address 
+of block being split (not edit
+able)
+End Address - New end address 
+of the original block
+Block Length - New length of o
+riginal block
+New Block
+Block Name - Name of new block
+. Default name will be provide
+d, but it can be
+changed by editing this field
+Start Address - Start address 
+for the new split block
+End Address - End address of t
+he original block (not editabl
+e)
+Block Length - Length of new s
+plit block
+
+Overlay type blocks cannot be 
+split.
+
+Expand Up
+
+Memory Map 9/11
+
+Select Expand Up to bring up t
+he Expand Block Up Dialog. The
+ Expand Up action is enabled
+when exactly one memory block 
+is selected. Use the Expand Bl
+ock Up Dialog to cause a
+memory block to grow by adding
+ additional bytes BEFORE the m
+emory block. The block
+can be expanded by either ente
+ring a new start address or a 
+new length.
+
+New Start Address - A new star
+t address can be entered here.
+ It must be before the current
+start address.
+End Address - Displays the end
+ address of the block (not edi
+table).
+Block Length - Displays the le
+ngth of the block. A new value
+ can be entered here which wil
+l
+cause a corresponding change i
+n the start address.
+Overlay type blocks cannot be 
+expanded.
+
+Expand Down
+
+Select Expand Down to bring up
+ the Expand Block Down Dialog.
+ The Expand Down action is
+enabled when exactly one memor
+y block is selected. Use the E
+xpand Block Down Dialog to
+cause a memory block to grow b
+y adding additional bytes AFTE
+R the memory block. The
+block can be expanded by eithe
+r entering a new end address o
+r a new length.
+
+Memory Map 10/11
+
+Start Address - Displays the s
+tart address of the block (not
+ editable).
+New End Address - A new end ad
+dress can be entered here. It 
+must be after the current end
+address.
+Block Length - Displays the le
+ngth of the block. A new value
+ can be entered here which wil
+l
+cause a corresponding change i
+n the end address.
+Overlay type blocks cannot be 
+expanded.
+
+Merge
+
+The Merge action is enabled wh
+en two or more memory blocks a
+re selected. It attempts to
+merge all selected blocks into
+ one block. Any "gaps" will be
+ "filled in" with 0s.
+Caution should be used because
+ a VERY large memory block can
+ be created if the
+memory blocks being merged are
+ far apart in the address spac
+e. Ghidra will display a warni
+ng
+if a really large block is abo
+ut to be created. Disregarding
+ the warning may cause Ghidra 
+to
+fail with an "out of memory" e
+rror.
+Only blocks of the same type c
+an be merged. For example, def
+ault blocks can only be
+merged with another default bl
+ock.
+
+Delete
+
+The Delete action is enabled w
+hen one or more memory blocks 
+are selected. All selected
+blocks will be deleted. If the
+ blocks contained defined data
+ or instructions, a confirmati
+on
+dialog is displayed; select "y
+es" on the dialog to delete th
+e block. A progress dialog is
+displayed while the block is b
+eing deleted.
+For large blocks that may cont
+ain many symbols, references, 
+instructions, etc., the delete
+operation may take a while to 
+complete. You can cancel the d
+elete operation at any time.
+
+operation may take a while to
+ complete. You can cancel the 
+delete operation at any time.
+Memory Map 11/11
+
+Set Image Base
+
+The Set Image Base action allo
+ws you to change the base addr
+ess of a program. This action 
+is
+useful when working with reloc
+atable code such as DLLs or sh
+ared objects. All addresses,
+code units, references, etc. w
+ill immediately be re-based re
+lative to the new base address
+.
+For example, given a program b
+ase at 0x01000000 with a memor
+y block starting at address
+0x01001000. If the base addres
+s was changed to 0xeeee0000, t
+hen the new start address of t
+he
+memory block would become 0xee
+ee1000.
+To change the image base, ente
+r a new image base in the text
+ field and click on the OK but
+ton.
+
+Provided by: Memory Map Plugin
+
+

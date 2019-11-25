@@ -1,0 +1,21 @@
+.wrapper {
+    z-index: 99;
+    height: 100%;
+    pointer-events: none;
+}
+
+[class|="confetti"] {
+    position: absolute;
+}
+
+.red {
+    background-color: #E94A3F;
+}
+
+.yellow {
+    background-color: #FAA040;
+}
+
+.blue {
+    background-color: #5FC9F5;
+}

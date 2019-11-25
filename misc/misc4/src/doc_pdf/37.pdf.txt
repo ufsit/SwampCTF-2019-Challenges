@@ -1,0 +1,623 @@
+Browser Field Formatter
+
+Browser Field Formatter 1/4
+
+The Browser Field Formatter is
+ used to control how the field
+s in a listing are displayed b
+y the Listing. The format spec
+ifies which fields are display
+ed, the
+order of fields, and the width
+ of each field. The formatter 
+is not normally displayed by d
+efault, but can be accessed at
+ anytime by clicking on the
+icon
+located in the Listing's toolb
+ar. When the formatter is visi
+ble, the button becomes depres
+sed, and can be clicked to hid
+e the formatter.
+
+The listing displays informati
+on at each address of a progra
+m. This information is broken 
+down into the following catego
+ries:
+Address Break
+
+Separates non-consecutive addr
+esses
+
+Plate
+
+Displays plate comments. Other
+ comment types are included in
+ the Instruction/Data
+element.
+
+Function
+
+Displays function signatures a
+nd function related attributes
+.
+
+Variable
+
+Displays information for the r
+eturn, parameters and local va
+riables associated with a
+function.
+
+Instruction/Data
+
+Displays information about ins
+tructions or data.
+
+Open Data
+
+Displays internals of a struct
+ure or array.
+
+Each address has one or more o
+f the above categories of info
+rmation. Each category has a d
+isplay format which can be con
+figured. The format consists
+of multiple lines, each with s
+ome number of field controller
+s. A field controller manages 
+the display of the correspondi
+ng field of information in the
+program. The listing displays 
+fields in the same relative or
+der, size and positioning as d
+etermined by the field control
+ler. It is important to unders
+tand that
+the formats, regardless of how
+ they appear, represent the la
+yout of information for a sing
+le address.
+Whenever the cursor is moved, 
+the Browser Field Formatter au
+tomatically switches to the ta
+b associated with the current 
+cursor location. In addition, 
+the
+field controller for the curre
+nt cursor location is highligh
+ted.
+
+Configuring the Format
+
+Adding Fields
+New fields can be added to the
+ format by right-clicking on t
+he Browser Field Formatter com
+ponent and selecting Add Field
+<name
+of field> from the popup menu.
+ The new field will be inserte
+d at the right-click point. On
+ly the fields that have alread
+y been added to
+the format show up in the popu
+p menu. If more than one field
+ appears in the popup, an addi
+tional menu item, Add Field Al
+l, is
+available.
+
+The Spacer Field
+
+Browser Field Formatter 2/4
+
+A spacer field is used to take
+ up space in the listing. Opti
+onally, spacer fields can disp
+lay some text (See Set Text). 
+To add a
+spacer field, right click wher
+e a space is desired and selec
+t the Add Field Spacer option 
+from the popup menu. After
+adding the spacer field, adjus
+t its size to take up more or 
+less space.
+Set Text
+Spacer fields can optionally h
+ave an associated text value. 
+Each spacer's text will be dis
+played at corresponding locati
+ons in
+the listing. To set text on a 
+spacer field, right click on t
+he field and choose the Set Te
+xt option from the popup menu.
+Entering empty text into the S
+et Text dialog box will remove
+ any text from the field thus 
+returning the field to a blank
+spacer.
+
+Removing Fields
+Fields can be removed by right
+ clicking on them and selectin
+g Remove Field from the popup 
+menu. All Fields can be remove
+d by right
+clicking on the header and sel
+ecting the Remove All Fields o
+ption from the popup menu.
+Moving Fields
+Fields can be moved by draggin
+g and dropping the correspondi
+ng field controller in the Bro
+wser Field Formatter. Field co
+ntrollers can
+be dropped onto any line in th
+e formatter. Since fields cann
+ot overlap, dropping a field c
+ontroller onto another field c
+ontroller will cause
+the dropped field to appear ei
+ther entirely before or direct
+ly after the other field, depe
+nding on which is closer to th
+e drop point.
+Once a field controller has be
+en moved, the remaining field 
+controllers always move as far
+ to the left as possible to fi
+ll up any empty
+space. So if a field is moved 
+off of a row, all the fields t
+o its right, move left to fill
+ in the empty space. If a fiel
+d is dropped before
+another field, that field and 
+all the fields to its right ar
+e moved to the right to make r
+oom for the new field. Spacer 
+fields can be inserted
+before a field to move it furt
+her to the right.
+Disabling Fields
+Fields can be disabled by righ
+t clicking on them and selecti
+ng Disable Field from the popu
+p menu. Disabled fields still 
+take up space in
+the overall layout, but they d
+on't display any information i
+n the listing.
+Enable Field
+Disabled fields can be enabled
+ by right clicking on them and
+ selecting Enable Field from t
+he popup menu. The field will 
+then display
+information in the listing.
+Insert Row
+A new row for placing fields c
+an be inserted by right clicki
+ng and selecting Insert Row fr
+om the popup menu. A new empty
+ row will
+then be inserted at point wher
+e the mouse was clicked. Empty
+ rows do not affect the listin
+g because any rows (even rows 
+that have
+fields) that don't have displa
+yable information are suppress
+ed from the listing.
+Remove Row
+Empty rows can be deleted by r
+ight clicking on the row and s
+electing the Remove Row option
+ from the popup menu. The Remo
+ve Row
+option is not available if the
+ row is not empty.
+Reset Format
+Reset the format of the curren
+tly displayed category to the 
+default settings by right clic
+king on the Browser Field Form
+atter and select
+Reset Format on the popup.
+Reset All Formats
+
+Reset All Formats
+
+Browser Field Formatter 3/4
+
+Reset the formats for all cate
+gories to their default settin
+gs by right clicking on the Br
+owser Field Formatter and sele
+ct Reset All
+Formats on the popup.
+
+Custom Formats
+A structure is normally displa
+yed using the Instruction/Data
+ category format. However, it 
+is possible to create a custom
+ format to display the
+structure. This custom format 
+allow you to include members o
+f the structure in its display
+.
+Create Custom Format
+To create a custom format, rig
+ht click on the formatter when
+ the cursor is over a structur
+e and choose the Create Custom
+ Format
+option. A new format will be c
+reated with the same format as
+ the Instruction/Data format. 
+In addition to all the standar
+d fields, a
+displayable field is created f
+or each member and is availabl
+e in the Add Field submenu.
+Delete Custom Format
+To delete a custom format, sel
+ect its tab, right click in th
+e Browser Field Formatter and 
+select the Delete Custom Forma
+t option. The
+format will revert to the gene
+ral instruction format.
+Save Custom Format
+Newly created Custom Formats a
+re temporary and must be saved
+ to the program in order to be
+ reused the next time the prog
+ram is
+opened. To save a custom forma
+t, select its tab, right click
+ in the Browser Field Formatte
+r and select the Save Custom F
+ormat option.
+The program must be saved afte
+r saving a custom format.
+
+Available Fields
+The table below shows a listin
+g of all fields along with a b
+rief description of the type o
+f information they display. Th
+e category from which the
+field can be accessed is also 
+provided. In some instances a 
+field can be accessed from mor
+e than one category.
+Field Name
+
+Category
+
+Description
+
+Address
+
+Instruction/Data; Open
+Data
+
+Displays addresses in the prog
+ram
+
+Bytes
+
+Instruction/Data; Open
+Data
+
+Displays the bytes that make u
+p an instruction or data
+
+EOL Comment
+
+Instruction/Data; Open
+Data
+
+Displays the end of line comme
+nt
+
+Field Name
+
+Open Data
+
+Displays the name of the data 
+fields in a structure
+
+Function Call-Fixup
+
+Function
+
+Displays the name of the Call-
+Fixup associated with the func
+tion.
+
+Function Purge
+
+Function
+
+Displays the number of bytes p
+urged from the stack for a fun
+ction
+
+Function Repeatable
+Comment
+
+Function
+
+Displays the function's commen
+t that will appear at all call
+s to that
+function
+
+Function Signature
+
+Function
+
+Displays the full function pro
+totype, including calling conv
+ention,
+function name, return data typ
+e and parameters. In addition 
+the
+presence of the following func
+tion attributes will be indica
+ted:
+inline, no-return, and thunk. 
+If the function has varargs, t
+he last
+parameter position will includ
+e "...".
+
+Function Tags
+
+Function
+
+Displays all tags associated w
+ith this function
+
+Label
+
+Instruction/Data; Open
+Data
+
+Displays all labels for an add
+ress
+
+Memory Block Start
+
+Plate
+
+Displays information about the
+ memory block
+
+Instruction/Data; Open
+
+Mnemonic
+
+Instruction/Data; Open
+Data
+
+Displays the name of the instr
+uction or data
+
+Operands
+
+Instruction/Data; Open
+Data
+
+Displays the input to the inst
+ruction or the data value
+
+Parallel ||
+
+Instruction/Data
+
+Displays a parallel indicator 
+(e.g., || ) to indicate that t
+he current
+instruction executes in parall
+el with the previous instructi
+on.
+
+Plate Comment
+
+Plate
+
+Displays the block header comm
+ent
+
+PCode
+
+Instruction/Data; Open
+Data
+
+Displays the micro-code for an
+ instruction
+
+Post-Comment
+
+Instruction/Data; Open
+Data
+
+Displays the comment following
+ an instruction or data
+
+Pre-Comment
+
+Instruction/Data; Open
+Data
+
+Displays the comment preceding
+ an instruction or data
+
+Register
+
+Function
+
+Displays the values of registe
+rs at the entry point of a fun
+ction
+
+Register Transition
+
+Instruction/Data
+
+Displays the values of registe
+rs at the points where the val
+ue
+transitions to a new value.
+
+Separator
+
+Address Break
+
+Displays a "......." when ther
+e is a gap between addresses
+
+Signature Source
+
+Function
+
+Indicates the source-type asso
+ciated with the function signa
+ture
+(i.e., DEFAULT, ANALYSIS, IMPO
+RTED, USER_DEFINED).
+
+Space
+
+Instruction/Data
+
+Displays one or more blank lin
+es as established by a plugin
+
+Spacer
+
+All
+
+Used to separate other fields.
+ Can optionally display static
+ text
+
+Stack Depth
+
+Instruction/Data
+
+Indicates the current stack-po
+inter offset relative to its s
+tate at the
+start of the associated functi
+on. The field is only displaye
+d for
+instructions contained within 
+a function. A bogus value indi
+cates
+that the calculation failed to
+ determine the stack depth (i.
+e.,
+-7fffffff or 7fffffff).
+
+Thunked-Function
+
+Function
+
+Shows the name of the thunked-
+function to for those function
+s
+designated as a "thunk" functi
+on (see Function Signature fie
+ld).
+
+Variable Comment
+
+Variable
+
+Displays the comment for a var
+iable
+
+Variable Name
+
+Variable
+
+Display the name of a variable
+
+Variable Location
+
+Variable
+
+Displays the storage location 
+associated with a the variable
+ (e.g.,
+register, stack, memory, uniqu
+e-hash, etc.)
+
+Variable Type
+
+Variable
+
+Displays the data type for var
+iable
+
+Variable XRef
+
+Variable
+
+Displays a list of addresses w
+hose instructions reference a 
+variable
+
+Variable XRef Header
+
+Variable
+
+Displays the number of referen
+ces and offcut references to a
+variable
+
+XREF
+
+Instruction/Data; Open
+Data
+
+Displays a list of addresses w
+hose instruction refers to thi
+s address.
+
+XREF Header
+
+Instruction/Data; Open
+Data
+
+Displays the number of referen
+ces and offcut references to t
+his
+address.
+
++
+
+Instruction/Data; Open
+Data
+
+Opens and Closes structures an
+d arrays.
+
+Provided by: Code Browser plug
+in
+Related Topics:
+Code Browser
+
+Browser Field Formatter 4/4
+
+

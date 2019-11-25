@@ -1,0 +1,485 @@
+Search Program Text 1/7
+
+Search Program Text
+The Search for Program Text fe
+ature allows you to search for
+ textual strings within functi
+ons, comments,
+labels, instructions, and defi
+ned data. You can search incre
+mentally or get a list of all 
+of the search
+results. You can search the en
+tire program, or limit the sea
+rch to your current selection 
+in the Code
+Browser.
+To bring up the Search Program
+ Text dialog, as shown below, 
+select Search
+tool menu.
+
+Program Text... from the
+
+Search Type
+There are two ways that you ca
+n search for text: the Program
+ Database Search and the Listi
+ng
+Display Search.
+The Program Database Search op
+tion searches the program data
+base, not what you actually se
+e in
+the Code Browser. Conversely, 
+the Listing Display Search sea
+rches exactly what you see in 
+the Code
+Browser. These searches yield 
+different results because the 
+listing includes derived and
+
+the Code Browser. Conversely,
+ the Listing Display Search se
+arches exactly what you see in
+ the Code
+Browser. These searches yield 
+different results because the 
+listing includes derived and
+Search Program Text 2/7
+auto-generated information tha
+t is not stored in the databas
+e and the database can contain
+information that is not curren
+tly displayed, such as offcut 
+comments. The following table
+summarizes the pros and cons o
+f using each search type:
+Program Database Search
+
+Listing Display Search
+
+Advantages
+
+- Faster than the Listing
+Display Search
+- Can search information that
+is not currently displayed.
+For example, comments that
+are offcut are not displayed,
+but the database search can
+still find them.
+
+- Search Results reflect what
+you see in the Code Browser
+Listing window.
+- Allows a search of all field
+s
+that are displayed in the
+Code Browser, which
+includes auto generated and
+derived information that is
+not stored in the database.
+
+Disadvantages
+
+- Search Results may not
+match what the Listing
+displays, since this search
+looks at information that is
+directly stored in the databas
+e
+and not the derived and
+enhanced information that is
+shown in the Listing Display.
+Searches are also restricted t
+o
+specific fields and may not
+cover all the fields shown in
+the Code Browser listing
+window.
+- Assumes a specific search
+order of the fields; you may
+have rearranged the fields in
+your Code Browser such that
+they appear in a different
+order from the search order;
+this may cause cursor
+movement for incremental
+searches to appear "random"
+within the content for a
+single address.
+
+- Can be MUCH slower than
+a database search. For
+example, if you have a large
+program with one comment,
+the database search can find a
+match in that comment
+instantly, while the listing
+display search will have to
+render every address in the
+program one at a time until it
+finds a hit.
+- Does not find information
+that is currently not
+displayable by the Listing
+window. For example,
+comments at offcut locations
+are not displayed in the
+browser, so this search would
+not find them.
+
+By default, the Program Databa
+se Search Type type is selecte
+d.
+
+If you select the All Fields b
+utton, the Listing Display Sea
+rch Type button
+automatically becomes selected
+, as the Search All Fields doe
+s not apply to the Program
+Database. The Selected Fields 
+option applies to either the P
+rogram Database or the
+Listing Display .
+
+Incremental Search
+
+Search Program Text 3/7
+
+To search for text strings inc
+rementally,
+1. Select the Search Program T
+ext from the Code Browser tool
+ menu.
+2. In the Search for field, en
+ter the string for which you w
+ant to search, using wildcards
+ (* or ?)
+as needed. The * matches any c
+haracter. The ? matches a sing
+le character.
+This field does not support re
+gular expressions.
+If you need to search for one 
+of the wildcard characters, th
+en escape the
+character with a backslash. Fo
+r example, to search for any o
+ccurrence of an asterisk,
+you would enter \* as the sear
+ch string.
+Use the combo box next to the 
+Search for field to view the l
+ist of search strings that
+you previously entered.
+If you have selected text with
+in a single field, then if you
+ invoke the dialog, it
+will automatically load that t
+ext into the Search for text b
+ox for your convenience.
+3. Select the options for wher
+e in the Program to search.
+Functions - search function he
+aders, comments, signature, va
+riable types, variable
+names, and comments on variabl
+es
+Comments - search Plate, Pre-,
+ Post-, End of Line Comments, 
+and Repeatable; by
+default this check box is sele
+cted
+Labels - search Labels
+Instruction Mnemonics - search
+ the Mnemonics of instructions
+Instruction Operands - search 
+the Operands of instructions
+Defined Data Mnemoncis - searc
+h Mnemonics of defined data
+Defined Data Values - search V
+alues of defined data
+The Program Database Search Ty
+pe does not include components
+ of
+Structures or Unions. Use the 
+Listing Display Search Type fo
+r this case. If you do
+want to search structures or u
+nions, they must be open in th
+e Code Browser.
+If you have made a selection a
+nd it has been loaded into the
+ Search for text box
+then the dialog will automatic
+ally select the field that the
+ text was found in as your
+choice of Field to search. You
+ have the option to add more o
+r remove this selection
+if you wish.
+4. Select whether or not to se
+arch "Other" memory blocks (bl
+ocks that not actually loaded 
+in a
+running program); Loaded Block
+s is selected by default which
+ means "Don't search the
+"Other" blocks.
+5. You can select or deselect 
+the Case Sensitive check box d
+epending on whether you want y
+our
+search to consider case.
+6. If you make a selection in 
+the Code Browser, the Search S
+election check box will be sel
+ected
+by default. If you do not want
+ the search to be restricted t
+o the selection, then deselect
+ the
+check box.
+7. Click on the Next or Previo
+us button to search forwards o
+r backwards in the program, (o
+r
+from the Search for field, pre
+ss the <Enter> key to search f
+orward).
+The start of the search operat
+ion begins at your current loc
+ation in the Code Browser.
+
+The start of the search opera
+tion begins at your current lo
+cation in the Code Browser.
+
+Search Program Text 4/7
+
+8. If a match is found, the cu
+rrent location in the Code Bro
+wser is moved to the location 
+of the
+match. If no match is found, t
+hen a "Not found" message is d
+isplayed in the dialog.
+9. If you mouse click in the C
+ode Browser to move focus ther
+e, you can choose
+Search Repeat Text Search to g
+o to the next match found.
+
+Search operations do not "wrap
+" once the you have reached th
+e maximum address in memory
+or within a selection. Select 
+the Backward direction check b
+ox to search backwards from yo
+ur
+current location.
+For very large Programs that m
+ay take a while to search, you
+ can cancel your search at any
+time. For these situations, an
+ indicator for "search in prog
+ress" is displayed with a Canc
+el button.
+Click on the Cancel button to 
+stop the search
+Dismissing the search dialog a
+utomatically cancels the searc
+h operation. For search all, p
+artial
+results are ignored if the sea
+rch dialog was dismissed while
+ the search was still in progr
+ess, therefore,
+the "View Results" question di
+alog will not be displayed.
+Search All
+To find all matches in the Pro
+gram (or a selection in the pr
+ogram),
+1. Follow the Steps 1 through 
+6 for searching incrementally.
+ (Skip Step 4 as Direction is
+irrelevant in this case.)
+2. Click on the Search All but
+ton.
+3. The Query Results display s
+hows all the matches.
+
+Search Program Text 5/7
+
+When performing a "Search All"
+ on large Programs, the result
+s table will appear before the
+search is completed. At the bo
+ttom of this window, there wil
+l be a cancel button that you 
+can use to
+stop the search.
+There may be multiple entries 
+for the same address, dependin
+g on what you search for. For 
+example,
+a string may appear multiple t
+imes in the same pre-comment, 
+so you will see as many entrie
+s in the
+Query Results display. When yo
+u click on a row in the Query 
+Results display, your cursor i
+n the
+Code Browser is moved to that 
+location where the match was f
+ound. So, if the match was fou
+nd in
+an operand, then the location 
+is moved to the matching strin
+g within the operand.
+The tool has an option for the
+ number of search results. The
+ search will stop after this n
+umber has
+been exceeded. A dialog as sho
+wn below warns you of the part
+ial results. To see more searc
+h results,
+increase your search limit.
+
+Highlight Search Option
+
+Highlight Search Option
+
+Search Program Text 6/7
+
+You can specify that the strin
+g found in the search be highl
+ighted by selecting the Highli
+ght Search
+Results checkbox on the Search
+ Options panel. To view the Se
+arch Options, select Edit Tool
+Options... from the tool menu,
+ then select the Search node i
+n the Options tree in the Opti
+ons dialog.
+You can also change the highli
+ght color. Click on the color 
+bar next to Highlight Color to
+ bring up a
+color chooser. Choose the new 
+color, click on the OK button.
+ The option for Highlight Colo
+r for
+Current Match indicates the co
+lor used to highlight the matc
+h when it occurs at the curren
+t location
+in the Code Browser. Apply you
+r changes by clicking on the O
+K or Apply button on the Optio
+ns
+dialog.
+The highlight options also app
+ly to searching memory.
+Other notes of interest on hig
+hlighting:
+Highlights are displayed for t
+he last search that you did. F
+or example, if you
+bring up the Search Memory dia
+log and search for bytes, that
+ string now becomes
+the new highlight string. Simi
+larly, if you invoke cursor te
+xt highlighting, that
+becomes the new highlight stri
+ng.
+Highlights are displayed only 
+for those items that you selec
+ted to search. For
+example, you did not select La
+bels to search but a label mat
+ched the string you
+searched for. Thus, the field 
+for that label will not be hig
+hlighted.
+Highlights are dropped when yo
+u close the search dialog, or 
+close the query
+results window for your most r
+ecent search.
+
+Default Search Order for Progr
+am Database Search
+For the Program Database Searc
+h option, as you incrementally
+ step, the order in which the 
+cursor is
+positioned at the match in the
+ Listing fields is as follows:
+Functions
+Plate Comments
+Pre-Comments
+Labels
+Instruction Mnemonic
+Instruction Operands
+Defined Data Mnemonics
+Defined Data Values
+End of Line Comments
+Repeatable Comments
+Post Comments
+
+Within a Function, the order i
+s as follows:
+Function Comments
+Function Signature
+
+Function Comments
+Function Signature
+Stack Variable Type
+Stack Variable Name
+Stack Variable Offset
+Stack Variable Comment
+
+Search Program Text 7/7
+
+The Query Results display will
+ show the search results in th
+is default search order.
+If your Listing fields are org
+anized in a different order fr
+om the search order (e.g., Pla
+te
+Comment is after the End of Li
+ne Comment), then as you searc
+h incrementally, your cursor
+potentially would move back an
+d forth at the same address wh
+ere there are multiple matches
+ all at
+the same address. In this case
+, the cursor movement may look
+ "random." This is the case on
+ly for
+Program Database Search; the L
+isting Display Search searches
+ in the order of the displayed
+ fields in
+the Listing.
+
+Provided By: TextSearchPlugin
+Related Topics:
+Query Results
+Search Limit tool option
+Data
+Listing Fields
+Search Memory
+
+

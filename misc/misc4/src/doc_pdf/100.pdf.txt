@@ -1,0 +1,143 @@
+Processor Languages
+
+Processor Languages 1/2
+
+All processors have an associa
+ted language that defines the 
+mapping between user readable 
+assembly language instructions
+ (e.g. MOV, ADD, etc.) and the
+ir
+corresponding byte values. In 
+order to disassemble a binary 
+image for a specific processor
+, Ghidra requires a language m
+odule for that processor. A la
+nguage
+module is the software that im
+plements the language translat
+ion. Ghidra has a set of langu
+age modules for the most commo
+nly-used processor languages. 
+New
+languages can be added to Ghid
+ra by writing new language mod
+ules.
+Ghidra uses a processor modeli
+ng language called Sleigh to d
+efine the binary parsing and i
+nstruction symantics associate
+d with each language. The sema
+ntic
+information allows for more ad
+vanced analysis and enables fe
+atures such as the decompiler.
+The list of available language
+s can be found in the Ghidra R
+elease Notes.
+
+Setting a Program's Language
+All programs are initially ass
+igned a Processor Language whe
+n they are first imported into
+ a project. The processor lang
+uage can be changed, but only 
+to a closely
+related language. Any stored r
+egister values will be transfe
+rred if there is a register wi
+th the same name in the new la
+nguage. If a matching register
+ can't be found
+those values will be removed.
+If your program has been added
+ to version control in a share
+d project, you must first have
+ an exclusive check out on the
+ file before you can set the l
+anguage.
+In addition, the program file 
+may not be open in a tool when
+ changing the assigned process
+or language.
+To change the processor langua
+ge, right-click on the prorgam
+ file within the Project Windo
+w data tree, and setlect Set L
+anguage... from the popup menu
+. Since
+setting the language is such a
+ major change, the following w
+arning will appear.
+
+Alternatively, if your file is
+ versioned, you you should che
+ck-in any recent changes prior
+ to performing this operation.
+ If you press the "OK" button,
+ the Select
+Language dialog will be displa
+yed:
+
+Select the language from the l
+ist and press "OK" to change t
+he processor language for the 
+current program. If the select
+ed language is sufficiently si
+milar to the
+existing language, the change 
+will be made. Otherwise, an er
+ror dialog will appear and the
+ change will not be allowed. B
+y default, a filter will autom
+atically be
+applied that displays the most
+ compatible languages. It is r
+ecommended to only use one of 
+these languages.
+
+Processor
+Once the operation completes s
+uccessfully the only way to re
+vert to the previous language 
+(aside from attempting another
+ Set
+Language) Languages
+is to undo your2/2
+checkout if it is versioned. O
+therwise, you must rely on a b
+ackup copy which you hopefully
+ made prior to the operation.
+Set Language will fail if any 
+old address space can not be m
+apped to the same size or larg
+er address spaces within the n
+ew language. This allows migra
+tion
+to larger processor implementa
+tions (e.g., 32-bit to 64-bit)
+, but not the reverse.
+
+PCode
+The semantic information provi
+ded by the SLED and SLEIGH-bas
+ed languages is called PCode (
+a form of generic microcode). 
+Each assembly language
+instruction can be broken down
+ into one or more PCode instru
+ctions. The more advanced auto
+matic analysis features in Ghi
+dra require PCode in order to 
+operate.
+To see PCode, add the PCode fi
+eld in the Instruction/Data ta
+b of the Browser Field. The fi
+gure below shows a CodeBrowser
+ with the PCode field added.
+
+Related Topics:
+Analysis
+Disassembly
+
+

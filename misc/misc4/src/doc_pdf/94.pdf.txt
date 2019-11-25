@@ -1,0 +1,278 @@
+Version Tracking Introduction 
+1/4
+
+Version Tracking Introduction
+Version Tracking refers to the
+ process used by reverse engin
+eers to identify
+matching code or data between 
+different software binaries. O
+ne common use case
+is to version track two differ
+ent versions of the same binar
+y. Alternatively,
+version tracking techniques ca
+n be used to check for the pre
+sence of of a
+particular piece of code withi
+n a given binary of interest.
+Perhaps the most common versio
+n tracking scenario is when yo
+u have a binary
+file that you have previously 
+analyzed, identifying importan
+t areas of interest and
+annotating the code with comme
+nts and labels. Suppose the so
+ftware developer
+releases a newer version of th
+e software including bug fixes
+ and feature
+modifications. Since customers
+ may be using the more up-to-d
+ate version, the
+analyst will probably want to 
+continue evaluation with the n
+ewer version as well.
+However, it can be very time-c
+onsuming to have to initiate t
+he analysis from
+scratch. In order to leverage 
+the existing work, version tra
+cking enables the
+reverse engineer to port comme
+nts and labels into the new co
+ntext.
+Perhaps the second most common
+ version tracking scenario is 
+where you wish to
+check for the presence of exis
+ting code within a given binar
+y. As an example,
+given a small collection of fu
+nctions, say from some library
+ of routines or code
+representing known malware, yo
+u can use version tracking to 
+search for that code
+in a given binary.
+The remainder of this document
+ describes high-level version 
+tracking concepts
+use by Ghidra, followed by lin
+ks to documents that describe 
+how to get started
+version tracking in Ghidra.
+Version Tracking Concepts:
+Session
+Associations
+Matches
+Markup Items
+Correlators
+How to Start
+
+Version Tracking Session
+
+Version Tracking Session
+Version Tracking Introduction 
+2/4
+
+A session is created as a resu
+lt of running one of Ghidra's 
+matching algorithms
+(a.k.a., a correlator) against
+ two binaries. The newly creat
+ed session is stored in
+the Ghidra Project Window. The
+ session records the history o
+f any work done
+within that session (e.g., app
+lying markup). Furthermore, si
+nce changes are
+saved, you may close and reope
+n a session to continue work a
+t a later time.
+Sessions can be updated with n
+ew data by running additional 
+matching
+algorithms at any time.
+
+Version Tracking Associations
+An association is any pairing 
+of information between the two
+ versions of the
+same program, which suggests t
+hat the items correspond with 
+one another in
+some way. An association is ch
+aracterized by a collection of
+ metadata including
+the correlating algorithm that
+ determined the association, a
+ memory address
+reference locating the items i
+n each version, and the type o
+f the items being
+associated (data or function).
+Sometimes a variable or functi
+on in the source program will 
+be associated with
+several variables or functions
+ in the destination program. T
+his happens because
+the version tracking algorithm
+ has found enough evidence to 
+support each
+candidate as a possible corres
+pondence between the two versi
+ons. When this
+happens, we say that they are 
+conflicting associations. It m
+ay be that only one of
+the associations is exactly ri
+ght or that the modularity of 
+the program has
+changed sufficiently and none 
+of the associations is quite r
+ight. Ultimately, the
+analyst has to inspect the act
+ual code to make a determinati
+on about which
+associations represents a vali
+d match.
+Once an association is accepte
+d by the user, any other assoc
+iations which may be
+conflicting because they inclu
+de either the same source or t
+he same destination
+address will become blocked be
+cause the tool only allows one
+-to-one mappings.
+Blocked and conflicting associ
+ations which lead to other inc
+onsistencies can be a
+useful way of identifying vali
+d matches between two differen
+t versions.
+
+Version Tracking Matches
+A match is an association that
+ has been assigned a score. As
+ a correlator finds an
+association it will assign tha
+t association a score, thus cr
+eating a match. The
+matches table contains all mat
+ches discovered by any correla
+tors run within a
+
+association it will assign th
+at association a score, thus c
+reating a match. The
+matches table contains all mat
+ches discovered by any correla
+torsVersion
+run within
+Tracking a
+Introduction 3/4
+given session. Users can use t
+he score to help determine the
+ accuracy of a given
+match, as not all matches crea
+ted by the correlators are cor
+rect.
+When the you determine that a 
+match is valid, then you can a
+ccept the match,
+which will block conflicting, 
+related matches. When you appl
+y markup for a
+given match, then that match i
+s automatically accepted. Fina
+lly, you cannot apply
+markup for a match that has be
+en blocked by another already 
+accepted match.
+Ghidra also has the concept of
+ an Implied Match. If you acce
+pt a function match,
+then Ghidra will generate impl
+ied matches for any functions 
+called by the two
+functions that make up the fun
+ction match.
+
+Version Tracking Markup Items
+During analysis of a program, 
+the analyst will develop a gre
+ater understanding of
+the code and will annotate the
+ disassembly with comments, la
+bels, data type
+information, and parameter and
+ variable names to document th
+e code and to
+make it more readable. Ghidra 
+refers to all of these annotat
+ed details as markup
+items.
+For any given match we can app
+ly its markup items and port t
+hese annotations in
+an appropriate manner so that 
+the labels and comments appear
+ in the
+corresponding locations in the
+ new binary. This is the ultim
+ate purpose of
+version tracking, to retain an
+y progress that has already be
+en made in
+understanding the code and be 
+able to proceed despite any ch
+anges to the original
+binary.
+
+Version Tracking Correlators
+There are many strategies for 
+identifying how different vers
+ions of the a program
+are related to each other. Any
+ scheme or algorithm that dete
+rmines these
+relationships is referred to a
+s a correlator. Correlators ma
+y be based on the
+underlying bytes in a program,
+ the program flow, or any othe
+r aspect of the code
+upon which similarities may be
+ observed. Additional document
+ation is available
+for the specific correlators u
+sed in Ghidra.
+
+How to Start
+
+Version Tracking Introduction
+ 4/4
+
+This list presents a few diffe
+rent useful links for getting 
+started with version
+tracking.
+Workflow
+Version Tracking Tool
+Version Tracking Wizard
+
+Provided by: Version Tracking 
+Plugin
+Related Topics:
+Workflow
+Version Tracking Tool
+Version Tracking Wizard
+Version Tracking Matches Table
+Version Markup Items Table
+
+

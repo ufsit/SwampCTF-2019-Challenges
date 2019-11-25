@@ -1,0 +1,248 @@
+Function ID Debug Plug-in 1/4
+
+Function ID Debug Plug-in
+Prev
+
+Function ID Debug Plug-in
+The Function ID Debug Plug-in 
+allows users to inspect the in
+dividual records in a
+Function ID database. This fun
+ctionality is generally only u
+seful to users building their
+own databases. Users can look 
+up individual records based on
+ name or hash, but
+currently the plug-in is not c
+apable of modifying records. T
+he only exceptions are the
+“Specialized Mitigation” s
+trategies, which can be modifi
+ed using the “Debug Search
+Window”.
+
+Enabling the Plug-in
+The Debug Plug-in adds options
+ to the Function ID menu, unde
+r the Code Browser's
+main Tools menu. These options
+ are in addition to those intr
+oduced by the Function
+ID Plug-in, which uses the sam
+e menu. In order to access the
+ Debug options, the plugin mus
+t be enabled. To do this, from
+ the Code Browser select
+File -> Configure
+Then click on Configure link u
+nder the Experimental section 
+and check the box next
+to "FidDebugPlugin".
+
+Plug-in Functionality
+The Function ID Debug Plug-in 
+introduces the following actio
+ns to the Tools ->
+Function ID menu.
+Create Read-only Database
+Users can convert the read/wri
+te (.fidb) database into the a
+ read-only (.fidbf) form.
+This is the more efficient fin
+al form used directly by the F
+unction ID analyzer. The .
+fidbf form is uncompressed on 
+disk and the analyzer can use 
+it directly, where the .
+fidb form must be converted be
+fore use.
+
+Debug Search Window
+
+Function ID Debug Plug-in 2/4
+
+This action brings up a Search
+ dialog for the currently acti
+ve Function ID databases.
+The text entry fields correspo
+nd to the individual fields in
+ a function record that can be
+searched. If the variant Debug
+ Search Window (Current Functi
+on) is invoked, the
+same dialog is brought up, but
+ the Full Hash and the Specifi
+c Hash fields are prepopulated
+ with hashes corresponding to 
+the function at the current ad
+dress.
+A search is initiated for a sp
+ecific search field by enterin
+g a value and then hitting the
+RETURN key, with the cursor an
+d focus still in the desired f
+ield.
+
+Search Fields
+
+Function ID
+This is the internal row ID fo
+r function records in the data
+base.
+Name
+This searches through function
+ names. Searches here will mat
+ch any
+record whose name contains the
+ search string.
+Domain Path
+This searches through domain p
+aths. A domain path is the fil
+e
+path, relative to the project 
+root, of a program containing 
+the
+function described by a partic
+ular record. Searches here wil
+l match
+any record whose domain path c
+ontains the search string.
+FH
+
+any record whose domain path 
+contains the search string.
+FH
+
+Function ID Debug Plug-in 3/4
+
+This searches for records matc
+hing the full hash. The text f
+ield
+expects a 64-bit value. The ha
+sh can be entered as a hexadec
+imal
+string by prepending with "0x"
+.
+XH
+
+This searches for records matc
+hing the specific hash. The te
+xt field
+expects a 64-bit value. The ha
+sh can be entered as a hexadec
+imal
+string by prepending with "0x"
+.
+
+Result Window
+Invoking a search will bring u
+p the Result Window, presentin
+g a row for each
+matching function record. Colu
+mns list properties of the fun
+ction and correspond to
+the search fields described ab
+ove. In addition to these, eac
+h record/row lists a few
+other columns:
+Library
+This is the library containing
+ the function
+Code Unit Size
+This is the number of (scoring
+) instructions in the function
+'s body.
+See “Scoring and Disambiguat
+ion”.
+Spec. + Size
+This is the number of distinct
+ constant operands fed into th
+e specific
+hash.
+Warn
+This lists any special propert
+ies that have been toggled for
+ the
+particular record. The column 
+is presented as a string of si
+ngle
+character codes, corresponding
+ to each possible property. Pr
+operties
+include the mitigation strateg
+ies described in “Specialize
+d
+Mitigation”.
+F - Auto Pass: The record auto
+matically fails.
+P - Auto Fail: The record auto
+matically passes.
+S - Force Specific: Specific h
+ash must match for record to b
+e
+considered.
+R - Force Relation: A parent o
+r child must match for record 
+to be
+considered.
+U - The function body was unte
+rminated (analysis error).
+
+Function ID Debug Plug-in 4/4
+Edit Menu
+
+The Result Window supports a s
+mall number of actions under t
+he Edit menu that
+allow the user to change the m
+itigation strategies for a rea
+d/write database. Strategies
+are described in “Specialize
+d Mitigation”. When a menu a
+ction is invoked, all records
+displayed in the current Resul
+t Window are affected. Current
+ly there is no way to
+select a subset of records to 
+effect. The actions all set or
+ clear a specific strategy.
+Set/Clear auto-fail
+Toggle the Auto Fail strategy.
+Set/Clear auto-pass
+Toggle the Auto Pass strategy.
+Set/Clear force-specific
+Toggle the Force Specific stra
+tegy.
+Set/Clear force-relation
+Toggle the Force Relation stra
+tegy.
+Save changes
+Changes made using the Edit me
+nu are not immediately saved b
+ack
+to the underlying database unt
+il this action is invoked.
+
+Table Viewer
+This invokes an extremely low-
+level view into the underlying
+ tables that back a
+Function ID database. It can b
+e invoked on any attached data
+base. A window is
+brought up that lists individu
+al records in one table. A dro
+p-down menu allows the
+user to switch between the dif
+ferent underlying tables. Most
+ of the columns contain
+row keys and don't present rea
+dable values. The only meaning
+ful table is likely to be
+the Libraries Table which will
+ list each library making up t
+he database.
+Prev
+Function ID Plug-in
+
+

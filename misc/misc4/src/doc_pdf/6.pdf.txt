@@ -1,0 +1,203 @@
+Docking Windows
+
+Docking Windows 1/3
+
+Ghidra tools provide various G
+UI components that allow users
+ to view and manage programs. 
+The Docking Windows feature al
+lows users to customize the
+layout of these "Dockable" com
+ponents within a Ghidra tool.
+
+The Basic Dockable Component
+The image below shows a tool w
+ith three Dockable Components:
+ Program Trees, Listing, and D
+ata Type Manager.
+
+Each component consist of seve
+ral common parts:
+Title Bar
+The title bar is at the top of
+ the component and displays th
+e title of the window. It also
+ serves as a handle for draggi
+ng the component to other
+positions within the tool. The
+ title bar's color indicates w
+hether the component has keybo
+ard focus. When the component 
+has focus, the title
+bar is blue, otherwise it is g
+ray. Only one component can ha
+ve focus at a time.
+Local Toolbar
+The title bar also serves as a
+ local toolbar. It contains ic
+ons for actions that apply onl
+y to this component. Hovering 
+the mouse over an icon
+causes a tool tip to be displa
+yed. The tool tip give a hint 
+as to what the action will do 
+if you select the icon.
+
+Menu Icon
+
+Docking Windows 2/3
+
+The menu icon will appear if t
+he dockable component has a lo
+cal menu. As with the local to
+olbar, the local menu item app
+lies only to this
+component. Mouse click on the 
+icon to show the menu.
+Close Icon
+Select
+to hide the dockable component
+. The component will be remove
+d until you select the compone
+nt's name from the tool's Wind
+ow
+menu. Some components, such as
+ search results, are transient
+ and are permanently removed w
+hen you close these components
+.
+Work Area
+The work area contains the spe
+cific GUI component that is be
+ing managed.
+
+Arranging Components
+Docking Windows allows users t
+o arrange components into conf
+igurations that best fit their
+ needs. There are three ways c
+omponents can be arranged in a
+tool:
+1. Docked with other component
+s: components are side-by-side
+ (or top to bottom) with anoth
+er component.
+2. Stacked with other componen
+ts: components share the same 
+space and tabs are used to dis
+play them one at a time.
+3. In their own window: a comp
+onent can be placed in its own
+ window.
+
+Moving Components
+Components can be rearranged b
+y dragging them in various way
+s. To drag a component, press 
+and hold the left mouse button
+ on the title bar
+of the component to be moved a
+nd begin moving the mouse. The
+ mouse cursor will change to i
+ndicate what will happen if th
+e mouse button is
+released at that location.
+Invalid Location - releasing h
+ere will cancel the drag opera
+tion.
+Will move the component to the
+ left of the component that th
+e mouse cursor is over.
+Will move the component to the
+ right of the component that t
+he mouse cursor is over.
+Will move the component above 
+the component that the mouse c
+ursor is over.
+Will move the component below 
+the component that the mouse c
+ursor is over.
+Will stack the component with 
+the component that the mouse i
+s over, creating a tabbed pane
+ effect.
+Will place the component in a 
+new window.
+To get the arrow cursors to ap
+pear, move the mouse near the 
+inside edge of another compone
+nt. To get the stack cursor, m
+ove the mouse
+over the middle area of anothe
+r component. To get the new wi
+ndow cursor, move the mouse ov
+er the desktop. The Invalid lo
+cation cursor
+will appear when the mouse is 
+over the component being moved
+.
+Resizing components
+Docked components are separate
+d by thin borders. When the mo
+use is moved over a border whi
+ch separates two docked compon
+ents, the
+cursor will change to a resize
+icon. To change the relative s
+ize of the components, press t
+he left mouse button while ove
+r a border and drag
+the border in the appropriate 
+direction.
+
+Renaming Components
+Transient components (e.g., se
+arch windows) can be renamed. 
+Right-click on either the titl
+e bar or tab of a transient wi
+ndow and a popup menu item wil
+l
+appear that allows you to chan
+ge the title of that component
+. This can be useful when you 
+wish to better identify search
+ results when you have perform
+ed
+many searches.
+
+Windows Menu
+
+Windows Menu
+
+Docking Windows 3/3
+
+Each component currently loade
+d in the tool has a correspond
+ing entry in the tool's Window
+ menu. The menu item for a com
+ponent can be used to show a
+component that is currently no
+t visible. If the component is
+ already showing, it will be b
+rought to the front (if it is 
+behind some other component or
+windows) and the component wil
+l be made active (have keyboar
+d focus). Temporary windows su
+ch as search results are shown
+ at the bottom of the menu
+below the separator bar. Multi
+ple windows of the same type a
+re grouped into sub-menus. For
+ example the following snapsho
+t of a window menu
+indicates there are several se
+arch results windows open.
+
+ 
+
+Related Topics:
+Tool Options
+Ghidra Tool
+
+

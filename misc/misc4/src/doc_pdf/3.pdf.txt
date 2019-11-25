@@ -1,0 +1,295 @@
+Introduction 1/6
+
+Introduction
+Ghidra is a highly extensible 
+application for performing sof
+tware reverse engineering. Ghi
+dra is
+built upon a completely generi
+c application framework. Appli
+cation-specific capabilities a
+re
+provided by small software bun
+dles called plugins, each prov
+iding one or more features. Th
+is
+user's guide provides detailed
+ information on how to use bot
+h Ghidra's generic and reverse
+engineering-specific capabilit
+ies.
+
+Intended Audience
+This guide is intended for any
+one interested in learning how
+ to use Ghidra to reverse
+engineer a software system.
+
+Document Scope
+The purpose of this document i
+s to describe how to use Ghidr
+a. It does NOT provide
+information on the software ar
+chitecture or the programming 
+API.
+
+Disclaimer
+Ghidra is configurable. At any
+ given time, Ghidra capabiliti
+es can be added, removed, or
+even replaced by changing the 
+current set of plugins. Conseq
+uently, a feature might not be
+available as described and the
+ images shown in this document
+ may not exactly match your
+display.
+
+Getting Started
+File System Layout
+In the directory you choose, a
+ ghidra installation directory
+ named
+ghidra_<version> is created. T
+he following directory structu
+re will be
+created under the Ghidra insta
+llation directory.
+docs
+
+tutorial and on-line help
+
+docs
+
+tutorial and on-line help
+
+Extensions
+
+installable extensions for Ghi
+dra, Eclipse and
+IDA Pro
+
+Ghidra
+
+essential files for running Gh
+idra
+
+GPL
+
+GPL utility and support progra
+ms used by
+Ghidra
+
+licenses
+
+licenses for non-GPL portions 
+of Ghidra
+
+server
+
+files required to launch and c
+onfigure the
+Ghidra server
+
+support
+
+files useful for debugging and
+ configuring
+Ghidra
+
+Introduction 2/6
+
+Extensions
+There are a number of Ghidra p
+lugins that are not part of th
+e base
+distribution. They are either 
+experimental, still under deve
+lopment, or
+contributed by others. These p
+lugins may not have been teste
+d, and therefore
+may be unstable and are not in
+cluded in any of the default t
+ools. However,
+these plugins often contain th
+e more cutting edge features a
+nd may be worth
+considering. They are easily a
+ccessible and can be added by 
+configuring a tool.
+IDA Pro Export
+The Ghidra distribution includ
+es a plugin for use with IDA P
+ro (a
+commercially available disasse
+mbler). The XML plugin is used
+ with IDA Pro
+to export IDA Pro databases as
+ XML files so that they can be
+ imported into
+Ghidra. This allows IDA Pro us
+ers to migrate their data to G
+hidra.
+
+To add the XML exporter plugin
+ to your IDA installation:
+Locate the README file for you
+r version of IDA from the vers
+ion
+folders in the <ghidra install
+ation directory>/Extensions/ID
+APro
+folder. The plugin is availabl
+e for IDA Pro versions 6 and 7
+. If you are
+unsure of your IDA version, st
+art IDA and select Help -> Abo
+ut
+program ... from IDA's main me
+nu to display the version.
+To export data to Ghidra using
+ the XML plugin, select File -
+> Plugins ->
+Dump database as XML file... f
+rom IDA's main menu.
+
+Starting Ghidra
+
+Introduction 3/6
+
+Launching Ghidra varies depend
+ing on the operating system.
+Ghidra on Windows:
+Run the ghidraRun.batfile loca
+ted in the Ghidra installation
+ directory.
+
+One way to run this file is to
+ use the Windows file explorer
+ to locate the
+ghidra.bat file and then simpl
+y double click on the file.
+Ghidra on Linux and macOS:
+Run the ghidraRunshell script 
+file located in the Ghidra ins
+tallation
+directory.
+Advanced Startup
+Ghidra provides some Java star
+tup parameters which allow for
+ the usage of
+advanced features. To use a st
+artup parameter you must open
+support/launch.propertiesand a
+dd the parameter to that file.
+For example,
+VMARGS=-Dfont.size.override=18
+
+Ghidra Overview
+When Ghidra first starts, the 
+Ghidra Project Window will app
+ear.
+
+Introduction 4/6
+
+Ghidra Front-End with no open 
+project
+
+Ghidra is a project-oriented a
+pplication and, consequently, 
+all work must be performed in
+the context of a project. Ther
+efore, the first thing to do i
+s to create a project or open 
+an
+existing project. Once a proje
+ct is open, Ghidra will displa
+y the folders and data that ma
+ke
+up the project along with the 
+user's current set of tools. O
+f course, newly created projec
+ts
+would not contain any data. Da
+ta must be imported into a Ghi
+dra project before any work
+can be performed. Importing da
+ta into a Ghidra project creat
+es programs that Ghidra tools
+can manipulate.
+
+Introduction 5/6
+
+Ghidra Front-End with an open 
+project
+
+A Ghidra tool is a configurati
+on of plugins that can be used
+ to manipulate programs.
+When Ghidra is first installed
+, a default tool - the code br
+owser tool - is created for th
+e
+user and its icon is displayed
+ in the Tool Chest area of the
+ Ghidra Project Window.
+To run a tool, click on its ic
+on in the Tool Chest. When a t
+ool is running, a new window
+will appear for that tool and 
+the tool's icon will be displa
+yed in the Running Tools area 
+of
+the Ghidra Project Window.
+Ghidra also supports the conce
+pt of workspaces. A workspace 
+is simply a collection of
+running tools that are visible
+ on the desktop. Users can hav
+e multiple workspaces, each
+with its own set of running to
+ols. Running tools that are no
+t in the current workspace are
+still running and consuming sy
+stem resources even though the
+y are not visible.
+
+Error Dialogs
+
+Introduction 6/6
+
+Errors may occur in Ghidra. An
+ error may be anticipated, or 
+it may be unexpected in
+which case it is a programming
+ error. Each type of error is 
+described below.
+General Errors
+Whenever an action or operatio
+n does not complete as desired
+, but is an
+anticipated error such as a us
+er entering a file path that d
+oesn't exist, Ghidra
+will display an Error dialog e
+xplaining the cause of the pro
+blem as shown
+below in the sample error dial
+og:
+
+Unexpected Programming Errors
+Whenever an action or operatio
+n fails in a totally unexpecte
+d way, i.e., a programming
+error, a dialog is displayed a
+s shown below:
+
+The Details >>> button expands
+ the dialog to show the detail
+s of the java
+stack trace. (The stack trace 
+is also output to the console.
+)
+
+

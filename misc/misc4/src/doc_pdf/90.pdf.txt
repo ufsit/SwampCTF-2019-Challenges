@@ -1,0 +1,74 @@
+Validate Program 1/3
+
+Validate Program
+Post-Analysis Problem Detectio
+n
+After running Auto Analysis, t
+here may be problems with your
+ program due to aggressive
+analyzers or strange executabl
+e patterns (functions that do 
+not return, calling stack cana
+ry
+checks, etc.). Running program
+ validators helps to show pote
+ntial problem areas after
+analysis has run.
+
+Program Validator
+You can launch the Validate Pr
+ogram window by using the Anal
+ysis
+Program} menu item.
+
+Validate {Current
+
+This command option will open 
+the Validate Program window pr
+oviding a list of program
+validators to run.
+
+Validate Program 2/3
+
+"Validate Program" Dialog
+Note that each validator can b
+e turned on or off individuall
+y (they are all on by default)
+.
+Once you press the Run Validat
+ors button, each selected vali
+dator will run in the order
+presented in the window. As th
+ey run, each will display its 
+progress and then an icon whic
+h
+represents the results of the 
+validator. This progress is di
+splayed using a normal Ghidra 
+task
+monitor and each validator can
+ be aborted individually by pr
+essing its stop
+button.
+At completion, each validator 
+will be followed by an icon sh
+owing its results: a green
+check
+(OK), a yellow caution
+(warnings), or a red stop
+(errors). By selecting each
+completed validator, you can s
+ee the warnings or errors enco
+untered in the text area below
+the validator list. For exampl
+e, this test program had one w
+arning:
+
+Validate Program 3/3
+
+Results after running validato
+rs
+Related Topics
+Auto Analysis
+
+

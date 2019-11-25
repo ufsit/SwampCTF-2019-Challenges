@@ -1,0 +1,1305 @@
+Glossary 1/33
+
+Ghidra Glossary
+A B C D E F G H I J K L M N O 
+P Q R S T U V W
+X Y Z
+
+A
+Action
+An operation the user can perf
+orm in Ghidra. All menu items,
+keybindings, and toolbar butto
+ns are actions.
+
+Address
+A number that identifies a spe
+cific location in memory.
+
+Address Range
+A sequential set of addresses 
+within a single Address Space 
+identified
+by a minimum and maximum addre
+ss.
+
+Address Set
+A collection of Addresses.
+
+Address Space
+
+The set of all legal addresse
+s in memory for a given proces
+sor. The
+nature of each address space i
+s defined by the processor and
+ language
+implementation.
+
+Address Table
+Two or more consecutive addres
+ses in memory.
+
+Analyzer
+A software module that examine
+s and annotates the code in a
+program to help reveal the beh
+avior of that program. Example
+s are
+disassembly, function generati
+on, and stack analysis.
+
+Archive
+See Data Archive.
+See Project Archive.
+
+Assembly Language
+Programming language closely a
+ssociated with an individual
+processor.
+
+Auto Analysis
+Automated way to run all the a
+nalyzers in the appropriate or
+der
+(Example: function creation be
+fore stack analysis).
+
+B
+
+Glossary 2/33
+
+B
+
+Glossary 3/33
+
+Back Reference
+Another name for the Source Ad
+dress in a reference.
+
+Background Task
+Any action that runs in the ba
+ckground allowing the user to 
+perform
+other tasks.
+
+Base Address
+An address from which other ad
+dresses are derived using offs
+ets.
+
+Basic Block
+A sequence of instructions tha
+t has no flow into or out of t
+he
+sequence except for the top an
+d bottom (i.e., no branching).
+
+Basic Block Model
+A Block Model which partitions
+ code into small runs of instr
+uctions
+based on points where instruct
+ion flow changes. Jump, Call, 
+and
+Branch instructions will cause
+ the execution flow to
+change. Arithmetic and store/l
+oad instructions do not break 
+a Basic
+Block because they do not chan
+ge the execution. A label will
+ also
+end one block and begin anothe
+r.
+
+Binary Data
+
+Binary Data
+Bytes that make up a program.
+
+Big Endian
+Byte order for storage such th
+at the high-order byte is at t
+he starting
+address, as shown in the figur
+e below, where increasing memo
+ry
+addresses are going from left 
+to right.
+
+Block Model
+A model which partitions the c
+ode into address ranges based 
+on some
+set of rules. The most obvious
+ model partitions the code int
+o
+subroutines.
+
+Bookmark
+Marker used to designate frequ
+ently-visited or important loc
+ations.
+
+Bookmark Type
+Attaches meaning to a bookmark
+ to indicate its use. Example:
+ Note,
+Info, Analysis, etc.
+
+Browser Field
+
+Glossary 4/33
+
+Browser Field
+Individual program elements di
+splayed by the Code Browser's 
+listing
+window.
+
+Byte Viewer
+A Ghidra component used to dis
+play and edit the bytes in a p
+rogram.
+
+C
+Call Block Model
+See Subroutine Model.
+
+Call Graph
+Graph displaying the relations
+hips between "function calls" 
+in a
+program.
+
+Calling Convention
+Determines how a function rece
+ives arguments and returns res
+ults.
+The available calling conventi
+ons are currently determined b
+y the
+program's language specificati
+on.
+
+Check-In
+The process of contributing an
+d merging changes from a "chec
+kedout" program to the globall
+y shared version of the progra
+m.
+
+Glossary 5/33
+
+out" program to the globally 
+shared version of the program.
+Glossary 6/33
+
+Check-Out
+The process of retrieving the 
+latest version of a shared pro
+gram for
+the purpose of making changes.
+
+Classpath
+Path to search for Ghidra java
+ code.
+
+Clear
+Process of removing informatio
+n from a program (Example:
+symbols, comments, everything,
+ etc).
+
+Code Browser
+A Default Ghidra tool for disp
+laying and working with progra
+m
+listings.
+
+Code Block
+See Basic Block
+
+Code Unit
+An Instruction or Data Item in
+ the listing.
+
+Computed Call
+
+Call instruction whose destin
+ation is dynamically computed.
+
+Conditional Call
+A call instruction that is exe
+cuted conditionally.
+
+Conditional Jump
+A jump instruction that is exe
+cuted conditionally.
+
+Connecting Tools
+Process of coordinating two or
+ more Tools with respect to
+navigation and selection.
+
+Context Sensitive Menu
+Menu that changes depending on
+ cursor location. In other wor
+ds,
+only actions which are appropr
+iate for the type of informati
+on on
+which the cursor resides are a
+vailable from the menu.
+
+Contrib Plugins
+Term used to indicate user-con
+tributed plugins.
+
+Core Plugins
+Term applied to plugins that a
+re supported by the Ghidra tea
+m.
+
+Cycle Group
+
+Glossary 7/33
+
+Cycle Group
+Glossary 8/33
+
+A sequence of data types appli
+ed using the same action repea
+tedly (i.
+e. byte->word->dword->qword).
+
+D
+Data (item)
+Bytes in the program's memory 
+that are not interpreted as
+instructions.
+
+Data Type Archive
+File used to store user-define
+d data types independent of a 
+specific
+program.
+
+Data Component
+A data item inside a structure
+ or array.
+
+Data Type
+A generalization of data which
+ uniquely defines its specific
+ attributes
+such as size, structure and fo
+rmat. Example: byte, float, do
+uble.
+
+Dead Code
+Unreachable code.
+
+Decompiler
+
+Decompiler
+Ghidra module for translating 
+assembly language to C.
+
+Default Ghidra Tool
+1 A pre-configured CodeBrowser
+ Tool that is ready to use whe
+n
+Ghidra is installed.
+2 The tool that has been desig
+nated to run when you double c
+lick
+on a program in the Project Wi
+ndow.
+
+Destination Address
+The "To" address in a referenc
+e "From-To" address pair. An
+address that is referred "To" 
+by an instruction operand or p
+ointer.
+
+Diff
+See Program Diff.
+
+Direct References
+Locations in memory where the 
+bytes make up the address of t
+he
+current location in the browse
+r. See Search for Direct Refer
+ences.
+
+Disassemble
+The process of interpreting pr
+ogram bytes as assembly instru
+ctions.
+
+Disassemble, Restricted
+
+Glossary 9/33
+
+Disassemble, Restricted
+Glossary 10/33
+
+The Ghidra disassembly mode wh
+ere disassembly is restricted 
+to the
+current selection.
+
+Disassemble, Static
+The Ghidra disassembly mode wh
+ere code flows are not followe
+d
+and only bytes at the current 
+location or selection are disa
+ssembled.
+
+DLL
+Abbreviation for Dynamic Link 
+Library. A shared library on a
+Windows platform.
+
+Docking Window Component
+Ghidra user interface componen
+t that can be positioned and s
+ized by
+the user.
+
+DWord
+A 4-byte integer data type.
+
+Dynamic Data Type
+Data types whose structure var
+ies depending on the data byte
+s on
+which they are applied.
+
+E
+
+ELF
+
+Glossary 11/33
+
+Abbreviation for Executable Li
+nking Format. File format used
+ by
+Unix and Linux operating syste
+ms for storing executable prog
+rams.
+
+End of Line (EOL) Comment
+Comments that are displayed to
+ the right of the instruction.
+
+Endian
+Byte ordering. See Big Endian,
+ Little Endian.
+
+Entry Point
+Location in a program where ex
+ecution begins.
+
+Enum Data Type
+Ghidra data type for modeling 
+C-type enums.
+
+Equate
+A string substitution for nume
+ric values appearing in instru
+ction
+operands.
+
+Exporter
+Ghidra module for storing prog
+ram information in various fil
+e
+formats (XML, HTML, ASCII, etc
+).
+
+formats (XML, HTML, ASCII, et
+c).
+Glossary 12/33
+
+External Reference
+A reference from a location in
+ one program to a location in 
+another
+program.
+
+F
+Fall Through Address
+The address of the next sequen
+tial instruction to be execute
+d.
+
+Favorite Data Type
+Ghidra data types that can be 
+accessed via the popup-menu.
+
+Flow
+A.K.A. Instruction Flow or Con
+trol Flow. This the sequence o
+f
+instructions that are executed
+ as a program runs, including 
+branching
+and fall-through.
+
+Flow Graph
+Graph that shows basic instruc
+tion flow.
+
+Forward Refs
+Another name for the Destinati
+on Address in a reference.
+
+Another name for the Destinat
+ion Address in a reference.
+Glossary 13/33
+
+Fragment
+A set of addresses used by the
+ Program Tree to organize code
+.
+
+Front End
+See Ghidra Project Window.
+
+Function
+A program element that is refe
+renced via a call instruction.
+ A
+function has an entry point, a
+ body of instructions, a retur
+n data
+type, and optionally parameter
+s, local variables, and local 
+register
+variables.
+
+Function Signature
+The name, return type, and par
+ameters of a function.
+
+G
+Ghidra
+Ghidra is a java-based framewo
+rk for reverse engineering. It
+provides built-in capabilities
+ for reverse engineering along
+ with
+support for user-provided plug
+ins.
+
+Ghidra File
+
+Any file that is part of a Gh
+idra Project.
+
+Ghidra Program File
+Ghidra files containing inform
+ation about a program.
+
+Ghidra Project
+Ghidra organizes work into pro
+jects. All work is performed i
+n the
+context of a project.
+
+Ghidra Project Window
+The main Ghidra interface for 
+managing program files.
+
+Global Namespace
+Symbols that are not in any sp
+ecific namespace are said to b
+e in the
+"global" namespace. The global
+ namespace is the default name
+space.
+
+gzf
+File extension given to Ghidra
+ program database files that h
+ave been
+"zipped up".
+
+H
+Hex Integer
+A display format in the Byte V
+iewer used to display integer 
+values in
+
+Glossary 14/33
+
+A display format in the Byte 
+Viewer used to display integer
+ values in
+hex.
+
+Hijacked File
+A local program file in a proj
+ect that is "hiding" a shared 
+program
+with the same name. Users cann
+ot access the shared program u
+ntil
+the local file is removed.
+
+Highlight
+A more permanent type of selec
+tion.
+
+History
+List of changes made to labels
+ or comments.
+
+I
+IDA Pro
+A commercially available rever
+se engineering tool.
+
+Importer
+Reads a file (.xml, .dll, .so,
+ etc), and converts its conten
+ts into a
+Ghidra program. Ghidra contain
+s multiple importers (correspo
+nding
+to a specific set of formats).
+ Additional importers can easi
+ly be
+added.
+
+Initialized Block
+
+Glossary 15/33
+
+Initialized Block
+Memory block whose byte values
+ exist as opposed to uninitial
+ized
+blocks whose byte values are u
+nknown.
+
+Instance Settings, Data Type
+Display options for individual
+ data items in Ghidra. For exa
+mple one
+byte can be displayed as decim
+al while another is displayed 
+as
+hex. Also see Data Type Defaul
+t Settings.
+
+Instruction
+An assembly level command such
+ as MOV, JMP, etc.
+
+Intel Hex
+Binary file format specified b
+y Intel generally used for ROM
+ images.
+
+Isolated Entry Model
+A block model defining subrout
+ines. A subroutine block must 
+have
+only one entry point, but may 
+share code with another
+subroutine. The subroutine bod
+y will stop if another is call
+ed or a
+source entry point is encounte
+red.
+
+K
+Key Binding
+Keyboard shortcut for invoking
+ Ghidra functionality.
+
+Glossary 16/33
+
+Keyboard shortcut for invokin
+g Ghidra functionality.
+
+L
+Label
+Symbol name associated with an
+ address in memory.
+
+Language
+The set of instructions associ
+ated with a computer processor
+.
+
+Little Endian
+Byte order for storage such th
+at the low-order byte is at th
+e starting
+address, as shown in the figur
+e below, where the increasing 
+memory
+addresses are going from right
+ to left.
+
+Listing
+The display of the assembly la
+nguage along with comments and
+other markup information.
+
+Local Menu
+
+Glossary 17/33
+
+Local Menu
+A menu that is associated with
+ a specific Ghidra docking win
+dow.
+
+Local Symbol
+A symbol that is local to a pa
+rticular function.
+
+M
+Marker
+Used to indicate a significant
+ location in a program (ex: bo
+okmarks,
+search results, analysis probl
+ems, etc).
+
+Memory
+The component of a program tha
+t contains the raw bytes and t
+he
+addresses where those bytes ar
+e located in the program's add
+ress
+space.
+
+Memory Block
+A contiguous set of bytes anch
+ored at an address. Memory con
+sists
+of one or more Memory Blocks.
+
+Memory Map
+Ghidra GUI that allows the use
+r to view and edit the Memory 
+Blocks
+of a program.
+
+Glossary 18/33
+
+of a program.
+Glossary 19/33
+
+Memory Reference
+A reference from a mnemonic or
+ operand to another address in
+ the
+same program.
+
+Merge
+1. The process of resolving th
+e differences between a checke
+d
+out version with the globally 
+shared version of a program.
+2. The process of retrieving c
+hanges made by others to the
+globally shared version of the
+ program and incorporating
+those changes into your progra
+m without introducing your
+changes into the shared versio
+n (i.e. doing a check-in).
+
+Microcode
+Low-level instructions used to
+ implement a machine instructi
+on.
+
+Mnemonic
+The name of an instruction as 
+it appears in the assembly lis
+ting. (i.e.
+mov, add, jmp, etc.)
+
+Modal
+Dialogs that prevent user inte
+raction with any other Ghidra
+component until the dialog is 
+dismissed.
+
+Motorola Hex
+
+Binary file format specified 
+by Motorola generally used for
+ ROM
+images.
+
+Multiple Entry Model
+A block model defining subrout
+ines. A subroutine block may h
+ave
+multiple entry points and may 
+not overlap code from other
+subroutines.
+
+Multi-User
+Term used when multiple users 
+are working together using sha
+red
+projects and programs.
+
+N
+Name Space
+Defines a scope such that all 
+symbol names within that scope
+ are
+unique.
+
+NE
+Abbreviation for New Executabl
+e. File format used by Windows
+3.1.x operating systems for st
+oring executable programs.
+
+O
+Offcut
+
+Glossary 20/33
+
+A reference into the middle o
+f some instruction or data ite
+m.
+
+Offline
+A situation when a shared Ghid
+ra project cannot connect to t
+he
+server repository.
+
+Operand
+The arguments of an assembly i
+nstruction.
+
+Overlapped Code Model
+A block model defining subrout
+ines. A subroutine block is al
+l code
+accessible from a single entry
+ point and terminates at retur
+ns. Code
+may be shared with other subro
+utines. Each subroutine is def
+ined to
+include the overlapping code a
+s part of its body.
+
+Overlay
+A memory block that occupies t
+he same memory address range a
+s
+some other block.
+
+P
+Partitioned Code Model
+A block model defining subrout
+ines. There is exactly one ent
+ry
+point which may be a call or a
+ny other flow instruction. Eac
+h
+instruction belongs to exactly
+ one subroutine (code is not s
+hared).
+
+Glossary 21/33
+
+PCode
+A form of microcode used by Gh
+idra to model the semantics of
+machine- or assembly-level ins
+tructions.
+
+PE
+Abbreviation for Portable Exec
+utable. File format used by
+Microsoft for storing executab
+le programs.
+
+PKI Authentication
+One of the ways a Ghidra clien
+t can use to identify itself t
+o the
+Ghidra server.
+
+Plate Comment
+Comments that are displayed as
+ a block header above the
+instruction. Plate comments ar
+e automatically surrounded by 
+'*'s.
+
+Plugin
+Software bundles that can opti
+onally be added to Ghidra to a
+dd
+additional functionality.
+
+Plugin Dependency
+The required presence of addit
+ional plugins before a particu
+lar
+plugin can be loaded.
+
+Plugin Table
+
+Glossary 22/33
+
+Plugin Table
+A table view of available Plug
+ins that can be added to a too
+l, as
+shown in the Configure tool di
+alog.
+
+Plugin Tree
+A graphical view of available 
+Plugins that can be added to a
+ tool, as
+shown in the Configure tool di
+alog. The Plugins are grouped 
+by
+functionality and displayed in
+ a tree-like format.
+
+Popup menu
+A context-sensitive menu that 
+appears when you press the rig
+ht
+mouse button.
+
+Post Comment
+Comments that are displayed be
+low the instruction.
+
+Pre Comment
+Comments that are displayed ab
+ove the instruction.
+
+Project Archive
+Project compressed into a sing
+le file for archival or transf
+er purposes.
+
+Program
+Ghidra's representation of an 
+executable binary, its analysi
+s and
+
+Glossary 23/33
+
+Ghidra's representation of an
+ executable binary, its analys
+is and
+annotations.
+
+Program Diff
+Abbreviation for Program Diffe
+rence. It is the process of
+comparing and contrasting prog
+rams in order to determine the
+ir
+similarities and differences.
+
+Primary Label
+The most important label at a 
+location. It is the label that
+ will appear
+by default in all references t
+o that location.
+
+Processor Language
+The assembly language for a pr
+ocessor.
+
+Program Context
+The set of register values at 
+any location in a program.
+
+Program Tree
+The Ghidra GUI module that all
+ows the user to organize the m
+emory
+of a program hierarchically.
+
+Project
+A collection of files (program
+s, etc) and user configuration
+information.
+
+Glossary 24/33
+
+information.
+Glossary 25/33
+
+Project Repository
+A directory on a server that i
+s used by Ghidra's Multi-User 
+module
+to store shared programs.
+
+Property
+A storage mechanism used by pl
+ugins to store information in 
+a
+program at specific addresses.
+
+R
+Read-Only Project
+A project that can be opened f
+or viewing but cannot be chang
+ed (i.e.
+someone else owns this project
+).
+
+Redo
+The process of repeating the l
+ast change that was "undone".
+
+Reference
+A link from the mnemonic or op
+erand of an instruction to a
+destination. The destination i
+s an address, stack variable, 
+or external
+address in another program.
+
+Register
+
+A special-purpose storage loc
+ation in a processor.
+
+Regular Expression
+A character sequence used to m
+atch patterns in strings.
+
+Relocation Table
+Relocations are address locati
+ons that need to be updated to
+ reflect
+where the program is loaded in
+to memory.
+
+Running Tools
+An area on the Ghidra Project 
+Window that displays a list of
+ icons
+which represent Tools currentl
+y in use.
+
+S
+Scalar
+A numeric value in a program.
+
+Scope
+The set of addresses for which
+ a variable is defined.
+
+Screen Element
+The individual listing items t
+hat are displayed by the code 
+browser (i.
+e. address, mnemonic, operand,
+ comment, etc.)
+
+Glossary 26/33
+
+The individual listing items 
+that are displayed by the code
+ browser (i.
+e. address, mnemonic, operand,
+ comment, etc.)
+
+Select Limited Flow
+A Ghidra process that involves
+ following a program’s logic
+ but
+excluding all branches (condit
+ional and unconditional). Sele
+ct
+Limited Flow often reveals the
+ high-level algorithm associat
+ed with
+a program. Select Limited Flow
+ is an option in the Code Brow
+ser.
+
+Selection
+A set of addresses that have b
+een chosen by the user in orde
+r to
+perform some operation.
+
+Shared Project
+A project that is associated w
+ith a Ghidra Server. The files
+ in a
+shared project are accessible 
+by other users.
+
+Shared Program
+A program that can be modified
+ by multiple users. Shared pro
+grams
+reside in project repositories
+ on a server rather than in lo
+cal projects
+on the user's workstation.
+
+Simple Block Model
+See Basic Block Model
+
+SLED
+Table-based mechanism for spec
+ifying the syntax and semantic
+s for a
+
+Glossary 27/33
+
+Table-based mechanism for spe
+cifying the syntax and semanti
+cs for a
+processor language.
+
+SLEIGH
+Improved version of SLED. Allo
+ws language-writers to more
+accurately represent all featu
+res of a language.
+
+Source Address
+The "From" address in a refere
+nce "From-To" address pair. An
+address of an instruction or p
+ointer that refers to another 
+address.
+
+Stack Reference
+A reference from a mnemonic or
+ operand to a stack variable.
+
+Stack Variable
+A parameter or local variable 
+definition on the stack frame 
+defined
+by a function.
+
+Static Disassembly
+A version of disassembly where
+ jump and call instructions ar
+e not
+followed.
+
+Status Window
+Area at the bottom of a Ghidra
+ tool used to display messages
+ to the
+user.
+
+Glossary 28/33
+
+user.
+Glossary 29/33
+
+Subroutine Model
+A Block Model which partitions
+ code into address ranges base
+d upon
+a set of rules defined by a sp
+ecific model. Subroutine model
+s
+generally define blocks whose 
+entry point(s) correspond to c
+alled
+locations.
+
+Symbol
+A label that associates a name
+ with an address.
+
+Symbol Table
+A component of program contain
+ing all the label information.
+
+Symbol Tree
+Ghidra GUI module used to disp
+lay symbols in a tree structur
+e.
+
+T
+Tabbed Window
+A window containing two or mor
+e sub-windows that can be sele
+cted
+using tabs.
+
+Terminator
+Any assembly instruction that 
+has no flow (ex: Halt).
+
+Any assembly instruction that
+ has no flow (ex: Halt).
+
+Text Highlighting
+The mode in the Code Browser w
+here all the uses of a given w
+ord
+are highlighted in yellow.
+
+Thunk
+Thunks are functions, called b
+y other functions, usually to 
+perform
+an indirect or external functi
+on call.
+
+Tool Chest
+An area on the Ghidra Project 
+window that displays icons for
+ the
+configured and saved Tools whi
+ch are available to a user.
+
+Tool
+A collection of Plugins that w
+ork together to produce a usef
+ul GUI
+for performing some user level
+ task.
+
+Tool Tip
+A popup description that appea
+rs when the mouse is hovered o
+ver a
+GUI item.
+
+Toolbar (local and global)
+An icon bar used to invoke Ghi
+dra functionality.
+
+Glossary 30/33
+
+U
+
+Glossary 31/33
+
+Unconditional Call
+A call instruction that always
+ executes.
+
+Unconditional Jump
+A jump instruction that always
+ executes.
+
+Undefined Data
+Bytes in the program that have
+ yet to be defined as instruct
+ions or
+data. By default, all bytes in
+ a program begin as Undefined 
+Data.
+
+Undo
+The process of removing the la
+st change made to a program.
+
+Undocked Window
+A Ghidra window that has its o
+wn frame and can be positioned
+ and
+sized independently from other
+ Ghidra windows.
+
+Unresolved External Reference
+An external reference that has
+ not been linked to any progra
+m in the
+project.
+
+User Access List
+The list of users that have ac
+cess to a particular shared re
+pository on
+a Ghidra server. The list cont
+ains usernames and permissions
+.
+
+User Authentication
+The process of verifying the i
+dentity of a client user to th
+e server.
+
+V
+Version Control
+The process of maintaining mul
+tiple versions of a program as
+changes are made.
+
+Version History
+A dialog displaying the histor
+y of changes made to a program
+. Any
+previous version of the progra
+m can be selected for viewing 
+from
+the View History dialog.
+
+Versioned Program
+A program that has been placed
+ under version control in a Gh
+idra
+project in order to maintain a
+ history of all the changes ma
+de to that
+program.
+
+Viewed Project
+A project that has been open a
+s read-only. Projects that you
+ do not
+
+Glossary 32/33
+
+A project that has been open 
+as read-only. Projects that yo
+u do not
+own can only be opened as a Vi
+ewed Project.
+
+W
+Workspace
+A virtual Ghidra desktop for a
+ set of running tools.
+
+X
+XREF
+Abbreviation for cross referen
+ce. CodeBrowser's display of S
+ource
+Addresses.
+
+Glossary 33/33
+
+

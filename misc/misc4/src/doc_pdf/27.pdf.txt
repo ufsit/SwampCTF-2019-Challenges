@@ -1,0 +1,83 @@
+Saving Program Files 1/3
+
+Saving Program
+When changes are made to a pro
+gram, the user must save the p
+rogram. Otherwise,
+those changes will be lost. Th
+e user can either save the cha
+nged program back to the
+original program file or save 
+the changed program to a new f
+ile, leaving the original
+program file unchanged.
+
+Save
+Saves the changed program back
+ to the original program file.
+ The Save option is only
+enabled when changes have been
+ made. To perform this action:
+1. From the Ghidra Tool's menu
+, select File
+
+Save.
+
+or
+Select the Save icon
+
+in the tool bar at the top of 
+the Ghidra Tool.
+
+Save As
+Saves the currently open progr
+am to a new program file. This
+ new program file
+becomes the program that is ac
+tive in the tool. When selecti
+ng Save As..., Ghidra will
+prompt for a filename. To perf
+orm this action:
+1. From the Ghidra Tool's menu
+, select File
+2. The Save As... dialog appea
+rs.
+
+Save As....
+
+Saving Program Files 2/3
+
+3. Select the folder for savin
+g the program and enter the ne
+w Name of the program.
+4. Click the Save button.
+5. The program is saved to the
+ new name. This new program is
+ the one now active in the
+Tool.
+If an existing program is sele
+cted from the Save As... dialo
+g, an overwrite
+confirmation dialog will be di
+splayed.
+
+Save All
+Saves any currently open progr
+ams. If any program has never 
+been saved before,
+Ghidra will prompt for a filen
+ame.
+1. From the Ghidra Tool's menu
+, select File
+
+Save All.
+
+Provided by: Program Manager 
+Plugin
+Related Topics:
+Open Program
+Close Program
+
+Saving Program Files 3/3
+
+

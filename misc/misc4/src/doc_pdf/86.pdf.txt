@@ -1,0 +1,171 @@
+PDB Parser Application
+
+PDB Parser Application 1/2
+
+GHIDRA includes a bundled appl
+ication pdb.exe for use within
+ Microsoft Windows environment
+s. This application is
+used to parse program debug in
+formation provided in the form
+ of PDB files which are associ
+ated with specific
+executable programs and librar
+ies. PDB files are produced du
+ring the compilation and linki
+ng process and may be
+made available by the software
+ vendor for debugging purposes
+.
+
+Prerequisites
+The native PDB parser applicat
+ion has been built with Micros
+oft Visual Studio 2017 using t
+he 8.1 SDK to allow for
+possible use under Windows 7, 
+8.x and 10. For this applicati
+on to execute properly the fol
+lowing prerequisites must
+be properly installed:
+Microsoft Visual C++ Redistrib
+utable for Visual Studio 2017 
+with its' prerequisite updates
+, and
+DIA SDK runtime support.
+
+PDB File Processing
+Execution of the native PDB pa
+rser for a specified PDB file 
+produces an XML output which i
+s subsequently parsed by
+GHIDRA during PDB Analysis. If
+ running under windows the nat
+ive PDB parser may be invoked 
+directly if the
+appropriate PDB file can be lo
+cated locally, while on other 
+platforms only the XML file fo
+rm produced by the PDB
+parser is supported. Batch con
+version of PDB files to XML is
+ facilitated by the support/cr
+eatePdbXmlFiles.bat script.
+In the near future GHIDRA will
+ adopt a pure Java implementat
+ion which will eliminate the M
+icrosoft Windows native
+execution issue and the use of
+ an intermediate XML format.
+
+Microsoft Symbol Server
+Although GHIDRA has been prima
+rily designed to utilize local
+ly stored PDB files during ana
+lysis, the ability to
+interactively download individ
+ual PDB files from a web-based
+ Microsoft Symbol Server is al
+so provided. This
+capability is accessed via the
+ GUI while a program is open v
+ia the File->Download PDB File
+... action.
+
+DIA SDK Dependency
+In order for the native PDB pa
+rser to work on your Microsoft
+ Windows machine, you must:
+1. Ensure you have msdia140.dl
+l on your computer, and
+2. Register msdia140.dll in th
+e Windows registry.
+NOTES:
+The following instructions ass
+ume you have a 64-bit operatin
+g system. If you have rebuilt 
+pdb.exe with a newer
+version of the DIA SDK you wil
+l need to register the corresp
+onding version of the 64-bit D
+LL. The DIA SDK 14.0
+corresponds to Visual Studio 2
+017.
+The PDB format is known to cha
+nge over time and may be incom
+patible with the current pdb.e
+xe parser contained
+within Ghidra. A Microsoft Vis
+ual Studio project is provided
+ within the Ghidra/Features/PD
+B/src/pdb directory
+which will allow you to rebuil
+d it with a newer version of V
+isual Studio and DIA SDK.
+
+Ensure you have msdia140.dll 
+on your computer
+
+PDB Parser Application 2/2
+
+First, check to see if you alr
+eady have the msdia140.dll lib
+rary installed on your system.
+ It is generally installed
+installed with Microsoft Visua
+l Studio 2017 when C/C++ devel
+opment support is included.
+C:\\Program Files (x86)\Micros
+oft Visual Studio\2017\DIA SDK
+\bin\amd64\msdia140.dll
+This file is commonly located 
+here, although it may be insta
+lled in other locations as wel
+l. Any 64-bit copy may be
+registered provided it is the 
+correct version. There is no n
+eed to register more than one.
+Register 'msdia140.dll' in the
+ Windows registry
+Please register 64-bit msdia14
+0.dll even if you already had 
+a copy of it on your computer 
+since it is not registered by
+the Visual Studio installation
+ process. You will need admini
+strative rights/privileges in 
+order to register the DLL in
+the Windows registry.
+1. Start a command prompt as a
+n administrator:
+Click Windows Start menu, ente
+r CMD in the search box to loc
+ate CMD program.
+Right-click on CMD program and
+ then click Run as administrat
+or.
+If the User Account Control di
+alog box appears, confirm that
+ the action it displays is wha
+t you
+want, and then click Yes to co
+ntinue. You may be prompted fo
+r an Admin password to elevate
+permissions.
+2. At the prompt within the di
+splayed CMD window, navigate t
+o the parent folder that conta
+ins the 64-bit
+version of msdia140.dll or spe
+cify the full path of the DLL 
+to regsvr32 command below.
+3. Enter the following command
+ to register the DLL:
+regsvr32 msdia140.dll
+When the registration has comp
+leted you should see a popup t
+hat indicates that "DllRegiste
+rServer in msdia140.dll
+succeeded".
+
+

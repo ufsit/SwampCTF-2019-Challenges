@@ -1,0 +1,3 @@
+flag{war_never_changes}
+< rot 13 > 
+synt{jne_arire_punatrf}

@@ -1,0 +1,93 @@
+Restore Project
+
+Restore Project 1/2
+
+The Restore Project operation 
+will create a new project from
+ an Archived project file. Res
+toring a project makes it the
+active project.
+You must close your project be
+fore you can restore an archiv
+ed project.
+To restore an archived project
+,
+1. If a project is open, close
+ it by selecting File
+2. Select File Restore Project
+....
+
+Close Project from the Ghidra 
+Project Window menu.
+
+3. The Restore Project Archive
+ dialog is displayed. Fill in 
+the fields to indicate the pro
+ject to restore and where to r
+estore it.
+4.
+Archive File: Specify the full
+ path for the archive file to 
+be restored. Use the browse bu
+tton (". . .") to locate the
+archive (*.gar) file.
+The Restore Directory and Proj
+ect Name fields are automatica
+lly filled in when you use the
+ browse button (".
+. .") to the right of the Arch
+ive File field to select the a
+rchive file.
+Restore Directory: The project
+ directory where the new proje
+ct will be created.
+Project Name: The name of the 
+new project.
+4. Press the OK button.
+5. If the project is being res
+tored to the same name and loc
+ation as an existing project, 
+the Project Exists dialog is d
+isplayed,
+as shown below.
+
+Specify a different Restore Di
+rectory or a Project Name that
+ doesn't exist and try again.
+6. The 'In Progress' dialog is
+ displayed indicating the arch
+ive is restoring. When the res
+tore is complete, this dialog 
+will
+disappear and the newly restor
+ed project appears in the Ghid
+ra Project Window.
+To cancel the restore operatio
+n click on the Cancel button. 
+Any files that were created du
+ring the restore are
+removed as a result of the can
+cellation.
+
+Restore Project 2/2
+
+Restoring a Version 2.x Projec
+t
+If you restore a project from 
+a version of Ghidra that was 2
+.x or before, and the project 
+contained multiple users, the
+project is restored with you a
+s the owner of all the files. 
+You will see the folders and d
+ata files for the other users 
+that
+were in the project, but you a
+re the owner.
+
+Provided by: ArchivePlugin
+Related Topics:
+Archive Project
+Ghidra Projects
+
+

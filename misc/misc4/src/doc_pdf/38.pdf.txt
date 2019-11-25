@@ -1,0 +1,1053 @@
+Listing Options 1/6
+
+Listing Options
+Attributes of the Listing can 
+be customized using the Tool O
+ptions Dialog. These are the t
+ypes of attributes that can be
+ customized:
+Colors and Fonts
+Fields, Highlights, and Select
+ions
+Popups
+
+Color and Fonts
+To view or change colors and f
+onts for fields of the Listing
+, open the Tool Options Dialog
+ and select the Listing Displa
+y node in the Options tree. Th
+e Listing Display panel will b
+e
+displayed as shown below.
+
+This panel is divided into the
+ following sections:
+Font
+Sets the default font, size an
+d style for all text fields in
+ the listing. The font and siz
+e apply to all screen elements
+. The styles (bold/italic) wil
+l be used as the default for e
+ach
+screen element unless individu
+ally customized using the Styl
+e Settings.
+Screen Element
+The Screen Element lists all t
+he customizable items that can
+ be displayed by the Listing. 
+Some of the elements are field
+s such as the Address field. O
+thers represent the type of
+information in a field. For ex
+ample, the operand field may c
+ontain a label, scalar, addres
+s, or constant. Still others a
+re attributes on the data in t
+he fields. An example of this 
+is
+label field. A label can be pr
+imary or local. Screen element
+s can be selected in order to 
+change their associated color 
+and font style.
+The table below describes all 
+the Screen Elements and indica
+tes the fields in which they a
+ppear.
+Screen Element
+
+Description
+
+Field
+
+Address
+
+Addresses
+
+Address field
+
+Background*
+
+N/A
+
+N/A
+
+Bad Reference Address
+
+Addresses or labels that are n
+ot in memory
+
+Operand field
+
+Bytes
+
+Bytes
+
+Bytes field
+
+Comment, Automatic
+
+System-generated comments
+
+EOL comment field
+
+Comment, EOL
+
+End-of-line comments
+
+EOL comment field
+
+Comment, Plate
+
+Block comments
+
+Plate comment field
+
+Comment, Post
+
+Below-line comments
+
+Post comment field
+
+Comment, Post
+
+Below-line comments
+
+Post comment field
+
+Comment, Pre
+
+Above-line comments
+
+Pre comment field
+
+Comment, Repeatable
+
+Repeatable comment at this cod
+e-unit that is displayed where
+ there are references to
+this code unit
+
+EOL comment field
+
+Comment, Referenced
+Repeatable
+
+Displays repeatable comment de
+fined at code-unit referred to
+ by this code unit
+
+EOL comment field
+
+Constant
+
+Numbers
+
+Operand field
+
+Entry Point
+
+Labels that are at Entry Point
+s in a program
+
+Label field
+
+External Reference,
+Resolved
+
+External addresses or labels
+
+Operand field
+
+Field Name
+
+Name of elements in a structur
+e or union
+
+"Field Name" field
+
+Flow Arrow, Active
+
+Flow arrow when cursor is at t
+he source
+
+N/A
+
+Flow Arrow, Not Active
+
+Flow arrow when cursor is not 
+at source
+
+N/A
+
+Function Name
+
+Function name
+
+Function Signature, Operands
+
+Function Parameters
+
+Parameter data types and names
+
+Function Signature field
+
+Function Return type
+
+Data Type returned by the func
+tion
+
+Function Signature field
+
+Labels, Local
+
+Labels that are local to a fun
+ction
+
+Label field
+
+Labels, Non-primary
+
+Additional labels at an addres
+s
+
+Label field
+
+Labels, Primary
+
+Primary label at an address
+
+Label field
+
+Labels, Unreferenced
+
+Labels at addresses that are n
+ot referenced
+
+Label field
+
+Mnemonic
+
+Instruction or Data (Mnemonic)
+
+Mnemonic field
+
+Operands
+
+defaults for items in operand 
+field
+
+Operand field
+
+Registers
+
+Registers
+
+Operand field
+
+Separator
+
+Separator line (...) between a
+ddress gaps
+
+Separator field
+
+Variable
+
+Function variables
+
+Variable Type, Variable Locati
+on,
+Variable Name, Variable Commen
+t
+
+Version Track
+
+Version tracking information
+
+Version tracker field
+
+Xref
+
+Cross reference addresses
+
+Xref field
+
+Xref, Offcut
+
+Offcut cross reference address
+es
+
+Offcut references Xref field
+
+Listing Options 2/6
+
+*The Background is a special c
+ase. Select this element to se
+t the background color for the
+ Listing.
+Color
+The color for the selected scr
+een element is displayed in th
+is section.
+Style Settings
+By default, all screen element
+s use the style settings set i
+n the Font section. To customi
+ze individual screen elements,
+ select the screen element fro
+m the Screen Elements section
+and select the custom checkbox
+ in the Style Settings section
+. This will enable the bold an
+d italics checkboxes which can
+ be used to customize the styl
+e of the selected screen
+element.
+Swatches/HSB/RGB
+These tabbed components provid
+e a variety of ways to choose 
+a color for the selected scree
+n element.
+Swatches
+Click on the desired color-squ
+are to set the color of the cu
+rrently selected screen elemen
+t.
+HSB
+This tab allows colors to be c
+hosen using the hue, saturatio
+n, and brightness scale. The r
+adio button selects which scal
+e will be controlled by the sl
+ider bar. Use the
+slider bar to choose a value f
+or the selected scale. This ca
+uses the large color box to di
+splay all possible colors with
+ that selected value. Click in
+ the box to choose a
+color.
+RGB
+This tab allows colors to be c
+hosen by entering a red, green
+, and blue value.
+
+Preview
+
+Preview
+The preview tab displays some 
+sample code using the current 
+set of screen element colors a
+nd styles.
+
+Listing Options 3/6
+
+Fields, Highlights, & Selectio
+ns
+There are other customizable o
+ptions in addition to color an
+d font. To view or change thes
+e options, open the Tool Optio
+ns Dialog and then open the Li
+sting Fields node in the Optio
+ns
+tree. Next, select the appropr
+iate field within the Listing 
+Fields node to view or change 
+the options for that field. Th
+e available
+Listing Field options are:
+Address Field
+Show Block Name -This option p
+repends the memory block name 
+to the address in the address 
+field. For example, 0x10008000
+ might become .text:0x10008000
+.
+Fully Pad With Leading Zeros -
+ This option causes all addres
+ses to be displayed with leadi
+ng zeros to make the address s
+tring length the same as the l
+ength of the largest
+address in that address space.
+ For example, in a 32 bit addr
+ess space program the address 
+0x100 will be displayed as 000
+00100.
+Minimum Number of Address Digi
+ts -This option is used to spe
+cify the minimum number of dig
+its that should be used to dis
+play the address. The address 
+string will be
+displayed with leading zeros t
+o make the length contain at l
+east this number of digits. If
+ the largest address in the ad
+dress space has fewer signific
+ant digits than this minimum,
+then the address will only be 
+padded to the size of the larg
+est address. If the address ha
+s more significant (non-zero) 
+digits than the minimum, it wi
+ll be displayed with more
+digits than the minimum, but w
+ill contain no leading zeros. 
+This field is disabled and has
+ no effect if the previous "Fu
+lly Pad With Leading Zeros" op
+tion is selected.
+Justification -This option is 
+used to align the address text
+ to either the left or right s
+ide of the field. If the text 
+is longer than the space alloc
+ated for it in the field, the 
+text is
+clipped to the opposite side o
+f the justification.
+Array Options
+Group Array Elements - Determi
+nes whether or not multiple ar
+ray elements should be shown o
+n the same line in the browser
+. If checked, this option will
+ use the Array
+format, which typically only s
+hows the address, the array in
+dex, and the array values. Not
+e: this only affects arrays wi
+th primitive elements. Complex
+ arrays will still only show
+one element per line.
+Elements Per Line - The number
+ of array elements to show on 
+a line. This option in only en
+abled if the Group Array Eleme
+nts option is selected.
+Bytes Field
+Byte Group Size - Bytes in the
+ byte field can be displayed i
+n groups. By default each byte
+s are displayed in groups of 1
+. Groups are separated by deli
+miters. Use this setting to
+change the number of bytes dis
+played in a group.
+Delimiter - The string to use 
+to separate groups. Normally, 
+this is set to " " (a single s
+pace).
+Display in Upper Case - Select
+ this check box if the hex dig
+its of the bytes should be dis
+played as ABCDEF instead of ab
+cdef.
+Maximum Lines to Display - Spe
+cifies the maximum number of l
+ines to use to display the byt
+es. Any bytes that do not fit 
+into this number of lines will
+ not be displayed.
+Reverse Instruction Byte Order
+ing - The bytes will be displa
+yed in reverse order for Instr
+uction Code Units. Note: this 
+applies to instructions only. 
+All other code units are
+unaffected.
+Display Structure Alignment By
+tes - Internal structure align
+ment bytes will be displayed w
+ith the bytes of the preceding
+ component. These bytes will b
+e colored differently
+than the bytes directly associ
+ated with the component. Note:
+ this applies to structure dat
+a only. All other code units a
+re unaffected.
+Cursor Text Highlight
+Use the following options to c
+ustomize Cursor Text Highlight
+ing:
+Alternate Highlight Color - Se
+ts the alternate color used fo
+r cursor text highlighting. Do
+uble click on the color bar to
+ bring up a color chooser dial
+og.
+Enabled - Select this checkbox
+ to enable cursor text highlig
+hting.
+Highlight Color - Sets the col
+or used for cursor text highli
+ghting. Double click on the co
+lor bar to bring up a color ch
+ooser dialog.
+Mouse Button To Activate - Use
+ the combo box to select which
+ mouse button will be used to 
+highlight text (Left, Right, M
+iddle).
+Scope Register Operand - Check
+ this box to enable Scoped hig
+hlighting of registers within 
+the operand field. If turned o
+ff, cursor highlighted text wi
+thin an operand field is
+treated the same as text in ot
+her fields.
+EOL Comments Field
+The EOL Comments field display
+s the end-of-line comment at t
+his address. If there is no EO
+L comment, it displays the rep
+eatable comment. If there is n
+o repeatable comment,
+it displays the repeatable com
+ments from all referenced addr
+esses. If there aren't any ref
+erenced repeatable comments, i
+t displays an automatic commen
+t if it can.
+Always Show the Automatic Comm
+ent - Normally automatic comme
+nts are not shown if there is 
+an EOL comment, repeatable com
+ment, or referenced repeatable
+ comment.
+By selecting this option, the 
+automatic comment will be show
+n even if there is an EOL comm
+ent, repeatable comment, or re
+ferenced repeatable comment.
+Always Show the Referenced Rep
+eatable Comment - Normally ref
+erenced repeatable comments ar
+e not shown if there is an EOL
+ comment or repeatable comment
+. By
+selecting this option, the ref
+erenced repeatable comment wil
+l be shown even if there is an
+ EOL comment or repeatable com
+ment.
+Always Show the Repeatable Com
+ment - Normally repeatable com
+ments are not shown if there i
+s an EOL comment. By selecting
+ this option, the repeatable c
+omment will be
+shown even if there is an EOL 
+comment.
+Enable Word Wrapping - If this
+ option is not set, each comme
+nt line is displayed on a line
+ by itself. By turning on word
+-wrapping, comment lines are d
+isplayed in paragraph
+form.
+Maximum Lines To Display - The
+ maximum number of lines to di
+splay for a single comment. Co
+mments that cannot be displaye
+d within this number of lines 
+will be
+
+Maximum Lines To Display - Th
+e maximum number of lines to d
+isplay for a single comment. C
+omments that cannot be display
+ed within this number of lines
+ will be
+truncated.
+Listing Options
+Prepend the Address to Each Re
+ferenced Comment - Each refere
+nced repeatable comment will d
+isplay an annotated address be
+fore the comment. This address
+ can be double
+clicked to go to the address w
+here that referenced repeatabl
+e comment is defined.
+Show Semicolon at Start of Eac
+h Line - Begins each line of a
+n end-of-line comment with a s
+emi-colon.
+Use Abbreviated Automatic Comm
+ents - When possible, the auto
+ comment will be made as small
+ as possible. For example, whe
+n showing an offcut string ref
+erence, only
+the portion of the string that
+ is used will be displayed.
+Format Code
+Specific formatting of the lis
+ting is controlled via the For
+mat Code options panel. The fo
+llowing table describes the ef
+fect of each format option. Th
+e options for displaying
+comments are listed in the ord
+er in which the options are pr
+ocessed when determining what 
+formatting comments are to be 
+displayed. (The order below is
+ based on the
+assumption that the order of t
+he comment fields in the Code 
+Browser are Plate, Pre, and Po
+st.)
+Option
+Show External Entry Plates
+
+Field Type
+Plate Comment
+
+Show Function Plates
+Show Subroutine Plates
+
+Plate Comment
+Plate Comment
+
+Show Transition Plates
+
+Plate Comment
+
+Flag Function Entry
+
+Pre Comment
+
+Flag Function Exits
+
+Post Comment
+
+Flag Jumps and Returns
+
+Post Comment
+
+Flag Subroutine Entry
+
+Pre Comment
+
+Description
+Display an "EXTERNAL" plate co
+mment at each label which is m
+arked as an
+Entry Point.
+Display a "FUNCTION" plate com
+ment at the entry point of eac
+h Function.
+Display a "SUBROUTINE" plate c
+omment at each label which has
+ a call
+reference to it.
+Display an empty plate comment
+ when transitioning from betwe
+en Instructions
+and Data.
+Display the pre comment:
+||||||||| FUNCTION |||||||||
+at the entry point of each Fun
+ction.
+Display the post comment:
+********** MyFunction Exit ***
+*******
+at the end of each Function, w
+here MyFunction is the name of
+ the Function.
+Display a post comment "- - -"
+ line separator following all 
+unconditional jumps
+and returns.
+Display the pre comment:
+|||||||| SUBROUTINE ||||||||
+at each label which has a call
+ reference to it.
+
+Lines After Basic Blocks
+
+Post Comment
+
+Lines Before Functions
+
+Plate Comment
+
+Lines Before Labels
+
+Plate Comment
+
+Lines Before Plates
+
+Plate Comment
+
+Display the specified number o
+f blank lines following all Ba
+sic Blocks of
+instructions.
+Display the specified number o
+f blank lines before each Func
+tion entry point.
+(Has precedence over Lines Bef
+ore Plates.)
+Display the specified number o
+f blank lines before each labe
+led code unit
+(instruction or data).
+Display the specified number o
+f blank lines before each plat
+e comment inserted
+during formatting. (Has preced
+ence over Lines Before Labels.
+)
+
+If comments already exist in t
+he listing, then the options t
+o show the comments fields for
+ formatting are ignored. The o
+ptions that specify a number o
+f blank lines are
+used regardless of whether com
+ments exist.
+Applying the format options do
+es not alter the program.
+Function Pointers
+Display Function Header for Ex
+ternal Function Pointers - Sel
+ect this option to show the fu
+nction prototype header within
+ the listing for any pointer w
+hich has an External
+Function reference (enabled by
+ default).
+Display Function Header for No
+n-External Function Pointers -
+ Select this option to show th
+e function prototype header wi
+thin the listing for any point
+er which has a
+memory reference to a Function
+ (disabled by default).
+Function Signature Field
+Display Namespace - Select thi
+s option to include the functi
+on namespace as a prefix to th
+e name of the function within 
+the displayed function prototy
+pe (disabled by default).
+Labels Field
+Display Function Label - Selec
+t this option to show function
+ labels. If you turn this off,
+ the function name will only a
+ppear in the function signatur
+e. If it's on, the function
+name will also appear as a lab
+el below the function header.
+Display Non-local Namespace - 
+Select this option to prepend 
+the namespace to all labels th
+at are not in the current Func
+tion's namespace. Currently, t
+his would only affect a
+label that is not global, but 
+is in a namespace other than t
+he function that contains the 
+label's address.
+Display Local Namespace - Sele
+ct this option to prepend the 
+namespace to all labels that a
+re in the Function's namespace
+.
+Use Local Namespace Override -
+ Select this option to show a 
+fixed prefix for local labels 
+instead of the function's name
+. This option is only availabl
+e if the "Display Local
+Namespace" option is on. The t
+ext box contains the prefix to
+ use for local labels.
+Mnemonic Field
+
+4/6
+
+Mnemonic Field
+Show Data Mutability - Option 
+to display the mutability data
+ setting associated with each 
+data code unit (e.g., constant
+, volatile).
+
+Listing Options 5/6
+
+Underline Fields With Non-prim
+ary References - Option to und
+erline mnemonic fields that ha
+ve hidden (non-primary) refere
+nces. This provides a quick vi
+sual indication
+that the field has references 
+and that you can double-click 
+the field to go to the referen
+ces.
+Operands Field
+Add Space After Separator - Op
+tion to add an additional spac
+e after the operand separator 
+","
+Always Show Primary Reference 
+- Option to force the display 
+of the primary reference on al
+l operands. If a suitable sub-
+operand replacement can not be
+ identified the
+primary reference will be appe
+nded to the operand preceded b
+y a "=>" prefix.
+Display Abbreviated Deafult La
+bel Names - Uses a shortened f
+orm of the label name for dyna
+mic String data types in the d
+isplay of operand references (
+e.g.,
+STR_01234567).
+Display Non-local Namespace - 
+Select this option to prepend 
+the namespace to all reference
+s that are not in the current 
+Function's body. Currently, th
+is would only affect a
+label that is not global, but 
+is in a function other than th
+e function that contains the c
+urrent instruction.
+Display Local Namespace - Sele
+ct this option to prepend the 
+namespace to all labels that a
+re in the Function's body.
+Use Local Namespace Override -
+ Select this option to show a 
+fixed prefix for local labels 
+instead of the function's name
+. This option is only availabl
+e if the "Display Local
+Namespace" option is on. The t
+ext box contains the prefix to
+ use for local labels.
+Enable Word Wrapping - Option 
+to wrap strings in operand lin
+es that are too long to fit in
+ the operand field. Note that 
+that word wrapping can only oc
+cur where spaces exist
+in the string.
+Follow Read or Indirect Pointe
+r References - Option to follo
+w referenced pointers, for rea
+d or indirect reference types,
+ to show pointer's referenced 
+symbol instead of
+symbol at pointer. When applie
+d the resulting operand label 
+will be preceded by a " ".
+Include Scalar Reference Adjus
+tment - Option to include a sc
+alar expression which will ind
+icate the relationship between
+ a replaced scalar and the ass
+ociated reference offset
+when the offset does not match
+ the scalar value.
+Markup Inferred Variable Refer
+ences - Option to markup instr
+uction operands where referenc
+es to stack and register varia
+bles can be inferred. This cor
+responding
+stack/register markup option m
+ust also be enabled for this o
+ption to have an effect.
+Markup Register Variable Refer
+ences - Option to markup instr
+uction operands where explicit
+ register references exist. Wh
+en this option is enabled, ele
+ments may be
+replaced within instruction op
+erands to reflect an associati
+on with a register parameter/v
+ariable if one can be determin
+ed. Inferred register referenc
+es will be included if the
+Markup Inferred Variable Refer
+ences is also enabled.
+Markup Stack Variable Referenc
+es - Option to markup instruct
+ion operands where explicit st
+ack references exist. When thi
+s option is enabled, elements 
+may be replaced
+within instruction operands to
+ reflect an association with a
+ stack parameter/variable if o
+ne can be determined. Inferred
+ stack references will be incl
+uded if the Markup Inferred
+Variable References is also en
+abled.
+Maximum Length of String in De
+fault Labels - Sets the maximu
+mn number of characters from a
+ String to include in dynamic 
+String labels in operand refer
+ences
+Maximum Lines To Display - The
+ maximum number of lines used 
+to display a string in an oper
+and. Strings that cannot be di
+splayed within this number of 
+lines will be
+truncated.
+Show Block Names - This option
+ prepends the memory block nam
+e to labels in the operand fie
+ld. For example, the instructi
+on "call printf" becomes "call
+.text:printf".
+Show Offcut Information - Show
+s additional information for o
+ffcut references, such as the 
+original address, followed by 
+the offset. For example, the s
+tring "foo_bar", with
+an offcut reference to "bar" w
+ould look like:
+s_bar_12345678+4
+with this option on, and with 
+it off would look like:
+s_bar
+Underline References - Option 
+to underline operand reference
+s so that you can quickly iden
+tify those operands that have 
+references and double-click to
+ go the reference. Select
+one of the following choices:
+Hidden - Underline the operand
+ if it has a non-primary refer
+ence (i.e. there is no visible
+ evidence that the operand has
+ a reference.)
+All - Underline the operand if
+ it has any references.
+None - Do not display any unde
+rlines.
+
+You can change the color of th
+e underline from the Listing D
+isplay options panel; select U
+nderline from the Screen Eleme
+nt list.
+
+PCode Field
+Display Raw PCode - Option to 
+display the raw PCode directly
+ in the Code Browser (i.e., de
+tailed varnode specifications 
+are provided).
+Maximum Lines to Display - The
+ maximum number of lines used 
+to display PCode. Any addition
+al lines of PCode will not be 
+shown.
+Selection Colors
+Difference Color - Sets the co
+lor used to highlight differen
+ces between two programs.
+Highlight Color - Sets the Bro
+wser Highlight color.
+Selection Color - Set the Brow
+ser Selection color.
+
+XREFs Field
+
+Listing Options 6/6
+Delimiter - Delimiter string t
+o use for separating multiple 
+xrefs.
+Display Local Block - Prepends
+ the name of the memory block 
+containing the XREF source add
+ress to each XREF.
+Maximum Number of XREFs To Dis
+play - The maximum number of l
+ines used to display XREFs. Ad
+ditional XREFs will not be dis
+played.
+Display Non-local Namespace - 
+Select this option to prepend 
+the namespace to all XREFs tha
+t are not from an instruction 
+within the current Function's 
+body. Currently, this
+would only affect XREFs that o
+riginate in some other functio
+n.
+Display Local Namespace - Sele
+ct this option to prepend the 
+namespace to all XREFs that ar
+e from the current Function.
+Use Local Namespace Override -
+ Select this option to show a 
+fixed prefix for local XREFs i
+nstead of the function's name.
+ This option is only available
+ if the "Display Local
+Namespace" option is on. The t
+ext box contains the prefix to
+ use for local XREFs.
+
+Popups
+Popups are transient windows u
+sed to display additional info
+rmation about the item over wh
+ich the mouse is hovering. The
+re are options for enabling va
+rious types of popups and for
+resizing the popup window.
+Listing Popups
+To view or change the availabl
+e popups, open the Tool Option
+s Dialog and then select the L
+isting Popups node in the Opti
+ons tree.
+Reference Code Viewer - Shows 
+the listing at the referenced 
+location as a popup.
+Truncated Text Display - Displ
+ays truncated text as a popup.
+Reference Code Viewer
+
+To view or change the size of 
+popup windows, open the Tool O
+ptions Dialog and then open th
+e Listing Popups node in the O
+ptions tree. Next select the R
+eference Code Viewer
+node.
+Dialog Height - The height of 
+the popups in pixels.
+Dialog Width - The width of th
+e popups in pixels.
+
+

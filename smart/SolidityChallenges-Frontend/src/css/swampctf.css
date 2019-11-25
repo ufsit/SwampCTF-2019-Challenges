@@ -1,0 +1,124 @@
+/* Theme color overrides for bootstrap */
+body {
+    background: #24242f;
+}
+
+main {
+    color: white;
+}
+
+/* SVG */
+text {
+    fill: white;
+}
+
+.bg-dark {
+    background: #4f2758 !important;
+}
+
+.jumbotron {
+    background: #4f2758 !important;
+}
+
+a {
+    color: #52e08a;
+}
+
+a:hover {
+    color: #5eff9f;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: white;
+}
+
+.nav-link i.fas {
+    font-size: 1.25em;
+}
+
+/* Fix for CTFd promo in footer */
+a small.text-muted {
+    color: #52e08a!important;
+}
+a:hover small.text-muted {
+    color: #5eff9f!important;
+}
+
+.text-muted {
+    color: #ffbffc!important
+}
+
+main .container:first-child {
+  padding-top: 40px;
+}
+
+/* For the countdown timer */
+.navbar-dark .navbar-text  {
+    color: white;
+}
+
+#time_short, #time_long {
+    background: #00000059;
+    color: #5bff9c;
+    padding: 5px 5px;
+    border-radius: 5px;
+    font-family: monospace;
+    font-weight: bold;
+    font-size: 1.1em;
+    box-shadow: inset 0 1px 5px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(0, 0, 0, 0.2), 0 -1px 0 rgba(0, 0, 0, 0.4);
+}
+
+
+@media (max-width: 768px) {
+  .hidden-xs {
+    display: none !important;
+  }
+}
+
+.form-control:focus {
+    color: #d2c0c0;
+}
+
+#notification-count {
+    background: #bd2828;
+    color: white;
+    border-radius: 10px;
+    padding: 0 5px;
+    font-size: 0.7em;
+    display: none;
+    font-family: sans-serif;
+    font-weight: bold;
+
+    position: absolute;
+    top: 3px;
+    border: 1px solid white;
+    left: 15px;
+}
+
+.modal-content {
+    background: #4f2758 !important;
+}
+
+.close {
+    opacity: 1.0;
+    color: white;
+}
+
+.close:hover {
+    opacity: 0.5;
+    color: white;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background: #00000033;
+}
+
+#solves {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 250px;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover #notification-count {
+    background: #9a2222;
+}

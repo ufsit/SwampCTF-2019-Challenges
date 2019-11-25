@@ -1,0 +1,854 @@
+Listing View
+
+Code Browser 1/9
+
+The Listing View is the main w
+indows for displaying and work
+ing with a program's instructi
+on and data.
+
+Listing View
+
+Main Display
+In the Code Browser tool displ
+ayed above, the Listing is sho
+wn to the right of the Program
+ Tree. The Listing is currentl
+y showing a snippet of code fo
+r
+"WinHelloCPP.exe". Code is mad
+e up of various elements such 
+as addresses, bytes, mnemonics
+, and operands. The Listing us
+es fields to display these ele
+ments. The
+overall layout of the Listing 
+can be changed by adjusting th
+e size and position of the fie
+lds using the Browser Field Fo
+rmatter.
+
+The View
+The Listing can either display
+ an entire program or a subset
+ of a program. The view determ
+ines the set of addresses that
+ are displayable in the Listin
+g. By default, the
+view contains the entire progr
+am, but other Ghidra component
+s can restrict the view to som
+e subset of the program. For e
+xample, the Program Tree can b
+e used to
+restrict the view to a module 
+or fragment. If the view is la
+rger than the screen size, a v
+ertical scroll bar will appear
+ that allows the display to be
+ scrolled anywhere within
+the view.
+
+Cursor
+The Listing maintains a cursor
+ location. Even though the Lis
+ting never actually changes a 
+program, it plays an important
+ role for plugins that do. Man
+y Ghidra plugins
+operate at a specific address 
+or even on a specific field on
+ an instruction at an address.
+ These plugins use the Listing
+'s cursor position to determin
+e the appropriate
+"program location".
+The cursor can be moved by usi
+ng any of the "arrow" keys or 
+by clicking the mouse over any
+ appropriate location.
+
+Selection
+The Listing also maintains a s
+election (shown using a green 
+shaded area). Some plugins ope
+rate on a particular address. 
+Other plugins can operate over
+ a range of
+addresses. For these plugins, 
+the selection is used to deter
+mine the range of address on w
+hich to operate.
+A selection can be set by eith
+er dragging the mouse while ho
+lding down the left mouse butt
+on or by pressing the <shift> 
+key while moving the cursor wi
+th the "arrow"
+keys.
+Pressing the <Ctrl> key down w
+hile clicking the mouse will e
+ither add to the selection if 
+that line is not already in th
+e selection or it will remove 
+that line from the
+selection.
+Clicking the mouse anywhere (w
+ithout dragging) will cause th
+e selection to go away.
+
+Highlight
+
+Code Browser 2/9
+
+Since the selection is transie
+nt (it goes away easily), the 
+Listing also has the concept o
+f a highlight. The highlight i
+s similar to the selection, bu
+t it stays around until it is
+explicitly cleared. To create 
+a highlight, first create a se
+lection and then use the Highl
+ight menu to convert the selec
+tion to a highlight. Later the
+ highlight can be
+converted back into a selectio
+n using the same menu. At that
+ point an action can be applie
+d to the selection.
+Highlights are not saved acros
+s program sessions. To achieve
+ a lasting color effect, you c
+an color the Listing backgroun
+d.
+
+Background Color
+See Listing Background Colors
+
+Navigation
+The Listing provides built-in 
+navigation functionality for a
+ddresses and labels. Double-cl
+ick on any address, label or r
+eference markup within the Lis
+ting and it will
+attempt to reposition to that 
+location if it exists in the p
+rogram. If the address exists 
+in the program but not in the 
+current view, the view is expa
+nded to include the
+address. If the location refer
+s to an external location and 
+it is associated with another 
+program, that program may be o
+pened and positioned within th
+e CodeBrowser. See
+the tool Edit Tool Options dia
+log for control over certain N
+avigation behaviors.
+In the XRef field, sometimes t
+here are too many addresses to
+ display so the the field will
+ display "[more]" to indicate 
+that one or more cross-referen
+ce addresses are not
+shown.
+
+Double-clicking on the "[more]
+" text will cause a Location R
+eferences Dialog to appear. Al
+so, double-clicking on the XRE
+F header text (XREF[n]:)
+will too show this dialog.
+This dialog lists all the Xref
+ addresses, any labels that ar
+e at that address and a previe
+w of the instruction at that a
+ddress. Clicking on any row in
+ the table will cause the
+browser to navigate to that ad
+dress. Double-clicking will na
+vigate and dismiss the dialog.
+
+Keyboard Controls
+The following key mappings are
+ used by the Listing:
+<Home>
+
+Move the cursor to the beginni
+ng of the line.
+
+<End>
+
+Move the cursor to the end of 
+the line.
+
+<Ctrl><Home>
+
+Move the cursor and the displa
+y to the top of the program.
+
+<Ctrl><End>
+
+Move the cursor and the displa
+y to the bottom of the program
+.
+
+<Page Up>
+
+Move the display to the previo
+us page.
+
+<Page Down>
+
+Move the display to the next p
+age.
+
+<Up Arrow>
+
+Move the cursor up one line, s
+croll the display if necessary
+.
+
+<Down Arrow>
+
+Move the cursor down one line,
+ scroll the display if necessa
+ry.
+
+<Left Arrow>
+
+Move the cursor to the left on
+e position. If at the beginnin
+g of a line, move the cursor
+to the last position of the pr
+evious line.
+
+<Right Arrow>
+
+Move the cursor to the right o
+ne position. If at the end of 
+a line, move the cursor to
+first position of the next lin
+e.
+
+Markers
+Markers are used to indicate s
+pecial locations within a prog
+ram. These location can either
+ be specified by the user (Boo
+kmarks) or by various Ghidra p
+lugins (Search,
+Analysis, Changes, etc). There
+ are two types of markers: Mar
+gin Markers and Navigation Mar
+kers.
+
+Code Browser 3/9
+
+Markers
+Margin Marker
+Margin Markers appear on the l
+eft side of the Listing and ar
+e used to indicate locations w
+ithin the currently displayed 
+code. There are two types of M
+argin Markers Point Markers an
+d Area Markers. Point Markers 
+are used to indicate individua
+l addresses (Ex: bookmarks, se
+arch results, breakpoints, etc
+) and are displayed using icon
+s.
+Area Markers are used to indic
+ate a range of addresses (Ex: 
+areas in the program that have
+ been changed) and are display
+ed using a colored vertical li
+ne.
+Navigation Marker
+Navigation Markers appear on t
+he right side of the listing a
+nd are used to indicate locati
+ons within the overall view. T
+hese markers provide an overvi
+ew of all the markers
+and an easy way to navigate to
+ them. Navigation Markers are 
+displayed as colored bars wher
+e each color represents a diff
+erent type of marker. To see t
+he color
+assignments bring up the Marke
+r Popup Menu as described belo
+w.
+To navigate the browser to the
+ actual location of a marker, 
+left-click on the marker. The 
+browser will be repositioned t
+o display the location represe
+nted by that marker.
+The Navigation Marker area is 
+divided into two vertical area
+s. The left area is used to di
+splay Point Markers while the 
+right area displays Area Marke
+rs. This prevents the
+Point markers from being hidde
+n by the Area markers.
+You can control what is displa
+yed in the Navigation Marker a
+rea by right-mouse clicking in
+ the margin; a popup menu is d
+isplayed, as shown in the imag
+e below. Turn
+markers on and off by clicking
+ on the appropriate menu item.
+
+Marker Popup Menu
+The markers shown in the Marke
+r Popup Menu are described bel
+ow:
+Analysis Bookmarks
+
+Bookmarks inserted by the auto
+ analysis process. Indicates i
+nformation about where functio
+ns and address tables were cre
+ated.
+
+Changes: Conflicting
+
+Areas where you and others hav
+e made conflicting changes.
+
+Changes: Latest Version
+
+Areas where changes exist in t
+he latest version made by anot
+her user.
+
+Changes: Not Checked-In
+
+Areas where you have made chan
+ges since your last check-out.
+
+Changes: Unsaved
+
+Areas where you have made chan
+ges to the Program.
+
+Error Bookmarks
+
+Areas where the disassembler c
+reated Error bookmarks due to 
+encountering bad instructions.
+
+Highlight
+
+Areas that are highlighted (no
+n-transient selections).
+
+Info Bookmarks
+
+Bookmarks inserts by a plugin 
+to indicate a location of inte
+rest.
+
+Note Bookmarks
+
+Bookmarks inserted by the user
+.
+
+Register Values
+
+Areas where the selected regis
+ter has defined values. Appear
+s only when the Register Manag
+er Window is visible.
+
+Register Values
+
+Areas where the selected regis
+ter has defined values. Appear
+s only when the Register Manag
+er Window is visible.
+
+Selection
+
+Areas that are selected (trans
+ient).
+
+Code Browser 4/9
+
+The marker popup menu is updat
+ed appropriately when some plu
+gin adds/removes new marker ty
+pes.
+Another way to control the dis
+play of Navigation Markers is 
+to set the options in Navigati
+on Markers panel of the Edit O
+ptions dialog, as shown below.
+ Select the
+Navigation Markers node in the
+ Options tree. Click the appro
+priate checkbox to turn the ma
+rker on or off.
+
+Navigation Marker Options
+
+Flow Arrows
+The flow arrows graphically il
+lustrate the flow of execution
+ within a function. They appea
+r as arrows on the left side o
+f the Listing display indicati
+ng source and
+destinations for jumps. Condit
+ional jumps are indicated by d
+ashed lines; unconditional jum
+ps are indicated by solid line
+s. Flow lines are bolded when 
+the cursor is
+positioned at the source of th
+e jump.
+
+Flow Arrows
+Selecting Flow Arrows
+By default, flow arrows are on
+ly shown when either the start
+ or end address is visible. Th
+us, as you scroll the Listing,
+ you will see flow arrows appe
+ar and
+disappear, as the addresses th
+e arrows are based upon appear
+ and disappear in the listing.
+You can select an arrow keep i
+t from disappearing as you scr
+oll the Listing. To select an 
+arrow, simply click it with th
+e mouse. Selected arrows appea
+r
+green in color.
+
+You can select an arrow keep 
+it from disappearing as you sc
+roll the Listing. To select an
+ arrow, simply click it with t
+he mouse. Selected arrows appe
+ar
+green in color.
+
+Code Browser 5/9
+Disabling Flow Arrows
+The panel displaying the flow 
+arrows can be resized by dragg
+ing the border between it and 
+the main code browser panel. T
+o hide the flow arrows, simply
+drag the border until it is no
+ longer visible. The arrows au
+tomatically disable themselves
+ when they are no longer visib
+le.
+Navigating Flow Arrows
+You can double-click a flow ar
+row to navigate to its end poi
+nt. Also, if the cursor is at 
+the end point address, then yo
+u can double-click to navigate
+ to the
+start point of the arrow. Each
+ double-click will go to the o
+pposite end of the arrow, when
+ever the Listing cursor is at 
+an endpoint.
+
+Mouse Hover
+The Listing includes the capab
+ility of displaying popup wind
+ows when the user hovers the m
+ouse over a particular field. 
+This occurs whenever a plugin 
+has additional
+information that it wants to d
+isplay about that field. The p
+opup window disappears when th
+e user moves the mouse off of 
+the window or field. Some exam
+ple popup
+windows that can be displayed:
+ Reference Popups, Truncated T
+ext Popups, and Data Type Popu
+ps.
+
+Reference Popups
+Reference popups are displayed
+ whenever the mouse is hovered
+ over a memory reference. A Re
+ference popup containing a Lis
+ting window is displayed
+showing the code referred to b
+y the reference. The Listing p
+opup uses the exact same forma
+tting and layout as the primar
+y Listing except for the backg
+round
+color, which is displayed in a
+ unique color to distinguish t
+he popup. You can click and sc
+roll within the Listing popup,
+ however, you cannot follow
+references within the referenc
+e popup. The reference popup c
+an be quite useful for quickly
+ inspecting a series of calls 
+without having to navigate wit
+hin the
+Listing or to quickly examine 
+data located in another part o
+f the program's memory. The fi
+gure below shows an example of
+ a reference popup.
+
+Reference Popup
+You can change the size of the
+ popup can be changed by editi
+ng options. Choose Edit
+Tool Options..., click on the 
+Listing Popups node in the Opt
+ions
+tree. Select the Reference Cod
+e Viewer node to display the h
+eight and width values of the 
+popup. Edit the values and cli
+ck on the OK or Apply button.
+Truncated Text Popups
+Truncated text popups are disp
+layed whenever the mouse is ho
+vered over a field where the s
+ize of the text exceeds the fi
+eld size and is therefore trun
+cated. A
+tooltip-like window is display
+ed showing the entire contents
+ of the truncated field (provi
+ded the contents fits on the s
+creen). This is particularly u
+seful for
+long strings and data within a
+ program that cannot be fully 
+displayed. The figure below sh
+ows an example of a truncated 
+text popup.
+
+Data Type Popups
+The data type popup is shown w
+henever the user hovers over a
+ the mnemonic field where a da
+ta type has been set. The figu
+re below shows an example of a
+
+The data type popup is shown 
+whenever the user hovers over 
+a the mnemonic field where a d
+ata type has been set. The fig
+ure below shows an example of 
+a
+data type popup.
+Code Browser
+
+Data Type Popup
+Address Popup
+The address popup is shown whe
+never the user hovers over an 
+address. It shows the relation
+ship between the hovered addre
+ss and the base of memory and 
+the
+containing memory block. For a
+ddresses in functions, the fun
+ction offset is also shown; fo
+r addresses within a complex d
+ata (structure, array, etc.), 
+the offset
+from the base of that data is 
+shown.
+
+Function Name Popup
+Displays the hovered symbol's 
+parent namespace for symbols t
+hat are inside of functions.
+
+Scalar Popup
+Displays the hovered scalars a
+s 1-, 2-, 4-, and 8-byte value
+s, each in decimal, hexadecima
+l, and as ASCII character sequ
+ences.
+
+Disabling Mouse Hover
+Because the mouse hover popup 
+windows can sometimes get in t
+he way, a mechanism for quickl
+y disabling them is included. 
+Simply click the icon illustra
+ted
+above to toggle mouse hover mo
+de. This icon appears in the t
+op right corner of the Listing
+'s toolbar whenever a mouse ho
+ver plugin is loaded. When cli
+cked,
+the icon will change to indica
+te the new state.
+Clicking the icon has no effec
+t when all of the hover servic
+es are disable in Ghidra's opt
+ions. A reminder message will 
+be shown in the event that you
+attempt to enable popups from 
+this icon and all hover servic
+es are disabled.
+
+Mouse Hover Enabled
+
+Mouse Hover Disabled
+
+Opening/Closing Structures and
+ Arrays
+Structures and arrays consist 
+of smaller component data type
+s. By default, the contents of
+ structures and arrays are not
+ displayed. There is a Open/Cl
+ose control (+/-) that
+can be used to display or hide
+ the contents of structures an
+d arrays.
+To see the contents of a Struc
+ture or Array, select on the +
+ icon.
+
+6/9
+
+Code Browser 7/9
+
+To hide the contents of a Stru
+cture or Array, select on the 
+- icon.
+
+Structures within Structures, 
+Unions and Arrays can be opene
+d in the same manner.
+Actions for Expanding/Collapsi
+ng Data
+You may also expand and collap
+se data structures from the ri
+ght-click popup menu via the E
+xpand All Data, Collapse All D
+ata, Expand All Data In
+Selection, Collapse All Data i
+n Selection, and Toggle Expand
+/Collapse Data actions respect
+ively. These actions are only 
+available when the popup menu
+is activated under certain con
+ditions. The actions are descr
+ibed in detail below:
+Expand All Data - This action 
+will expand a data element and
+ all its children recursively 
+starting with the data at the 
+cursor location. This action w
+ill
+only appear when the cursor is
+ on a data that is expandable.
+Collapse All Data - This actio
+n will recursively collapse th
+e outer most expandable data e
+lement containing the data at 
+the cursor location. This acti
+on
+will only appear when the curs
+or is on an expandable data el
+ement or any of its child elem
+ents at any level.
+Expand All Data In Selection -
+ This action will search the c
+urrent selection and find all 
+expandable data elements and t
+hen recursively expand each
+such data element and all its 
+children. This action is avail
+able whenever there is a selec
+tion.
+Collapse All Data In Selection
+ - This action will search the
+ current selection and find al
+l expandable data elements and
+ then recursively collapse eac
+h
+such data element and all its 
+children. This action is avail
+able whenever there is a selec
+tion.
+Toggle Expand/Collapse Data - 
+This action will toggle the ex
+panded/collapsed state of an e
+xpandable data element. If it 
+is expanded, it will collapse
+it and if it is collapsed, it 
+will expand it. Additionally, 
+if the cursor is on a non-expa
+ndable data element that is co
+ntained in a parent expandable
+ data
+element, then the parent eleme
+nt will be collapsed. This act
+ion is available whenever the 
+cursor is on an expandable dat
+a element at anly level or whe
+n
+the cursor is on a data elemen
+t inside another data element.
+
+The Expand All Data and Collap
+se All Data actions behave dif
+ferently. The Expand All Data 
+recursively opens the data sta
+rting at the location of
+the popup menu. The Collapse A
+ll Data action, on the other h
+and, always works on the outer
+most data structure, regardles
+s of where in the containing
+structure the popup menu was a
+ctivated.
+
+Cursor Text Highlight
+The Listing is comprised of ma
+ny fields which are used to di
+splay the individual elements 
+of a program (address, bytes, 
+operand, etc). Clicking the mi
+ddle mouse button
+on a field places the cursor i
+n that field and causes the te
+xt under the cursor to become 
+highlighted along with all oth
+er occurrences of that text. F
+or example, in the figure
+below, the cursor is on the "P
+USH" mnemonic at address 0x010
+04072. Notice that every "PUSH
+" on the screen (not just the 
+mnemonics) is also highlighted
+. Specifically,
+the "PUSH" in the comment is h
+ighlighted. The Cursor Text Hi
+ghlight makes no distinction a
+s to what type of information 
+is being highlighted. To deter
+mine matches
+that should be highlighted, a 
+case-sensitive whole-word stri
+ng compare is used.
+
+Code Browser 8/9
+
+Cursor Text Highlight
+This feature has additional fu
+nctionality when used on regis
+ters. In this case, the highli
+ght can be restricted to show 
+the "Scope" of a register. The
+ "Scope" of a register
+starts where the register is a
+ssigned a value and ends at th
+e last use of the register bef
+ore it is written with another
+ value (when a register is bot
+h read and written, then it
+will be shown as a read).
+When the middle mouse is click
+ed on a register, the scope of
+ the register is computed. The
+ register is highlighted from 
+the point it is initially assi
+gned a value (written) to
+the point it is last uses that
+ value. With "Scoping", three 
+different colors are used. The
+ read highlight color is used 
+at locations where the registe
+r value is read (light green
+in the image below). A slightl
+y darker color is used at the 
+location where the register is
+ written (dark yellow in the i
+mage below). All other matchin
+g registers outside of
+the current scope will be high
+lighted with the default highl
+ight color (yellow in the imag
+e below).
+This feature can be turned off
+ by adjusting highlight settin
+gs (see below).
+
+Scoped Register Highlight
+
+Default Settings
+By default, the cursor text hi
+ghlight is:
+Enabled
+Painted in yellow
+Only activated by using the mi
+ddle mouse button
+Scoping turned on
+
+Configuring
+
+Use the Tool Options dialog t
+o turn off the Cursor Text Hig
+hlighting, as well as to confi
+gure the color and activating 
+mouse button.
+
+Code Browser 9/9
+Configuring
+There are many options for cha
+nging the appearance of the Li
+sting. To change the arrangeme
+nt of fields, use the Code Bro
+wser Formatter. All other opti
+ons are tool
+options. See Tool Options for 
+a complete description of the 
+options and how to change them
+.
+
+Errors in Fields
+If an error ever occurs while 
+the code browser is attempting
+ to display information in a f
+ield, it will show an "*Error*
+" field instead. Double-click 
+on the error field to
+display the Log Details dialog
+.
+
+Provided by: Code Browser Plug
+in
+Related Topics:
+Code Browser Formatter
+Tool Options
+Program Tree
+Selection & Highlighting
+
+

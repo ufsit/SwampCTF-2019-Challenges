@@ -1,0 +1,453 @@
+Search Memory
+
+Search Memory 1/8
+
+Search Memory locates sequence
+s of bytes in program memory. 
+The search is based on a value
+ entered as hex numbers, decim
+al numbers or
+strings. The byte sequence may
+ contain "wildcards" that will
+ match any byte (or possibly n
+ibble). String searching also 
+allows for the use of
+regular expression searches.
+To Search Memory:
+1. From the Tool, select Searc
+h
+Memory
+2. Enter a Hex String in the V
+alue field
+This will create a Hex Sequenc
+e for searching.
+3. Choose "Next" to find the n
+ext occurrence
+- or Choose "Previous" to find
+ the previous occurrence
+- or Choose "Search All" to fi
+nd all occurrences.
+
+Search Formats
+Hex
+String
+Decimal
+Binary
+Regular Expression
+
+Search Options
+
+Search
+
+Search Value
+
+Search Value
+
+Search Memory 2/8
+
+The value to search. The value
+s entered will be interpreted 
+based on the Format options.
+
+Hex Sequence
+As the search value is entered
+, this field will display the 
+exact hex byte sequence that w
+ill be searched for in memory.
+
+Format
+
+Hex:
+Value is interpreted as a sequ
+ence of hex numbers, separated
+ by spaces. Wildcard character
+s can be used to match any sin
+gle hex
+digit (i.e. any 4 bit value). 
+Either the '.' or '?' characte
+r can be used for the wildcard
+ character.
+Each hex number (separated by 
+spaces) will produce a sequenc
+e of bytes that may be reverse
+d depending on the Byte Order.
+The byte search pattern is for
+med by concatenating the bytes
+ from each hex number.
+
+Example:
+Value:
+
+"1234 567 89ab"
+
+Little Endian Hex Sequence
+
+34 12 67 05 ab 89
+
+Big Endian Hex Sequence
+
+12 34 05 67 89 ab
+
+String:
+Value is interpreted as the sp
+ecified character encoding. Th
+e center panel of the Search M
+emory dialog shows
+the Format Options, described 
+below.
+
+Encoding - Interprets strings
+ by the specified encoding. No
+te that byte ordering determin
+es if the high
+Search Memory 3/8
+order byte comes first or last
+.
+Case Sensitive - Turning off t
+his option will search for the
+ string regardless of case usi
+ng the specified
+character encoding. Only appli
+cable for English characters.
+Escape Sequences - Enabling th
+is option allows escape sequen
+ces in the search value (i.e.,
+ allows \n to be
+searched for).
+
+Decimal:
+Value is interpreted as a sequ
+ence of decimal numbers, separ
+ated by spaces. The center pan
+el of the Search
+Memory dialog shows the Decima
+l Options, described below.
+
+Only numbers that fit the spec
+ified Decimal Options are allo
+wed to be entered.
+The byte search pattern is for
+med by concatenating the bytes
+ from each number.
+Valid decimal numbers are:
+Byte - any fixed point 8 bit n
+umber (-128 to 255)
+Word - any fixed point 16 bit 
+number (-32768 to 65535)
+DWord - any fixed point 32 bit
+ number (you get the idea.....
+)
+QWord - any fixed point 64 bit
+ number
+Float - any 32 bit floating po
+int number
+Double any 64 bit floating poi
+nt number
+
+Binary:
+Value is interpreted as a sequ
+ence of binary numbers, separa
+ted by spaces. Wildcard charac
+ters ('x' or '?' or '.')
+can be used to match any bit.
+
+Search Memory 4/8
+
+Only binary digits (0 or 1) or
+ wildcard characters (*?.) are
+ allowed to be entered.
+The byte search pattern is for
+med by concatenating the bytes
+ from each number.
+An additional Mask byte which 
+is not shown, is generated for
+ each search byte to handle th
+e wildcards.
+
+Regular Expression:
+Value is interpreted as a Java
+ Regular Expression that is ma
+tched against memory as if all
+ memory was a
+string. Help on how to form re
+gular expressions is available
+ on the Regular Expression Hel
+p page.
+
+Regular Expressions can only b
+e used to search forward in me
+mory.
+No Hex Sequence is displayed f
+or regular expressions.
+
+Memory Block Types
+
+Search Memory 5/8
+
+Selects which initialized memo
+ry blocks are searched. Ghidra
+ now stores external informati
+on from the program's file hea
+der in
+special memory blocks. These b
+locks do not live in the progr
+am's address space, but instea
+d are stored in the "OTHER" ad
+dress
+space. Memory blocks which wou
+ld be found in an actual runni
+ng version of the program are 
+referred to as "Loaded Memory
+Blocks."
+Loaded Blocks - will search on
+ly "loaded" memory blocks (mem
+ory blocks that would appear i
+n an actual running instance
+of the program) and not "Other
+" information memory blocks.
+All Blocks - will search all m
+emory blocks including "Other"
+ blocks.
+
+Selection Scope
+Search All - If this option is
+ selected, the search will sea
+rch all memory in the tool.
+Search Selection - If this opt
+ion is selected, the search wi
+ll be restricted to the curren
+t selection in the tool. This 
+option is only
+enabled if there is a current 
+selection in the tool.
+
+Code Unit Scope
+Filters the matches based upon
+ the code unit containing a gi
+ven address.
+Instructions - includes instru
+ction code units in the search
+.
+Defined Data - includes define
+d data in the search.
+Undefined Data - includes unde
+fined data in the search.
+
+Byte Order
+Sets the byte ordering for mul
+ti-byte values. Has no effect 
+on non-Unicode Ascii values, B
+inary, or regular expressions.
+Little Endian - places low-ord
+er bytes first.
+For example, the hex number "1
+234" will generate the bytes "
+34" , "12".
+Big Endian - places high-order
+ bytes first.
+For example, the hex number "1
+234" will generate the bytes "
+12", "34".
+Alignment
+Generally the alignment defaul
+ts to 1, but can be set to any
+ number greater than 0. The se
+arch results will be limited t
+o those that
+begin on the specified byte al
+ignment. In other words, an al
+ignment of 1 will get all matc
+hing results regardless of the
+ address
+where each begins. An alignmen
+t of 2 will only return matchi
+ng results that begin on a wor
+d aligned address.
+
+Searching
+Next / Previous - Finds the ne
+xt/previous occurrence of the 
+byte pattern from the current 
+cursor location; if you mouse 
+click in
+the Code Browser to move focus
+ there, you can choose Search
+Repeat Memory Search to go to 
+the next/previous match
+found.
+Search All - Finds all occurre
+nces of the byte pattern in a 
+Query Results display.
+
+For very large Programs that m
+ay take a while to search, you
+ can cancel the search at any 
+time. For these situations, a
+progress bar is displayed, alo
+ng with a Cancel button. Click
+ on the Cancel button to stop 
+the search.
+
+Dismissing the search dialog 
+automatically cancels the sear
+ch operation.
+
+Search Memory 6/8
+
+Highlight Search Option
+You can specify that the bytes
+ found in the search be highli
+ghted in the Code Browser by s
+electing the Highlight Search
+Results checkbox on the Search
+ Options panel. To view the Se
+arch Options, select Edit
+Tool Options... from the tool
+menu, then select the Search n
+ode in the Options tree in the
+ Options dialog. You can also 
+change the highlight color. Cl
+ick
+on the color bar next to Highl
+ight Color to bring up a color
+ chooser. Choose the new color
+, click on the OK button. Appl
+y
+your changes by clicking on th
+e OK or Apply button on the Op
+tions dialog.
+
+Highlights are displayed for t
+he last search that you did. F
+or example, if you bring up th
+e Search
+Program Text dialog and search
+ for text, that string now bec
+omes the new highlight string.
+ Similarly, if you
+invoke cursor text highlightin
+g, that becomes the new highli
+ght string.
+Highlights are dropped when yo
+u close the search dialog, or 
+close the query results window
+ for your most recent search.
+
+Search for Matching Instructio
+ns
+This action works only on a se
+lection of code. It uses the s
+elected instructions to build 
+a combined mask/value bit patt
+ern
+that is then used to populate 
+the search field in the Memory
+ Search Dialog. This enables s
+earching through memory for a
+particular ordering of instruc
+tions. There are three options
+ available:
+Include Operands - All bits th
+at make up the instruction and
+ all bits that make up the ope
+rands will be included in
+the search pattern.
+Exclude Operands - All bits th
+at make up the instruction are
+ included in the search patter
+n but the bits that make up
+the operands will be masked of
+f to enable wild carding for t
+hose bits.
+Include Operands (except const
+ants) - All bits that make up 
+the instruction are included i
+n the search pattern and
+all bits that make up the oper
+ands, except constant operands
+, which will be masked off to 
+enable wild carding for
+those bits.
+Example:
+A user first selects the follo
+wing lines of code. Then, from
+ the Search menu they choose S
+earch for Matching
+Instructions and one of the fo
+llowing options:
+
+Option 1:
+If the Include Operands action
+ is chosen then the search wil
+l find all instances of the fo
+llowing
+instructions and operands.
+
+Search Memory 7/8
+
+All of the bytes that make up 
+the selected code will be sear
+ched for exactly, with no wild
+ carding.
+The bit pattern 10000101 11000
+000 01010110 01101010 00010100
+ 01011110 which equates to
+the byte pattern 85 c0 56 6a 1
+4 5e is searched for.
+Option 2:
+If the Exclude Operands option
+ is chosen then the search wil
+l find all instances of the fo
+llowing
+instructions only.
+
+Only the parts of the byte pat
+tern that make up the instruct
+ions will be searched for with
+ the
+remaining bits used as wildcar
+ds. The bit pattern 10000101 1
+1...... 01010... 01101010 ....
+....
+01011... is searched for where
+ the .'s indicate the wild car
+ded values.
+Option 3:
+If the Include Operands (excep
+t constants) option is chosen 
+then the search will find all
+instances of the instruction a
+nd all operands except the 0x1
+4 which is a constant.
+
+The bit pattern 10000101 11000
+000 01010110 01101010 ........
+ 01011110 which equates to the
+byte pattern 85 c0 56 6a xx 5e
+ is searched for where xx can 
+be any number N between 0x0 an
+d
+0xff.
+
+The previous operations can on
+ly work on a single selected r
+egion. If multiple regions are
+ selected, the following
+error dialog will be shown and
+ the operation will be cancell
+ed.
+
+Provided by: the MemSearchPlug
+in
+
+Provided by: the MemSearchPlu
+gin
+ 
+Related Topics:
+Searching Program Text
+Query Results
+Regular Expressions
+
+Search Memory 8/8
+
+

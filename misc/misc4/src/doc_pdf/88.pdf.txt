@@ -1,0 +1,719 @@
+Program Tree 1/12
+
+Program Tree
+The Program Tree shows a progr
+am organized into folders and 
+fragments. Fragments
+contain code units (instructio
+ns, defined data, or undefined
+ data). Code Units can
+reside in one and only one fra
+gment. A folder is a container
+ for other folders and
+fragments, however, it is not 
+analogous to a folder in a "fi
+le system." Any folder,
+except for the root folder, an
+d any fragment can have multip
+le parents. When you
+copy a folder or fragment to a
+nother parent folder, you are 
+not creating a new instance
+of the folder or fragment, but
+ simply adding the destination
+ folder as another parent of
+the copied folder or fragment.
+ This means that if you make a
+ change to Folder "A"
+(e.g., create a new fragment o
+r folder), the change is refle
+cted where ever Folder "A"
+appears in the tree, regardles
+s of the parent. Moving code u
+nits from one fragment to
+another does not affect the un
+derlying memory.
+You can manipulate the tree or
+ganization by cutting, copying
+, and pasting folders and
+fragments to other folders. Yo
+u can also use drag and drop t
+o reorder the contents of a
+folder. You can apply algorith
+ms to produce organizations ba
+sed on a Block Model.
+The following paragraphs descr
+ibe features of the Program Tr
+ee.
+
+Folders and Fragments
+
+Create Folders and Fragments
+To create a new folder,
+1. Select a folder in the Prog
+ram Tree.
+2. Right mouse-click, choose t
+he Create Folder option.
+3. A new folder is created wit
+h the default name of "New
+Folder." (A one-up number is a
+ppended to "New Folder" if
+that name already exists.) The
+ cell editor for the tree is
+displayed immediately so that 
+you can change the name of the
+folder you just created. Names
+ are unique across all folders
+.
+To create a new fragment,
+1. Select a folder in the Prog
+ram Tree,
+2. Right mouse-click, choose t
+he Create Fragment option.
+
+1. Select a folder in the Pro
+gram Tree,
+2. Right mouse-click, choose t
+he Create Fragment option.
+Program Tree 2/12
+3. A new empty fragment is cre
+ated with the default name of
+New Fragment. (A one-up number
+ is appended to the "New
+Fragment" name if that name al
+ready exists.) The cell editor
+for the tree is displayed imme
+diately so that you can change
+the name of the fragment you j
+ust created. Names are unique
+across all fragments.
+
+After you are done editing the
+ name, the icon for
+the fragment indicates that it
+ is empty (
+). You can
+drag code units from the Code 
+Browser and drop them
+onto the empty node. The icon 
+changes to indicate that
+the fragment is not empty.
+To create a new fragment via d
+rag and drop,
+1. Drag code units from the Co
+de Browser.
+2. Drop them onto a folder.
+
+The default name of the fragme
+nt is the name of
+the first address in the set o
+f code units that you
+dragged. This operation actual
+ly moves the code units to
+this fragment. If the first co
+de unit in the set that you
+are dragging has a label, then
+ the name of the fragment
+defaults to this label name.
+
+Delete Folders and Fragments
+You can delete a folder or fra
+gment if (1) it is empty, or (
+2) if it exists
+elsewhere in the Program at so
+me other folder. (The delete o
+ption will be
+disabled if this criteria is n
+ot met.)
+
+To delete a folder or fragment
+,
+1. Select a folder or fragment
+ to delete.
+2. Right mouse-click, and choo
+se the Delete option.
+
+2. Right mouse-click, and cho
+ose the Delete option.
+Program Tree 3/12
+
+You can delete multiple folder
+s and fragments; the option wi
+ll be enabled
+if at least one folder or frag
+ment in the selection can be d
+eleted; you will
+get an error message for the o
+ther ones in the selection tha
+t could not be
+deleted.
+
+Rename Folders and Fragments
+To rename a folder or fragment
+,
+1. Select the folder or fragme
+nt,
+2. right mouse-click, and choo
+se the Rename option.
+3. The cell editor for the tre
+e is displayed. Enter a new na
+me.
+
+Duplicate folder or fragment n
+ames are not allowed, regardle
+ss
+of where they are in the hiera
+rchy. If you enter a name that
+ already
+exists, an error message is di
+splayed; the name reverts back
+ to its
+original name. Hit the <Esc> k
+ey to cancel editing at any ti
+me.
+Expand/Collapse Folders
+You can recursively expand a f
+older. Select a folder that ha
+s subfolders;
+right mouse-click and choose t
+he Expand All option. All of t
+he
+descendant folders are expande
+d.
+Similarly, you can recursively
+ collapse a folder. Select a f
+older that has
+subfolders; right mouse-click 
+and choose the Collapse All op
+tion. When
+you open the folder, you will 
+see that all of its descendant
+ folders are
+collapsed.
+
+Merge a Folder with its Parent
+ Folder
+You can "flatten" a folder suc
+h that all of its immediate ch
+ildren are
+moved to the folder's parent. 
+For example, consider folder A
+ that
+contains folder B; folder B co
+ntains five fragments and anot
+her
+folder, C. You can select fold
+er B, right mouse-click, and c
+hoose the
+Merge with Parent option. This
+ operation results in the five
+fragments and folder C in fold
+er B get moved to folder A. Fo
+lder B
+
+Merge with Parent option. Thi
+s operation results in the fiv
+e
+fragments and folder C in fold
+er B get moved to folder A. Fo
+lder BProgram Tree 4/12
+is removed.
+You can make a multiple select
+ion, however, if the selection
+ does
+not contain at least one folde
+r, the Merge with Parent optio
+n is
+disabled.
+Move Code Units to a Fragment
+To move code units to an exist
+ing fragment,
+1. Make a selection in the Cod
+e Browser.
+2. Drag the selection over to 
+a fragment in the Program Tree
+ and
+drop it.
+The code units are moved from 
+the source fragment to the
+destination Fragment.
+Drag and drop the selection on
+ a folder to create a new
+fragment.
+Tool Tips on a Fragment
+The tool tip on a fragment sho
+ws the address ranges that com
+prise
+this fragment. The tool tip is
+ displayed when you let the mo
+use
+pointer hover over a fragment 
+node in the Program Tree.
+Sort by Address or Name
+You can sort the descendants o
+f a folder by address order or
+ by
+name.
+To sort by address,
+1. Select a folder in the Prog
+ram Tree.
+2. Right mouse click and choos
+e the Sort
+
+by Address option.
+
+All descendants of the folder 
+are rearranged such that
+
+All descendants of the folder
+ are rearranged such that
+they appear in address order i
+n the tree. This is a
+recursive operation.
+
+Program Tree 5/12
+
+To sort by name,
+1. Select a folder in the Prog
+ram Tree.
+2. Right mouse click and choos
+e the Sort
+
+by Name option.
+
+All descendants of the folder 
+are rearranged such that
+they appear in alphabetical or
+der. This is a recursive
+operation.
+
+Provided By: ModuleSortPlugin
+Auto Rename on a Fragment
+From the Program Tree, you can
+ automatically rename a fragme
+nt to
+the label at the minimum addre
+ss of the fragment. Also, you 
+can
+rename a fragment to any label
+ in that fragment using the po
+p-up
+menu in the code browser.
+To automatically rename a frag
+ment,
+1. Select a fragment (or fragm
+ents) in the Program Tree.
+2. Right mouse click and choos
+e Auto Rename.
+To automatically rename a frag
+ment to any label in the fragm
+ent
+from the Code Browser,
+1. Position the cursor over a 
+label field.
+2. Right mouse click and choos
+e Rename Fragment to Label.
+
+Provided By: AutoRenamePlugin
+
+Program Tree 6/12
+
+Select Addresses in a Folder o
+r Fragment
+To select all the addresses in
+ a folder or fragment,
+1. Select a fragment or module
+ in the Program Tree.
+2. Right mouse click and choos
+e the Select Addresses option.
+All addresses contained within
+ the selected folders,
+fragments are shown in the Cod
+e Browser's selection.
+
+This option is available for a
+ multiple selection of fragmen
+ts
+and/or folders.
+
+Provided By: ProgramTreeSelect
+ionPlugin
+
+Control the View in the Code B
+rowser
+The view in the code browser i
+s controlled by the following:
+Show Folders/ Fragments in the
+ Code Browser
+You control what you see in th
+e right side of the Code Brows
+er tool
+by adding folders and fragment
+s to your view.
+Select a fragment that is not 
+in the view (indicated by
+1. Right mouse-click and choos
+e the Go To in View
+
+),
+
+1. Right mouse-click and choo
+se the Go To in View Program T
+ree 7/12
+option.
+2. The code units in this frag
+ment now appear in the
+Code Browser. The fragment's i
+con in the Program
+Tree changes to
+to indicate that it is part of
+ the
+view. The cursor in the Code B
+rowser is moved to
+the minimum address of the fra
+gment or folder.
+Select an open folder that is 
+not in the view (indicated by
+
+),
+
+1. Right mouse-click and choos
+e the Go To in View
+option.
+2. All of the descendant folde
+rs and fragments are added
+to the view.
+The folder's icon in the Progr
+am Tree changes
+to
+.
+If the folder is closed and is
+ in the view, then the
+icon is
+.
+If a closed folder not in the 
+view has descendants
+that are in the view, the icon
+ is
+.
+When you add a folder to the v
+iew, the cursor in the browser
+moves to the first code unit i
+n the first fragment of the fo
+lder.
+When you add a fragment to the
+ view, the cursor in the
+browser moves to the first cod
+e unit in this fragment.
+You can add multiple folders a
+nd fragments to the view by
+selecting those folders and fr
+agments that you want, and
+choosing the Show in View opti
+on.
+
+The Go To in View option is al
+ways enabled regardless of
+whether the folder or fragment
+ is in the view or not.
+Remove Folders/Fragments from 
+the view in the Code Browser
+To remove folders and fragment
+s from the view in the code br
+owser,
+1. Select a folder or fragment
+ that is in the view.
+2. Right mouse-click, and choo
+se the Remove from View option
+.
+The icon for the folder or fra
+gment updates to indicate that
+ it
+is no longer in the view. The 
+code browser updates its view
+
+The icon for the folder or fr
+agment updates to indicate tha
+t it
+is no longer in the view. The 
+code browser updates its Progr
+am
+view Tree 8/12
+accordingly.
+You can remove multiple folder
+s and fragments by selecting t
+hose folders
+and fragments that are marked 
+as being in the view, and choo
+sing the
+Remove from View option.
+
+Replace the View in the Code B
+rowser with other Folders/Frag
+ments
+To replace the view in the cod
+e browser with other folders a
+nd fragments,
+1. Select a folder or fragment
+ (or select multiple folders a
+nd
+fragments),
+2. Right mouse-click and choos
+e the Replace View option. The
+ code
+browser now shows the code uni
+ts for these folders and fragm
+ents.
+
+The program tree can be config
+ured, via tool options, such t
+hat
+a double-click performs a simp
+le navigation, or the Replace 
+View
+action. The default behavior f
+or a double-click is to perfor
+m the
+Replace View action.
+(Double-clicking on a folder a
+lways causes it to expand if i
+t is
+collapsed and to collapse if i
+t is expanded.)
+Navigation
+You can navigate to the first 
+address of the code unit in a 
+fragment
+by choosing the Go To in View 
+option.
+If the fragment or folder is a
+lready in the view, the code
+browser navigates to the first
+ code unit in the fragment.
+If the fragment or folder is n
+ot in the view, it is added to
+ the
+view; then the code browser na
+vigates to the first code unit
+ in
+the fragment that was added.
+
+Program Tree 9/12
+
+Cut/Copy/Paste and Drag and Dr
+op
+
+Cut and Paste
+You can move fragments and fol
+ders to other folders by cutti
+ng and
+pasting.
+1. Select a folder.
+2. Right mouse-click, and choo
+se the Cut option.
+The icon for the folder change
+s to indicate the cut
+operation. Choose another fold
+er that does not already
+contain this folder, right mou
+se-click, and choose the
+Paste option. The "cut" folder
+ (and all of its
+descendants) should now show u
+p in the destination
+folder. You can select multipl
+e folders and fragments
+for cutting and pasting.
+You can merge fragments by cut
+ting and pasting.
+1. Select a fragment (or multi
+ple fragments).
+2. Right mouse-click, and choo
+se the Cut option.
+3. The icon for the fragment c
+hanges to indicate the cut
+operation; choose another frag
+ment.
+4. Right mouse-click and choos
+e the Paste option.
+The code units from the "cut" 
+fragments are moved to
+the destination fragment. The 
+resulting empty fragments
+are removed from the program.
+If you paste a folder or fragm
+ent not in the view to a folde
+r that is in
+the view, then the view in the
+ code browser will be updated 
+to show
+the code units for the folder 
+or fragment that was pasted at
+ the
+destination folder.
+
+Copy and Paste
+
+Program Tree 10/12
+
+You can copy fragments and fol
+ders to other folders by copyi
+ng and
+pasting.
+1. Select a folder
+2. Right mouse-click, and choo
+se the Copy option.
+3. Choose another folder that 
+does not already contain this
+folder,
+4. Right mouse-click, and choo
+se the Paste option.
+The copied fragment or folder 
+should now show up in the
+destination folder.
+Drag and Drop (Move)
+You can get the same effect of
+ "Cut" and "Paste" by using Dr
+ag and
+Drop.
+Drag a folder or fragment or t
+o another folder and drop it. 
+The
+folder or fragment is moved to
+ this folder. If the fragment 
+or folder
+already exists at a folder, th
+en you will not get a valid dr
+op target.
+Drag and Drop (Copy)
+You can get the same effect of
+ "Copy" and "Paste" by holding
+ down
+the Ctrl key while dragging. (
+If you release the Ctrl key, t
+he drag
+operation becomes a Move.)
+Drag/Copy a folder or fragment
+ to another folder; the cursor
+ changes
+to indicate the copy operation
+. Drop the folder or fragment;
+ a copy
+is made and placed in the dest
+ination folder.
+As stated earlier, you can dra
+g code units from the Code Bro
+wser
+view and drop them onto a fold
+er (creates a new fragment), o
+r onto
+an existing fragment (moves th
+e code units to this fragment)
+.
+If you try to drag/copy a fold
+er or fragment to a folder tha
+t already
+
+If you try to drag/copy a fol
+der or fragment to a folder th
+at alreadyProgram Tree 11/12
+contains the folder or fragmen
+t, you will not get a valid dr
+op target.
+Reorder Folder Contents using 
+Drag and Drop
+Using Drag and Drop, you can r
+eorder the elements within a f
+older. As
+you drag between nodes in the 
+Program Tree, the cursor will 
+change to
+indicate that a reordering ope
+ration is possible; you will s
+ee a solid bar
+between the nodes (
+). When you release the mouse,
+ the dragged
+folder or fragment will be rep
+ositioned at this location, i.
+e., between the
+two nodes where you released t
+he mouse.
+If you are dragging to a diffe
+rent parent, in addition to th
+e reorder, the
+drop operation will also cause
+ the dragged fragment or folde
+r to be moved
+to the parent of the destinati
+on drop site. To make a copy o
+f the folder or
+fragment, hold down the Ctrl k
+ey while you are dragging. The
+ cursor will
+change to
+depending on where the cursor 
+is. If you release the
+mouse when the cursor indicate
+s a potential reorder operatio
+n, the dragged
+folder or fragment is copied t
+o the parent of the destinatio
+n drop site, and
+is placed between the two node
+s where you released the mouse
+. (Note that
+if the dragged folder or fragm
+ent already exists in the pare
+nt, then you
+will not get a valid drop targ
+et for reordering purposes.)
+
+Menu Enablement
+If you select multiple nodes i
+n the Program Tree, some menu 
+items
+in the popup menu (right mouse
+ click) may not be enabled if 
+the
+multi-selection is not valid. 
+A valid multi-selection meets 
+the
+following criteria:
+If a folder is selected, then 
+either all of its immediate
+descendants must be selected, 
+or none of its immediate
+descendants is selected.
+The root folder is not part of
+ the selection.
+A valid multi-selection will c
+ause the Copy, Cut, Delete, an
+d view
+options to be enabled.
+The Delete option may be enabl
+ed for a multi-selection, howe
+ver, if
+the delete operation is not al
+lowed on a particular folder o
+r
+
+The Delete option may be enab
+led for a multi-selection, how
+ever, if
+the delete operation is not al
+lowed on a particular folder o
+r
+Program Tree 12/12
+fragment, you will get a notif
+ication of why the delete fail
+ed.
+
+Provided By: Program Tree Plug
+in
+Related Topics:
+View Manager
+Program Organizations
+Code Browser
+
+

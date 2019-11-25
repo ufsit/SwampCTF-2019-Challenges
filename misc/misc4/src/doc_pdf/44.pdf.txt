@@ -1,0 +1,401 @@
+Function ID 1/4
+
+Function ID
+Next
+
+Function ID
+
+Overview
+Function ID is an analyzer tha
+t performs function identifica
+tion analysis on a program. Fo
+r each function, the analyzer
+computes a hash of its body an
+d uses this as a key to look u
+p matching functions in an ind
+exed database of known softwar
+e.
+The recovered function name, a
+nd other meta-data about the l
+ibrary it is contained in, is 
+applied to the program.
+Function ID is suitable for id
+entifying statically linked li
+braries or other software wher
+e the compiled form of the fun
+ctions
+does not change. Because of th
+e hashing strategy, functions 
+remain identifiable even if th
+e library is relocated during
+linking. Larger changes to the
+ compilation process of the li
+brary however will likely prev
+ent successful searches. Funct
+ion
+ID databases are necessarily t
+argeted to a specific processo
+r.
+Function ID generally runs as 
+part of Auto Analysis but can 
+also be initiated at any time 
+by the user from the One Shot
+menu. Ghidra also comes with a
+ Function ID Plug-in, which pr
+ovides more control over which
+ databases to apply, and
+allows users to create and pop
+ulate their own databases.
+By default, Ghidra ships with 
+databases that search for stat
+ically linked libraries from M
+icrosoft Visual Studio for the
+ x86
+processor. These have been bro
+ken apart into separate Functi
+on ID databases, based on 32-b
+it or 64-code and the version 
+of
+Visual Studio. Within each dat
+abase, there are a two library
+ variants -- one for debug ver
+sions and one for production.
+Hashing
+Function ID works by calculati
+ng a cumulative hash over all 
+the machine instructions that 
+make up the body of a function
+.
+For each function, two differe
+nt 64-bit hashes are computed:
+ a full hash and a specific ha
+sh. Both schemes hash the
+individual instructions of the
+ function body in address orde
+r, but they differ in the amou
+nt of information they include
+from each instruction.
+full hash
+This hash includes the mnemoni
+c and some of the addressing m
+ode information from an instru
+ction.
+Specific register operands are
+ also included as part of the 
+hash, but the specific value o
+f constant
+operands are not.
+specific hash
+
+operands are not.
+specific hash
+
+Function
+This hash includes everything 
+used in the full hash but may 
+also include the specific valu
+es
+of any ID 2/4
+constant operands. A heuristic
+ is employed that attempts to 
+determine if the constant is n
+ot part of an
+address, in which case the val
+ue is accumulated into the has
+h.
+
+Both hashes are used to identi
+fy matches in a database. The 
+full hash is robust against ch
+anges due to linking; the spec
+ific
+hash helps distinguish between
+ closely related variants of a
+ function.
+Parents and Children
+When Function ID examines a fu
+nction, its parent and child f
+unctions are also considered a
+s a way of disambiguating
+multiple matches. For example,
+ suppose two functions have id
+entical sequences of instructi
+ons, except they each call to 
+a
+different subfunction. In this
+ situation, the full hashes of
+ the functions will be identic
+al, but the system will try to
+ match the
+hash of one of the two subfunc
+tions, allowing it to distingu
+ish between the two.
+Libraries
+Within a Function ID database,
+ functions are grouped into li
+braries, which are intended to
+ be recognizable named softwar
+e
+components that get linked int
+o larger programs. A Library h
+as the following meta-data.
+Name
+This is a general descriptive 
+name for the library.
+Version
+If there is a formal version n
+umber for the library, this fi
+eld will hold this value as a 
+string.
+Variant
+Version information that canno
+t be encoded in the formal Ver
+sion field can be encoded in t
+his field. This
+is used typically for compiler
+ settings, which affect Functi
+on ID hashes but don't make se
+nse in a version
+string describing the source c
+ode.
+
+Generally, the analyzer is abl
+e to report all three fields d
+escribing the library for any 
+function match it finds. In th
+e case
+where a database contains mult
+iple versions of the same libr
+ary, it's common for a functio
+n to match into two or more
+libraries that differ in their
+ Version or Variant field. In 
+this case, the analyzer will s
+till report a single match but
+ will leave
+off the fields it couldn't dis
+tinguish.
+Single Matches
+A Single Match for a function 
+occurs under the following con
+ditions:
+The analyzer can narrow down p
+otential matches to a single f
+unction name.
+The function does not already 
+have an imported or user-defin
+ed name.
+The number of instructions in 
+the function exceeds the instr
+uction count threshold.
+Even if there are multiple pot
+ential matches in the database
+, the first condition may stil
+l hold because they all share 
+the
+same base function name. The s
+econd condition does not need 
+to apply if the "Always apply 
+FID labels" option is toggled
+on (See “Analysis Options”
+). The number of instructions 
+is computed as the match score
+ and can include counts of
+instructions in parent or chil
+d functions. For details about
+ the match score and threshold
+s, see “Scoring and
+Disambiguation”.
+If there is a Single Match, th
+e analyzer will:
+1. Apply the function name as 
+a symbol.
+2. Insert a comment describing
+ the matching library.
+3. Add a Function ID Analyzer 
+bookmark.
+
+2. Insert a comment describin
+g the matching library.
+3. Add a Function ID Analyzer 
+bookmark.
+
+Function ID 3/4
+
+Both the inserted comment and 
+bookmark will include the phra
+se "Single Match".
+Multiple Matches
+If the analyzer is not able to
+ narrow down to a single funct
+ion name, even after applying 
+all of its disambiguation logi
+c,
+then the reporting behavior de
+pends on the remaining match s
+cores. If they are too small t
+he matches are deemed to be
+random, and nothing is reporte
+d at all. Otherwise, a Multipl
+e Match is reported. In this c
+ase, multiple symbols and
+comments will be inserted, one
+ for each remaining match, up 
+to an arbitrary limit. All the
+ comments will contain the phr
+ase
+"Multiple Matches".
+
+Analysis Options
+This analyzer appears under th
+e heading Function ID in the d
+ialog listing the standard ana
+lyzers whenever the user elect
+s to
+auto-analyze a new program upo
+n import, or by selecting Auto
+ Analyze under the Code Browse
+r's Analysis menu. From
+this dialog, users can toggle 
+whether the analyzer is active
+ or not, and if Function ID is
+ selected and toggled on, the 
+dialog
+presents some configurable opt
+ions for the analyzer.
+Instruction count threshold
+This is the primary threshold 
+a potential match must exceed 
+in order to be reported by the
+ analyzer.
+This defends against false pos
+itives caused by randomly matc
+hing small functions. Roughly,
+ the score
+counts the number of instructi
+ons in the function plus instr
+uctions in any matching parent
+ or child.
+Multiple match threshold
+In general for a single functi
+on, if there are multiple pote
+ntial matches all with differe
+nt names, this is a
+good sign that the matches are
+ random, and the analyzer will
+ not report a match. But if th
+e match score
+exceeds this threshold, the an
+alyzer will report a Multiple 
+Match. (See “Multiple Matche
+s”)
+Always apply FID labels
+If this toggle is on, the anal
+yzer will report matches even 
+if there is already an importe
+d or user defined
+name for the function.
+Create Analysis Bookmarks
+The analyzer will only create 
+bookmarks for matches if this 
+toggle is on. This does not af
+fect insertion of
+comments and symbols.
+
+Scoring and Disambiguation
+The Function ID analyzer assig
+ns a match score to each of th
+e potential matches it discove
+rs in its database. The score 
+is
+used both to filter matches wh
+ich are too small to be signif
+icant and to disambiguate betw
+een potential matches.
+The basic unit of the score is
+ a single matching instruction
+ with no constant operands, wh
+ich receives a score of 1.0. C
+ertain
+instructions, such as calls an
+d no operation instructions ar
+e assigned a score of zero. Co
+nstant operands, in the rare c
+ase that
+they match via the specific ha
+sh, contribute an additional 0
+.67 units per operand.
+Once a potential match is disc
+overed, it is assigned a score
+ based on:
+Instructions in the body of th
+e function.
+Constant operands that match i
+n the body of the function.
+Instructions in the body of an
+y child function that also has
+ a match.
+Instructions in the body of an
+y parent function that also ha
+s a match.
+Once scores are assigned, pote
+ntial matches are filtered bas
+ed on the instruction count th
+reshold (See “Analysis Optio
+ns”).
+This helps prevent small funct
+ions that randomly match datab
+ase entries from being reporte
+d. Note however that a small
+function can still be correctl
+y reported if its parent or ch
+ild functions also have matche
+s, increasing its overall scor
+e. If there
+are still more than one potent
+ial match, the highest assigne
+d score is used to filter out 
+matches with lower scores.
+
+function can still be correct
+ly reported if its parent or c
+hild functions also have match
+es, increasing its overall sco
+re. If there
+are still more than one potent
+ial match, the highest assigne
+d score is used to filter out 
+matches with lower scores.
+Function ID 4/4
+Matching Function Names
+If there are still multiple po
+tential matches once threshold
+s have been applied to the mat
+ch scores, the remaining match
+es
+will be grouped based on funct
+ion names. If two potential ma
+tches share the same function 
+name, they are grouped
+together. If the remaining mat
+ches can all be placed into a 
+group sharing a single name, t
+he result will still be report
+ed as a
+"Single Match".
+Function names are considered 
+to match if their base names m
+atch. The base name is obtaine
+d by stripping off any
+namespace from the symbol plus
+ any initial underscores. If t
+he name is mangled, an attempt
+ is made to demangle it first,
+then namespace and parameter i
+nformation is stripped.
+Next
+Function ID
+
+Function ID Plug-in
+
+

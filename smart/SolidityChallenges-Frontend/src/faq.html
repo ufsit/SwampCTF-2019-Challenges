@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="/swampctf.css">
+    <link rel="stylesheet" type="text/css" href="/my.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/">Solidity Challenges</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse navbar-brand" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/">Home</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Challenges
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="/challenge/1">Challenge 1</a>
+                    <a class="dropdown-item" href="/challenge/2">Challenge 2</a>
+                    <a class="dropdown-item" href="/challenge/3">Challenge 3</a>
+                    <a class="dropdown-item" href="/challenge/4">Challenge 4</a>
+                    <a class="dropdown-item" href="#"><s>Challenge 5</s></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/faq">FAQ <span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                <li class="navbar-item">
+                    <a class="nav-link" href="https://metamask.io/">MetaMask</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container text-center">
+        <div class="container mx-auto mt-5">
+            <h1>Frequently Asked Questions</h1>
+        </div>
+    </div>
+
+    <div class="container pt-5">
+        <div class="row text-center pb-3">
+            <div class="col-1"></div>
+            <div class="col-10">
+                <h4 class="mb-4">Why isn't <a target="_blank" href="https://remix.ethereum.org">Remix</a> working?</h4>
+                <p class="text-left">
+                    Make sure you've selected the correct compiler version (<code>0.4.24+commit.e67f0147</code>), are logged into
+                    <a target="_blank" href="https://metamask.io/">MetaMask</a>, and have <b>Injected Web3</b> selected as your provider.
+                    <a target="_blank" href="https://remix.ethereum.org">Remix</a> does not currently support <a target="_blank" href="https://metamask.io/">MetaMask</a>'s 
+                    privacy mode. Click on your account icon in the upper right corner of the extension window, select 
+                    <b>Settings -> Security & Privacy</b> and turn <b>Privacy Mode</b> off. This just enables your public account 
+                    information to be injected into the webpage on load.
+                    Firefox is known to have issues with <a target="_blank" href="https://remix.ethereum.org">Remix</a> at the
+                    moment, try a different web browser if you run into unknown errors.
+                </p>
+            </div>
+        </div>
+        <div class="row text-center pb-3">
+            <div class="col-1"></div>
+            <div class="col-10">
+                <h4 class="mb-4">I clicked the button but nothing happened!</h4>
+                <p class="text-left">
+                    Check your <a target="_blank" href="https://metamask.io/">MetaMask</a> extension. Every transaction is added to a queue for
+                    <a target="_blank" href="https://metamask.io/">MetaMask</a> users to verify. If you navigated to another page before accepting
+                    the transaction in <a target="_blank" href="https://metamask.io/">MetaMask</a>, decline any current transactions
+                    and attempt to deploy/check completion again through the challenge page.
+                </p>
+            </div>
+        </div>
+        <div class="row text-center pb-3">
+            <div class="col-1"></div>
+            <div class="col-10">
+                <h4 class="mb-4">Why isn't MetaMask sending my transaction?</h4>
+                <p class="text-left">
+                    <a target="_blank" href="https://metamask.io/">MetaMask</a> occasionally leaves the <b>gas fee</b> field blank when presenting
+                    the transaction to the user to confirm. Make sure you have a <b>gas fee</b> set before sending the transaction. Use 
+                    <a target="_blank" href="https://metamask.io/">MetaMask</a>'s suggested <b>gas fee</b> or check 
+                    <a target="_blank" href="https://ropsten.etherscan.io/chart/gasprice">Ropsten Etherscan</a> for up to date gas prices.
+                </p>
+            </div>
+        </div>
+        <div class="row text-center pb-3">
+            <div class="col-1"></div>
+            <div class="col-10">
+                <h4 class="mb-4">I hacked your contract, where's my flag!?</h4>
+                <p class="text-left">
+                    This site verifies you've completed the challenge by recovering your address from a signed message.
+                    Challenge completion is checked by calling a smart contract with your public address and challenge number, 
+                    which calls the <code>isComplete</code> function on your deployed contract. Check that <code>isComplete()</code>
+                    returns true on your Ropsten net challenge contract, then, once you've verified it worked, click 
+                    <b>Check Completion</b> and then <b>Get Flag</b> to retrieve the flag to submit to CTFd. If you believe
+                    there is a mistake and your challenge has been completed, refresh the page or contact us on 
+                    <a href="irc://irc.freenode.org/#swampctf">IRC</a>.
+                </p>
+            </div>
+        </div>
+        <div class="row text-center pb-3">
+            <div class="col-1"></div>
+            <div class="col-10">
+                <h4 class="mb-4">My connection is always timing out!</h4>
+                <p class="text-left">
+                    Blockchain is still a relatively new technology. Speeds for transactions to be picked up from a single node to
+                    the network can be anywhere from a few seconds to few minutes. Be patient, wait for 
+                    <a target="_blank" href="https://metamask.io/">MetaMask</a> to get the transaction receipt, then
+                    refresh the page to see if the challenge has been deployed/completed.
+                </p>
+            </div>
+        </div>
+        <div class="row text-center pb-3">
+            <div class="col-1"></div>
+            <div class="col-10">
+                <h4 class="mb-4">Why doesn't the bytecode in my deployed contract match my locally compiled bytecode?</h4>
+                <p class="text-left">
+                    Our website deploys light weight proxy contracts for each competitor to keep our on chain footprint lower
+                    and handle updating challenges more smoothly. The proxy contract competitors interact with acts as the storage
+                    layer for the challenges, the logic for a challenge is hosted in a single on chain contract. Mismatching
+                    bytecode is not a hint in any way.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <footer class="page-footer font-small blue pt-4">
+        <!-- Footer Links -->
+        <div class="container-fluid text-center text-md-left">
+            <div class="footer-copyright text-center py-3">@ 2018
+            <a href="https://swampctf.com/"> SwampCTF</a>
+            </div>
+        </div>
+        <!-- Copyright -->
+    </footer>        
+
+    <script>
+    window.addEventListener('load', function() {
+    // Checking if Web3 has been injected by the browser (Mist/MetaMask)
+        if (typeof web3 !== 'undefined') {
+            // Use Mist/MetaMask's provider
+            web3 = new Web3(web3.currentProvider);
+        } else {
+            // Handle the case where the user doesn't have web3. Probably 
+            // show them a message telling them to install Metamask in 
+            // order to use our app.
+            // For example
+            // web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
+            console.log("No web provider");
+        }
+        // Now you can start your app & access web3js freely:
+    });
+    </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+Ghidra Programs 1/1
+
+Ghidra Programs
+A Ghidra program is an executa
+ble unit of software or some g
+roup of data. It can be
+viewed and analyzed within a G
+hidra tool. A Ghidra program i
+s stored in a project
+folder. An assembly language i
+s associated with a program at
+ the time it is created.
+The language is used for disas
+sembling bytes into instructio
+ns. Each program defines
+its own address spaces and mem
+ory. Various program elements 
+can be added to the
+program to further define it a
+s part of the reverse engineer
+ing process. Some of the
+elements that can be defined i
+n the program are labels, refe
+rences, comments,
+functions, and data.
+A Ghidra program is created by
+ importing a file into a Ghidr
+a project. This can be
+accomplished from either the G
+hidra Project Window or any Gh
+idra tool. Once a
+program is part of a Ghidra Pr
+oject, the following actions c
+an be performed:
+Open
+Close
+Rename
+Save
+Delete
+Export
+About
+Related Topics:
+Ghidra Projects
+Ghidra Tools
+
+

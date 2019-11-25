@@ -1,0 +1,1430 @@
+Program Differences
+
+The Diff Tool 1/10
+
+The Code Browser can be used t
+o view a second program alongs
+ide the tool's program to dete
+rmine the differences between 
+them. This is called a Program
+ Diff. The Program Diff highli
+ghts code
+units in the second program to
+ indicate there is a differenc
+e. Highlighted code units in t
+he second program can then hav
+e their differences applied to
+ the tool's program causing it
+ to change. The
+ultimate goal is to apply some
+ or all of the differences fro
+m the second program to the to
+ol's program in order to get a
+nother user's changes into you
+r program.
+
+Opening and Closing the Second
+ Program
+The Open/Close Diff View icon
+in the Code Browser tool bar i
+s used for both opening and cl
+osing the second program in th
+e Code Browser. This is one of
+ two ways to open the Diff too
+l.
+The other is the menu action, 
+Tools
+Program Differences... which i
+s described later under Viewin
+g Program Differences.
+Opening
+When there is only a single pr
+ogram displayed in the Code Br
+owser, select the Open Diff Vi
+ew icon
+in the tool bar above the prog
+ram to open a program for Diff
+. You will be prompted to
+select the second program and 
+then prompted for Diff setting
+s just as when viewing program
+ differences .
+Closing
+When you are done working with
+ program differences and the s
+econd program, select the
+closed and the Code Browser re
+turns to displaying only the t
+ool's program.
+Bring Diff View to Front
+If you navigate away from the 
+current diff session to anothe
+r program tab, then clicking t
+he
+
+icon in the tool bar above the
+ second program. The second pr
+ogram and the associated Diff 
+are
+
+action will make the diff sess
+ion be the active program tab.
+
+Viewing Program Differences
+A Diff can be opened from the 
+menu action, Tools
+Program Differences... . This 
+is one of two ways to open the
+ Diff tool. The other is the O
+pen/Close Program Diff icon
+Browser tool bar which is desc
+ribed above in Open/Close Diff
+ View. The following describes
+ using the menu action to open
+ the Diff tool.
+
+in the Code
+
+With a program open in the Cod
+e Browser tool, do the followi
+ng to view a second program's 
+differences.
+1. From the Code Browser, sele
+ct Tools
+Program Differences... .
+2. The Select Other Program di
+alog is displayed.
+
+3. From the Select Other Progr
+am dialog select the second pr
+ogram to be viewed and compare
+d with the tool's program.
+The second program must have t
+he same address spaces defined
+. In other words, they should 
+be the same type of program (i
+.e. based on the same program 
+language).
+If you wish to Diff against a 
+previous version of a versione
+d program, select the History>
+> button of a program. Select 
+the versioned program from the
+ tree. Next select the desired
+version of the program from th
+e history list on the right si
+de of the dialog.
+
+version of the program from t
+he history list on the right s
+ide of the dialog.
+
+The Diff Tool 2/10
+
+4. Click the OK button.
+5. The Determine Program Diffe
+rences dialog is displayed. Th
+is dialog is displayed wheneve
+r you are going to determine t
+he differences between two pro
+grams. To get all the differen
+ces
+between the two programs make 
+sure all the check boxes in th
+e Do Differences On area have 
+checks and the check box in th
+e Address Ranges To Diff shoul
+d not have a check as shown
+here.
+
+The check boxes allow you to l
+imit the types of differences 
+that are determined and where 
+differences are determined in 
+the program. To learn more, se
+e Determine Program Difference
+s Dialog.
+6. Click the OK button to dete
+rmine the differences.
+7. An In Progress dialog appea
+rs while the differences are b
+eing determined. Upon completi
+on the dialog disappears and t
+he code unit's in the second p
+rogram where differences exist
+ will be
+highlighted.
+
+The selected program is displa
+yed as the second program in t
+he browser. Only the portion o
+f the second program that matc
+hes the address set of the cur
+rent view is displayed. Highli
+ghted
+code units in the second progr
+am indicate where there are di
+fferences.
+The following illustrates a Pr
+ogram Diff where differences b
+etween two programs are highli
+ghted.
+
+The Diff Tool 3/10
+
+The tool's program, that will 
+be modified by the Diff, is di
+splayed on the left-hand-side 
+of the Code Browser. The secon
+d program, where the differenc
+es to apply are obtained, is d
+isplayed on
+the right-hand-side. Markers i
+n the right margin of the seco
+nd program give an indication 
+of all the positions in the cu
+rrent view where there are dif
+ferences between the two progr
+ams. The view
+of both programs is still cont
+rolled by the program tree for
+ the tool's program. In other 
+words, the second program's vi
+ew will only show addresses th
+at match those viewed for the 
+tool's
+program.
+
+(Edit
+
+Notice that the difference hig
+hlights are light orange above
+. The selected difference is g
+reen. These are only the defau
+lt colors. They can be changed
+ from the tool's Options dialo
+g
+Options..., open the Listing F
+ields folder, and select Selec
+tion Colors, double click on t
+he Difference color).
+
+Blank space is added to each p
+rogram as necessary to align t
+he addresses between the two p
+rograms. The vertical or horiz
+ontal scrollbar of either prog
+ram causes both programs to sc
+roll in a
+synchronized manner. Also, cha
+nging the cursor location in o
+ne program, changes it in the 
+other program.
+The Program Diff colors the tw
+o programs where they differ. 
+These differences can then be 
+applied individually from the 
+second program to the tool's p
+rogram. Applying a difference 
+changes
+the tool's program so it match
+es the second program where it
+ was different previously. The
+ ultimate goal is to apply som
+e or all of the differences fr
+om the second program to the t
+ool's program.
+Program Diff is most commonly 
+used to compare different user
+s' copies of the same program.
+ With versioned programs, it c
+an also be used to determine d
+ifferences against an older ve
+rsion of
+the same program. When working
+ on a project as a team, each 
+person can make changes to his
+ own copy of a program file. T
+he Program Diff can then be us
+ed to determine where the prog
+rams
+differ. Changes that another t
+eam member has in his program 
+can be merged into yours by ap
+plying the difference.
+The toolbar above the displaye
+d programs provides buttons fo
+r use with a Program Diff. Cli
+ck on the icon below to go to 
+the help section that gives de
+tails of that feature.
+Apply the selected differences
+ from the second program to th
+e tool's program.
+Apply the selected difference 
+and go to the next highlighted
+ difference block.
+Ignore the selected difference
+s and go to the next highlight
+ed difference block.
+Show the details of the differ
+ences between the programs at 
+the current cursor location.
+Go to the next highlighted dif
+ference block.
+Go to the previous highlighted
+ difference block.
+Display the Program Difference
+ Settings dialog.
+Determine the differences betw
+een the programs.
+Open/Close the second program 
+and the Program Diff.
+
+Determine Program Differences 
+Dialog
+Whenever you initiate a Progra
+m Diff the Determine Program D
+ifferences dialog allows you t
+o control the following settin
+gs:
+Do Differences On : the types 
+of differences to be determine
+d and highlighted by the Progr
+am Diff. The Select All button
+ is a convenience for selectin
+g all of the check boxes for
+difference types. Likewise, th
+e Deselect All button removes 
+the check marks from all the d
+ifference type check boxes.
+Address Ranges To Diff : indic
+ates the addresses to be check
+ed for differences.
+Limit To Selection : whether o
+r not the Program Diff should 
+be limited to the current sele
+ction in the tool's program.
+
+The Diff Tool 4/10
+
+Pressing the OK button will ch
+eck the indicated addresses fo
+r differences. It then highlig
+hts the code units in the seco
+nd program where differences w
+ere found. While the Program D
+iff is
+determining the differences, a
+n In Progress dialog is displa
+yed. Pressing the Cancel butto
+n will remove the Determine Pr
+ogram Differences dialog witho
+ut performing the Program Diff
+.
+If the two programs being comp
+ared are large, determining pr
+ogram differences can be time 
+consuming. If you are not inte
+rested in all of the differenc
+es in the program, you can red
+uce
+the amount of time required to
+ determine differences by remo
+ving some types of differences
+ being determined or by determ
+ining differences on just a po
+rtion of a program.
+Do Differences On
+The Do Differences On area spe
+cifies the types of difference
+s that will be determined. Pla
+cing a check in a box indicate
+s that this type of difference
+ should be detected.
+Bytes - detect any code units 
+that have memory bytes that di
+ffer between the programs bein
+g compared.
+Labels - detect any code units
+ where the labels differ.
+Possible label differences are
+:
+More labels at a code unit in 
+one program than the other
+Labels named differently
+Different labels could be mark
+ed as the primary label
+Same named label, but with dif
+ferent scope (parent namespace
+). For example, one program's 
+label is local to a function a
+nd the other label is a global
+ label.
+Same named label, but with dif
+ferent source. For example, on
+e program's label was named by
+ default and the other label w
+as named by the user.
+One program's code unit with a
+ label could be an entry point
+ and the other program code un
+it is not an entry point
+Code Units - detect any code u
+nits where the code unit or eq
+uates differ.
+Possible code unit differences
+ are:
+Different instructions.
+Instruction in one program and
+ Data in the other program at 
+the same address.
+Different equates on the instr
+uction in each program.
+Different data types when data
+ is defined in both programs a
+t an address.
+
+References - detect any code u
+nits where the references diff
+er.
+Possible reference differences
+ are:
+One program has a reference an
+d the other doesn't.
+References are not to the same
+ address.
+References are not on the same
+ operand or mnemonic.
+References types (Memory, Stac
+k, External) are different.
+Program Context - detect any c
+ode units where the values of 
+the program context registers 
+differ.
+If the two programs contexts d
+on't have the same registers d
+efined, the program context is
+ disabled and can't be compare
+d between the programs.
+Comments - detect any code uni
+ts where the comments differ.
+Possible comment types are:
+End of Line Comment
+Pre-Comment
+Post-Comment
+Plate Comment
+Repeatable Comment
+The difference could be that a
+ comment exists in one program
+ and not the other. It could a
+lso be that the text of a part
+icular comment type is not exa
+ctly the same for the
+two programs.
+Bookmarks - detect any code un
+its where bookmarks differ.
+Properties - detect any code u
+nits where User Defined Proper
+ties differ.
+
+Functions - detect any code u
+nits where the functions diffe
+r.
+Possible differences are:
+
+The Diff Tool 5/10
+
+Function in one program and no
+t in the other.
+Function comment differs.
+Addresses that make up the fun
+ction body differs.
+Function signature differs. (F
+unction name, return type, or 
+parameters differ.)
+Parameters differ by name, dat
+a type, size or offset.
+Local variables differ by name
+, data type, size, or offset.
+Stack offset differs.
+Stack Frame size differs.
+Whether or not the stack grows
+ in a negative direction.
+Function tags differ.
+
+When the Determine Program Dif
+ferences dialog is initially d
+isplayed, all the Differences 
+check boxes are checked. This 
+indicates that all the types o
+f differences will be detected
+ and displayed.
+Address Ranges To Diff
+The Address Ranges To Diff are
+a indicates the address ranges
+ where program differences wil
+l be determined. If the two pr
+ograms have different address 
+sets, then only the addresses 
+that the
+two programs have in common ca
+n be compared. The addresses w
+here differences are determine
+d can also be limited to a set
+ of addresses that are selecte
+d in the tool's program.
+Limit To Selection
+If there is a selection in the
+ tool's program when you deter
+mine differences, the address 
+set where differences are dete
+rmined can be limited to the a
+ddresses in the selection.
+Selecting the Limit To Selecti
+on box, limits the differences
+ to the selection's addresses.
+
+Diff and Multiple Program Tabs
+Only one Program Diff can be p
+erformed at a time. However, y
+ou can view another program us
+ing the tabs in the Listing Vi
+ew while a Program Diff is act
+ive. This will not
+terminate the current Diff. Th
+e Diff will reappear when you 
+change back to the tab for the
+ program that the Program Diff
+ is being performed on.
+
+While a Program Diff is active
+, the Diff View icon
+is visually pressed down. If t
+he Diff is being performed on 
+a program that is not being ac
+tively displayed (in a tab oth
+er than
+the current tab), then pressin
+g the Diff View icon
+will bring the tab containing 
+the Diff to the front.
+If you attempt to start a Diff
+ using Tools
+Program Differences... in the 
+tool menu and a Diff is alread
+y being performed, the status 
+bar will indicate the name of 
+the program
+that currently has a Diff.
+A Program Diff is terminated b
+y any of the following:
+Selecting the Diff View icon
+from the Listing toolbar when 
+the Program Diff is actively b
+eing displayed.
+Selecting the Close Window ico
+n
+from the Listing toolbar when 
+the Program Diff is actively b
+eing displayed. (Normally this
+ will close the current progra
+m, but when
+Diff is active this closes the
+ Diff.)
+Closing the Diff's program via
+ the Tool's menu, File
+Close, when the Diff is active
+ly displayed. (In this case th
+e Diff is closed along with th
+e current program.)
+Exiting the Tool or Ghidra wil
+l also terminate an active Dif
+f.
+
+Hovering the mouse over the Di
+ff View icon provides a toolti
+p indicating whether the curre
+nt action is Open Diff View, C
+lose Diff View, or Bring Diff 
+View to Front.
+
+Diff Apply Settings
+The Diff Apply Settings dockab
+le component allows you to con
+trol which types of difference
+s get applied from the second 
+program to the tool's program,
+ and how each type gets applie
+d.
+For each type of difference, y
+ou can select one of the follo
+wing apply settings:
+Ignore - do not change the sel
+ected code units in the tool's
+ program for this type of diff
+erence.
+Replace - changes the tool's p
+rogram to match the second pro
+gram for this type of differen
+ce.
+Merge - (Only available for La
+bels and Comments) changes the
+ tool's program by adding this
+ type of difference from the s
+econd program to what is alrea
+dy in the tool's program. For
+Labels, this will not change w
+hich label is set to primary.
+Merge & Set Primary - (Only av
+ailable for Labels) merges lab
+els from program 2 into the cu
+rrent program and sets the pri
+mary label as it is in program
+ 2, if possible.
+
+The following types of differe
+nces are controlled by the Dif
+f Apply Settings.
+Bookmarks - all categories of 
+bookmarks.
+Bytes
+
+Bytes
+Code Units - includes code uni
+ts (instructions & data) and e
+quates.
+
+The Diff Tool 6/10
+
+Comments - Plate, Pre, End-of-
+line, Repeatable, & Post comme
+nts.
+Functions - functions (include
+s their associated stack frame
+s).
+& Function Tags
+Labels - labels or symbols.
+Program Context - program cont
+ext register values.
+Properties - user defined prop
+erties that have been added to
+ the program by plugins.
+References - Memory, External,
+ & Stack references.
+The Diff Apply Settings toolba
+r has a Save as Default icon
+to save your current Diff Appl
+y Settings to the tool as your
+ new defaults. When you select
+ it, the current Diff Apply
+Settings values are set to the
+ default Diff Apply Settings. 
+Whenever you start a new Diff,
+ the current Diff Apply Settin
+gs will get set to the default
+ settings for that Program Dif
+f. If
+you determine the program diff
+erences again for an existing 
+Diff using the Determine Progr
+am Differences icon
+, the currentDiff Apply Settin
+gs will not be affected by the
+defaults.
+The Default Diff Apply Setting
+s can also be set by changing 
+the Diff Default Apply Setting
+s tool options .
+The Diff Apply Settingstoolbar
+ menu
+
+also has actions for changing 
+all the apply settings at once
+. They are:
+
+Set Ignore For All Apply Setti
+ngs - Changes all the settings
+ to Ignore. Before you can app
+ly anything you would need to 
+individually set at least one 
+difference type's setting
+to Replace or Merge.
+Set Replace For All Apply Sett
+ings - Changes all the setting
+s to Replace.
+Set Merge For All Apply Settin
+gs - Changes all the settings 
+to Merge that allow merging an
+d all others are changed to Re
+place. Labels will be set to M
+erge & Set Primary.
+
+Getting New Differences
+
+There are several reasons to g
+et new program differences.
+Changes were made to the tool'
+s program directly (not by app
+lying a difference) since you 
+last determined program differ
+ences.
+The second program has been ch
+anged since you last determine
+d program differences.
+You want to determine differen
+ces for different addresses of
+ the program than the current 
+Diff used. For example, you in
+itially determined program dif
+ferences limited to a
+selection and now you want to 
+know differences for the whole
+ program or for a different se
+t of selected addresses.
+When a second program is alrea
+dy displayed in the Code Brows
+er tool, do the following to d
+etermine new program differenc
+es between that program and th
+e tool's program.
+1.
+
+From the toolbar above the sec
+ond program, select the Get Di
+fferencesbutton.
+or
+Press the right mouse in the s
+econd program area. From the p
+opup menu, select Get Differen
+ces....
+2. The Determine Program Diffe
+rences dialog is displayed.
+3. From the dialog, select the
+ types of differences to be de
+termined and the addresses to 
+check for differences.
+4. Click the OK button.
+An In Progress dialog appears 
+while the program differences 
+are being determined. When it 
+is done determining the differ
+ences, the dialog is removed a
+nd the differences are
+highlighted in the second prog
+ram.
+
+Limiting the Diff to the Brows
+er Selection
+The Limit to Selection box in 
+the Program Difference Setting
+s dialog can be selected whene
+ver a Program Diff is started 
+while there is a selection in 
+the tool's program in the Code
+Browser. When the box is check
+ed the differences will only b
+e determined for addresses in 
+that selection. This limits th
+e differences being highlighte
+d and manipulated by the
+Program Diff to only those tha
+t are in a specific set of cod
+e units in the program. To lim
+it the Program Diff select the
+ target code units in the tool
+'s program in the browser and
+check the Limit to Selection c
+heck box in the Program Differ
+ence Settings dialog. Notice t
+hat the Address Ranges To Diff
+ area changes as you check or 
+uncheck the Limit to
+Selection box. It switches bet
+ween the addresses in common b
+etween the two programs and th
+ose in the selection.
+Once you press the OK button o
+n the Program Difference Setti
+ngs dialog, the Program Diff i
+s performed against the indica
+ted address ranges (address se
+t). You can make a
+selection in the tool's progra
+m before initiating the Get Di
+fferences
+to get differences against a d
+ifferent address set.
+
+Navigating Differences
+
+When viewing program differenc
+es in the CodeBrowser, you can
+ navigate on difference blocks
+. A difference block is a cont
+iguous group of one or more hi
+ghlighted code units in
+the second program. A differen
+ce block can be a single code 
+unit where a difference was fo
+und if the code unit before an
+d after it did not have a diff
+erence. There can be multiple
+code units in a difference blo
+ck when each of the code units
+ next to each other has a diff
+erence. To move to the next/pr
+evious code unit in a highligh
+ted block use the up and down
+arrow keys on the keyboard or 
+click the mouse on the desired
+ code unit.
+Next Difference
+Selecting the Next Difference 
+button
+
+moves the current location in 
+the Program Diff to the next d
+ifference block.
+
+If only part of the program is
+ in the current view, the next
+ difference may be outside the
+ current view of the program. 
+If this is so, then navigating
+ will add the
+fragment, with the next differ
+ence, to the view.
+
+Previous Difference
+
+The Diff Tool 7/10
+Selecting the Previous Differe
+nce button
+
+moves the current location in 
+the Program Diff to the previo
+us difference block.
+
+If only part of the program is
+ in the current view, the prev
+ious difference may be outside
+ the current view of the progr
+am. If this is so, then naviga
+ting will add the
+fragment, with the previous di
+fference, to the view.
+Marker Margin
+Clicking on a difference marke
+r in the right margin will nav
+igate to that difference.
+
+Some of the difference markers
+ may overlap in the right marg
+in. Therefore, it is best to u
+se the markers for navigation 
+to a region where there are di
+fferences and
+then use the Next Difference o
+r Previous Difference buttons 
+to navigate to the next/previo
+us difference block.
+
+Selecting Differences
+
+Automatically Selecting a Diff
+erence Block
+Using the Next Difference
+or Previous Difference
+to navigate to a highlighted d
+ifference block selects the co
+de units contained in that dif
+ference block. Left
+mouse clicking on a difference
+ block also causes the entire 
+difference block to become sel
+ected. You can then right mous
+e click and the popup menu app
+ears so you can
+apply the selection.
+Manually Selecting Differences
+Differences can be selected wi
+thin the right-hand Diff listi
+ng as follows:
+To select a single difference 
+block, simply left mouse click
+ on the highlighted difference
+ block. It will become selecte
+d, so it can then be applied.
+Left mouse clicking on a code 
+unit that is not highlighted a
+s part of a difference block w
+ill clear the current Diff sel
+ection.
+To select individual code unit
+s within a highlighted differe
+nce block, drag the cursor in 
+the second program as you norm
+ally would in the Code Browser
+. If you
+select code units that are not
+ highlighted as a difference, 
+they will automatically be rem
+oved from the selection when t
+he mouse button is released. W
+hen the
+cursor is released, the select
+ion will become restricted to 
+only the code units with highl
+ighted differences in the sele
+ction.
+The Ctrl key along with a left
+ mouse click can be used to ad
+d/remove a code unit from the 
+selection.
+The Shift key along with a lef
+t mouse click can be used to e
+xtend the selection.
+
+When differences are applied f
+rom the second program to the 
+tool's program, only selected 
+code units in the current view
+ will be applied.
+Select All
+Invoking the Select All Differ
+ences from the second program'
+s popup menu, selects all the 
+currently highlighted differen
+ces in the second program.
+Setting the Program Diff Selec
+tion From the Tool's Program S
+election
+The selection from the tool's 
+program can be used to select 
+some of the differences in the
+ second program. While viewing
+ program differences in the Co
+de Browser,
+make a selection in the tool's
+ program. Select the Set Diff 
+Selection icon
+For example, you can use this 
+to select all the differences 
+in a subroutine. First select 
+all the code units in the tool
+'s program that make up the su
+broutine. The Set Diff
+Selection icon
+will become enabled. Select th
+e Set Diff Selection icon . Al
+l the corresponding code units
+ with highlighted differences 
+in the second program
+become selected. The selection
+ of differences can then be ap
+plied or ignored.
+
+Applying Differences
+Applying a difference, changes
+ the tool's program to match t
+he second program in the Progr
+am Diff for each type of diffe
+rence being applied. The Progr
+am Diff can control which
+types of differences get appli
+ed from the second program to 
+the tool's program (see Apply)
+. It can also control whether 
+some types of differences repl
+ace what is in the tool's
+program or whether they are me
+rged into the tool's program. 
+Only the highlighted code unit
+s in the second program, which
+ are currently selected, can h
+ave their differences applied.
+To apply a selection
+1. Select Differences in the s
+econd program.
+2. Make sure the difference ty
+pes you want to apply have the
+ir boxes checked in the Progra
+mDiff Settings dialog.
+3. Click the Apply Selection b
+utton
+in the toolbar.
+or
+Press the Apply Selection hot 
+key.
+or
+Click the right mouse on the h
+ighlighted difference and sele
+ct the Apply Selection button.
+Remember all the types of diff
+erences that are being Replace
+d or Merged in the Diff Apply 
+Settings dockable component wi
+ll be applied for the selected
+ code units.
+When applying differences, com
+ments and labels can be replac
+ed with the second program's c
+omments or merged with them. M
+erging comments or labels in t
+he Program Diff results
+in the union of the two progra
+ms comments or labels for each
+ code unit being applied.
+Example:
+A code unit in the tool's prog
+ram does not have any comments
+ or labels. The code unit in t
+he second program has a pre-co
+mment and a bookmark. All Appl
+y boxes are checked.
+
+A code unit in the tool's pro
+gram does not have any comment
+s or labels. The code unit in 
+the second program has a pre-c
+omment and a bookmark. All App
+ly boxes are checked.
+Apply a selection containing t
+he code unit. The pre-comment 
+and bookmark appear in the pro
+gram in the Code Browser.
+The Diff Tool
+Say the Bookmarks box in the A
+pply area of the settings dial
+og was not checked and the Com
+ments box was checked when the
+ difference was applied. The p
+re-comment would
+appear in the Code Browser's p
+rogram, but the bookmark would
+ not.
+
+Applying Differences and Going
+ To Next
+This applies the selected diff
+erences and navigates to the n
+ext difference in a single ste
+p (see Apply and Next). It can
+ also control whether some typ
+es of differences replace what
+ is
+in the tool's program or wheth
+er they are merged into the to
+ol's program. Only the highlig
+hted code units in the second 
+program, which are currently s
+elected, can have their
+differences applied.
+To apply a selection and go to
+ the next difference
+1. Select differences in the s
+econd program.
+2. Make sure the difference ty
+pes you want to apply have the
+ir boxes checked in the Diff A
+pply Settings dockable compone
+nt.
+3. Click the Apply & Go To Nex
+t button
+in the toolbar.
+All the types of differences t
+hat were last selected under A
+pply in the Program Difference
+ Settings dialog will be appli
+ed for the selected code units
+. The Diff will then navigate 
+to
+the next difference and select
+ it.
+
+Ignoring Differences
+Ignoring a difference indicate
+s you no longer want the curre
+nt Program Diff to highlight t
+he code unit. The Diff then na
+vigates to the next difference
+.
+Only selected code units in th
+e second program of the Progra
+m Diff can have their differen
+ces ignored. The selection can
+ be made on an entire highligh
+t block or individual code
+units in one or more differenc
+e blocks. (See Selecting Diffe
+rences).
+Note: All versions of Ghidra b
+efore 7.4.X did not navigate t
+o the next difference after ig
+noring.
+To ignore a selection
+1. Select Differences in the s
+econd program.
+2. Click the Ignore Selection 
+button
+in the toolbar.
+or
+Press the Ignore Selection hot
+ key.
+or
+Click the right mouse on the h
+ighlighted difference and sele
+ct the Ignore Selection button
+.
+The selected code units will b
+e ignored. This means they wil
+l no longer be highlighted as 
+a difference. The Diff will th
+en navigate to the next differ
+ence and select it.
+Once a code unit is ignored, i
+t will no longer be marked in 
+the browser with a change bar 
+and will no longer be highligh
+ted. If you Determine Program 
+Differences, any
+previously ignored items where
+ there are still differences w
+ill once again be highlighted.
+
+Viewing Difference Details at 
+a Location
+When viewing two programs in t
+he Code Browser, it is possibl
+e to view all the differences 
+at the current program locatio
+n. The Diff Details dockable c
+omponent displays details
+indicating differences, if any
+, between the two programs cod
+e units at the current program
+ location.
+To view the difference details
+ at a location:
+1. Click on the code unit of i
+nterest to set the location an
+d select the Location Details 
+button
+in the tool bar.
+or
+Press the right mouse button o
+n the code unit of interest an
+d select the Location Details 
+button.
+2. The Diff Details dockable c
+omponent is displayed indicati
+ng the detailed differences, i
+f any, at the indicated locati
+on.
+
+The following image shows the 
+Diff Details dockable componen
+t. In Program 1 of the Diff "M
+yLabel" is a global label, whe
+reas in Program 2 "MyLabel" is
+ a local function label.
+
+ 
+
+When the Automatically Update 
+Details check box is selected,
+ the Diff Details will update 
+automatically to show the diff
+erences at the current locatio
+n whenever the current
+address changes. This can be u
+seful when you are navigating 
+through Differences and need t
+o see details that are not dis
+played by the CodeBrowser.
+
+8/10
+
+When the Only Show Expected D
+ifference Types check box is s
+elected, the Diff Details will
+ only show Diff Details for th
+e types of Differences that yo
+u chose
+look for
+ThetoDiff
+Tool
+when you determined your diffe
+rences. If this box is not che
+cked, you will see all types o
+f differences that exist at th
+e location regardless of wheth
+er it was one of the types of
+differences you were seeking.
+If you modify the program at t
+he current location after the 
+Diff Details are displayed, pr
+ess the Refresh button
+Why view the difference detail
+s at a particular program loca
+tion?
+The code units appear differen
+t between the two programs, bu
+t are not highlighted.
+If a particular type of differ
+ence was not selected when dif
+ferences were determined, then
+ it will not get highlighted.
+If the thing that appears diff
+erent is due to a difference e
+lsewhere in the program, then 
+it will not get highlighted. F
+or example, XREFs are not a di
+fference where they are
+shown. The code unit where the
+ reference is from is differen
+t, not where the reference is 
+to. The XREF is displayed on t
+he code unit the reference is 
+to.
+The code units appear the same
+ between the two programs, but
+ are highlighted. This can hap
+pen when there is something di
+fferent about the code unit, b
+ut that thing is not
+displayable. For example, refe
+rences are not visually displa
+yed, but they are a valid diff
+erence at the code unit the re
+ference is from.
+The location is highlighted, b
+ut you want to know exactly wh
+at is different here.
+In other words, are there othe
+r types of differences here be
+sides the boxes I checked in t
+he Program Difference Settings
+ dialog? Remember, only the di
+fference types with their
+Apply boxes checked in the dia
+log will be applied if an Appl
+y Selection is done.
+
+Diff Apply Settings Tool Optio
+ns
+The Program Diff adds Default 
+Apply Settings options to the 
+tool. To view or edit the opti
+on settings:
+From the tool's menu select Ed
+it
+Tool Options... which displays
+ the Tool Options Dialog.
+Open the Diff tree node.
+Click on the Default Apply Set
+tings tree node to view its op
+tions.
+Each time a new Program Diff b
+egins, the Diff Apply Settings
+ will have their values set to
+ the default ones specified by
+ the Default Apply Settings Op
+tions.
+Each option will have one or m
+ore of the following settings 
+available:
+
+Diff Apply
+Setting
+
+Functionality
+
+Ignore
+
+Do not change the selected cod
+e units in the tool's program 
+for this type of difference.
+
+Replace
+
+Change the selected code units
+ in the tool's program to matc
+h the second program for this 
+type of difference.
+
+Merge
+
+(Only available for Labels, Co
+mments and Function Tags.) Cha
+nge the selected code units in
+ the tool's program by
+adding this type of difference
+ from the second program to wh
+at is already in the tool's pr
+ogram. For Labels, this will
+not change which label is set 
+to primary.
+
+Merge & Set
+Primary
+
+(Only available for Labels.) M
+erges labels from the second p
+rogram into the tool's program
+ for the selected code units
+in the the Diff and set the pr
+imary labels as in the second 
+program, if possible.
+
+The Default Apply Settings Opt
+ions contains the following op
+tions:
+
+Option
+
+Functionality
+
+Bookmarks
+
+Controls whether bookmark diff
+erences will be applied. Can b
+e: Ignore or
+Replace.
+
+Bytes
+
+Controls whether byte differen
+ces will be applied. Can be: I
+gnore or
+Replace.
+
+Code Units
+
+Controls whether instruction, 
+data, and equate differences w
+ill be applied.
+Can be: Ignore or Replace.
+
+End Of Line Comments
+
+Controls whether end of line c
+omment differences will be app
+lied. Can be:
+Ignore, Replace, or Merge.
+
+Functions
+
+Controls whether function diff
+erences will be applied. Can b
+e: Ignore or
+Replace.
+
+Function Tags
+
+Controls whether function tag 
+differences will be applied. C
+an be: Ignore,
+Merge or Replace.
+
+Labels
+
+Controls whether label differe
+nces will be applied and which
+ to set as the
+primary label. Can be: Ignore,
+ Replace, Merge, or Merge & Se
+t Primary.
+
+Plate Comments
+
+Controls whether plate comment
+ differences will be applied. 
+Can be:
+Ignore, Replace, or Merge.
+
+Post Comments
+
+Controls whether post comment 
+differences will be applied. C
+an be:
+Ignore, Replace, or Merge.
+
+Pre Comments
+
+Controls whether pre comment d
+ifferences will be applied. Ca
+n be:
+Ignore, Replace, or Merge.
+
+Program Context
+
+Controls whether program conte
+xt register value differences 
+will be
+applied. Can be: Ignore or Rep
+lace.
+
+Properties
+
+Controls whether user defined 
+property differences will be a
+pplied. Can
+be: Ignore or Replace.
+
+References
+
+Controls whether reference dif
+ferences will be applied. Can 
+be: Ignore or
+Replace.
+
+Repeatable Comments
+
+Controls whether repeatable co
+mment differences will be appl
+ied. Can be:
+Ignore, Replace, or Merge.
+
+9/10
+
+Repeatable Comments
+
+Controls whether repeatable co
+mment differences will be appl
+ied. Can be:
+Ignore, Replace, or Merge.
+
+To change an option, click on 
+the combo box to the right of 
+the option name and select the
+ desired setting from the list
+.
+
+The Diff Tool 10/10
+
+Problems/Limitations
+You cannot undo an Ignore Sele
+ction
+action. Undo of an Apply Selec
+tion or Ignore Selection in a 
+Program Diff currently can't r
+e-highlight the code units wit
+h differences that
+were ignored. If you want to g
+et back differences after undo
+ of an Apply Selection
+or if you want all ignored dif
+ferences to no longer be ignor
+ed, you must re-Diff the progr
+ams
+by selecting the Get Differenc
+es button .
+
+Provided by: Program Diff Plug
+in
+Related Topics:
+Code Browser
+
+

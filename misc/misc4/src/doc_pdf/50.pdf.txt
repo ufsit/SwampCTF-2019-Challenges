@@ -1,0 +1,35 @@
+Program Annotation 1/1
+
+Program Annotation
+A variety of automated and man
+ual actions are provided withi
+n the tool to annotate
+(add information to) the progr
+am file. Auto Analysis provide
+s an automated way to
+disassemble bytes into code, c
+reate functions along with ref
+erences to the stack
+variables, and create referenc
+es. You can also manually defi
+ne functions and references
+or disassemble code. In additi
+on, you can manually define da
+ta in the file, set register
+values, add labels and comment
+s to a code unit, define a nam
+e (equate) to substitute
+for a scalar value, or bookmar
+k an address.
+Auto Analysis
+Bookmarks
+Comments
+Data
+Disassembly
+Equates
+Functions
+Labels
+References
+Register Context
+
+

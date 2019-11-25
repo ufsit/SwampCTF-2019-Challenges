@@ -1,0 +1,611 @@
+Function ID Plug-in 1/7
+
+Function ID Plug-in
+Prev
+
+Next
+
+Function ID Plug-in
+The Function ID Plug-in allows
+ users to create new (.fidb) d
+atabases. A Function ID databa
+se is a
+collection of meta-data descri
+bing software libraries and th
+e functions they contain. It i
+s searchable
+via a hash computed over the b
+ody of unknown functions (See 
+Function ID). The databases ar
+e selfcontained and can be sha
+red among different users. Usi
+ng this plug-in, databases can
+ be created,
+attached, and detached from an
+ active Code Browser, and a da
+tabase can be populated with f
+unction
+hashes from programs in the cu
+rrent Ghidra project.
+A Function ID database may hol
+d many distinct libraries. Wit
+hin a single library, all func
+tions must
+come from the same processor m
+odel as determined by Ghidra's
+ Language ID. Ideally, functio
+ns
+should come from a single soft
+ware component, all compiled u
+sing the same compiler and set
+tings.
+Functions for a single library
+ can be ingested from multiple
+ files, usually from a series 
+of object
+files analyzed within a Ghidra
+ repository. If the library is
+ spread across multiple files,
+ accurate
+symbol information is necessar
+y to properly compute parent/c
+hild relationships.
+
+Enabling the Plug-in
+All plug-in functionality is a
+ccessible from the Function ID
+ menu, under the main Tools me
+nu. In
+order to access this menu, the
+ tool must be configured to in
+clude the Function ID plugin. 
+To do
+this, from the Code Browser se
+lect
+File -> Configure
+Then click on the Configure li
+nk under the Function ID secti
+on and check the box next to
+"FidPlugin".
+
+Plug-in Functionality
+The Function ID plug-in provid
+es the following actions under
+ Tools -> Function ID.
+Choose active FidDbs...
+This brings up a dialog that a
+llows the user to select which
+ Function ID databases are act
+ive. By
+default, Ghidra ships with a s
+et of databases and they are a
+ll initially active.
+
+Function ID Plug-in 2/7
+
+Once a database has been deact
+ivated, it will no longer be u
+sed for matches in subsequent 
+analysis.
+The selections for which datab
+ases are active are saved as a
+ preference on a per-user basi
+s.
+Create new empty FidDb...
+This brings up a file chooser 
+dialog that allows the user to
+ create a new Function ID data
+base. This
+cannot be located under the Gh
+idra install directory root, b
+ecause Ghidra considers files 
+under the
+root read-only. We recommend e
+nding this database with the e
+xtension .fidb for consistency
+,
+although not strictly necessar
+y. Newly created databases are
+ attached (which means "known"
+ for the
+purposes of tracking) and init
+ially active, even though they
+ contain no match entries.
+Attach existing FidDb...
+This brings up a file chooser 
+dialog that allows the user to
+ attach an existing Function I
+D database.
+This cannot be located under t
+he Ghidra install directory ro
+ot, because Ghidra considers f
+iles under
+the root read-only. Attached d
+atabases are saved in the user
+ preference system, and retain
+ their
+active status across sessions 
+of Ghidra.
+Detach attached FidDb...
+This brings up a dialog that a
+llows the user to detach an al
+ready-attached Function ID dat
+abase.
+None of the databases delivere
+d with Ghidra can be detached;
+ they can only be deactivated 
+(see
+
+This brings up a dialog that 
+allows the user to detach an a
+lready-attached Function ID da
+tabase.
+None of the databases delivere
+d with Ghidra can be detached;
+ they can only be deactivated
+(see
+Function ID Plug-in 3/7
+“Choose active FidDbs...”)
+. Detaching a database removes
+ it from use in searching, and
+ also causes
+the user preference system to 
+forget about the existence of 
+this database.
+
+Populate FidDb from programs..
+.
+Once a database has been creat
+ed (or attached), the user may
+ populate it with hash values 
+from a set
+of programs in the current pro
+ject. Choosing this option bri
+ngs up a dialog where users en
+ter the
+information needed to populate
+ the database.
+
+Dialog Fields
+
+Fid Database
+Pick the database to populate.
+ Users must select from attach
+ed databases that are
+writable.
+Library Family Name
+The name of the library being 
+ingested. This is the identifi
+er that will be inserted
+
+Library Family Name
+The name of the library being 
+ingested. This is the identifi
+er that
+will be inserted
+Function ID Plug-in 4/7
+as part of the comment when a 
+match is found for functions i
+n this library.
+Library Version
+The formal version string for 
+the library. This is frequentl
+y the <major>.
+<minor>.<patch> syntax but can
+ be anything provided to disti
+nguish between
+different versions of the same
+ library.
+Library Variant
+Any other string for distingui
+shing libraries that doesn't f
+it in the formal Version
+string. This frequently holds 
+compiler settings.
+Base Library
+This is an optional setting fo
+r cross-linking with an existi
+ng library already
+ingested in the database. In t
+he event that the user wants t
+o incorporate
+parent/child relationships int
+o this library from another re
+lated library, they can
+set this option to point at th
+e other library. The library m
+ust already be ingested
+(from a previous use of this c
+ommand) into the same database
+. The Function ID
+ingest process will match pare
+nts and children across the li
+braries via function
+symbols.
+Root Folder
+This specifies the set of prog
+rams from which the new librar
+y will be populated.
+The user can select any subfol
+der in the current Ghidra proj
+ect. The ingest
+process will recursively searc
+h through all programs beneath
+ this folder and, for
+each program, will collect any
+ functions it contains.
+Language
+This is the required 4-field G
+hidra Language ID (i.e. x86:LE
+:64:default)
+specifying exactly what proces
+sor the new language will cont
+ain. While scanning
+during ingest, any program tha
+t does not match this program 
+model will be
+automatically skipped.
+Common Symbol File
+This is an optional parameter 
+that provides a list of common
+ function symbols to
+the ingest process. The parame
+ter, if present, is a path to 
+a text file that contains
+the list of function symbols, 
+one per line. The ingest proce
+ss excludes these
+functions from consideration a
+s disambiguating child functio
+ns. (See “False
+Positives”)
+
+Once all fields have been fill
+ed, clicking OK causes all sel
+ected functions to be ingested
+ for the new
+library. Depending on the numb
+er of programs and functions s
+elected, this process may take
+ some
+time. Upon completion, the pro
+cess will present a summary wi
+ndow, containing ingest statis
+tics and
+an ordered list of functions t
+hat were most commonly called 
+within the library. This list 
+can be used
+to create a Common Symbol File
+ tailored for the library.
+
+Preparing Libraries for a Func
+tion ID Database
+Location of Programs
+All functions going into a sin
+gle Function ID Library must a
+lready be imported and analyze
+d
+
+All functions going into a si
+ngle Function ID Library must 
+already be imported and
+analyzed
+Function ID Plug-in 5/7
+somewhere within a single Ghid
+ra repository (shared or non-s
+hared). Multiple libraries con
+tained
+within the same database can b
+e ingested in different phases
+, but a single library must be
+ written to
+the database in a single pass.
+ The ingest dialog (see “Pop
+ulate FidDb from programs...�
+�) specifies a
+single subfolder as the root f
+or the library. The process ac
+ts recursively, so there can b
+e additional
+directory hierarchy under the 
+root, but all programs to be i
+ncluded in the library must be
+ under the
+one root.
+Analysis
+All programs must be analyzed 
+enough to have recovered the b
+odies of all the functions tha
+t are to
+be included in the library. Ge
+nerally, the easiest way to ac
+complish this is to run Ghidra
+'s default
+auto-analysis. If functions ar
+e spread across multiple progr
+ams, as is typically the case,
+ users can run
+the Ghidra's analyzeHeadless c
+ommand to analyze across the w
+hole set. However, take note
+below of some of the modificat
+ions to the default analysis t
+hat may be necessary to get go
+od
+Function ID results.
+Every function to be included 
+must have a non-default functi
+on name assigned. Function ID 
+uses a
+function's primary symbol for 
+the name. Symbols are typicall
+y imported from debug informat
+ion,
+but any method for assigning n
+ames, script based or manual, 
+will work. Any function that s
+till has
+its default name, FUN_00...., 
+currently will not be ingested
+.
+When performing auto-analysis 
+in preparation for ingest, its
+ best to disable the Function 
+ID
+analyzer (and the Library Iden
+tification analyzer as well) i
+n order to avoid cross contami
+nation
+from different databases. If t
+he function symbols are mangle
+d, be sure to turn off the Dem
+angler
+analyzer. This lets the future
+ database apply the raw mangle
+d symbol to new programs durin
+g
+analysis, which lets their Dem
+angler analyzer pass run with 
+complete information.
+For an example of these sorts 
+of modifications to the analys
+is process, see the file:
+Features/FunctionID/ghidra_scr
+ipts/FunctionIDHeadlessPrescri
+pt.java
+This is designed to be passed 
+to the analyzeHeadless command
+ as a pre-script option.
+
+False Positives
+A false positive in the contex
+t of Function ID is a function
+ that is declared as a match b
+y the
+analyzer but has the incorrect
+ symbol applied. As with any c
+lassification algorithm, it is
+ generally
+not possible to eliminate this
+ kind of error completely, but
+ with Function ID there are so
+me
+mitigation strategies.
+Causes
+False positives for the most p
+art only happen with small fun
+ctions. There are two related 
+causes
+with Function ID:
+Tiny Functions
+If a function consists of only
+ a few instructions, it can be
+ matched randomly if
+
+Tiny Functions
+If a function consists of only
+ a few instructions, it can be
+ matched
+randomly if
+Function ID Plug-in 6/7
+there are enough entries in th
+e database. The fewer operatio
+ns a function
+performs, the more likely an u
+nrelated function is to do tho
+se exact same things.
+Code Idioms
+A set of functions that are ef
+fectively identical can have d
+ifferent names and be
+used in unrelated contexts. Fu
+nctions such as destructors ar
+e typical: one might
+check that a particular struct
+ure field is non-zero, and the
+n pass that field to
+free. Another destructor may p
+erform the exact same sequence
+, but was
+designed for a completely unre
+lated structure.
+
+In either case, Function ID ca
+n apply a symbol that is misle
+ading for the analyst.
+Mitigation via Threshold
+All mitigation strategies, to 
+some extent, trade-off false p
+ositives for false negatives, 
+which are
+functions that should have bee
+n reported by the Function ID 
+analyzer, but aren't (because 
+of some
+threshold or strategy).
+Most false positives by far ar
+e due to tiny functions. Funct
+ion ID minimizes these via the
+ instruction
+count threshold. Potentially m
+atching functions with too few
+ instructions that don't excee
+d this
+threshold will simply not be r
+eported by the analyzer.
+For users experiencing too man
+y false positives, the instruc
+tion count threshold is the ea
+siest thing
+to adjust. It is fully control
+lable by the user as an Analys
+is option (See “Analysis Opt
+ions”), and
+increasing it will directly re
+duce the false positive rate, 
+at the expense of missing some
+ true matches
+whose scores now fall below th
+e threshold.
+Specialized Mitigation
+The default instruction count 
+threshold is a good starting p
+oint for any new database, gen
+erally
+striking a reasonable balance 
+limiting false positives witho
+ut eliminating too many true m
+atches. But
+even for an optimal threshold,
+ there may be a small handful 
+of functions in the new databa
+se
+(usually Code Idioms) that exc
+eed the threshold and repeated
+ly cause the wrong label to be
+ placed.
+Instead of increasing the thre
+shold to filter out all functi
+ons with these higher scores, 
+it is possible
+to turn on one of several miti
+gation strategies that target 
+the offending database entries
+ directly.
+These strategies include:
+Force Specific
+If this is set on an entry, th
+e specific hash must match bef
+ore the system will
+consider the entry as a potent
+ial match. This is useful when
+ a code idiom contains
+a known constant that the full
+ hash would usually miss.
+Force Relation
+This is probably the most usef
+ul specialized strategy. It fo
+rces at least one parent
+or child match to be present b
+efore the system considers the
+ base function as a
+potential match. So even if an
+ idiom is big, this forces a s
+earch for an additional
+confirmation.
+
+Auto Fail
+
+potential match. So even if an
+ idiom is big, this forces a s
+earch for an additional
+confirmation.
+Function ID Plug-in 7/7
+This is a strategy of last res
+ort. If an obnoxious code idio
+m can't be eliminated
+any other way, this forces the
+ particular database entry to 
+never be considered as
+a match.
+
+Auto Pass
+This strategy is different fro
+m the others, in that it appli
+es to function entries
+whose scores are slightly too 
+low. If a low scoring function
+ has an instruction
+sequence that is deemed unique
+ enough, this strategy causes 
+any potential match
+to automatically pass the thre
+shold. This provides an altern
+ative to lowering the
+instruction count threshold to
+ include a particular function
+.
+
+These strategies can all be to
+ggled for individual function 
+records in the database. To do
+ this
+manually from the Code Browser
+, the user needs to search for
+ the specific records they wan
+t to
+change using the Debug Search 
+Window and then make changes f
+rom its Result Window. For det
+ails
+see “Debug Search Window”.
+Strategies can also be toggled
+ by running a Ghidra script. W
+ithin a script the basic instr
+uction
+sequence looks like:
+FidFileManager fidFileManager 
+= FidFileManager.getInstance()
+;
+List<FidFile> allKnownFidFiles
+ = fidFileManager.getFidFiles(
+);
+// Choose a modifiable databas
+e from the list
+...
+// Open a specific database
+FidDB modifiableFidDB = fidFil
+e.getFidDB(true);
+// Toggle strategies based on 
+the full hash of the function(
+s)
+modifiableFidDB.setAutoFailByF
+ullHash(0x84d01243dfb8b9cbL, t
+rue);
+modifiableFidDB.setForceRelati
+onByFullHash(0x4e0920960b48ae7
+eL, true);
+modifiableFidDB.setForceSpecif
+icByFullHash(0x5ef2f47ee715124
+3L, true);
+modifiableFidDB.setAutoPassByF
+ullHash(0x96a4a6fd5694523bL, t
+rue);
+...
+// Save and close the database
+modifiableFidDB.saveDatabase("
+comment", monitor);
+modifiableFidDB.close();
+
+FunctionID hashes for specific
+ functions can be obtained wit
+h the FIDHashCurrentFunction
+script.
+Prev
+Function ID
+
+Next
+Function ID Debug Plug-in
+
+

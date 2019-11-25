@@ -1,0 +1,269 @@
+Location References Dialog 1/4
+
+Location References Dialog
+
+The Location References Dialog
+ displays all the memory refer
+ence destinations to a specifi
+c code
+unit that is described by the 
+item under the current locatio
+n. For example, if the current
+ location is a
+referenced label, then the dia
+log will show references to th
+at label and not the current a
+ddress. In the
+following snippet, the label "
+LAB_40768a" is the field at th
+e current location.
+
+Showing the Location Reference
+s Dialog dialog at this locati
+on will show all references to
+ the label
+"LAB_4078d2".
+This dialog also works with da
+ta types. If the item at the c
+urrent location is a data type
+, then all
+places that data type is appli
+ed will be shown and the data 
+type will be highlighted in th
+e Data Type
+Manager tree.
+As another example, if the loc
+ation is an XRef field locatio
+n, then the dialog will show r
+eferences to
+the address that the XRef fiel
+d represents. In the following
+ snippet, the Xref field "0040
+767d(j)" is
+the field at the current locat
+ion.
+
+Location References Dialog 2/
+4
+
+Showing the Location Reference
+s Dialog dialog at this locati
+on will show all references to
+ the
+address 0040767d.
+
+You can also show references t
+o data types from the Data Typ
+e Manager. In this
+case, all locations where the 
+selected data type is applied 
+will be highlighted.
+
+To Find Location References
+1. Right-mouse anywhere on the
+ code unit*
+2. Select whichever of the fol
+lowing
+Select References
+Select References
+Select References
+
+is available from the popup me
+nu:
+
+Show References to from the po
+pup menu.
+Find References to from the po
+pup menu.
+Find Uses of from the popup me
+nu.
+
+*If the Location References Di
+alog cannot show references to
+ the location that was clicked
+, then the menu item will be d
+isabled.
+
+The results of performing this
+ action depend upon the locati
+on the cursor when the popup i
+s shown.
+Here are some examples:
+When over a data type, a searc
+h is performed for all uses of
+ that data type, such as in fu
+nction
+signatures and locations that 
+type is applied in memory,
+When over an address, all refe
+rences to the code unit contai
+ning that address will be show
+n,
+(which is what the Show Refere
+nces to Address action does),
+
+Results Window Header
+This title displays the item t
+hat is the destination of all 
+the references in the Referenc
+e(s)
+table.
+The
+button will cause the code bro
+wser to return the cursor to t
+he location from
+which the dialog was launched.
+The
+button will refresh the table 
+of references. This button wil
+l appear disabled when
+the data is not stale. However
+, if Ghidra detects that the d
+ata may be stale, then the
+button will become color fille
+d, as it is here. You may push
+ the button for a refresh in
+either state.
+
+The
+button will create a selection
+ in the code browser with the 
+reference
+entriesReferences Dialog 3/4
+Location
+selected in the table. You may
+ also access this feature by r
+ight-clicking an item in the
+table and selecting Make Selec
+tion.
+The
+button toggles the highlightin
+g of the matching references. 
+In this case, the term
+highlight refers to the backgr
+ound color of the item in the 
+Listing and not a Program
+Selection Highlight.
+
+To instead make a Program Sele
+ction Highlight, use the selec
+t button
+mentioned above. Then, click f
+rom the menu bar Select
+Program
+Highlight
+Entire Selection
+
+Search Results
+This table displays a list a r
+eference sources, one for each
+ reference associated with the
+selected destination instructi
+on or data item. There are fou
+r fields by default that are
+displayed in the table:
+Location - Shows the source ad
+dress.
+Label - Shows the primary labe
+l at the source address (if on
+e exists).
+Preview - Shows the instructio
+n or data item at the source a
+ddress.
+Context - Shows the type of re
+ference to the current locatio
+n. If the result is a Ghidra
+in-memory Reference, then this
+ column will show the type of 
+reference. If the result is
+found by way of the Decompiler
+, then the line from the decom
+piled function will be
+shown.
+You can make a selection in th
+e Code Browser from the entrie
+s in the table:
+1. Click on an entry in the ta
+ble, or Ctrl-click to select m
+ultiple entries.
+2. Right mouse click and choos
+e Make Selection.
+The current selection in the C
+ode Browser is set to include 
+the addresses
+that you selected in the Addre
+ss table.
+
+To Find Location References to
+ Data Types
+From within the Data Type Mana
+ger you can right-click on a d
+ata type and select Find Uses 
+of. This
+will show a Location Reference
+s Dialog that lists all locati
+ons where the selected data ty
+pe is applied,
+such as in function signatures
+, return types, structures, et
+c. For FunctionDefinition
+s the action
+will display all places that f
+unction is applied.
+
+Location References Dialog 4/
+4
+
+By default, finding uses of da
+ta types will search not only 
+for applied data types,
+but also will perform dynamic 
+discovery of data types using 
+the Data Type
+Reference Finder service. This
+ causes the search to be slowe
+r, but also reports
+many more type uses. To disabl
+e the dynamic searching, use t
+he Search
+Dynamic
+Data Type Discovery tool optio
+n.
+
+To Show Location References to
+ Code Unit
+1. Right-mouse anywhere on the
+ code unit*
+2. Select References
+Show References to Address fro
+m the popup menu.
+This will show all references 
+to the current address, as wel
+l as all addresses consumed by
+ the current
+instruction or data.
+*If the Location References Di
+alog cannot show references to
+ the location that was clicked
+, then the menu item will be d
+isabled.
+
+This action will show only dir
+ect references to the current 
+code unit. No other special re
+ference
+finding will take place.
+
+Renaming Windows
+
+see Docking Windows - Renaming
+ Windows
+
+Provided by: LocationReference
+sPlugin
+Related Topics:
+Forward References (Reference 
+Editor)
+Data Type Manager
+
+

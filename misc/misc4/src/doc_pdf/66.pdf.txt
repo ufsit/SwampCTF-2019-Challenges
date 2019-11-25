@@ -1,0 +1,159 @@
+Function Tag Window
+
+Function Tag Window 1/3
+
+The Function Tag window provid
+es a list of function tags def
+ined in the currently open pro
+gram. It will also show which 
+tags
+are assigned to the currently-
+selected function. Tags may be
+ created by the user, or loade
+d from a predefined set (see s
+ection on
+loading tags below).
+To display the Function Tag wi
+ndow, select the Window Functi
+on Tags option on the tool men
+u. Optionally, the dialog
+may be activated by right-clic
+king on a function header in t
+he listing and selecting the E
+dit Function Tags option.
+
+Window Components
+This window has five distinct 
+sections:
+Available Tags List: Displays 
+all tags that are available to
+ assign to the current functio
+n.
+Assigned Tags List: Displays a
+ll tags that have been assigne
+d to the current function.
+Tag Input Field: Allows users 
+to create new tags. Multiple t
+ags may be created at one time
+.
+
+Filter Field: Allows users to 
+filter what is shown in the Av
+ailable and Assigned tag lists
+.
+
+Action Buttons
+Assigns the selected tag(s) to
+ the current function
+Removes the selected tag(s) fr
+om the current function
+Deletes the selected tag(s) fr
+om the program and removes the
+m from all functions
+
+Tag Operations
+
+Create
+
+Tags can be created by using 
+the Tag Input Field described 
+above. Users may enter multipl
+e tag names
+delimited by a comma. All newl
+y-created tags will be display
+ed in the Available Tags List 
+and Function
+are NOT Tag Window 2/3
+assigned to any function.
+Each tag may have an associate
+d comment that is visible as a
+ tooltip. This can be assigned
+ after the tag
+has been created (see edit sec
+tion below).
+Delete
+Tags may deleted by selecting 
+a set of tags and pressing the
+following:
+
+icon. Users will be prompted w
+ith the
+
+If confirmed, the tag will be 
+removed from the system and fr
+om all functions to which it h
+ad been assigned.
+Edit
+Tag names and comments may be 
+edited by double-clicking the 
+item in the list. If the tag i
+s not editable the
+user will be presented with th
+e following warning:
+
+.
+If editing is allowed, the fol
+lowing dialog will be shown:
+
+Add to Function
+Tags may be added to a functio
+n by selecting a set of tags a
+nd pressing the
+removed from the Available Tag
+s List and added to the Assign
+ed Tags List.
+
+button. The tags will be
+
+Remove from Function
+Tags may be removed from a fun
+ction by selecting a set of ta
+gs and pressing the
+removed from the Assigned Tags
+ List and added to the Availab
+le Tags List.
+
+Function Tag Window 3/3
+button. The tags will be
+
+Loading External Tags
+Tags may be loaded on startup 
+from an external source if des
+ired. These will be shown in b
+lue and cannot be edited or
+deleted, with one caveat: once
+ a tag has been assigned to a 
+function it ceases to have any
+ special protections and can b
+e
+edited/deleted just as any oth
+er.
+To make these available there 
+must be a file named functionT
+ags.xml available on the class
+path. Edit (or create) this fi
+le
+and add tags as needed. The fo
+rmat is as-follows:
+<tags>
+<tag>
+<name>TAG1</name>
+<comment>tag comment</comment>
+</tag>
+<tag>
+<name>TAG2</name>
+<comment>tag comment</comment>
+</tag>
+</tags>
+
+Be aware that any external tag
+s that have removed/edited wil
+l reappear with Ghidra is rest
+arted, as these are always
+loaded from this file.
+
+Provided By: FunctionTagPlugin
+Related Topics:
+Functions
+
+

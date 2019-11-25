@@ -1,0 +1,66 @@
+Ghidra Projects 1/1
+
+Ghidra Projects
+
+A Ghidra project maintains inf
+ormation for a particular reve
+rse engineering (RE)
+effort. The RE effort involves
+ using tools built with plugin
+s to analyze target software.
+Tools are accessible across pr
+ojects and not associated with
+ any one project in
+particular. However, the targe
+t software is imported into a 
+Ghidra project as
+programs. The Ghidra project o
+rganizes and maintains these p
+rograms for multiple
+users.
+The latest release of Ghidra i
+ntroduces the concept of a pro
+ject repository that contains
+files that are versioned, shar
+ed, or private. A shared proje
+ct is associated with a
+Ghidra Server that manages the
+ files in the repository. Mult
+iple users in the project can
+add files, access files on the
+ server and create new version
+s of the files. Private files
+are local your project and hav
+e not been added to a project 
+repository. You can still
+take advantage of the project 
+repository features and not ha
+ve your project be
+associated with a Ghidra Serve
+r.
+You can create subfolders and 
+import programs into your proj
+ect. You can also view
+other data from other projects
+, or drag the other project da
+ta into your current project.
+The Ghidra Project Window show
+s the active project. The Ghid
+ra Project Window's
+menu provides access to the fo
+llowing project operations:
+Create a project
+Open an existing project
+Close the project
+Re-open a project
+View a recent project
+Save the project
+Archive the project
+Restore an archived project
+Related Topics:
+Ghidra Programs
+Ghidra Project Window
+Import Programs
+Project Repository
+
+

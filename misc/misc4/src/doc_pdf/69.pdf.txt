@@ -1,0 +1,285 @@
+Clear Code Bytes 1/7
+
+Clear
+Clear Code Bytes
+Clear Code Bytes reverts disas
+sembled instructions and defin
+ed data to their
+undefined state. It can also b
+e used to clear the components
+ of an applied
+structure directly from the br
+owser.
+To Clear a single instruction,
+1. Position the cursor on a de
+fined instruction or data code
+ unit
+2. From the right-mouse pop-up
+ menu over the Code Browser
+window, select Clear Code Byte
+s
+Alternately: press the 'C' key
+To Clear an area,
+1. Select the defined code uni
+ts (data and instructions)
+2. From the right-mouse pop-up
+ menu over the Code Browser
+window, select Clear Code Byte
+s
+Alternately: press the 'C' key
+To Clear components of a struc
+ture directly in the browser,
+1. Select the structure elemen
+ts in the open structure
+2. From the right-mouse pop-up
+ menu over the Code Browser
+window, select Clear Code Byte
+s
+Alternately: press the 'C' key
+
+Clearing bytes inside a struct
+ure from the CodeBrowser, chan
+ges the
+definition of the structure an
+d will affect all occurences o
+f the structure.
+
+Clear With Options
+
+Clear With Options
+
+Clear Code Bytes 2/7
+
+Clear With Options more select
+ively clears information defin
+ed in the program.
+While Clear Code Bytes only cl
+ears code units and their asso
+ciated data, Clear
+With Options can selectively r
+emove additional information, 
+e.g., symbols,
+references, functions, etc.
+The Clear dialog has check box
+es for each type of informatio
+n that can be
+cleared. If the checkbox is se
+lected, that item will be remo
+ved everywhere within
+the selection when the OK butt
+on is pressed.
+
+To Clear With Options,
+1. Create a selection in the C
+ode Browser containing instruc
+tion
+
+1. Create a selection in the 
+Code Browser containing instru
+ction
+Clear Code Bytes 3/7
+and/or defined data to be clea
+red.
+2. From the right-mouse pop-up
+ menu over the Code Browser
+window, select Clear With Opti
+ons...
+3. De-selected the check boxes
+ from the items that should no
+t be
+cleared.
+4. Click OK.
+
+You can undo clearing of code 
+units if it has an undesired
+effect.
+The following paragraphs descr
+ibe each option.
+Symbols
+Any User defined symbol in the
+ program. Automatically genera
+ted
+symbols won't be cleared if re
+ferences still exist to the sy
+mbol's
+defined address.
+
+This option will not clear fun
+ction names. To
+delete these you must select t
+he functions option.
+
+Comments
+Clears Pre, Post, End of Line 
+(EOL), Plate comments. It will
+ not
+clear comments on functions or
+ function variables.
+
+This option will not clear rep
+eatable or automatic
+comments. To delete those comm
+ents you must delete
+the associated reference.
+
+Properties
+
+Properties are placed at addr
+esses in a program by plugins 
+to store Clear Code Bytes 4/7
+information. This information 
+is usually only understood by 
+the
+plugin that placed it there or
+ other cooperating plugins.
+Select the properties icon ( )
+ on the tool bar to display al
+l
+the properties that are curren
+tly in the program.
+Code
+Data and Instructions are clea
+red.
+User-defined References
+Any references added by the us
+er are cleared.
+Analysis References
+Any references created by anal
+ysis tasks are cleared.
+Import References
+Any references created during 
+the import process are cleared
+, such as
+calls to external library func
+tions.
+Default References
+References automatically creat
+ed by Ghidra during disassembl
+y are
+cleared. This includes referen
+ces to stack variables within 
+the body
+of a function.
+Functions
+Defined functions are cleared,
+ including comments and any de
+fined
+
+Defined functions are cleared
+, including comments and any d
+efinedClear Code Bytes 5/7
+variables. Any references to s
+tack variables within the body
+ of the
+function will be cleared as we
+ll.
+Registers
+Registers within the selection
+ with a defined value will be 
+cleared
+and set to undefined. Register
+s can be set to a value using 
+Set
+Register Values.
+Equates
+Instructions with Scalar Opera
+nds set to display an alternat
+e string
+with an Equate are cleared.
+Bookmarks
+All types of Bookmarks are cle
+ared.
+
+Clear Flow and Repair
+Clear Flow and Repair is inten
+ded to be used to clear and op
+tionally repair code
+which was produced in error. T
+he duration of this action wil
+l vary depending on
+the extent of the instruction 
+flow. If good code with extens
+ive flow is
+encountered, the action may ta
+ke a long time to complete. If
+ the flow analysis is
+lengthy, a task dialog will be
+ displayed with a Cancel butto
+n. The Cancel button
+may be pressed to terminate th
+e action.
+
+You can undo clearing of code 
+units if it has an undesired e
+ffect
+The Clear Flow options dialog 
+has check boxes to control its
+ behavior. Pressing
+the OK button will begin the c
+lear process using the selecte
+d options.
+
+Clear Code Bytes 6/7
+
+To Clear instructions produced
+ by an invalid fall-through or
+ bad code produced
+by a data reference:
+1. Click on the first bad inst
+ruction
+2. From the right-mouse pop-up
+ menu over the Code Browser
+window, select Clear Flow and 
+Repair...
+3. Choose the desired Clear Fl
+ow Options.
+4. Click OK.
+
+To Clear instructions referenc
+ed by one or more pointers :
+1. Select all pointer data uni
+ts
+2. From the right-mouse pop-up
+ menu over the Code Browser
+window, select Clear Flow and 
+Repair...
+3. Choose the desired Clear Fl
+ow Options.
+4. Click OK.
+
+Note that clearing pointer ref
+erenced code will also clear a
+ll computed flow
+references to the address(es) 
+referenced by the selected poi
+nter(s).
+The following paragraphs descr
+ibe each option.
+Clear Symbols
+All non-default symbols at cle
+ared code unit locations will 
+be
+removed.
+
+Clear Data
+
+Clear Code Bytes 7/7
+
+All data whoose only reference
+s were from cleared code unit
+locations will also be cleared
+.
+Repair
+Following the clearing of the 
+flow, attempt to repair the di
+sassembly
+of references into the cleared
+ region.
+
+Provided By: ClearPlugin
+Related Topics:
+Disassembly
+Importing Files
+Property Viewer
+
+

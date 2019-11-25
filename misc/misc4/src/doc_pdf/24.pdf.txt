@@ -1,0 +1,83 @@
+Closing Programs
+
+Closing Program Files 1/2
+
+Closing a program will remove 
+the program from the Tool. The
+ Tool will remain displayed bu
+t will display either another 
+open program or be empty.
+If the program to be closed ha
+s changes and is open in only 
+one tool, the user will be pro
+mpted to save the program. How
+ever, if the program is open i
+n
+multiple tools, the user will 
+not be prompted to save even i
+f changes have been made. In o
+ther words, the only time the 
+user will be prompted to save 
+a
+program that is being closed i
+s when it has been changed and
+ is open only in one tool.
+
+To Close a Program File
+1. From the Tool menu, select 
+File
+Close
+2. If changes were made to the
+ program and they haven't been
+ saved yet, the Save Program? 
+dialog appears.
+
+The buttons in the Save Progra
+m? dialog perform the followin
+g functions.
+Save - Saves the program chang
+es and close the program in th
+e current tool.
+Don't Save - Discards any chan
+ges that were made to the prog
+ram and closes it.
+Cancel - Leaves the program op
+en in the current tool without
+ any changes being saved.
+
+If the listing window is open 
+and multiple programs are open
+, the program names are displa
+yed on tabs across the top of 
+the listing window.
+Programs can be closed by sele
+cting the appropriate tab and 
+pressing the corresponding "x"
+ button.
+
+To Close All Programs
+1. From the Tool menu, select 
+File
+Close All
+2. For each program that was c
+hanged, the Save Program? dial
+og appears.
+
+To Close All Programs Other T
+han The Current Program
+1. From the Tool menu, select 
+File
+Close Others
+2. For each of the other progr
+ams that was changed, the Save
+ Program? dialog appears.
+
+Provided by: Program Manager P
+lugin
+Related Topics:
+Opening Program Files
+Saving Program Files
+
+Closing Program Files 2/2
+
+

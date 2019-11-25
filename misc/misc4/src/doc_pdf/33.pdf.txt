@@ -1,0 +1,198 @@
+Edit Plugin Path 1/4
+
+Edit Plugin Path
+The Plugin Path is a preferenc
+e that indicates where Ghidra 
+should search for Java
+classes outside of the standar
+d installation locations. User
+ developed Java classes can
+be used to extend Ghidra with 
+additional plugins and data ty
+pes.
+
+All plugins discovered by Ghid
+ra can be displayed in the
+Configure dialog for all tools
+. All known data types are sho
+wn in the
+Data Type Manager display.
+
+The User Plugin Paths list sho
+ws the paths in the order to b
+e searched. Each path is
+
+The User Plugin Paths list sh
+ows the paths in the order to 
+be searched. Each
+pathPath
+is 2/4
+Edit Plugin
+either a directory path or a j
+ar file path. If the path is a
+ directory, then only class fi
+les
+in that directory will be used
+ (not jar files within that di
+rectory). If the path is a jar
+file, then classes within the 
+jar file will be used.
+The User Plugin Jar Directory 
+shows the directory that conta
+ins jar files to search.
+In addition to the above, Ghid
+ra also searches in the instal
+lation directory, in the
+<home>/.ghidra/.ghidra-<versio
+n>/plugins directory, if it ex
+ists.
+The directories noted above, a
+s well as any found jar files,
+ are added to Ghidra's
+classpath. The search order of
+ these paths is:
+1. Jar files in User Plugin Ja
+r Directory (Plugin Path prefe
+rence)
+2. Jar files in the Ghidra plu
+gins installation directory
+3. User Plugin Paths from the 
+Plugin Paths preference
+
+Editing Plugin Paths
+
+After you make a change to the
+ plugin path, you must restart
+ Ghidra to see
+the effects.
+Add a Plugin Path
+To add a Plugin Path,
+1. From the Ghidra Project Win
+dow, select Edit
+Plugin
+Path...
+2. The Edit Plugin Path dialog
+ is displayed; in the Director
+y or
+Jar File Name field
+Select the Add Jar... or Add D
+ir... button to choose
+either a jar file or directory
+ from the file system.
+Locate and select the appropri
+ate jar file or directory
+within the file chooser dialog
+.
+Select the Add Jar, or Add Dir
+ button within the
+file chooser dialog.
+3. Select the Apply or OK butt
+on from the Edit Plugin Path
+
+3. Select the Apply or OK but
+ton from the Edit Plugin Path
+dialog.
+
+Edit Plugin Path 3/4
+
+Apply applies the changes and 
+leaves the dialog up.
+OK applies the changes and dis
+misses the dialog.
+
+Change the Search Order
+To change the search order of 
+the paths within the User Plug
+in Path
+list,
+1. Select a path from the User
+ Plugin Paths list.
+2. Select the
+button to move the path up in 
+the list; select
+the
+to move the path down in the l
+ist.
+
+The search order is important 
+when you have different versio
+ns
+of a plugin in different jar f
+iles. The first class that is 
+loaded is the
+one that you will be using whe
+n you run Ghidra.
+Set the User Plugin Jar Direct
+ory
+To set the User Plugin Jar Dir
+ectory,
+1. Enter the absolute director
+y path in the User Plugin Jar
+Directory field, OR click on t
+he ... button to choose a
+directory from the file system
+.
+2. Select the Apply or OK butt
+on.
+Apply applies the changes and 
+leaves the dialog up.
+OK applies the changes and dis
+misses the dialog.
+
+Remove Paths
+To Remove an existing jar from
+ the Plugin Path,
+1. From the Ghidra Project Win
+dow, select Edit
+
+Plugin
+
+1. From the Ghidra Project Wi
+ndow, select Edit
+Path...
+2. Select a User Plugin Path.
+3. Click the Remove Button.
+4. Click Apply or OK.
+
+Plugin
+
+Edit Plugin Path 4/4
+
+To Remove the User Plugin Jar 
+Directory from the Plugin Path
+,
+1. Clear the User Plugin Jar D
+irectory field.
+2. Select the Apply or OK butt
+on.
+Apply applies the changes and 
+leaves the dialog up.
+OK applies the changes and dis
+misses the dialog.
+
+When you click on the Apply or
+ OK button, your
+preferences file in your
+<home>/.ghidra/.ghidra-<versio
+n> folder is updated
+immediately.
+
+If you have a tool that was bu
+ilt with Plugins that came fro
+m the paths that you
+removed, you will get an error
+ message listing each Plugin t
+hat could not be found
+when you re-open the project o
+r when you launch that tool.
+
+Related Topics:
+Ghidra Project Window
+Configure Ghidra Project Windo
+w
+Configure Tool
+Manage Data Types
+Built in Data Types
+Plugins
+
+

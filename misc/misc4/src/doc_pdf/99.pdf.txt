@@ -1,0 +1,137 @@
+Block Model 1/2
+
+Block Model
+
+A Block Model partitions the c
+ode into address ranges based 
+on some set of rules. The most
+ obvious partitioning is by su
+broutine. There are four Subro
+utine
+Models (i.e., Call Block Model
+s). Each subroutine model defi
+nes a subroutine slightly diff
+erently. The primary differenc
+es are based on number of entr
+y
+points and whether overlapping
+ code between subroutines is a
+llowed. It is important to not
+e that all of these subroutine
+ models will all produce the s
+ame result
+for an M-Model subroutine whic
+h contains a single entry poin
+t.
+Subroutine Block Models:
+Model Name
+
+Model
+
+Isolated Entry*
+Multiple Entry
+Overlapped
+Code*
+Partitioned Code*
+
+S
+M
+
+Entry
+Point
+1
+1 or more
+
+O
+P
+
+Overlapping Code?
+
+Entry Point Type
+
+Yes
+---
+
+only call
+only call
+
+1 or more
+
+Yes
+
+only call
+
+1
+
+No
+
+any
+
+Isolated Entry Model* - A subr
+outine must have only one entr
+y point but may share code wit
+h another subroutine. The subr
+outine body will stop if anoth
+er
+called or source entry point i
+s encountered.
+Multiple Entry Model - A subro
+utine may have multiple entry 
+points and may not overlap cod
+e from other subroutines.
+Overlapped Code Model* - A sub
+routine is all code accessible
+ from a single entry point and
+ terminates at returns. Code m
+ay be shared with other subrou
+tines.
+Each subroutine is defined to 
+include the overlapping code a
+s part of its body.
+Partitioned Code Model* - Ther
+e is exactly one entry point w
+hich may have any type of sour
+ce flow. Each instruction belo
+ngs to exactly one subroutine 
+(code
+is not shared).
+
+The default subroutine model f
+or the tool can be specified f
+rom Edit Tool Options dialog o
+n Tool panel. The default subr
+outine model is generally
+used by those plugins and acti
+ons which do not provide a sub
+routine model choice (e.g., su
+broutine selection, call graph
+, symbol table, etc.).
+There is a more primitive Bloc
+k Model called a Basic (or Sim
+ple) Block Model. Such blocks 
+generally consist of small run
+s of instructions partitioned 
+based
+on change in instruction flow.
+ Jump and Branch instructions 
+will cause the execution flow 
+to change, creating a new bloc
+k. Arithmetic and store/load
+instructions do not break a Ba
+sic Block because they do not 
+change the execution flow. A l
+abel will also end one block a
+nd begin another.
+In the example below each colo
+r change represents a differen
+t basic block.
+
+Block Model 2/2
+
+Provided By: Block Model Servi
+ce Plugin
+Related Topics:
+Create Function
+Select Subroutines
+
+

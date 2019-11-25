@@ -1,0 +1,1541 @@
+Structure Data Type Editor
+
+Data Structure Editor 1/11
+
+The Structure Editor is used t
+o define the contents of a str
+ucture data type. It can be us
+ed to create a new structure o
+r to modify existing ones. Str
+uctures are user defined data 
+types that contain
+components. A component is a d
+ata type of a particular size 
+and at a specified offset in t
+he structure. The following il
+lustrates the editor for a str
+ucture data type.
+
+The Union Editor is very simil
+ar to the Structure Editor, bu
+t is used to create or modify 
+a union data type. All the com
+ponents of a Union are at an o
+ffset of 0. The following illu
+strates the
+editor for a union data type.
+
+A Structure Editor or Union Ed
+itor can be launched from the 
+Data Type Manager, the Code Br
+owser, or the Structure or Uni
+on Data Type Editors.
+The Structure and Union Editor
+s are composed of the followin
+g:
+Edit Actions: The icon buttons
+ at the top of the editor are 
+used to modify this structure.
+ Each button has a different e
+dit action associated with it.
+ These allow the user to: appl
+y
+changes, insert Undefined byte
+s, reorganize the current comp
+onents, duplicate components, 
+clear components (changes them
+ to Undefined bytes), delete c
+omponents, create array
+components, and unpackage a st
+ructure or array component cha
+nging it into its component pa
+rts.
+Pull Down Menu: The
+icon at the top of the editor 
+provides additional editor act
+ions. These are: show the cate
+gory path of a component's dat
+a type, edit a component's dat
+a type,
+edit the fields of a component
+, apply a cycle group or favor
+ite.
+Component Table: The upper por
+tion of the editor contains a 
+table with the structure's or 
+union's components. Each compo
+nent (or row) consists of its 
+offset, length, mnemonic,
+data type, field name, and com
+ment. See the Component Fields
+ section for more about these 
+fields. The data type, field n
+ame and comment are editable f
+ields. The data type's
+category can be determined by 
+showing the data type category
+. Components can be added, ins
+erted or replaced in the table
+ using Drag and Drop or by app
+lying a Favorite data type.
+The data type for a component 
+can also be changed by cycling
+ the data type.
+Structure Information Area: Th
+is is the area below the compo
+nent table with the name, desc
+ription, category, size and al
+ignment of the structure or un
+ion. The structure or union
+being edited can be renamed fr
+om here. Its description can b
+e specified here. Also, it can
+ be changed between unaligned 
+and aligned.
+Immediately below the structur
+e information area is a status
+ line where status messages wi
+ll appear.
+
+Applying Changes
+Select the Apply Changes icon
+
+in the toolbar to apply the ch
+anges from the editor back to 
+the program or archive.
+
+If editor changes to a struct
+ure or union are applied and i
+t is assigned to data in the p
+rogram, all data items with th
+e structure or union as the da
+taData
+type now
+have the newEditor
+data type.2/11
+In
+Structure
+other words, the size or compo
+sition of those data items in 
+the program will have changed 
+due to the apply.
+
+Closing the Editor
+Select the Close dockable comp
+onent icon
+
+in the toolbar to exit from th
+e editor. If you have unsaved 
+changes to your data type, a d
+ialog will ask if you want to 
+save the changes.
+
+Searching in the Editor
+To search for text in any colu
+mn on any row in the editor, e
+nter the text into the Search 
+field and press return to sear
+ch forward from the currently 
+selected table row. Alternativ
+ely, the
+down
+and up
+arrows next to the search fiel
+d can be used to search forwar
+ds and backwards respectively.
+ Searches are not case sensiti
+ve.
+
+Changing the Name
+To change the name of the stru
+cture or union being edited, e
+dit the Name field in the bott
+om of the editor. If the name 
+is valid, the structure's or u
+nion's name will change when t
+he edits
+are applied by pressing the ed
+itor's Apply Changes icon
+in the toolbar.
+
+Entering a Description
+To change the description of t
+he structure or union being ed
+ited, edit the Description fie
+ld in the bottom of the editor
+. The structure's or union's d
+escription will take effect wh
+en the edits
+are applied by pressing the ed
+itor's Apply Changes icon
+in the toolbar.
+
+Changing the Size
+To change the size of the stru
+cture being edited, edit the S
+ize field in the bottom of the
+ editor and press the Enter ke
+y to apply the new size to the
+ structure. If you are reducin
+g the size of
+the structure, you will be pro
+mpted to determine that you re
+ally want to truncate the stru
+cture.
+
+Alignment
+At the bottom of the editor is
+ an Alignment field, which ind
+icates how the structure or un
+ion being edited will be align
+ed within other data types. Al
+l unaligned structures and uni
+ons will
+have an alignment of 1 (byte a
+ligned) and will therefore not
+ be aligned within other data 
+types. For aligned structures 
+and unions the alignment value
+ is determined based on the
+alignments of the individual c
+omponents they contain, whethe
+r they are packed internally a
+nd whether they have a minimum
+ alignment specified.
+
+Unaligned vs. Aligned
+In the lower right corner of t
+he editor is an Align check bo
+x. When the box is checked the
+ structure or union is aligned
+. Click the checkbox to change
+ between aligned and unaligned
+.
+When a structure or union is a
+ligned, additional choices wil
+l appear that allow minimum al
+ignment and packing to be spec
+ified.
+Unaligned Structures
+When a structure is unaligned,
+ each component immediately fo
+llows the one before it. In ot
+her words no automatic alignme
+nt or padding occurs. Unaligne
+d structures can contain
+Undefined bytes. Unaligned str
+uctures should be used to posi
+tion components with known dat
+a types at specific offsets wi
+thin the structure. Therefore 
+the structure editor tries to 
+prevent
+defined components (those othe
+r than Undefined bytes) from a
+ccidentally being moved to a d
+ifferent offset when performin
+g operations like drag and dro
+p.
+
+Data Structure Editor 3/11
+
+Aligned Structures
+An aligned structure is define
+d similar to a structure in a 
+C header file. The data types 
+are specified for each of the 
+components, but their offsets 
+will be automatically adjusted
+ to the
+correct alignment based on the
+ data type and position in the
+ structure. A default Undefine
+d byte cannot be added to an a
+ligned structure. The overall 
+size of the structure is deter
+mined by
+the components it contains and
+ whether or not it is packed. 
+When you select the Align chec
+kbox, the GUI displays buttons
+ to allow an align attribute, 
+align( minimum ), to be specif
+ied. It
+also allows a pack value, pack
+ ( maximum ), to be specified.
+ The following image shows the
+se GUI components for aligning
+ the data type being edited.
+
+align( minimum )
+This indicates the minimum ali
+gnment to be used when alignin
+g this data type inside anothe
+r data type. Setting this to a
+ value other than none forces 
+this structure to be aligned w
+ithin
+other structures at an offset 
+that is a multiple of the spec
+ified value. Specifying a mini
+mum alignment also causes the 
+end of the structure to be pad
+ded so its size is a multiple 
+of the
+minimum alignment.
+none - Sets this data type to 
+have no specified minimum alig
+nment when aligning this data 
+type inside another data type.
+ Align this data type based on
+ly on its components and their
+minimum alignments and packing
+.
+machine - Sets this data type 
+to have a minimum alignment th
+at is a multiple of the machin
+e alignment when aligning this
+ data type inside another data
+ type. In this case machine
+alignment means the largest al
+ignment which is ever used for
+ any data type on the program'
+s intended machine.
+by value - The bottom button w
+ith a text field next to it al
+lows you to specify a minimum 
+alignment value. This sets thi
+s data type to have a minimum 
+alignment that is a multiple
+of the specified value when al
+igning this data type inside a
+nother data type.
+
+The equivalent of having no C 
+code align attribute on the st
+ructure or union is to choose 
+none. The equivalent for a C c
+ode attribute of align() witho
+ut a value is to choose machin
+e
+alignment. The equivalent of a
+lign(4) is to specify a value 
+of 4.
+pack( maximum )
+
+This indicates a packing valu
+e to be used when aligning the
+ components within this data t
+ype. Setting this to a value o
+ther than none forces each com
+ponent of this structure to be
+ packed
+so that its maximum alignment 
+within the structure is no mor
+e than the pack value. However
+, a component will not be pack
+ed if the data type or one ofD
+ata
+its subcomponents
+types has4/11
+a
+StructuredataEditor
+minimum alignment value specif
+ied that exceeds the pack valu
+e. Packing also affects the pa
+dding at the end of this struc
+ture so that the overall size 
+of the structure is the smalle
+st possible
+multiple of the pack value. If
+ the minimum alignment is grea
+ter than the pack value, the e
+nd of the structure or union i
+s padded based on the minimum 
+alignment instead.
+none - The components within t
+his structure should align the
+mselves in the default way for
+ the compiler. The components 
+are not being packed.
+by value - The bottom button w
+ith a text field next to it al
+lows you to specify a pack val
+ue. The specified value indica
+tes the maximum alignment to u
+se when packing any
+component.
+
+The equivalent of having no C 
+#pragma pack attribute on the 
+structure or union is to choos
+e none. The equivalent for a C
+ code attribute of #pragma pac
+k() without a value is to
+specify a pack value of 1. The
+ equivalent of # pragma pack(4
+) is to specify a pack value o
+f 4.
+Unaligned Unions
+When a union is unaligned, the
+ union is the size of its larg
+est component. There is no ali
+gnment padding and the alignme
+nt is 1 when putting an unalig
+ned union into other data type
+s.
+
+Aligned Unions
+In an aligned union the overal
+l size is at least the size of
+ the largest component, but wi
+ll be padded based on the alig
+nment and packing. The minimum
+ alignment is specified just a
+s within
+a structure and affects the al
+ignment in the same way. The p
+ack value is specified in the 
+same manner as within a struct
+ure, but only affects the padd
+ing in the overall size of the
+ union. All
+elements in a union have an of
+fset of zero, so the pack valu
+e doesn't affect the component
+ offsets. If both a minimum al
+ignment and pack value are spe
+cified, the minimum alignment 
+will
+override the pack value if it 
+is larger.
+
+Flexible Array Component
+A structure may be defined wit
+h a trailing flexible array co
+mponent which corresponds to a
+n unsized array (e.g., char[0]
+). Such a component, if it exi
+sts, is always displayed as th
+e last row
+within the structure editor wi
+th the open edit row for addit
+ional components located direc
+tly above it. The DataType col
+umn for a flexible array alway
+s shows the base type of the u
+nsized array
+which can be modified similar 
+to other components. A flexibl
+e array is added to the end of
+ a structure by adding a last 
+row specified by the base Data
+Type (e.g. char) then invoking
+ the array
+action and specifying an eleme
+nt count of 0. Attempting to s
+pecify an element count of 0 i
+s only permitted on the last c
+omponent row when a flexible a
+rray component does not alread
+y exist.
+The presence of a flexible arr
+ay component does not affect t
+he size of a structure and wil
+l not appear within the struct
+ure when applied to Data withi
+n memory as it corresponds to 
+the memory
+location which immediately fol
+lows the end of the structure.
+The presence of a flexible arr
+ay component may not be reflec
+ted in decompilation results. 
+Its primary purpose if to refl
+ect the C source definition of
+ a structure with correct alig
+nment and
+structure sizing.
+
+structure sizing.
+
+Data Structure Editor 5/11
+
+Edit Actions
+The edit actions are available
+ both from the icon buttons in
+ the editor and from the popup
+ menu for the component table.
+ To display the popup menu, ri
+ght mouse click on the compone
+nt
+table. There are also short-cu
+t keys associated with each of
+ the edit actions.
+Insert Undefined Byte
+Undefined Bytes can only be in
+serted into a structure that i
+s not aligned. A single Undefi
+ned byte is inserted before th
+e current selection by clickin
+g the
+
+Insert Undefined Byte button.
+
+Move Up
+A contiguous group of componen
+ts can be moved up or down in 
+the structure. Select a block 
+of one or more components. Eac
+h time the
+Move Up button is pressed, the
+ group of
+components is moved up one row
+. In other words, the componen
+t that was immediately above t
+he group is now below it. This
+ can be done until the group o
+f selected components is at th
+e
+beginning of the structure (of
+fset 0).
+Move Down
+Select a block of one or more 
+components. Press the
+Move Down button to move the g
+roup of selected components do
+wn one row. The component that
+ immediately followed them is
+now before them. The selected 
+components can be moved down u
+ntil they are at the end of th
+e structure.
+Duplicate Component
+To duplicate a component withi
+n a structure or union:
+1. Select the component.
+2. Press the
+Duplicate Component button.
+3. A single copy of the compon
+ent is created immediately fol
+lowing the selected one.
+If the structure is not aligne
+d, then there must be enough U
+ndefined bytes following the c
+omponent to accommodate the du
+plicate. In an unaligned struc
+ture, Undefined bytes get repl
+aced
+by the new copy of the compone
+nt.
+Duplicate Multiple of Componen
+t...
+To create multiple copies of a
+ component:
+1. Select the component.
+2. Press the
+Duplicate Multiple of Componen
+t... button.
+3. The number of duplicates di
+alog appears. In an unaligned 
+structure, you can only indica
+te as many duplicates as will 
+fit in place of Undefined byte
+s.
+
+4. Enter a valid number of du
+plicates and press the Enter k
+ey or the OK button.
+5. The specified number of cop
+ies of the component are creat
+ed immediately after the selec
+ted one.
+
+Data Structure Editor 6/11
+
+Delete Component(s)
+One or more components can be 
+deleted from a structure or un
+ion. Deleting components in a 
+structure will cause the compo
+nents that come after those be
+ing deleted to shift to new of
+fsets.
+To delete components:
+1. Select one or more componen
+ts to delete.
+2. Press the
+Delete Component(s) button.
+3. The components are removed 
+from the structure or union.
+
+Clear Component(s)
+Clearing a component changes i
+t into Undefined byte componen
+ts that take up the same amoun
+t of space as the component be
+ing cleared. Components can be
+ cleared in unaligned
+structures, but not in unions 
+or aligned structures. This is
+ because the resulting Undefin
+ed bytes are not valid compone
+nts in a union or aligned stru
+cture.
+To clear components in a struc
+ture:
+1. Select one or more componen
+ts in the table.
+2. Press the
+Clear Component(s) button.
+3. Each selected component is 
+replaced by Undefined Bytes. T
+he number of Undefined Bytes w
+ill be equal to the length of 
+the component being cleared.
+
+Clearing a component will also
+ erase its Field Name and Comm
+ent.
+Create Array
+To create an array from a sing
+le selected component:
+1. Select a component in the t
+able.
+2. Press the
+Create Array button.
+3. A dialog pops up to request
+ the number of elements in the
+ array.
+
+4. Specify the number of eleme
+nts. For an unaligned structur
+e, the maximum size of the arr
+ay is limited by the number of
+ Undefined bytes following the
+ selected component.
+5. Press the OK button.
+6. The selected component beco
+mes an array of that same data
+ type with the specified dimen
+sions.
+
+In a structure, an array can b
+e created from a selection of 
+multiple components. The data 
+type of the first component in
+ the selection will be used fo
+r the data type in the array.
+To create an array from a sele
+ction of multiple components i
+n a structure:
+1. Select multiple contiguous 
+components.
+2. Press the
+Create Array button.
+3. An array is created. The da
+ta type of the first component
+ in the selection is used as t
+he data type of the array. The
+ array's dimension is determin
+ed by how many of that data ty
+pe
+will fit in the space that was
+ occupied by the selection. Th
+e size of the array will be th
+e array that can fit in the se
+lected number of bytes. Any le
+ft over (unused) bytes at the 
+end of
+the selection will become Unde
+fined bytes.
+
+Create Flexible Array
+To create an unsized flexible 
+array as the last structure co
+mponent (assuming one is not a
+lready defined):
+1.
+2.
+3.
+4.
+
+Add a component whose DataType
+ corresponds to the base type 
+of the unsized array.
+Select this last structure com
+ponent in the table.
+Press the
+Create Array button or the '['
+ action key binding.
+A dialog pops up to request th
+e number of elements in the ar
+ray. Specify 0 as the number o
+f elements in the popup dialog
+ and click OK.
+
+Unpackage Component
+Unpackaging takes a single com
+ponent and replaces it with it
+s own component parts. When ed
+iting a structure, array and s
+tructure components can be unp
+ackaged by selecting that
+component and clicking the
+Unpackage Component button. Fo
+r example, the array component
+ Word[4] would become four Wor
+d components. If the structure
+ struct_1 was
+composed of a Float and a DWor
+d, then unpackaging it would r
+eplace the struct_1 component 
+with a Float component and a D
+Word component.
+
+Create Structure From Selecti
+on
+
+Data Structure Editor 7/11
+Creating a structure from a se
+lection takes a contiguous sel
+ection of components in the st
+ructure editor and creates a n
+ew structure from those compon
+ents. It then replaces the sel
+ection
+with a single component whose 
+data type is the new structure
+. The components that were in 
+the selection will become the 
+components that make up the ne
+w structure. The user does thi
+s by
+selecting the components in th
+e editor and clicking the
+Create Structure From Selectio
+n button. The user is then pro
+mpted for the name of the new 
+structure. Once a unique name 
+is
+specified the new structure is
+ created and a component conta
+ining it replaces the selected
+ components.
+
+Component Fields
+Each row displays information 
+about a component in this stru
+cture or union. The DataType, 
+Name, and Comment fields are e
+ditable.
+The following summarizes the i
+nformation about each field fo
+r a component.
+Offset - The byte offset of th
+is component from the beginnin
+g of the structure. For unions
+ the byte offset of all compon
+ents is zero, and therefore th
+is field isn't shown.
+Length - The length of this co
+mponent in bytes.
+Mnemonic - The mnemonic (brief
+ identifier) for this componen
+t's data type.
+DataType - The data type of th
+is component. This field is ed
+itable.
+Name - The field name associat
+ed with this component in the 
+structure or union. When speci
+fied, the field names must be 
+unique for the components in a
+ structure or union. This fiel
+d is
+editable, except on components
+ that are Undefined bytes.
+Comment - A comment associated
+ with this component. This fie
+ld is editable, except on comp
+onents that are Undefined byte
+s.
+
+To rearrange the order of the 
+component fields position the 
+cursor over the header for the
+ table column. Left mouse clic
+k and drag the column left or 
+right to its new position.
+
+Editing Component Fields
+The DataType, Name and Comment
+ fields are editable. However,
+ the Name and Comment are not 
+editable when the component's 
+DataType is an Undefined byte.
+To place an editable field int
+o edit mode:
+Double click on an editable fi
+eld.
+or
+Select a single component row 
+and press F2 to begin edit mod
+e. This puts the first editabl
+e field in that component row 
+into edit mode. Tab will then 
+move to the next editable fiel
+d.
+
+Applying an Edit
+In the editable field, pressin
+g Enter applies the value to t
+he field if it is valid and en
+ds the edit session. If the fi
+eld's value is invalid, a mess
+age is written to the editor's
+ status line and the
+field remains in edit mode.
+Canceling an Edit
+In the editable field, pressin
+g Escape cancels the edit sess
+ion without applying the chang
+es to that field.
+Editing More Than One Componen
+t Field
+You can move directly from edi
+ting the component 's name or 
+comment field to editing anoth
+er by pressing Tab, Shift-Tab,
+ UpArrow or DownArrow. The key
+ press only moves the
+edit session if the current fi
+eld edit can be applied. Other
+wise, an error is displayed in
+ the status line.
+Tab
+Pressing Tab applies the curre
+nt edit and moves to the next 
+editable field in the table. I
+f the current field is the las
+t editable one in this compone
+nt then it moves to the first
+editable field in the next com
+ponent. This key moves the edi
+t session left to right and to
+p to bottom in the table.
+Shift-Tab
+Pressing Shift-Tab applies the
+ current edit and moves to the
+ previous editable field in th
+e table. If the current field 
+is the first editable one in t
+his component then it moves to
+the last editable field in the
+ previous component. This key 
+moves the edit session right t
+o left and bottom to top in th
+e table.
+Up-Arrow
+Pressing the UpArrow key appli
+es the current edit and moves 
+to the same field of the previ
+ous component in the table if 
+that field is editable. This k
+ey moves the edit session
+bottom to top in the table.
+Down-Arrow
+Pressing the DownArrow key app
+lies the current edit and move
+s to the same field of the nex
+t component in the table if th
+at field is editable. This key
+ moves the edit session
+top to bottom in the table.
+Editing the DataType Field
+This can be any data type that
+ is available in the data type
+ manager. To edit the data typ
+e double-click the data type c
+ell. This will show the Data T
+ype Selection Dialog, which al
+lows you
+to easily enter a data type. I
+t can also be Undefined, a poi
+nter to a data type, or an arr
+ay.
+
+This can be any data type tha
+t is available in the data typ
+e manager. To edit the data ty
+pe double-click the data type 
+cell. This will show the Data 
+Type Selection Dialog, which a
+llows you
+to easily enter a data type. I
+t can also be Undefined, a poi
+nter to a data type, or an arr
+ay.
+Basic Data Type
+
+Data Structure Editor 8/11
+
+This can be a built-in data ty
+pe (Byte, Word, etc.), a struc
+ture, a union, or a typedef.
+For example, Word.
+Pointer Data Type
+This can be the basic Pointer 
+data type or a pointer to a da
+ta type. A pointer to a data t
+ype is indicated by following 
+the data type with an *.
+For example, Word * is a point
+er to a Word.
+Array
+This can be a multidimensional
+ array of any data type.
+For example, DWord[2][4] is an
+ array with 2 elements, where 
+each element is an array with 
+4 elements that are DWords.
+Array of Pointers
+Arrays of pointers can also be
+ specified.
+For example, Float*[5] is an a
+rray with five elements where 
+each element is a pointer to a
+ Float.
+Effect of Changing a Component
+'s Size
+An unaligned union's size will
+ always be the size of its lar
+gest component. If you change 
+a data type for a component an
+d the component size changes, 
+the union size will
+change if necessary. An aligne
+d union is padded to make its 
+size a multiple of the union's
+ alignment.
+How a structure is affected by
+ changing a component's data t
+ype depends on whether the str
+ucture size is aligned or unal
+igned.
+Unaligned - If the structure i
+s unaligned, then the new comp
+onent must be less than or equ
+al to the original component's
+ size plus any Undefined byte 
+components
+that immediately follow it in 
+the structure. In an unaligned
+ structure, decreasing the com
+ponent size will create Undefi
+ned byte components following 
+it to
+maintain the structure size. I
+ncreasing the component size r
+eplaces Undefined bytes immedi
+ately following the component.
+ The last component of a struc
+ture can
+be always be changed which can
+ cause the structure to grow l
+arger.
+Aligned - If the structure is 
+aligned, the component can cha
+nge size, which affects the st
+ructure's overall size and the
+ alignment of individual compo
+nents that
+follow it.
+
+Editing the Name Field
+When specified, a field name m
+ust be unique for the componen
+ts in a structure or union. It
+ cannot contain blanks.
+Editing the Comment Field
+The comment can be any Ascii t
+ext.
+
+Pointers
+Pressing the 'p' key invokes t
+he pointer action on a compone
+nt. This will generally create
+ a default pointer unless the 
+existing data is already a poi
+nter in which case that pointe
+r will be
+wrapped with an additional poi
+nter (e.g., int * would become
+ int **). This action will alw
+ays apply a default sized poin
+ter. Otherwise you can drag on
+e of the other pointer types f
+rom the
+Data Type Manager window. With
+ existing pointer data, the ba
+se type of that pointer may be
+ changed simply by applying an
+other type onto the pointer (e
+.g., applying byte to default
+pointer becomes db *). If you 
+do not want this pointer stack
+ing behavior to happen, it is 
+best to clear the code unit(s)
+ before applying a data type v
+ia drag-n-drop or key-binding 
+actions.
+
+Cycling a Component Data Type
+Some data types are part of a 
+cycle group. A cycle group is 
+a collection of data types tha
+t are similar and are commonly
+ associated with one another. 
+Cycling a data type facilitate
+s
+changing a component from one 
+data type to the next data typ
+e in the same group. Each cycl
+e group has a short-cut key as
+sociated with the group. Press
+ing the short-cut key cycles f
+rom
+the current data type to the n
+ext one in the group. For exam
+ple, the b key is associated w
+ith the Byte cycle group. This
+ group is Byte, Word, DWord, a
+nd QWord.
+
+A single row of the component 
+table must be selected to cycl
+e a data type.
+
+Union or Aligned Structure
+The first data type in a cycle
+ group can be added to the end
+ of a structure as a new compo
+nent.
+To add a data type using a cyc
+le group key:
+1. Select the last row (the bl
+ank row) of the component tabl
+e.
+2. Press the short-cut key for
+ the desired cycle group. For 
+example, the b key will add a 
+Byte; the f key will add a Flo
+at; the apostrophe key will ad
+d an Ascii.
+
+Cycle groups can also be appli
+ed from the component table's 
+popup menu under Cycle.
+To cycle a component's data ty
+pe to another one in the same 
+group:
+1. Select the component in the
+ table.
+
+1. Select the component in th
+e table.
+2. Press the cycle group key u
+ntil the data type has cycled 
+to the desired data type. For 
+example, if the current data t
+ype is a Byte, pressing the
+b key Structure
+twice would change
+it
+Data
+Editor
+to DWord.
+
+9/11
+
+When the current component dat
+a type is not in the cycle gro
+up of the desired data type, p
+ressing the cycle group key of
+ the desired data type will ch
+ange the
+component to the first data ty
+pe in the desired cycle group.
+ The data type can then be cyc
+led to any other data type in 
+the group.
+Unaligned Structure
+Cycling is implemented similar
+ to how it is implemented in a
+n aligned structure. The only 
+exception is that the user can
+ only cycle to data types that
+ will fit within the data
+boundary of the current compon
+ent. If Undefined bytes follow
+ the selected component, the U
+ndefined bytes can be replaced
+ by cycling the data type to a
+ larger sized data type.
+Likewise, cycling to a smaller
+ data type will add Undefined 
+bytes after the component bein
+g cycled. However, the last co
+mponent is not restricted to a
+ particular size.
+
+Drag and Drop Basics
+Data types can be dragged from
+ the Data Type Manager to the 
+component table in the Structu
+re Editor. A regular drag and 
+drop results in the component 
+in the editor being replaced b
+y
+the one being dragged. Holding
+ the Ctrl key during the drag 
+and drop causes the dragged da
+ta type to be inserted instead
+ of being replaced.
+Known Problem: Holding the Ctr
+l key to perform an insert of 
+a data type does not currently
+ work on a Mac. On a Mac try u
+sing the Alt key to insert rat
+her than the Ctrl key.
+The "+" should then appear at 
+the drop site.
+When a data type is dropped on
+ a pointer component, the comp
+onent becomes a pointer of tha
+t data type instead of simply 
+being replaced by that data ty
+pe. For example,
+dropping a Byte on a Pointer r
+esults in a Byte*, which is a 
+pointer to a Byte. Drag and Dr
+op is discussed further in Add
+ing a Data Type, Inserting a D
+ata Type, and Replacing
+a Data Type.
+
+Favorites Basics
+Favorite data types are define
+d from the Data Type Manager d
+ialog. In the Data Editor, fav
+orites are available through t
+he popup menu in the component
+ table. Applying a favorite da
+ta
+type is similar to dropping a 
+data type. Favorites can be us
+ed to insert a component of th
+at data type or to replace a c
+omponent's data type. Favorite
+s can only be applied to a con
+tiguous
+selection. Therefore, individu
+al favorites are only enabled 
+when they can be applied (i.e.
+ they fit at the selection and
+ the selection is contiguous).
+When a favorite data type is a
+pplied to a pointer component,
+ the component becomes a point
+er of that data type instead o
+f simply being replaced by tha
+t data type.
+If you right mouse click on a 
+component where there is no se
+lection, the selection becomes
+ a single component selection 
+containing that component and 
+the popup menu will appear.
+Favorites are discussed furthe
+r in Adding a Data Type, and R
+eplacing a Data Type.
+
+Adding a Data Type
+A data type can be added as a 
+component by replacing Undefin
+ed bytes. When editing an unal
+igned structure, there must be
+ enough Undefined bytes for th
+e data type to replace. A data
+type can also be added to the 
+end of a structure or union.
+Drag and Drop
+Drag a data type from the data
+ type manager to the empty row
+ at the end of the component t
+able and drop it. The data typ
+e is added to the end of the s
+tructure in the editor.
+If the data type can be variou
+s sizes, the user is prompted 
+for the desired size. The foll
+owing illustrates the dialog d
+ue to the drag and drop of a s
+tring.
+
+Simply enter the number of byt
+es desired for the data type a
+nd press the Enter key or clic
+k the OK button.
+For information about drag and
+ drop with pointers, see Drag 
+and Drop Basics.
+Favorites
+Right mouse click on the empty
+ row at the end of the table a
+nd pull right to see the Favor
+ites. Select the favorite from
+ the popup and it is added as 
+the last component.
+For information about Pointers
+ as a Favorite, see Favorites 
+Basics.
+
+Inserting a Data Type
+In an aligned structure or a u
+nion, a data type can be inser
+ted as a new component.
+
+In an aligned structure or a 
+union, a data type can be inse
+rted as a new component.
+
+Data Structure Editor 10/11
+Drag and Drop
+1. While holding down the Ctrl
+ key, drag the data type you w
+ant to insert from the data ty
+pe manager. As you drag it ove
+r the components in the struct
+ure editor, the drag
+icon will have a "+" on it ind
+icating insert mode.
+2. Release the mouse button wh
+en you are on the desired comp
+onent and the dragged data typ
+e is inserted before it.
+3. Known Problem: Holding the 
+Ctrl key to perform an insert 
+of a data type does not curren
+tly work on a Mac. On a Mac tr
+y using the Alt key to insert 
+rather than the
+Ctrl key. The "+" should then 
+appear at the drop site.
+
+For information about drag and
+ drop with pointers, see Drag 
+and Drop Basics.
+
+Replacing a Data Type
+A component can have its data 
+type replaced with a different
+ data type. If an unaligned st
+ructure is being edited then U
+ndefined bytes are created or 
+consumed as necessary to maint
+ain the
+position of other components w
+ithin the structure. For union
+s and aligned structures, the 
+data type simply changes for t
+he component and the overall s
+ize is adjusted accordingly.
+Drag and Drop
+
+Single Component Selected
+Drag a data type to a single s
+elected component in the edito
+r or to a non-selected compone
+nt in the editor. If the mouse
+ pointer is a 'circle with a s
+lash' then the
+data type cannot be dropped to
+ replace the component. This i
+s probably because the data ty
+pe being dropped won't fit in 
+the structure in place of the 
+original
+component. If editing a union 
+or an aligned structure the da
+ta type should always fit and 
+the drop is allowed. If editin
+g an unaligned structure, the 
+component is
+replaced only if the new compo
+nent will fit. (see Effect of 
+Changing a Component's Size)
+Contiguous Selection of Multip
+le Components
+Drag a data type to a block of
+ selected components. Whether 
+the structure is aligned or un
+aligned doesn't matter when dr
+opping a data type on a block 
+of selected
+components. This is because th
+e new component (s) will occup
+y the same space as the curren
+tly selected components.
+In a union, all selected compo
+nents will be replaced with a 
+single component containing th
+e data type dropped.
+In a structure, as many compon
+ents of the dropped data type 
+as will fit in the selection a
+re created to replace the sele
+ction. In an unaligned structu
+re any left over
+bytes in the selection will be
+come Undefined bytes.
+For information about drag and
+ drop with pointers, see Drag 
+and Drop Basics.
+Favorites
+
+Single Component Selected
+
+If you right mouse click on a 
+component where there is no se
+lection, the selection becomes
+ a single component selection 
+containing that component and 
+the
+popup menu will appear.
+To replace a component's data 
+type with a favorite data type
+, select it in the table, righ
+t mouse click and pick the fav
+orite. Only favorites that wil
+l fit in place of
+the component will be enabled.
+ (see Effect of Changing a Com
+ponent's Size)
+
+Contiguous Selection of Multip
+le Components
+To replace a contiguous select
+ion with a favorite data type,
+ select it in the table, right
+ mouse click and pick the favo
+rite.
+In a union, all selected compo
+nents will be replaced with a 
+single component containing th
+e favorite data type.
+In a structure, only favorites
+ that will fit in place of the
+ selection will be enabled. Ju
+st like with drag and drop, wh
+ether the structure is aligned
+ or unaligned
+doesn't matter. The selection 
+becomes as many of the data ty
+pe as will fit and left over b
+ytes become Undefined bytes fo
+r an unaligned structure.
+For information about Pointers
+ as a Favorite, see Favorites 
+Basics.
+
+Showing a Component's Data Typ
+e Category
+Every component has a data typ
+e: Byte, Word, Float, etc.. Th
+e category is where that data 
+type is located. Since you can
+ have two data types with the 
+same name in different locatio
+ns
+(categories), the editor provi
+des a way to see the category 
+for any component's data type.
+To see the category for a comp
+onent:
+1.
+2.
+3.
+4.
+
+Select a single component.
+Right mouse click on the compo
+nent in the table.
+From the popup menu, select Sh
+ow Component Path.
+The category information appea
+rs in the editor's status line
+ at the bottom of the dialog.
+
+Editing a Component's Data Typ
+e
+
+Another Data Type Editor can 
+be brought up from within the 
+Structure Data Type Editor for
+ any component that is an edit
+able data type, such as Struct
+ure, Union, or Enum. In additi
+on,
+another Data Type Editor can b
+e brought up for any component
+ whose base data type is an ed
+itable data type. For example,
+ a Typedef on a StructureData
+would allow
+you to edit
+the
+Structure
+Editor
+11/11
+Structure. Likewise, you can e
+dit a Structure wherever the c
+omponent is a Pointer to the S
+tructure.
+To display another editor for 
+a component that has an editab
+le data type:
+1. Select the component with a
+ data type that is a structure
+, union or enum or that has on
+e of them as its base data typ
+e.
+2. Right mouse click on the co
+mponent in the table. Select E
+dit Component... from the popu
+p.
+3. The editable data type for 
+the selected component is disp
+layed in a new data type edito
+r.
+
+Showing Numbers in Hexadecimal
+The Component Table contains n
+umeric fields such as the comp
+onent's offset and length. The
+ structure information area al
+so shows the overall size and 
+alignment of the structure. By
+default numbers are initially 
+shown in decimal in the Struct
+ure Editor. There is a tool op
+tion, Show Numbers In Hex, tha
+t lets you override the defaul
+t and set whether these number
+s
+should be displayed in hexadec
+imal when an editor is initial
+ly displayed.
+There is also a toolbar menu i
+tem in the editor that allows 
+you to immediately change whet
+her the numbers are displayed 
+in hexadecimal or decimal. Cha
+nging this only affects the cu
+rrent
+editor where it is changed.
+The Union Editor does not disp
+lay offsets since they are alw
+ays zero.
+To switch between decimal and 
+hexadecimal display of numeric
+ values in the current editor:
+1.
+2.
+3.
+4.
+
+Right mouse click on the table
+.
+A check mark next to Show Numb
+ers in Hexadecimal indicates t
+hat numbers are currently disp
+layed in hex. If there is no c
+heckmark, the numbers are curr
+ently shown in decimal.
+From the popup menu, select Sh
+ow Numbers in Hexadecimal.
+The numbers being displayed wi
+ll change from decimal to hexa
+decimal or vice versa. The che
+ck mark next to Show Numbers i
+n Hexadecimal indicates whethe
+r the numbers are
+currently displayed in hexadec
+imal.
+
+Structure and Union Editor Too
+l Options
+The Structure and Union Editor
+s add options to the tool. To 
+view or edit the option settin
+gs:
+From the tool's menu select Ed
+it
+Tool Options... which displays
+ the Tool Options Dialog.
+Open the Editors tree node.
+Click on either the Structure 
+Editor or Union Editor tree no
+de to view its options.
+The StructureEditor and Union 
+Editor tabs contains the follo
+wing options:
+
+Editor
+
+Option
+
+Functionality
+
+Structure
+Editor
+
+Show Numbers In Hex
+
+If selected, the component off
+sets and lengths as
+well as the overall size and a
+lignment of the
+structure will be displayed in
+ hexadecimal when
+a new Structure Editor is init
+ially displayed.
+Otherwise, the lengths are ini
+tially in decimal.
+
+Union Editor
+
+Show Numbers In Hex
+
+If selected, the component len
+gths as well as the
+overall size and alignment of 
+the union will be
+displayed in hexadecimal when 
+a new Union
+Editor is initially displayed.
+Otherwise, the lengths are ini
+tially in decimal.
+
+To select an option simply cli
+ck on the check box.
+
+Provided by: Data Type Manager
+ Plugin
+Related Topics:
+Data Type Manager
+Enum Editor
+Data Type Selection Dialog
+
+

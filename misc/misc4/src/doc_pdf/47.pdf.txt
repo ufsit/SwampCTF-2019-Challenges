@@ -1,0 +1,238 @@
+Function Call Graph Plugin 1/4
+
+Function Call Graph Plugin
+
+The Function Call Graph Plugin
+ is a simple graph display tha
+t shows incoming and outgoing 
+calls (as edges) for
+the function containing the cu
+rrent address, also known as t
+he Source Function, in the Lis
+ting. This display
+provides some context for how 
+a function is used within the 
+program. The functions are org
+anized by Level.
+To show the Function Call Grap
+h provider window, select the 
+Window
+tool menu.
+
+Function Call Graph option on 
+the
+
+The graph of function calls re
+lated to the source function b
+eing displayed can be explored
+ by adding existing
+function calls to the initial 
+graph display.
+
+The graph updates itself as yo
+u navigate within the tool. To
+ prevent losing graph state (e
+.g.,
+expanded functions, node locat
+ions, etc), a small number of 
+graphs will be cached. For exa
+mple, if
+you navigate away from a funct
+ion and then immediately retur
+n, the graph will be restored 
+to its
+previous state.
+
+Terms
+Source Function: the function 
+that contains the current addr
+ess in the Listing. This funct
+ion is
+considered the center of the g
+raph, with all other callers/c
+allees added to the graph at a
+ new
+
+Source Function: the function
+ that contains the current add
+ress in the Listing. This func
+tion is
+considered the center of the g
+raph, with all other callers/c
+allees added to the graph at a
+ new
+Function Call Graph Plugin 2/4
+level.
+Level: Each function node in t
+he graph belongs to a level. T
+he source function is at level
+ 1; the
+source function's incoming cal
+ls are at level 2; the source 
+function's outgoing calls are 
+also at
+level 2. Organizing functions 
+by level allows the user to qu
+ickly see how many hops, or ca
+lls, a
+given function is from the sou
+rce function.
+New levels of calls can be add
+ed to the graph by the user.
+Direction: Each function node,
+ other than the source functio
+n, is considered to be in one 
+of two
+directions: In or Out. All fun
+ction nodes in a given level s
+hare the same direction. So, a
+ll nodes
+that directly call the source 
+function node are considered t
+o be the In direction; all nod
+es
+directly called by the source 
+function are considered to be 
+the Out direction.
+When a given node's level is e
+xpanded in the graph, the node
+s added are based upon the
+selected node's direction: for
+ In nodes, the newly added nod
+es will be those nodes that ca
+ll the
+selected node; for Out nodes, 
+the newly added nodes will be 
+those nodes called by the sele
+cted
+node.
+Direct Edges: An edge (a call)
+ between two adjacent levels.
+Indirect Edges: An edge (a cal
+l) between two non-adjacent le
+vels or an edge within the sam
+e
+level. These edges are rendere
+d with less emphasis than dire
+ct edges.
+
+Actions
+
+Show/Hide Edges Action
+Within the Function Call Graph
+ you can show and hide functio
+n calls as desired. Showing ad
+ditional
+function calls can be accompli
+shed multiple ways. From any f
+unction node, you can select t
+he Expand
+icon ( ), which appears on a n
+ode when hovered. When clicked
+, this button will toggle rela
+ted
+function calls: showing them i
+f not already in the graph; hi
+ding them if they are in the g
+raph.
+Additionally, these same funct
+ionality is provided from the 
+popup menu actions (i.e., Show
+/Hide
+Incoming Edges and Show/Hide O
+utgoing Edges).
+
+As new vertices are added to t
+he graph, any indirect edges w
+ill be added to the
+graph.
+Note here how new vertices may
+ appear in odd places when exp
+anding (such as when they are 
+already
+in the graph at a previous lev
+el).
+
+It is important to understand 
+that the graph is only a subse
+t of the entire program
+graph. This graph does not rep
+resent all functions and funct
+ion calls in the program.
+
+Sometimes a function may have 
+too many references to display
+ in the graph. When
+this happens, the function nod
+e will be a gray color, with t
+he expand icon replaced with a
+warning icon, as so:
+
+this happens, the function no
+de will be a gray color, with 
+the expand icon replaced with 
+a
+warning icon, as so:
+
+Function Call Graph Plugin 3/4
+
+Show/Hide Level Edges Action
+All functions that relate to t
+he Level of the selected funct
+ion will be shown, not just ca
+lls to the
+selected function.
+
+Navigate on Incoming Location 
+Changes
+This action ( ), when toggled 
+on, upon receiving Program Loc
+ation changes from the tool, w
+ill
+graph the function containing 
+that location. When toggled of
+f, location changes will not a
+ffect the
+graph.
+Having this action on is usefu
+l if you wish to quickly see t
+he graph of different function
+s as you
+navigate the program. Alternat
+ively, having this action off 
+is useful when you wish to exp
+lore the
+program by navigating from wit
+hin the graph, say by double-c
+licking function nodes in the 
+graph.
+
+Layout Action
+This action (
+
+) will relayout the current gr
+aph and reset the graph to sho
+w only the initial nodes.
+
+Graph 'Function Name'
+This action is available from 
+the popup menu of any node tha
+t is not the currently graphed
+ node.
+When pressed, this action will
+ graph the clicked function.
+
+Satellite View
+The Satellite View works exact
+ly as the Function Graph's Sat
+ellite View.
+
+Provided by: Function Call Gra
+ph Plugin
+Related Topics:
+Graphs
+
+Function Call Graph Plugin 4/
+4
+
+

@@ -1,0 +1,176 @@
+Comments
+
+Comments 1/3
+
+Comments can be added to any i
+nstruction or data item. There
+ are five categories of commen
+ts that are supported:
+End-of-line (EOL)
+
+Displayed to the right of the 
+instruction.
+
+Pre
+
+Displayed above the instructio
+n.
+
+Post
+
+Displayed below the instructio
+n.
+
+Plate
+
+Displayed as a block header ab
+ove the instruction. Plate com
+ments are automatically surrou
+nded by
+'*'s
+
+Repeatable
+
+Displayed to the right of the 
+instruction if there is no EOL
+ comment. These comments are a
+lso
+displayed at the "from" addres
+s of a reference to this code 
+unit, but only if there is no 
+EOL or
+repeatable comment defined at 
+the from address.
+
+You can create, edit, or delet
+e comments. You can also view 
+a history of comment changes f
+or each comment type. You may
+also use annotations to change
+ the display characteristics o
+f data entered into the commen
+t fields.
+
+Adding or Editing Comments (Se
+t Comment)
+Comments can be added or edite
+d using the Set Comment(s) dia
+log as follows:
+1.
+2.
+3.
+4.
+
+From the right-mouse pop-up me
+nu over the Code Browser windo
+w, select the Comments
+Choose the appropriate tab for
+ the type of comment that is t
+o be added or edited.
+Enter the comment text in the 
+text window.
+Press the OK button to save th
+e changes and close the dialog
+.
+
+Set menu option.
+
+If the Enter accepts comment c
+heckbox is selected, you can s
+imply press the Enter key to s
+et the comment and close
+the dialog. When the checkbox 
+is not selected, the Enter key
+ simply adds a new line to the
+ current comment for a multipl
+e
+line comment.
+
+Deleting Comments
+Delete Comment will remove a s
+pecified comment from the list
+ing. No confirmation is displa
+yed before the delete.
+
+To Delete a Comment:
+1. Right-click on the comment 
+to be deleted.
+2. Choose Comments
+Delete <comment type> Comment 
+from the popup-menu.
+
+Comments 2/3
+
+To undo a delete comment opera
+tion, use the Undo Operation.
+
+Navigating in the Code Browser
+If a comment contains a string
+ that can be interpreted as an
+ address or a label, you can n
+avigate (in the Code Browser) 
+to
+that address or label by doubl
+e clicking on the address or l
+abel in the comment. If the st
+ring matches more than one
+address or label, a Query Resu
+lts dialog displays the matche
+s.
+
+Displaying Comment History
+Comment history is maintained 
+for each change made to a comm
+ent. The history includes the 
+name of the user who made
+the change, the modification d
+ate, and the comment. Comment 
+changes are sorted in descendi
+ng date order (most recent
+date first).
+
+To view the history of changes
+,
+1. Right-click on the comment 
+that you would like to view th
+e history.
+2. Choose Comments
+Show History for <comment type
+>....
+If you are not over a specific
+ comment, right mouse click an
+d choose Comments
+
+Show History....
+
+3. A dialog containing a tab f
+or each of the comment types i
+s displayed.
+If the comment does not contai
+n history, then "No History Fo
+und" is shown in the tabbed pa
+nel for that
+comment.
+Select a tab to view comment h
+istory for that comment type.
+
+Only comments that are placed 
+at the start address of data o
+r instructions are displayed. 
+Comments on addresses other
+than the start (interior) addr
+ess will remain hidden until t
+he data or instructions are cl
+eared.
+
+Provided by: Edit Comments Pl
+ugin
+Related Topics:
+Bookmarks
+Browser Field Formatter
+Labels
+Annotations
+
+Comments 3/3
+
+

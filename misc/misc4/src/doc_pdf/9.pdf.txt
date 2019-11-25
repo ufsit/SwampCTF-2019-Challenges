@@ -1,0 +1,65 @@
+About Ghidra 1/2
+
+About Ghidra
+The About Ghidra dialog displa
+ys general application informa
+tion regarding Ghidra.
+
+To view information about Ghid
+ra
+From the menu-bar in tool, cli
+ck Help
+
+About Ghidra
+
+This option is also available 
+from the Ghidra Project Window
+Information displayed in the d
+ialog
+Version
+For example, "8.1"
+If "Dev" is included in versio
+n name, this version is a pre-
+release build
+Java Version
+For example, "11.0.1"
+Version of Java being used to 
+run Ghidra.
+Build date
+For example, "2019-Jan-18"
+
+Installed Processors
+The Installed Processors dialo
+g displays all processors supp
+orted by the various
+language modules currently ins
+talled. This list is quite bri
+ef and does not convey the
+assorted variants which may be
+ implemented for each processo
+r.
+
+This option is also available 
+from the Ghidra Project Window
+
+To view the Installed Process
+ors list
+From the menu-bar in tool, cli
+ck Help
+
+About Ghidra 2/2
+
+Installed Processors...
+
+User Agreement
+The User Agreement dialog disp
+lays the conditions that you m
+ust agree to in order to
+use the Ghidra tool. You agree
+d to these terms when you firs
+t ran Ghidra.
+
+Related Topics
+About Program File
+
+

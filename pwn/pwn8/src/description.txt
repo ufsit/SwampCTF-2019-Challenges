@@ -1,0 +1,17 @@
+Title: Wetware
+Idea:
+Johnny's Datapak has been corrupted.  We have the isomorph passphrase to decode the archive, but it looks like the decompression Neurosoft got tripped up by Johhny's quack neurodoc.  Can you splice in and just make it work?
+
+
+flag{51mpl3_C0d3_f0r_4_S1mpl3_j0b}
+
+The binary:
+it will have rwx sections that rewrite itself as it's executing
+
+main:
+//we want main to accept a "decompression passphrase"
+print("Decompression phrase: ")
+
+//(validate input?)
+//then the program will use this passphrase to decode the rest of the instructions:
+//problem is that once decoded

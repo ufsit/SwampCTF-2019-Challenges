@@ -1,0 +1,190 @@
+FileSystem Browser 1/5
+
+FileSystem Browser
+Introduction
+The file system browser is a g
+eneric tool for browsing and a
+ccessing the contents
+of filesystems or container fi
+les (such as zips, tars, firmw
+are images, etc).
+
+GHIDRA Tool File Menu Actions
+
+Open File System
+Opens a file system container 
+file (ie. a zip, tar, iso, etc
+) in a new
+browser tree.
+Subdirectories of your local c
+omputer's file system can also
+ be
+opened in this manner.
+
+Right-click Context Menu Actio
+ns
+
+Get Info
+Returns information about the 
+selected file. Sometimes there
+ will not
+be any available information. 
+Generally, this information is
+ not that
+useful. It will mostly consist
+ of meta-data from the interna
+l file
+system.
+Expand All
+Expands all folders below, and
+ including, the selected node.
+
+Collapse All
+
+FileSystem Browser 2/5
+
+Collapses all folders below, a
+nd including, the selected nod
+e.
+Open File System
+Attempts to open the selected 
+file as a sub-file-system. If 
+this
+operation succeeds, the node w
+ill turn into a folder with on
+e or more
+children. If this operation fa
+ils, the node will remain a le
+af node.
+This operation could fail for 
+many reasons, but generally it
+ fails
+because the node does not repr
+esent a valid sub-file-system.
+Open File System in new window
+Attempts to open the selected 
+file as a sub-file-system. If 
+this
+operation succeeds, a new file
+ system browsing tree will be 
+shown
+with the contents of the selec
+ted file.
+Open Program(s)
+Opens the GHIDRA program(s) th
+at correspond to the selected
+file(s). If no program in the 
+current GHIDRA project is link
+ed to the
+selected file, you will be abl
+e to import the selected file.
+Import
+Imports the selected file into
+ GHIDRA as new program in your
+current project.
+Batch Import
+Imports the selected file(s) i
+nto GHIDRA as new programs in 
+your
+current project using the Batc
+h Import dialog.
+
+Export
+
+FileSystem Browser 3/5
+
+Writes a copy of the selected 
+files to a directory you selec
+t on your
+local computer.
+Export All
+Recursively copies the content
+s of a selected folder to a di
+rectory
+you select on your local compu
+ter.
+View As Image
+Attempts to render the selecte
+d file as an image.
+View As Text
+Attempts to render the selecte
+d file as an text.
+List Mounted File Systems
+Displays a list of the file sy
+stems that are currently open 
+and
+mounted. Selecting one of the 
+file systems will display that
+ file
+system's browser tree.
+Close
+Closes the currently highlight
+ed file system root node. The 
+file
+system itself will not be unmo
+unted until all open browser w
+indows
+to it are closed and a caching
+ timeout period has passed.
+
+Browser Dialog Actions
+
+Display Supported File System
+s and Loaders
+
+FileSystem Browser 4/5
+
+Lists the currently supported 
+file systems.
+Open File System Chooser
+Opens a new file system contai
+ner file in a new browser tree
+. This is
+the same as "File | Open File 
+System" in the main GHIDRA win
+dow.
+
+How To Handle Unsupported File
+ Systems
+If you receive this message: N
+o file system provider for the
+ selected file.
+It means one of the following 
+two things:
+1. The file you attempted to o
+pen as a file-system is actual
+ly NOT a
+file-system
+2. GHIDRA does not have an imp
+lementation for that file-syst
+em
+If the file does not really re
+present a file system, then yo
+u may want to try
+importing it.
+Otherwise new file-systems can
+ easily be written by implemen
+ting the
+ghidra.formats.gfilesystem.GFi
+leSystem interface.
+
+Known issues
+
+Strong Crypto Support
+Your Java JVM install may not 
+have support for strong crypto
+currently installed.
+In order to fix this issue, yo
+u must install Oracle's "Java
+Cryptography Extension (JCE) U
+nlimited Strength Jurisdiction
+Policy Files"
+
+Cryptography Extension (JCE) 
+Unlimited Strength Jurisdictio
+n
+Policy Files"
+
+FileSystem Browser 5/5
+
+

@@ -1,0 +1,288 @@
+Creating a Project
+
+Creating a Project 1/6
+
+The New Project option creates
+ a new project. When you creat
+e a new project, Ghidra will c
+lose your current project,
+create the new project, and up
+date the Ghidra Project Window
+ with the newly created projec
+t. The New Project wizard
+takes you through the steps to
+ create either a non-shared pr
+oject or a shared project. The
+ shared project can be shared 
+with
+others, meaning that the proje
+ct will be associated with a r
+epository on a server that oth
+er users can access.
+
+To create a new non-shared pro
+ject:
+1. Select the File New Project
+... menu option from the Ghidr
+a Project Window.
+2. The first panel of the New 
+Project wizard is displayed, w
+here you choose the project ty
+pe.
+
+3. Leave the Non-Shared Projec
+t radio button selected to cre
+ate a project that will not be
+ shared with others.
+4. Activate the Next>> button.
+
+Creating a Project 2/6
+
+3. Click on the browse button 
+(... ) to display a file choos
+er; select the directory of wh
+ere you want your new project 
+to
+reside. The Project Directory 
+field defaults to the last dir
+ectory that you specified to c
+reate a new project.
+4. Enter the name of your new 
+project; the Finish button is 
+enabled.
+5. Activate the Finish button.
+ If you have a project opened,
+ Ghidra closes the project and
+ opens the new project.
+6. If there is an active proje
+ct and it has been modified, G
+hidra will prompt to save the 
+active project before closing 
+it. From
+the Save Modified Files dialog
+, click the OK button to save 
+changes to the project that is
+ being closed as the new one i
+s
+opened.
+
+Creating a Shared Project
+
+The discussion for this sectio
+n assumes the following:
+You have a Ghidra Server that 
+is set up to manage the projec
+t repository that you are goin
+g to access.
+You have been added to the ser
+ver's list of known users.
+If you are associating your pr
+oject with an existing project
+ repository, the Administrator
+ of the project has added you 
+as a
+user to the project repository
+.
+You know the name and port num
+ber of the Ghidra Server.
+If the Ghidra Server is using 
+PKI Authentication, you have a
+ PKI Certificate.
+To create a shared project,
+1. Select the File New Project
+... menu option from the Ghidr
+a Project Window; the first pa
+nel of the New Project wizard
+is displayed.
+2. Select the Shared Project r
+adio button on the Select Proj
+ect Type panel.
+
+Creating a Project 3/6
+
+3. Activate the Next >> button
+.
+
+4. Enter the name of the serve
+r or the IP address of the ser
+ver of where the repository re
+sides. (If you had specified s
+erver
+information for accessing anot
+her shared project, then the s
+erver and port number from tha
+t project are used as default
+values.)
+5. Enter the port number. The 
+default port number is 13100.
+6. Activate the Next >> button
+.
+
+Refer to the Troubleshooting p
+age if you fail to connect to 
+the Ghidra Server.
+
+Creating a Project 4/6
+
+7. In this example, three repo
+sitories are listed in the Rep
+ository Names list which refle
+ct all the repositories the us
+er has
+access to on the currently con
+nected server. This list may d
+iffer based upon your login cr
+edentials. By default, the Exi
+sting
+Repository radio button is sel
+ected because of the existing 
+repositories found on the serv
+er. Only those repositories yo
+u
+have been granted access to wi
+ll be included in this list.
+To use an existing repository,
+ leave the radio button select
+ed, and select a repository na
+me from the list of
+Repository Names.
+To create a new repository, se
+lect the Create Repository rad
+io button; the Repository Name
+ field becomes enabled.
+Enter the name of the new repo
+sitory. This option will be di
+sabled if you have logged into
+ the Ghidra Server in
+anonymous mode.
+8. Activate the Next>> button.
+ If you selected the Create Re
+pository radio button, then th
+e following sample Project Acc
+ess
+panel to specify user access i
+s displayed. If you are creati
+ng a new shared repository, yo
+u are by default the Administr
+ator
+in the project. You are not al
+lowed to change your own acces
+s. If the server has been conf
+igured with anonymous mode
+enabled, an additional checkbo
+x control will appear allowing
+ you to grant anonymous access
+ to this new repository.
+
+Creating a Project 5/6
+
+9. Users that are known to the
+ server are listed in the Know
+n Users area. Users that are p
+art of the project are marked 
+with
+the
+icon. To add users, select use
+rs from Known Users, select th
+e Add>> button. Add all users 
+by selecting the Add All
+button. To remove users, selec
+t users in the project, and se
+lect the <<Remove button. To r
+emove all users (except
+yourself), select the Remove A
+ll button.
+The Project Users table on the
+ right side of the dialog indi
+cates user privileges:
+Read Only - the user can open 
+programs in read only mode, ca
+nnot check out files from the 
+repository, and
+cannot check in files, and can
+not add files to the repositor
+y. The read only user may crea
+te a local copy of the
+program; the project repositor
+y is not affected.
+Read/Write - the user can chec
+k out files from the repositor
+y and check in files into the 
+repository, and add new
+files to the repository.
+Admin - the user has read/writ
+e privileges as well as the ab
+ility to add users to and remo
+ve users from the project;
+the Admin can assign administr
+ative privileges to other user
+s. The project must have at le
+ast one administrative
+user. The administrator also c
+an terminate a check out.
+If you are creating a project 
+against an existing repository
+, then you will not see the Pr
+oject Access panel as
+part of the New Project wizard
+. After you have opened the sh
+ared project, and if you are a
+n administrator in the
+existing repository, then you 
+can display and modify user pr
+ivileges by choosing the Proje
+ct Edit Project
+Access List... option.
+10. Active the Next>> button; 
+you must next specify where to
+ create your project that will
+ be associated with the projec
+t
+repository. Typically, you wou
+ld specify a directory on your
+ local file system.
+
+Creating a Project 6/6
+
+11. Select the project directo
+ry. The Project Directory fiel
+d defaults to the directory th
+at you last specified for a ne
+w project.
+Click on the browse (... ) but
+ton to bring up a file chooser
+.
+12. The Project Name field def
+aults to the name of the repos
+itory that you selected in Ste
+p 7. The Finish button is enab
+led
+when the Project Directory and
+ Project Name fields have vali
+d entries.
+13. Select the Finish button t
+o complete the New Project pro
+cess.
+Before the new project is open
+ed, if you made changes, you a
+re asked whether to save the o
+ld project. If you choose to
+open the new project, the defa
+ult tool Code Browser is in th
+e Tool Chest and no files are 
+associated with the project th
+at
+you have just created. Your cu
+rrent workspace is named "Work
+space."
+
+Related Topics:
+Ghidra Projects
+Close Project
+Save Project
+Open Project
+Archive Current Project
+Project Repository
+Edit Project Access List
+
+

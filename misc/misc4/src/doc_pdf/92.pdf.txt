@@ -1,0 +1,272 @@
+Ghidra Script Manager
+
+Ghidra Script Manager 1/4
+
+The Ghidra Script Manager allo
+ws for rapid development of ex
+tended Ghidra functionality. U
+nlike conventional Ghidra plug
+ins that require a full IDE fo
+r development, Ghidra scripts 
+can be developed right inside 
+of Ghidra while it is
+running. You can interactively
+ change your script and immedi
+ately re-run it.
+See Ghidra Script Development 
+for details on how to write a 
+script.
+
+Script Category Tree
+The script category tree will 
+organize scripts by category. 
+If you click on a node of the 
+tree it will only display scri
+pts in the table that are in t
+hat category or any sub-catego
+ries. Each script defines its 
+own category,
+which is arbitrary and optiona
+l. Scripts without explicitly 
+defined categories will appear
+ in the root "Scripts" categor
+y.
+Script Table
+The script table displays info
+rmation about the scripts.
+The first columnn indicates if
+ an action should be created f
+or the script. If a script has
+ a menu path or default key bi
+nding, then selecting this col
+umn will cause an action to be
+ created with that menu path a
+nd/or key
+binding. Selecting this column
+ for a script that has no menu
+ path or key binding set will 
+have no effect until the scrip
+t is modified to have a menu p
+ath or key binding. Deselectin
+g this column will also remove
+ any
+key bindings that were defined
+ via the script manager gui.
+The second columnn indicates t
+he status of the script. A bla
+nk field is a happy field. If 
+the column contains
+
+, then that script contains an
+ error.
+
+The Filename column indicates 
+the filename of the script.
+The Description column indicat
+es the description as defined 
+in the meta-data comment of th
+e script.
+The Key Binding column indicat
+es the key binding associated 
+to that script. If the field i
+s blank, then a key binding ha
+s not been assigned to the scr
+ipt. Setting a key binding wil
+l cause an action to get creat
+ed and
+therefore the first column wil
+l become checked.
+Filter
+The Search Filter allows you t
+o narrow the list of scripts d
+isplayed in the table. Only th
+ose scripts, whose name or des
+cription contains the string t
+hat you enter as the filter, w
+ill be displayed. As you type,
+ the table is
+updated to reflect the filter.
+Description Panel
+The Description Panel allows y
+ou to view meta data about the
+ selected script in the Script
+ Table, including such things 
+as author, description, key bi
+nding, etc.
+
+Script Manager Actions
+
+Run Script
+Runs the selected script. If t
+he script source file is out o
+f date, then it will first be 
+compiled. If the compilation i
+s successful, then the script 
+will be run. If the script doe
+s not compile, the compilation
+ errors will be
+displayed in the Console and a
+n error icon
+will be displayed in the first
+ column of the table.
+
+Run Last Script
+Runs the last run script. This
+ action is available as a keyb
+inding from within anywhere in
+ the tool, whether or not the 
+Script Manager is showing. To 
+see the current keybinding for
+ this action, hover over its i
+con in
+the toolbar of the Script Mana
+ger.
+Edit Script
+
+Edit Script
+Edits the selected script. For
+ more information on script me
+ta data, see Ghidra Script Dev
+elopment
+
+Ghidra Script Manager 2/4
+
+Refresh
+Will load the contents of the 
+current script from the file o
+n the filesystem. This action 
+is useful if you have edited t
+he script outside of Ghidra an
+d would like to have the edito
+r update to show those
+changes.
+Save
+Saves the changed script back 
+to the original file. The Save
+ option is only enabled when c
+hanges have been made.
+Save As...
+Saves the script (with any cha
+nges) to a new script file. Th
+e default directory is your ho
+me directory, however if addit
+ional script directories exist
+, then you will be prompted to
+ select a directory. This
+new script file becomes the ac
+tive script in the editor. Whe
+n selecting Save As..., Ghidra
+ will prompt for a filename.
+
+Undo
+Undo reverts the editor to the
+ state prior to the last edit.
+ You can undo up to 50 edits.
+Redo
+Redo returns the last edit bac
+k into the editor.
+Select Font
+Changes the font for all open 
+editors. It will also set the 
+default font that will be used
+ for all future editors. The d
+ialog allows you to specify th
+e font type, size, and style.
+
+Edit Script with Eclipse
+Edits the selected script in E
+clipse using the GhidraDev plu
+gin.
+
+Before a script can be edited 
+in Eclipse, an Eclipse install
+ation and workspace directory 
+must be defined in the Tool's 
+Eclipse Integration options.
+
+For more information on develo
+ping Ghidra scripts in Eclipse
+, see Extensions/Eclipse/Ghidr
+aDev/GhidraDev_README.html.
+
+Assign Key Binding
+
+Ghidra Script Manager 3/4
+Allows you to assign a key bin
+ding the selected script.
+1. Click in the text field and
+ type the key or keystroke com
+bination that you wish to assi
+gn to the script.
+
+The script key bindings are st
+ored in the Tool's Key Binding
+ options.
+
+Delete Script
+Deletes the selected script. Y
+ou will receive a confirmation
+ dialog.
+
+This is a permanent operation.
+You cannot delete scripts in t
+he system directory, as this m
+ay affect other users. If you 
+attempt to delete a system scr
+ipt, you will receive a warnin
+g dialog.
+Rename Script
+Renames the selected script. W
+hen selecting Rename, Ghidra w
+ill prompt for a new filename.
+
+Create New Script
+Creates a new empty script and
+ displays it in a Script Edito
+r.
+If more than one GhidraScriptP
+rovider exists, then you will 
+have to choose what type of sc
+ript to create.
+
+See Ghidra Script Development 
+for details on how to write a 
+script.
+
+Refresh Script List
+Refreshes the script list by r
+e-scanning the script director
+ies.
+Script Directories
+Allows you to add and remove d
+irectories to search for scrip
+ts. The default directories ar
+e your home directory and the 
+various system directories (e.
+g., $GHIDRA_HOME/Features/Base
+/ghidra_scripts
+). You
+can save directories, but igno
+re them in the Script Manager 
+dialog by selecting/deselectin
+g the "Use" column checkbox.
+
+$GHIDRA_HOME/Features/Base/gh
+idra_scripts
+can save directories, but igno
+re them in the Script Manager 
+dialog by selecting/deselectin
+g the "Use" column checkbox.
+
+Ghidra Script Manager 4/4
+
+Help
+Opens the Ghidra help viewer o
+n the GhidraScript API.
+
+Provided by: Ghidra Script Man
+ager Plugin
+Related Topics
+Key Bindings
+
+

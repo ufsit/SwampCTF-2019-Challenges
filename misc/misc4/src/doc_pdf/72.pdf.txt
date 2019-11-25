@@ -1,0 +1,535 @@
+Navigation 1/10
+
+Navigation
+Often, users need to navigate 
+to specific locations in a pro
+gram. Ghidra provides several
+different ways to do this:
+Enter a particular address or 
+label (Go To)
+Double-click on any displayed 
+label or address in the Code B
+rowser tool
+Jump directly to the Next/Prev
+ious Code Unit
+Use the Navigation History to 
+return to a previously visited
+ location
+
+Go To Address, Label, or Expre
+ssion
+
+To perform a Go To:
+1.
+2.
+3.
+4.
+
+In the menu-bar of a tool, sel
+ect Navigation
+Go To...
+The Go To dialog will be displ
+ayed, as shown below:
+Enter either an address, label
+, or expression as specified b
+elow and press "OK"
+If the address, lable, or expr
+ession is valid, the Code Brow
+ser will be repositioned to
+that location and the dialog w
+ill be dismissed
+5. If the address, label, or e
+xpression is not valid, the di
+alog will display an error
+message
+
+Go To Address, Label, or Expre
+ssion Dialag
+
+Go To Address
+Enter an address into the text
+ area of the dialog. The value
+ entered will be
+assumed to be in hexadecimal. 
+That is, "0x1000" and "1000" a
+re the same
+
+Enter an address into the tex
+t area of the dialog. The valu
+e entered will be
+assumed to be in hexadecimal. 
+That is, "0x1000" and "1000" a
+re the same
+value.
+When the program has multiple 
+address spaces and the destina
+tion
+address is ambiguous (based on
+ the current location), a quer
+y results dialog
+will be displayed.
+Consider the following example
+s:
+Given:
+A program with the following m
+emory blocks which
+reside in different address sp
+aces:
+Name
+
+Start Address
+
+End Address
+
+BLOCK1 BLOCK1:00000000 BLOCK1:
+0000ffff
+BLOCK2 BLOCK2:00000000 BLOCK2:
+0000ffff
+BLOCK3 BLOCK3:00000080 BLOCK3:
+0000ffff
+Example #1 - Unambiguous addre
+ss
+1. Set the current location to
+ BLOCK1:00001000
+2. Goto address "5"
+3. The destination is not ambi
+guous:
+The BLOCK1 block has an addres
+s "5" so the
+listing will move to address 5
+.
+
+Example #2 - Ambiguous Address
+1. Set the current location to
+ BLOCK3:00000080
+2. Goto address "5"
+3. The destination is ambiguou
+s because:
+The BLOCK3 block does not have
+ an address "5"
+Both the BLOCK1 and BLOCK2 blo
+cks have an
+address "5"
+4. A Query Results dialog will
+ be displayed as shown in the
+image below.
+
+Navigation 2/10
+
+Navigation 3/10
+
+Ambiguous Destination Address
+
+Go To Label
+Enter the name of an existing 
+label into the text area of th
+e dialog.
+Case Sensitive
+By default, the values entered
+ are case sensitive. That is,
+"LAB1000" is not the same as "
+lab1000." If you want to find 
+both
+of these labels, turn off the 
+case sensitive option. If more
+ than one
+match is found, they are displ
+ayed in a Query Results dialog
+.
+Even if the case sensitive opt
+ion is off, if a label has an 
+exact
+match, no other labels will be
+ found.
+Dynamic Labels
+This option only affects queri
+es that could potentially resu
+lt in
+multiple results, i.e when a s
+earch must be performed versus
+ a
+lookup. This occurs when eithe
+r the case sensitive is turned
+ off or
+a wildcard is used. Specifical
+ly, this option tells Ghidra, 
+when
+doing a search versus a direct
+ lookup, to consider all the D
+ynamic
+symbols (symbols that are not 
+stored, but are generated on t
+he fly
+because of a reference to that
+ location.) If this option is 
+off, only
+defined labels are searched.
+Turning off this option can re
+sult in significantly faster
+results in larger programs.
+
+Navigation 4/10
+
+Go To Expression
+Enter an arithmetic expression
+ that can include addresses, s
+ymbols, or can be
+relative to the current locati
+on. All numbers are assumed to
+ be hexadecimal.
+Supported operator are "+ - * 
+/ << >>". Also, parentheses ar
+e supported to
+control order of expresion eva
+luation.
+For example:
+ENTRY+10
+0x100000+30
+0x100000+(2*10)
++20
+
+Positions the cursor at the ad
+dress 0x10 addresses past the 
+symbol ENTRY.
+Positions the cursor at addres
+s 0x100030.
+Posiitons the cursor at addres
+s 0x100020.
+Positions the cursor at an add
+ress that is 0x20 past the cur
+rent location.
+
+Executing a Query
+A Query performs a case-insens
+itive search for all labels th
+at match the criteria.
+A Query is specified using wil
+dcards.
+Using Wildcards
+Wildcard characters ("?" or "*
+") can be used when searching 
+for
+labels. Wildcards are useful i
+f you don't know the full labe
+l name
+or don't want to type the enti
+re name.
+Asterisk (*)
+You can use the asterisk as a 
+substitute for zero or more ch
+aracters.
+Example
+If you're looking for a label 
+that you know starts with "glo
+ss", type
+the following:
+gloss*
+The Go To Address or Label dia
+log will locate all labels tha
+t begin
+with "gloss" including Glossar
+y.txt, Glossary.doc, and
+Glossy.doc. To narrow the sear
+ch to a specific extension, ty
+pe:
+
+gloss*.doc
+
+Navigation 5/10
+
+In this case, the Go To Addres
+s or Label dialog will find al
+l labels
+that begin with gloss but have
+ the extension .doc, such as
+Glossary.doc and Glossy.doc.
+Question Mark (?)
+Use the question mark as a sub
+stitute for a single character
+ in a
+name.
+Example 1
+If you typed gloss?.doc, the G
+o To Address or Label dialog w
+ould
+locate the label Glossy.doc or
+ Gloss1.doc, but not Glossary.
+doc.
+Example 2
+Suppose that two of the labels
+ in a program were FUN_0040816
+d
+and FUN_004081bd. A possible q
+uery string to match these two
+labels would be FUN_004081?d. 
+The results of the query are
+displayed in a Query Results d
+ialog, as shown below.
+
+Query Results Dialog
+
+Repeating a Previous Go To
+Each time a Go To Label or a Q
+uery is performed, it is store
+d in the
+drop-down box as shown in the 
+image below.
+
+drop-down box as shown in the
+ image below.
+Navigation 6/10
+
+Previous Go to List
+
+To repeat a previous Go To or 
+Query:
+1. Select the item from the En
+ter an address or label: drop-
+down box
+2. Click the OK button
+
+Error Messages
+When a Go To or Query fails, a
+n error message will be displa
+yed in the status
+area of the dialog.
+1. Entering an invalid address
+ or non-existing label
+The dialog displays "This is n
+ot a query, label, or address.
+"
+2. Specifying a query that has
+ no results
+The dialog displays "No result
+s for ...", where "..." is the
+ query
+string.
+
+Provided by: Go To Address or 
+Label plugin
+
+Next/Previous Code Unit
+
+The Next/Previous Code Unit f
+eature allows the user to jump
+ directly to the next or Navig
+ation 7/10
+previous Instruction, Data, Un
+defined, Function or Non Funct
+ion. The search starts at the
+current cursor location and pr
+oceeds either forward (next) o
+r backwards (previous).
+When searching for Instruction
+s, Data or Undefined items, Gh
+idra will skip all
+contiguous items of the same t
+ype. For example, if the curso
+r is on an address with an
+Instruction, and you go to the
+ next Instruction, then all In
+structions immediately followi
+ng
+the current one will be skippe
+d until a non-Instruction is f
+ound. Once that non-instructio
+n is
+found, then Ghidra will take y
+ou to the next Instruction aft
+er the address of that
+non-Instruction.
+Search Direction
+The
+icon indicates the search will
+ performed in the forward (nex
+t)
+direction, and the
+icon indicates the search will
+ be performed in the
+backward (previous) direction.
+ To change the direction of th
+e code unit search,
+toggle the arrow icon on the t
+oolbar.
+Navigate to Instruction
+To move the cursor to the next
+ instruction click on the Navi
+gate by Instruction
+icon, . This icon is disabled 
+when no more instructions exis
+t in the current
+search direction.
+Navigate to Data
+To move the cursor to the next
+ data code unit, click on the 
+Navigate by Data
+icon, . This icon is disabled 
+when no more data code units e
+xist in the
+current search direction.
+Navigate to Undefined
+To move the cursor to the next
+ undefined code unit, click on
+ the Navigate by
+Data icon, . This icon is disa
+bled when no more undefined co
+de units exist
+in the current search directio
+n.
+Navigate to Label
+
+To move the cursor to the nex
+t Label, click on the Navigate
+ by Label icon, .Navigation 8/
+10
+This icon is disabled when no 
+more labels exist in the curre
+nt search direction.
+Navigate to Function
+This ( ) action will move the 
+cursor to the next function in
+ the current
+direction. If inside a functio
+n and the direction is towards
+ lower addresses, then
+this action will go to the cur
+rent function's entry point.
+Navigate to Non-Function
+This task ( ) will attempt to 
+the navigate to the next instr
+uction block not
+contained in a function. This 
+can be useful when manually cr
+eating functions and
+stepping over them to identify
+ potential function candidates
+.
+Navigate to Different Byte Val
+ue
+This task ( ) will attempt to 
+the navigate to the first code
+-unit where the byte value
+is different from the byte val
+ue of the first byte of the cu
+rrent code unit. This can
+be useful when trying to navig
+ate past a series of 0s or FFs
+;
+Navigate to Bookmark
+To move the cursor to the next
+ bookmark, click on the Naviga
+te by Bookmark
+icon,
+. This icon is disabled when n
+o more bookmarks exist in the 
+current
+search direction. You may use 
+the pull-down menu to choose a
+ specific type of
+bookmark ( , , , , , ) to navi
+gate to as opposed to all type
+s.
+
+Provided by: Go To Next-Previ
+ous Code Unit plugin
+
+Navigation 9/10
+
+Next/Previous Function
+Navigating to the next or prev
+ious function is a commonly us
+ed feature. As such, separate
+actions have been created so t
+hat keybindings can be assigne
+d for each direction.
+Next Function
+This action navigates the curs
+or to the closest function ent
+ry point that is at an
+address greater than the curre
+nt address. The default keybin
+ding is
+Control-Down Arrow
+.
+Previous Function
+This action navigates the curs
+or to the closest function ent
+ry point that is at an
+address less than the current 
+address. The default keybindin
+g is
+Control-Up Arrow.
+
+Provided by: CodeBrowser plugi
+n
+
+Navigation History
+As the user performs various t
+ypes of navigations, the curre
+nt location is pushed onto the
+navigation history stack. The 
+navigation history feature all
+ows the user to revisit previo
+us
+locations.
+Go To Next/Previous Location
+To traverse the history stack:
+1. In the tool-bar, click eith
+er the Go to previous location
+ (
+
+) button or
+
+1. In the tool-bar, click eit
+her the Go to previous locatio
+n ( ) button or
+the Go to next location ( ) bu
+tton
+Navigation 10/10
+2. The Code Browser will be re
+positioned to the saved locati
+on
+
+Some Operations that add to th
+e navigation history:
+Go To Address or Label
+Double-clicking on operands co
+ntaining addresses or labels
+Double-clicking on XREFs (fiel
+d in the Code Browser)
+Clicking on the start or end a
+ddress of a memory block using
+ the
+memory map dialog
+Clicking on the address of an 
+equate reference using the equ
+ates table
+Performing a search (Memory, P
+rogram Text, etc)
+
+The
+
+button is only enabled after p
+erforming a
+
+Clear History
+To clear the navigation histor
+y stack, select Navigation
+After clearing the history, th
+e
+
+Provided by: Next/Previous plu
+gin
+Related Topics:
+Query Results
+Code Browser
+Search Memory
+Search Program Text
+
+and
+
+Clear History
+
+buttons are disabled
+
+

@@ -1,0 +1,543 @@
+Equates
+
+Equates 1/7
+
+An Equate is a string substitu
+tion for scalar (a numeric val
+ue) in any code unit (instruct
+ion operand or data). For exam
+ple, consider
+the instruction below:
+MOV R2, $0xb
+The scalar $0xb can be replace
+d with the string BATTERY_FLAG
+_CRITICAL. This will yield the
+ following:
+MOV R2, BATTERY_FLAG_CRITICAL
+The substitution of "BATTERY_F
+LAG_CRITICAL" for $0xb is call
+ed an equate. That is, $0xb is
+ equated to
+"BATTERY_FLAG_CRITICAL". Note 
+that the default choice for th
+e new equate application is yo
+ur current location.
+"BATTERY_FLAG_CRITICAL" will r
+eplace the scalar value $0xb o
+nly at the current cursor loca
+tion unless you choose a diffe
+rent
+option. However, when replacin
+g another scalar of the same v
+alue, a list of previously dec
+lared Equates for that scalar 
+value is
+presented.
+Scalars can only be equated to
+ strings. The string can be of
+ any length and may contain sp
+aces and special characters. D
+uplicate
+equate names are not allowed.
+
+It should be noted that for th
+e purposes of this document, "
+scalars" refers to scalar valu
+es contained in code units. A 
+code
+unit is an instruction operand
+ or other data element.
+There are several operations t
+hat are associated with Equate
+s. They are:
+Set Equate
+Rename Equate
+Remove Equate
+Apply Enum
+View Equates
+Convert
+
+Set Equate
+The Set Equate action will cre
+ate one or more Equates in the
+ Listing.
+To set an Equate:
+1. Right-mouse-click on the ta
+rget scalar value, and select 
+Set Equate or press <E>.
+
+Equates 2/7
+
+2. When the dialog appears, ei
+ther type in an equate string 
+or choose one from the list of
+ strings that are known to be 
+associated with
+the given value. As you type i
+n the "Equate String" field, t
+he list will be narrowed down 
+to show only the strings that 
+contain the
+text that has been typed.
+3. Select one of the choices f
+rom the "Apply To" list. Curre
+nt Location is the default cho
+ice unless a selection is made
+, in which case
+the Current Selection option w
+ill be set. The other option i
+s Entire Program.
+a. Current Location: When sele
+cted the equate will be applie
+d to the scalar value at the c
+urrent location of your cursor
+ only.
+b. Current Selection: When sel
+ected the equate will be appli
+ed to all of the scalar values
+ in your current selection tha
+t match
+the value of the scalar that y
+ou originally clicked. When yo
+u make a selection in your pro
+gram this button will become
+enabled. If you do not make a 
+selection then it will not be 
+enabled and the option will be
+ grayed out. Note that scalars
+ in
+your selection that already ha
+ve an equate set will not be a
+ffected by this unless you als
+o select the overwrite option.
+c. Entire Program: When select
+ed the equate will be applied 
+to all of the scalar values in
+ the entire program that also 
+match
+the value of the scalar that y
+ou originally right-mouse-clic
+ked on.
+d. Overwrite existing equates:
+ This option is only enabled w
+hen setting equates in a selec
+tion or the whole program. If 
+this
+option is selected, all scalar
+s and all named equates in the
+ selection or entire program, 
+depending on which option is
+selected, will be set with the
+ user-given equate name. If th
+e overwrite option is not sele
+cted, only scalars not already
+ with
+equates set will be assigned t
+he user-given equate name.
+4. Double-click on an entry in
+ the list, or select an entry 
+in the list and press OK, or t
+ype in the string and press OK
+. If any item in the
+list is selected it will be us
+ed, otherwise the text in the 
+"Equate String" field will be 
+used.
+
+The list of strings shown in t
+he Set Equate dialog are gener
+ated from two sources. The fir
+st source is all the
+currently assigned equates to 
+the given value. The other sou
+rce is all the Enum datatypes 
+that exist in all the open
+datatype archives. If an Enum 
+datatype exists that has a mem
+ber value equal to the given e
+quate value, then that string
+will be included.
+The open data type archives co
+ntain valid enums and "fake" e
+nums. The fake enums are creat
+ed from #define
+values (parsed from .h files),
+ specifically so that they wil
+l be available in the Set Equa
+te dialog.
+
+Each entry in the dialog is c
+olor-coded based upon how it i
+s being used as an equate.
+
+Equates 3/7
+
+a. Blue: Blue entries are exis
+ting user-defined string equat
+es that are being used for tha
+t scalar.
+b. Black: Black entries are ex
+isting enum field equates bein
+g used for that scalar.
+c. Gray: Gray entries are sugg
+ested enum fields that have th
+e same value as the scalar. Th
+ese entries are only
+suggestions, and have not yet 
+been made equates.
+
+Rename Equate
+The Rename Equate action will 
+rename one or more instances o
+f a named Equate in the Listin
+g.
+To rename an Equate:
+1. Right-mouse-click on the cu
+rrent Equate, and select Renam
+e Equate or press <E>.
+
+2. Select one of the choices f
+rom the "Apply To" list. Curre
+nt Location is the default cho
+ice unless a selection is made
+, in which case
+the Current Selection option w
+ill be set. The other option i
+s Entire Program.
+a. Current Location: When sele
+cted the equate will be applie
+d to the scalar value at the c
+urrent location of your cursor
+ only.
+b. Current Selection: When sel
+ected the equate will be appli
+ed to all of the scalar values
+ in your current selection tha
+t match
+the value of the scalar that y
+ou originally clicked. When yo
+u make a selection in your pro
+gram this button will become
+enabled. If you do not make a 
+selection then it will not be 
+enabled and the option will be
+ grayed out.
+c. Entire Program: When select
+ed the equate will be applied 
+to all of the scalar values in
+ the entire program that match
+ the
+value of the scalar that you o
+riginally clicked. Scalars tha
+t already have an equate set t
+hat is different from the one 
+you
+selected will not be affected.
+3. Double-click an entry in th
+e list, select an entry in the
+ list and press OK, or type in
+ the string and press OK. If a
+ny item in the list is
+selected it will be used, othe
+rwise the text in the "Equate 
+String" field will be used.
+
+3.
+selected it will be used, othe
+rwise the text in the "Equate 
+String" field will be used.
+
+Equates 4/7
+
+Remove Equate
+The Remove Equate action will 
+remove an Equate(s) from a lis
+ting; effectively returning th
+e operand to its original scal
+ar
+value.
+To remove references to an Equ
+ate via the context popup menu
+:
+1. Right-mouse-click on an exi
+sting Equate, or select a grou
+p of equates and right-click o
+n an equate within that select
+ion, then choose
+Remove Equate or press <Delete
+>.
+2. If you made a group selecti
+on, a confirmation dialog will
+ appear to ensure you want to 
+remove all equates in the sele
+ction; equates
+within the selection matching 
+the one you clicked will be re
+moved.
+
+To remove all references of an
+ Equate via the Equates Table 
+window:
+1. Select the Code Browser men
+u option Window Equates Table 
+to bring up the Equates Table 
+window.
+2. Right-mouse-click on the Eq
+uate to be deleted and select 
+Delete.
+3. A confirmation dialog will 
+appear.
+
+4. Select Delete to remove all
+ references to the equate and 
+the Equate's definition itself
+.
+
+Apply Enum
+The Apply Enum action will app
+ly enum member names to scalar
+s in the current selection if 
+any of the enum values match
+scalars in the current selecti
+on.
+To apply an enum to the select
+ion:
+1. Make a selection and then R
+ight-mouse-click, then choose 
+Apply Enum. Note that the Appl
+y Enum action will only appear
+ in the
+Right-mouse menu if there is a
+ selection and if there are sc
+alars within the selection.
+
+Equates 5/7
+
+2. A dialog similar to the one
+ below should appear. Select t
+he enum that you want to be ap
+plied to the selection. The da
+ta type must be
+an enum for the action to work
+.
+
+Apply to sub-operands - Applie
+s the enum to scalars within o
+perands.
+Once the data type is selected
+, the scalars in the selection
+ will have equates applied to 
+them as shown below.
+
+View Equates
+The Display Equates Table acti
+on displays a window which lis
+ts all of the Equates and thei
+r references in a tabular form
+at.
+
+Equates 6/7
+
+The left panel, Equates, lists
+ name, value, and number of re
+ferences for all Equates. The 
+right panel, References, lists
+ the
+address and operand index of e
+ach location that references t
+he Equate selected in the left
+ panel. Selecting an address o
+n the
+References panel will cause th
+e Code Browser to go to that a
+ddress in the listing. The Equ
+ates panel and the References 
+panel
+can each be sorted by any colu
+mn. The ascending and descendi
+ng indicator displays the sort
+ order of the information.
+To view the Equates Table sele
+ct the Code Browser menu optio
+n Window
+window.
+
+Equates Table to bring up the 
+Equates Table
+
+You can re-order the columns i
+n the Equates table by draggin
+g the header to another positi
+on in the table. Sort the colu
+mns by
+double-clicking on the header.
+ By default, equates are sort 
+alphabetically. You can re-ord
+er the References table and so
+rt by the
+operand index, Op Index. By de
+fault, the references are sort
+ed by reference address in asc
+ending order.
+You can also rename the equate
+ by double clicking in the nam
+e field and entering a new nam
+e. If the equate is based off 
+of an
+enum, then an enum editor dial
+og will appear. Changing the m
+atching field name will also c
+hange the equate name.
+Each equate is color-coded bas
+ed upon how it is being used.
+a. Blue: Blue equates are exis
+ting user-defined string equat
+es that are being used for tha
+t scalar.
+b. Black: Black equates are ex
+isting enum field equates bein
+g used for that scalar.
+c. Red: Red entries are bad eq
+uates. A bad equate could eith
+er mean that the enum that thi
+s equate is based off of
+was deleted, the field inside 
+the enum was deleted, or the f
+ield's value was changed.
+
+Convert
+The various convert actions ar
+e used to change the number fo
+rmat display of scalars displa
+yed in the code browser. These
+actions are available whenever
+ the cursor is on a number in 
+the operand field, or the valu
+e field of a data item (byte, 
+word,
+dword, qword). Note that these
+ actions and equates are not c
+urrently supported for composi
+te and array data. For
+instruction operands, the scal
+ar number is converted visuall
+y by replacing the number with
+ an appropriately named equate
+.
+Such a conversion can be clear
+ed by removing the equate from
+ the operand. For data value f
+ields, a combination of data
+format settings and signed/uns
+igned data type alteration is 
+used to reflect a conversion. 
+The available formats are as f
+ollows.
+Signed Decimal
+The existing scalar value will
+ be displayed as a signed deci
+mal number. This action is onl
+y available if the value can b
+e
+interpreted as a negative valu
+e.
+Unsigned Decimal
+The existing scalar value will
+ be displayed as an unsigned d
+ecimal number. If the value wo
+uld be positive even if the si
+gned
+decimal format was selected, t
+he action will simply be name 
+Decimal instead of Unsigned De
+cimal.
+Unsigned Octal
+
+Unsigned Octal
+
+Equates 7/7
+
+The existing scalar value will
+ be displayed as an unsigned o
+ctal number.
+Signed Hex
+The existing scalar value will
+ be displayed as a signed hexa
+decimal number. This action is
+ only available if the value c
+an be
+interpreted as a negative valu
+e, and is only supported on in
+struction operands since the d
+ata hex format currently suppo
+rts
+unsigned rendering only.
+Unsigned Hex
+The existing scalar value will
+ be displayed as an unsigned h
+exadecimal number.
+Char / Char Sequence
+The existing scalar value will
+ be displayed as either a sing
+le ASCII character or a sequen
+ce of ASCII characters, whiche
+ver is
+more appropriate. Invalid and 
+non-printable ASCII characters
+ will be rendered in hex (e.g.
+, \x20).
+Unsigned Binary
+The existing scalar value will
+ be displayed as an unsigned b
+inary number.
+Float
+The existing scalar value will
+ be displayed as a IEEE 754 si
+ngle precision floating point 
+number. The floating point siz
+e is
+processor specific and will ma
+tch the size of the Float data
+ type. This action is only sup
+ported on instruction operands
+.
+Double
+The existing scalar value will
+ be displayed as a IEEE 754 do
+uble precision floating point 
+number. The floating point siz
+e is
+processor specific and will ma
+tch the size of the Double dat
+a type. This action is only su
+pported on instruction operand
+s.
+The convert actions also work 
+on an instruction selection. J
+ust make a selection then choo
+se an operand scalar value to
+convert. All matching instruct
+ion scalar values in the selec
+tion will be converted.
+Based upon how an instruction 
+is implemented by its' associa
+ted language module, a hexadec
+imal operand which appears
+to be negative may in fact be 
+a positive scalar with negativ
+e sign '-' character prepended
+. In such cases, the convert a
+ction may
+not produce the expected resul
+t.
+The presence of a primary refe
+rence on an operand may preven
+t rendering of the converted s
+calar value since reference
+markup takes precedence over e
+quates and data formatting.
+
+Provided By: EquatePlugin and 
+EquateTablePlugin
+
+

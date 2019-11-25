@@ -1,0 +1,27 @@
+Searching 1/1
+
+Searching
+Ghidra offers a variety of sea
+rching capabilities. The Searc
+h Program Memory feature
+performs fast searching for by
+te patterns in program memory.
+ The Search Program
+Text feature searches for text
+ strings in various parts of t
+he listing such as comments,
+labels, mnemonics, and operand
+s. The Search For Strings feat
+ure automatically finds
+potential ascii strings within
+ the program memory.
+Related Topics:
+Search Memory
+Search Program Text
+Search For Strings
+Search For Address Tables
+Search For Direct References
+Search For Instruction Pattern
+s
+
+

@@ -1,0 +1,137 @@
+Configure Tool
+
+Configure Tool 1/3
+
+The Configure Tool dialog allo
+ws you to add/remove plugin pa
+ckages or individual Plugins f
+rom a tool. To display the Con
+figure Tool dialog,
+select File
+Configure....This dialog is al
+so displayed when you create a
+ new tool.
+
+The Configure Tool dialog show
+s a list of plugin packages th
+at can be added to the tool. C
+licking the checkbox will add 
+(or
+remove) all the plugins in the
+ package to the tool. Clicking
+ on the Configure link will br
+ing up a dialog for adding ind
+ividual
+plugins.
+
+The Ghidra Project Window's Co
+nfigure display shows its own 
+list of eligible front-end plu
+gins, as only
+certain plugins may be added t
+o the Project Window.
+Saving
+Save changes to your tool by c
+licking on the
+clicking on the
+icon.
+
+icon in the dialog's toolbar; 
+save your tool to a different 
+name by
+
+Configuring All Plugins
+To Configure all plugins regar
+dless of package, select the
+dialog will appear with all pl
+ugins in its plugin table.
+
+icon in the dialog's toolbar a
+nd the Configure Plugins
+
+The Experimental package can'
+t be added as a package. Exper
+imental plugins must be added 
+individually.
+
+Configure Tool 2/3
+
+Configure Plugins Dialog
+Selecting the Configure link f
+or a package will bring up the
+ the Configure Plugins Dialog.
+
+The dialog has two parts: A ta
+ble at the top of the dialog t
+hat shows of all the plugins i
+n the package and an informati
+on window
+at the bottom that shows detai
+ls about an individual plugin.
+
+Plugin Table
+The plugin table shows the fol
+lowing information for each pl
+ugin:
+Checkbox to indicate whether t
+he plugin is in the tool;
+A status icon:
+none
+
+- the plugin is good. It has h
+elp and been reasonably tested
+.
+- the plugin is useable, but h
+as not been fully tested and/o
+r not documented.
+- the plugin is under developm
+ent and may not be usable at a
+ll. Not included with producti
+on
+distribution.
+Plugin name: the name is displ
+ayed in red when some other pl
+ugin depends on this plugin;
+Short description of the plugi
+n;
+Category for where the plugin 
+belongs functionally, e.g., it
+ works in the context of a Cod
+e Browser or Byte
+Viewer, etc.
+
+The Search Filter allows you 
+to narrow the list of plugins 
+displayed in the table. Only t
+hose plugins whose name or
+description contains the strin
+g that you enter as the filter
+ will be displayed. As you typ
+e, the table is updated to Con
+figure Tool 3/3
+reflect the filter.
+Information Window
+When you select a row in the t
+able, the scrolled window belo
+w the table shows more informa
+tion about the plugin
+and any contact information th
+at the author supplied, e.g., 
+author's name, organization, e
+tc. The Dependencies
+section lists the class names 
+of the plugins that depend on 
+the selected plugin due to som
+e service that it provides.
+The Class Location indicates f
+rom where the java classes are
+ being loaded.
+
+Related Topics:
+Create Tool
+Configure the Ghidra Project W
+indow
+Save Tool to Tool Chest
+Ghidra Tool Administration
+
+

@@ -1,0 +1,155 @@
+Query Results Window 1/3
+
+Query Results Window
+The Query Results window displ
+ays search results from variou
+s sources (plugins). The
+window is useful for navigatin
+g to a resultant location or s
+electing some number of
+result locations for another o
+peration that requires a selec
+tion. The information
+displayed in each column may d
+iffer depending on the search 
+operation that populated
+the window. However, the windo
+w's capabilities are the same.
+ The image below shows
+the results of a search. You w
+ill also see the Query Results
+ window when you do a Go
+To for matching a wildcard ent
+ry.
+
+Each row of the table is assoc
+iated with an address or locat
+ion within the
+program. There may be multiple
+ entries for the same address,
+ depending on the
+type of search. For example, w
+hen searching text, a string m
+ay appear multiple
+times in the same pre-comment.
+ So, you will see an entry for
+ each in the Query
+Results window. The title bar 
+shows the number of entries be
+ing displayed.
+The tool has an option for the
+ maximum number of search resu
+lts. The search
+
+The tool has an option for th
+e maximum number of search res
+ults. The
+search
+Query
+Results Window 2/3
+will stop after this number ha
+s been exceeded. To see more s
+earch results,
+increase your search limit.
+Navigation
+As with most tables in Ghidra,
+ you may change the location o
+f the cursor within
+the tool by clicking on the va
+rious table cells. The locatio
+n to which the cursor is
+moved depends upon which table
+ cell is clicked. For example,
+ clicking on the
+location column will move the 
+cursor to the location where t
+he match was found.
+Alternatively, clicking on a l
+abel in the label column will 
+move the cursor to the
+corresponding label in the lis
+ting panel.
+Marker Margins
+When searching strings or memo
+ry, a yellow arrow marker
+Make Selection
+A selection in the Listing can
+ be created from the entries i
+n the results table. The
+selection can also be used as 
+input to another operation tha
+t uses the current
+selection, e.g., a follow-on s
+earch that is restricted to th
+e results of the first
+search using the current selec
+tion.
+To create a selection from all
+ the result items,
+1. Click in the results table 
+and press Ctrl+A.
+2. Click on the
+in the tool bar, or right mous
+e click and
+choose Make Selection.
+3. The current selection will 
+be set to the address of each 
+result
+item.
+To create a selection from a s
+ubset of the items,
+1. Select the result items wit
+h the Ctrl+left-mouseor
+Shift+left-mouse.
+2. Press and hold the right mo
+use button over the results ta
+ble.
+3. Click on the
+in the tool bar, or right mous
+e click and
+choose Make Selection.
+
+3. Click on the
+in the tool bar, or right mous
+e click and
+choose Make Selection.
+Query Results Window 3/3
+4. The current selection will 
+be set to the address of all t
+he
+highlighted items.
+
+Remove Items
+You can remove entries from th
+e table via this action. Items
+ are only removed
+from the table--no program dat
+a is changed. This can be usef
+ul when you wish to
+exclude results that are of no
+ interest to you.
+Selection Navigation
+This action causes the Listing
+ to navigate to the address re
+presented by a row
+when that row is selected. Tog
+gling this action on allows yo
+u to use the up and
+down arrow keys to change the 
+selection in the table while a
+lso navigating to that
+address in the Listing. You ma
+y also use this action to trig
+ger navigation when
+single-clicking a table row.
+
+Renaming Windows
+
+see Docking Windows - Renaming
+ Windows
+Related Topics:
+Tool Options
+Text Search
+Go To
+
+

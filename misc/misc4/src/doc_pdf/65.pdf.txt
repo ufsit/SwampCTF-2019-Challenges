@@ -1,0 +1,726 @@
+Variables 1/8
+
+Function Signature, Attributes
+ and Variables
+Function Signature
+A function's signature conveys
+ the following information abo
+ut a function:
+1.
+2.
+3.
+4.
+
+The compiler-specific named ca
+lling convention
+The function's return data typ
+e (void indicates no return va
+lue)
+The function's name
+Ordered list of named paramete
+rs and associated data types.
+
+Function Attributes
+The following function attribu
+tes affect disassembly and sem
+antic analysis and may be set 
+via the Edit Function dialog.
+Custom Storage
+The Custom Storage option, if 
+enabled, provides the ability 
+to explicitly specify return/p
+arameter storage. By default,
+storage will be dynamically co
+mputed based upon calling conv
+ention and return/parameter da
+ta types. When dynamic
+storage is computed, hidden "a
+uto-parameters" may be injecte
+d as well as the use of "force
+d-indirect" storage.
+Inline
+Any Inline function called by 
+another function may be treate
+d as inline code instead of a 
+function call during analysis.
+No Return
+While a typical function call 
+is always assumed to return an
+d continue flowing to the next
+ instruction, marking a functi
+on
+as No Return forces an implied
+ return immediately following 
+a call to such a function. Dep
+ending upon the state of
+disassembly, marking a functio
+n as No Return may help to pre
+vent a call to such a function
+ from falling-thru to the next
+instruction during disassembly
+. If disassembly has already b
+een done and the fall-thru has
+ been improperly disassembled,
+the Clear Flow and Repair acti
+on may be used to cleanup the 
+bad fall-through.
+Varargs
+Designated by a trailing '...'
+ in the function signature, in
+dicates that a variable number
+ of parameters is allowed. Com
+mon
+C functions which employ Varar
+gs are printf and scanf.
+Call-Fixup
+A function may be tagged with 
+a predefined Call-Fixup which 
+can be used to alter/simplify 
+the semantic effect of calling
+such a function. The available
+ set of predefined call-fixups
+ are defined within the compil
+er specification (*.cspec file
+)
+associated with a program. Thi
+s feature is typically used wh
+en the effects of calling a we
+ll-known function need to be
+simplified so that the caller 
+can be more easily analyzed an
+d/or understood.
+
+Variables
+There are two classes of funct
+ion variables: Parameters and 
+Local Variables. The term Para
+meter also includes the Functi
+on
+
+There are two classes of func
+tion variables: Parameters and
+ Local Variables. The term Par
+ameter also includes the Funct
+ion
+Variables 2/8
+return value which has an asso
+ciated data type and storage b
+ut has no ordinal.
+Many processors use a stack as
+ part of their calling convent
+ions and/or for local variable
+ storage. In some cases, the r
+eturn
+address is pushed onto the sta
+ck during the call operation. 
+Any references to the stack (e
+.g., references and variable s
+torage) are
+relative to the stack pointer 
+when the function is entered. 
+For a negative growing stack (
+like the X86 processor), the s
+tack would
+look something like this:
+-n
+...
+Local Variables
+...
+Saved Registers
+Return Address
+Parameter 1
+...
+Parameters
+n
+Structures, Unions, and Arrays
+ can be used to define variabl
+es as well as the built in pri
+mitive data types. To define s
+tructures,
+see Data Structure Editor
+Parameters (includes Function 
+Return)
+Storage for return/parameters 
+can be computed dynamically ba
+sed upon the associated callin
+g convention and data types (i
+.e.,
+complete function signature). 
+The ability to properly comput
+e the correct storage is limit
+ed by the current capabilities
+ of the
+function prototype models and 
+Decompiler within Ghidra. In s
+ome cases it will be necessary
+ to enable Custom Storage for 
+a
+function and specify the corre
+ct storage locations for the r
+eturn/parameters including the
+ ability to join multiple stor
+age elements
+(i.e., varnodes) for a single 
+parameter.
+When parameter storage is dete
+rmined dynamically, the callin
+g convention may dictate the u
+se of hidden parameters which 
+we
+refer to as "auto-parameters" 
+(auto). In addition, the "forc
+ed-indirect" (ptr) condition m
+ay be imposed on parameters wh
+en
+large data is forced to be pas
+sed by reference. When either 
+of these is in use for the ret
+urn or parameters, the (auto) 
+or (ptr)
+designation will appear with t
+he storage location displayed 
+for each parameter. The parame
+ter names 'this' and
+'__return_storage_ptr__' are r
+eserved for the two supported 
+auto-parameter cases. The 'thi
+s' auto-parameter is imposed b
+y the
+__thiscall calling convention,
+ while forced-indirect is impo
+sed by certain calling convent
+ions which limit the maximum s
+ize of
+any parameter passed by value.
+ If forced-indirect is imposed
+ on the return storage, the '_
+_return_storage_ptr__'
+auto-parameter will be imposed
+ to allow the function caller 
+to specify a pointer to the fu
+ll return storage data locatio
+n. When
+using custom storage, it is as
+sumed any auto-parameters will
+ be explicitly defined as norm
+al parameters if applicable. W
+ithin the
+Program API, auto-parameters m
+ay not be directly manipulated
+ and are immutable.
+The Function Editor is the mos
+t affective means of modifying
+ the function signature either
+ via the Code Browser listing 
+or
+within the Decompiler
+Local Variables
+
+Currently, there is no specifi
+c user interface action for cr
+eating Local Variables. Stack 
+and register variables will
+be created automatically when 
+a suitable stack or register r
+eference is created via the us
+er interface. Additionally, th
+e
+Decompiler's commit actions wi
+ll create Local Variables as n
+eeded. They can also be create
+d programmatically.
+In addition to register and st
+ack locations, Local Variables
+ also have the ability to be d
+efined by the Decompiler to re
+flect
+temporary storage identified b
+y a hash value. Please note th
+at these hash type variables c
+an sometimes not work as expec
+ted
+within the Decompiler. In addi
+tion, the scope of a local reg
+ister variable is determined b
+y its first-use-offset which r
+eflects the
+instruction offset relative to
+ the function entry point at w
+hich the variable is first wri
+tten. The variable will remain
+ in scope from
+that point forward until anoth
+er local variable comes into s
+cope for the same storage loca
+tion. Local stack variables as
+sume a
+first-use-offset of zero (0).
+
+Define Variable Data Type or 
+Function Return Type
+
+Variables 3/8
+
+Variables can be annotated wit
+h one of the built in or user 
+defined data types. The undefi
+ned or previously defined
+variable will be redefined to 
+the new data type.
+Variable data types, including
+ parameters and return, can be
+ defined one of four ways:
+Using right-mouse-click on the
+ return type or a parameter wi
+thin a function signature disp
+layed within the listing.
+1. Right mouse click on the re
+turn type or parameter within 
+the function signature
+2. If the cursor is over the r
+eturn type, Select Set Data Ty
+pe
+; if the cursor is over a para
+meter, select
+Set Data Type
+The pull right menu lists data
+ types that you have marked as
+ "favorites."
+After you apply a data type, t
+his becomes your most recently
+ used data type and is shown o
+n
+the menu with the 'Y' as the "
+hot key."
+
+Using right-mouse-click on a p
+arameter, <RETURN> or local va
+riable listed within the funct
+ion variable listing
+1. Right mouse click on a para
+meter, <RETURN> or local varia
+ble
+2. Select Set Data Type
+The pull right menu lists data
+ types that you have marked as
+ "favorites."
+After you apply a data type, t
+his becomes your most recently
+ used data type and is shown o
+n
+the menu with the 'Y' as the "
+hot key."
+
+Using the Data Type Manager wi
+ndow (drag and drop)
+1. From the Code Browser tool 
+bar select Display Data Types
+icon
+2. In the Data Type Manager wi
+ndow select the appropriate da
+ta type
+3. Drag and Drop the data type
+ onto the target parameter, <R
+ETURN> or local variable in th
+e Code
+Browser
+Assigned Quick key,
+Place the cursor on the target
+ parameter, <RETURN> or local 
+variable
+Press a quick key set to speci
+fy a data type (i.e., "b"-byte
+, "p"-pointer, ...)
+
+Edit Function
+Once a function has been creat
+ed, there are many attributes 
+of the function and its parame
+ters that can be changed. The
+Function Editor Dialog allows 
+you to make those changes. To 
+edit a function do the followi
+ng:
+1.
+2.
+3.
+4.
+
+Place the cursor on a function
+ signature
+Right-mouse-click, and select 
+Edit Function.
+Edit any attributes of the fun
+ction using the dialog.
+Press OK to save your changes.
+
+Variables 4/8
+
+Function Signature Field
+The area at the top of the dia
+log is used to show the comple
+te function signature. It will
+ update as you make changes to
+ the
+various fields in the dialog.
+You may also use this field to
+ directly edit the signature, 
+but beware that your changes w
+ill have to be parsed and the
+current parser is severely lim
+ited. Once you make a change i
+n this field, all the other fi
+elds will be disabled temporar
+ily
+until you complete your change
+s and press either <TAB> or <R
+ETURN> to continue. You may al
+so complete the edit by
+clicking outside of the signat
+ure field.
+If the parser fails to success
+fully parse your changed signa
+ture field, a dialog will appe
+ar giving you the option to co
+ntinue
+typing in the field or abortin
+g your edits in that field.
+
+Due to limitations in the pars
+er, there are many function si
+gnatures that Ghidra supports 
+that you cannot
+directly enter by typing in th
+e function signature field. Fo
+r example, you cannot use the 
+signature field to enter
+templated types. Also, the par
+ser currently only supports co
+mmon datatypes and datatypes t
+hat are currently
+used in your program. To enter
+ more complicated values or fi
+nd datatypes from open archive
+s, use the more
+precise controls that the dial
+og provides.
+Function Name
+This text field can be used to
+ change the name of the functi
+on.
+Calling Convention
+
+Calling Convention
+
+Variables 5/8
+
+This field is a combobox that 
+allows you to choose a calling
+ convention from the list of k
+nown calling conventions for t
+his
+processor and compiler specifi
+cation. This choice will have 
+no affect on storage if the Cu
+stom Storage checkbox has been
+selected.
+Function Attributes
+This sections contains a set o
+f miscellaneous checkboxes tha
+t affect the function.
+Varargs - sets the function to
+ have a variable number of arg
+uments.
+In Line - indicates this funct
+ions code is placed in line wi
+th the calling function.
+No Return - used to indicate i
+f this function does not retur
+n.
+Use Custom Storage - If select
+ed, the user can edit and chan
+ge the storage of the return v
+alue and the parameters.
+Otherwise, the storage is dete
+remind by the selected calling
+ convention.
+
+Parameters/Return Type Table
+The parameters/return type tab
+le allows the user to add or r
+emove parameters as well as ch
+anging their names and
+datatypes. It also displays th
+e return value datatype and st
+orage. Also, if the Use Custom
+ Storage checkbox is selected,
+ the
+storage of the parameters and 
+return type can be changed.
+Table fields
+Index - indicates its ordinal 
+position in the signature (sta
+rts with 1). This field can't 
+be edited directly, but can be
+affected by the Up and Down bu
+ttons. Note: this field is bla
+nk for the return value.
+Datatype - indicates the datat
+ype of the parameter or return
+ type. Clicking on this field 
+will bring up a DataType
+Chooser Dialog.
+Name - the name of the paramet
+er. This field can be edited d
+irectly in the table cell. Not
+e: the name of the "return
+value" is <RETURN> and can't b
+e changed.
+Storage - the storage for the 
+parameter or return value. If 
+the Use Custom Storage checkbo
+x is selected, this field
+can be edited by clicking on i
+t and bringing up the paramete
+r editor dialog. If not using 
+custom storage,
+auto-parameters or forced-indi
+rect storage may be imposed as
+ determined by the selected ca
+lling convention and is
+designated by (auto) or (ptr) 
+with the displayed computed st
+orage.
+
+Table Buttons
+Add - Adds a new parameter to 
+the function
+Remove - Removes the selected 
+row (parameter) from the table
+.
+Up - Moves the selected parame
+ter earlier in the signature.
+Down - Moves the selected para
+meter later in the signature.
+
+Call Fixup
+This field is a combobox that 
+allows use to use a predefined
+ Call-Fixup. A function may be
+ tagged with a predefined
+Call-Fixup which can be used t
+o alter/simplify the semantic 
+effect of calling such a funct
+ion. The available set of
+predefined Call-Fixups are def
+ined within the compiler speci
+fication (*.cspec file) associ
+ated with a program. This feat
+ure
+is typically used when the eff
+ects of calling a well-known f
+unction need to be simplified 
+so that the caller can be more
+easily analyzed and/or underst
+ood.
+
+Edit Parameter Storage Dialog
+
+This dialog is invoked by cli
+cking on the storage column in
+ the Edit Function dialog. Thi
+s dialog allows your to precis
+ely
+Variables
+specify the storage of a param
+eter. The parameter can even b
+e divided amongst multiple sto
+rage locations. Each row
+of the 6/8
+table specifies a storage loca
+tion used by the parameter.
+
+Size Information
+The top of the dialog shows tw
+o sizes. The Datatype size is 
+the size required to store the
+ parameter based on its curren
+t
+datatype. The Allocated Size s
+hows how much storage as been 
+allocated based on the rows in
+ the table.
+Storage Table
+A table of storage locations w
+here each row represents a sto
+rage location. You must add en
+ough storage location rows to
+get enough storage space for t
+he size of the parameters data
+type.
+Table Columns
+Type - the type of storage. Ca
+n be either Stack, Register, o
+r Memory. Clicking on the fiel
+d will bring
+up a table version of a combo-
+box.
+Location - Indicates the speci
+fic location for the type. For
+ stack, it will be an integer 
+offset. For
+register, it will be the name 
+of the register. For memory, i
+t will be the address. Clickin
+g on this field
+will bring up an editor approp
+riate for the storage type.
+Size - The size for this stora
+ge. For stack and memory, it w
+ill be the number of consecuti
+ve bytes to use
+for this storage. For a regist
+er, it will the number of byte
+s to use within the register, 
+up to the size of the
+register.
+
+Table Buttons
+Add - Adds a new storage locat
+ion
+Remove - Removes the selected 
+row (storage location) from th
+e table.
+Up - Moves the selected storag
+e location earlier in the allo
+cation.
+Down - Moves the selected stor
+age location later in the allo
+cation.
+
+Down - Moves the selected sto
+rage location later in the all
+ocation.
+
+Variables 7/8
+
+Create Function Definition
+Once you have defined a functi
+on, you can make a function si
+gnature definition which is a 
+new data type that can be
+applied to another function so
+ that it has the same signatur
+e. The data type appears under
+ the program node in the Manag
+e
+Data Types window.
+To create a function definitio
+n, position the cursor on a fu
+nction signature, right mouse 
+click and select Create Functi
+on
+Definition.
+A new data type is created; th
+e name of the data type is the
+ same name as the function.
+To create a new function signa
+ture definition using the one 
+you created, drag the data typ
+e from the Data Type Manager
+window and drop it on the exis
+ting function where you want t
+he new function signature to b
+e created.
+If you attempt to create a fun
+ction definition on one that y
+ou have already defined, nothi
+ng happens.
+
+Rename Variable
+Rename Variable will change th
+e name of a variable from its 
+default name to a user-defined
+ name.
+To Rename a Variable,
+1. Place the cursor on the tar
+get variable within the functi
+on variable listing
+2. Right-mouse-click, select F
+unction Variables Rename Param
+eter... or Function Variables
+Variable...
+3. Type the new variable name 
+in the dialog and press<Enter>
+, OR click on the OK button
+
+Rename Local
+
+Delete Variable
+Delete Variable will remove th
+e target variable from the lis
+ting. There is no confirmation
+ with Delete Variable.
+However, the operation can be 
+undone using the Undo operatio
+n.
+To delete a variable,
+1. Place the cursor on the tar
+get variable within the functi
+on variable listing
+2. Right-mouse-click, select F
+unction Variables Delete Param
+eter or Function Variables
+Variable
+
+Delete Local
+
+Edit Comment
+Stack Parameters and Local var
+iables can have comments assoc
+iated with them. The comment i
+s free form text. If a
+comment already exists, the co
+mment is modified.
+To add/edit a comment to a var
+iable,
+1.
+2.
+3.
+4.
+
+Place the cursor on the target
+ variable
+Right-mouse-click, select Edit
+ Comment
+Enter the comment.
+Select OK
+
+Remove Comment
+
+Variables 8/8
+
+To remove a function variable 
+comment,
+1. Place the cursor on the var
+iable comment
+2. Hit the <Delete> key
+
+Recently Used Data Type
+The data menu shows an option 
+for the data type that was mos
+t recently used. By default, t
+he "hot key" assigned to this 
+option is
+'y,' however, you can change t
+he key assignment through the 
+key bindings panel on the Edit
+ Options dialog.
+
+Provided By: Function Plugin
+Related Topics:
+Data Structure Editor
+Data Type Manager
+Functions
+
+

@@ -1,0 +1,411 @@
+Overview Bars
+
+Overview 1/4
+
+Ghidra supports multiple margi
+n bars on the left side of the
+ Listing that present various 
+overviews for a program.
+
+Each horizontal slice in the m
+argin bar represents a relativ
+e address location in the prog
+ram and is colored to indicate
+ the property associated with 
+that address or region in the
+program. The range of addresse
+s represented in the margin ba
+r is determined by the current
+ view which by default is the 
+entire address space of the pr
+ogram.
+Hovering the mouse on the marg
+in bar will cause a tooltip to
+ appear that gives you detaile
+d information about the proper
+ty and the address for that lo
+cation.
+Left-clicking on the margin ba
+r will navigate the listing to
+ the associated address for th
+e pixel that was clicked.
+Right-clicking on the margin b
+ar will bring up a popup-menu 
+which will at least include an
+ option for displaying a legen
+d for that particular overview
+.
+
+Overview margin bars can be tu
+rned on or off using the contr
+ol button
+
+on the Listing's toolbar.
+
+Overview Bar Types
+General Overview Bar (Address 
+Type)
+The Address Type Overview Disp
+lay shows a high-level view of
+ the currently open program. D
+ifferent colors are used to re
+present different types presen
+t in the program.
+For each address as determined
+ by the vertical pixel locatio
+n, the program is consulted fo
+r what is at that address.
+The order of precedence for th
+e coloring is as follows:
+1.
+2.
+3.
+4.
+5.
+6.
+
+Function - the address is with
+in a function.
+External - the address has ref
+erences to external locations.
+Instruction - there is an inst
+ruction at the address that is
+ not currently defined to be i
+n a function.
+Defined Data - a datatype has 
+been applied to that address.
+Undefined Data - the address h
+as an associated byte value, b
+ut no datatype has been applie
+d.
+Uninitialized - None of the ab
+ove. The address falls in an u
+ninitialized memory block (no 
+byte values)
+
+Note that the overview panel o
+nly provides an approximation 
+of the contents of a program. 
+Although the level of detail c
+an be increased by selected a 
+more
+restricted view, there may sti
+ll be imprecise summaries. For
+ instance, if a region of memo
+ry contains mostly defined dat
+a, but the particular address 
+that is rendered in the
+overview panel falls on an und
+efined block, the color for th
+at pixel is set to undefined. 
+In practice, however, this giv
+es a good general sense of the
+ various regions.
+Legend
+
+The legend indicates the color
+s that correspond to each type
+ of program element shown in t
+he overview display. The color
+s are specified as options and
+ can
+be changed from the default va
+lues. To change the colors, cl
+ick on the color, or edit the 
+options through the Edit
+Options... dialog. You can cho
+ose the
+
+The legend indicates the colo
+rs that correspond to each typ
+e of program element shown in 
+the overview display. The colo
+rs are specified as options an
+d can
+be changed from the default va
+lues. To change the colors, cl
+ick on the color, or edit the 
+options through the Edit
+Options... dialog. You can cho
+ose the
+color from a color chooser dia
+log.
+Overview
+Options
+The Overview display has optio
+ns that you can change through
+ the Options dialog:
+Data Color - color for defined
+ data
+External Reference Color - col
+or for external references
+Function Color - color for fun
+ctions
+Instruction Color - color inst
+ructions
+Undefined Color - color for un
+defined bytes
+Uninitialized Color - color fo
+r memory that is not initializ
+ed
+To view the options, select Ed
+it
+Options... on the tool, then c
+hoose the Overview node in the
+ options tree. To change a col
+or, double click on the color
+bar in the Overview Options pa
+nel. Choose the color from the
+ color chooser dialog.
+
+Entropy Overview Bar
+The entropy overview bar provi
+des a byte based entropy stati
+stic across the address set re
+presented by the overview bar.
+ The statistic can frequently 
+distinguish between
+the encoding complexity of dif
+ferent types of data typically
+ present in binary executables
+, such as machine code, ASCII,
+ and compressed data. An overv
+iew of this
+entropy score can often provid
+e an at-a-glance classificatio
+n of the program into its majo
+r sections and sub-sections, w
+ithout requiring the presence 
+of an image format
+header.
+Calculation of Entropy
+Entropy provides an estimate o
+f the amount of variation in a
+ set of data. For this plugin 
+the data consists of the origi
+nal bytes in the binary. Viewi
+ng the
+program as one long sequence o
+f bytes, this sequence is spli
+t up into chunks with a defaul
+t size of 1024 bytes per chunk
+. By calculating a histogram o
+f all
+possible byte values, 0-255, w
+e can easily calculate the pro
+bability, p(x), of any particu
+lar value, x, occurring in tha
+t chunk. The entropy of this p
+robability
+distribution is defined as:
+
+This gives a single value, bet
+ween 0.0 and 8.0, describing t
+he amount of variation in that
+ single chunk. A score of 0.0 
+indicates that only a single b
+yte value
+occurred throughout the entire
+ chunk, so the chunk can be de
+scribed as having no variation
+ or no entropy. The score can 
+vary continuously through 8.0,
+ or
+full entropy, which indicates 
+that every possible byte value
+ occurs equally often within t
+he chunk.
+Data Encoding
+Most data encoding schemes sho
+w a bias in favor of certain b
+yte values at the expense of o
+thers. ASCII, for instance, en
+codes only byte values between
+ 0 and
+127, and if the ASCII is being
+ used to encode (English) erro
+r messages in a binary, there 
+will be a further bias for the
+ ASCII ranges encoding alphanu
+meric
+characters. Entropy picks up o
+n this bias, and for many sche
+mes, a chunk of data encoded w
+ith it will exhibit an entropy
+ value in a very restricted ra
+nge.
+ASCII error messages usually f
+all in the range 4.2 - 5.2. Th
+e Entropy Plugin can color-cod
+e these ranges so that certain
+ encodings stand out immediate
+ly in
+the overview window. Because e
+ntropy is statistical in natur
+e, a specific chunk of encoded
+ data may not have an entropy 
+value that falls inside the ty
+pical
+range. But across an entire pr
+ogram, the bias for particular
+ ranges will be readily appare
+nt, and major sections will st
+and out clearly.
+Entropy can easily distinguish
+ between these common data enc
+odings.
+x86 Machine Code: A specific i
+nstruction set like the Intel 
+x86 has a very characteristic 
+entropy range, which is well s
+hort of compression schemes,
+but packs more information per
+ byte typically than ASCII. Di
+fferent coding styles, compile
+rs, etc. may have a consistent
+ impact on the exact range of
+entropy values, but in general
+ any block of machine code is 
+easy to pick out.
+ARM/THUMB Machine Code: There 
+are two machine code specifica
+tions for ARM chips: ARM instr
+uctions and THUMB instructions
+. These both
+have entropy ranges similar to
+ x86 machine code, but the ran
+ges for ARM vs THUMB are disti
+nguishable. ARM instructions, 
+which must use 4 bytes
+per instruction, are slightly 
+more wasteful in their encodin
+g than THUMB, and this stands 
+out in their entropy range.
+ASCII: Entropy scores for ASCI
+I encoded strings show its cha
+racteristic waste of the high 
+bit in each byte and other bia
+ses for English letter
+frequency, null terminators, e
+tc.
+Unicode: The wide character fo
+rmat typically used to encode 
+Unicode characters is particul
+arly wasteful, with every othe
+r byte encoded as 0 for typica
+l
+English strings. This shows up
+ as a characteristic range of 
+low entropy values.
+Compression/Encryption: Data t
+hat has been compressed and/or
+ encrypted typically shows ver
+y little bias at all in the by
+te values, and this correspond
+s
+to entropy scores very close t
+o the maximum value of 8.0. Al
+though entropy generally has l
+ittle chance of distinguishing
+ between different kinds of
+compression or encryption, thi
+s general category of encoding
+ stands out quite clearly from
+ other data typically found in
+ a program.
+
+Color Palette Legend
+
+2/4
+
+Overview 3/4
+
+Each color in the main bar enc
+odes a specific entropy value,
+ which can be determined by re
+ferring to the color palette w
+hich can be displayed by
+right-clicking on the bar and 
+selecting the "show legend" ac
+tion. The basic palette encode
+s entropy scores as a gradient
+, from black to white, for ent
+ropy
+scores from 0.0 to 8.0. In add
+ition to this basic palette, t
+he user can configure specific
+ ranges to stand out with a sp
+ecific color, which gets added
+ into the base
+palette as a smaller color gra
+dient. Multiple entropy ranges
+ can be incorporated as distin
+ct color gradients into the si
+ngle palette. Each defined col
+or range
+also has a label describing th
+at range.
+Configuring the Entropy Window
+
+Select the Tool Options... ent
+ry of the Code Browser Edit me
+nu, and then choose Entropy fr
+om the tree navigator at the l
+eft of the Options dialog. Thi
+s
+allows the user to configure d
+ifferent ranges incorporated i
+nto the palette and the size o
+f chunk used in calculating a 
+single entropy score. The Entr
+opy Plugin
+has the following options:
+Chunk size
+The chunk size can be set to a
+ value of 1024, 512, or 256 by
+tes. This controls over how ma
+ny bytes a single entropy scor
+e is calculated. To a small ex
+tent, the
+user can trade off the granula
+rity of the Entropy window wit
+h how much variation to expect
+ across an entire region of si
+milarly encoded data.
+Entropy Range #
+The Entropy window color palet
+te supports up to 5 different 
+highlighted ranges. For each o
+f the 5 slots, this option pre
+sents a drop menu of common en
+tropy
+ranges that can be selected. T
+hese include: x86 code, ARM co
+de, THUMB code, PowerPC code, 
+ASCII strings, Compressed, and
+ Unicode UTF16. Slots
+that are unused can be set to 
+None.
+
+Range # color
+
+Overview 4/4
+The color that is used to high
+light a specific range can be 
+set with this option. Entropy 
+values that hit the exact midd
+le of the range will get assig
+ned to the
+chosen color, and a steep grad
+ient, connecting this color wi
+th the bounding colors within 
+the base palette, will be used
+ to fill out the color range.
+
+Provided By: OverviewPlugin
+Related Topics:
+Code Browser
+Current View
+Edit Options Dialog
+
+

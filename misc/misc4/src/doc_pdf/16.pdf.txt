@@ -1,0 +1,110 @@
+Archive Current Project
+
+Archive Project 1/2
+
+Archive Current Project will s
+ave the entire contents of the
+ currently open project to a f
+ile name that you specify.
+The archive is a snapshot of t
+he project data at the time of
+ the archival. You must close 
+all running tools before you
+can begin the archive process.
+After the archive is complete,
+ the Ghidra Project Window's m
+essage area will indicate whet
+her the archive succeeded
+or failed. The archive can be 
+restored by using the Restore 
+Project operation.
+Why Archive a Project?
+Archiving a project saves it t
+o a file in a format that is c
+ompatible between different Gh
+idra release versions. It also
+saves off the project data in 
+a way that it can easily be re
+stored at a later date.
+Archiving the project does not
+ remove the project from the G
+hidra projects directory. So a
+rchiving the project has no
+impact on further use of the p
+roject.
+Archiving periodically to a un
+iquely named file can simply b
+e used as a way to backup the 
+current state of the project
+data. The archive file(s) can 
+then be copied to another disk
+ drive or computer system for 
+redundancy.
+To archive the current project
+:
+1. Close any tools that are ru
+nning. (You cannot archive a p
+roject that has running tools.
+)
+2. From the Ghidra Project Win
+dow, select File Archive Curre
+nt Project...
+3. From the Archive Current Pr
+oject dialog, specify the Arch
+ive File where the project is 
+to be saved. The default
+location of the archive file i
+s your projects directory.
+
+The file name must end with a 
+'.gar' extension.
+4. Click the OK button to begi
+n archiving.
+5. If the specified archive al
+ready exists the Archive File 
+Exists dialog is displayed.
+
+Decide whether you want to ove
+rwrite the existing archive fi
+le. Select Yes if you want to 
+overwrite the file.
+Otherwise, select No and enter
+ another filename in the Archi
+ve Current Project dialog.
+
+Decide whether you want to ov
+erwrite the existing archive f
+ile. Select Yes if you want to
+ overwrite the file.
+Otherwise, select No and enter
+ another filename in the Archi
+ve Current Project dialog.
+
+Archive Project 2/2
+
+6. Your project is saved autom
+atically before the archive pr
+ocess begins.
+7. The 'In Progress' dialog is
+ displayed indicating the proj
+ect is being archived. You can
+ cancel the archive process at
+any time by clicking on the Ca
+ncel button in the progress di
+alog.
+
+When Archiving Errors Occur
+If the archive process encount
+ers an error, archiving will t
+erminate and a message will ap
+pear. Also, the failure
+is indicated in the Ghidra Pro
+ject Window's message area.
+
+Provided by: Project Archiver 
+Plugin
+Related Topics:
+Restore Project
+Ghidra Projects
+
+

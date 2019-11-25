@@ -1,0 +1,138 @@
+Search for Scalars
+
+Search for Scalars 1/3
+
+Search for Scalars locates sca
+lar operands and values in the
+ current program. The search i
+s based on a value entered as 
+hex or decimal numbers. The sc
+alar
+can be in instructions, data, 
+or structures.
+
+To Search for Scalars:
+1.
+2.
+3.
+4.
+
+From the Tool, select Search
+For Scalars...
+Select "Scalars in Range:" or 
+"Specific Scalar:".
+Once the search type is select
+ed, enter scalars into the val
+ue fields in either decimal or
+ hexadecimal (0x...) notation.
+Choose "Search" to begin the s
+earch.
+
+Once a value is entered in a t
+ext field, Ctrl+M toggles the 
+value display between the deci
+mal and hex representation of 
+the value in
+that field.
+
+Search Options
+
+Search Type
+
+Scalars in Range
+Search the program for all sca
+lars within the given range.
+Specific Scalar
+Search the program for all ins
+tances of one scalar value.
+
+Selection Scope
+
+Search All
+The search will search all mem
+ory in the program.
+Search Selection
+The search will be restricted 
+to the current selection in th
+e tool. This option is only en
+abled if there is a selection 
+in the tool.
+
+Scalar Table
+
+Search for Scalars 2/3
+
+After the user begins a scalar
+ search, the plugin will displ
+ay a results table to the user
+. The table shows the address 
+of the scalar, a preview
+of the item at that address, t
+he scalar in Hex, and the scal
+ar in signed decimal as shown 
+in the image below:
+
+Each element of the table is a
+ scalar found in either data o
+r an instruction in the progra
+m. Any new code units containi
+ng scalars added to
+the program will automatically
+ appear in the table.
+To bring the Scalar Table, cho
+ose Window
+
+Scalar Table from the tool's m
+enu. This table can be docked 
+in the tool if desired.
+
+The Scalar Table contains the 
+following default columns:
+Location - displays the addres
+s of the code unit containing 
+the scalar.
+Preview - displays the code un
+it containing the scalar.
+Hex - displays the scalar as a
+ hex number.
+Decimal (Signed) - displays th
+e scalar as a decimal number.
+Function Name - displays the n
+ame of the function containing
+ the scalar.
+Decimal (Unsigned) - displays 
+the scalar as a decimal number
+ (this column is hidden by def
+ault).
+
+Scalar Table Filters
+The scalar table has the follo
+wing filters at the bottom of 
+the table:
+1. Text Filter - allows you to
+ filter based on any text in t
+he table.
+2. Range Filter - allows you t
+o filter on a range of scalars
+ based upon their signed value
+.
+3. Column Filter - allows you 
+to filter on specific column v
+alues.
+
+Actions
+
+Make Selection
+See Make Selection
+Selection Navigation
+See Selection Navigation
+Remove Items
+
+Remove Items
+See Remove Items
+
+Provided by: ScalarTablePlugin
+
+Search for Scalars 3/3
+
+

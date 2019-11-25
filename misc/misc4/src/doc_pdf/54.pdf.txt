@@ -1,0 +1,1715 @@
+Data Type Manager 1/20
+
+Data Type Manager
+The Data Type Manager allows u
+sers to locate, organize, and 
+apply data types to a program.
+ Allowing
+the user to build libraries of
+ data types and to share them 
+between programs, projects, an
+d different
+users is a long term goal for 
+Ghidra.
+Prior to Ghidra 4.3, sharing d
+ata types even between program
+s in the same project was very
+ difficult.
+(users would have to drag data
+ types, one at a time, from on
+e program or archive to anothe
+r to
+propagate changes to data type
+s). As of Ghidra 4.3, signific
+ant progress has been made to 
+make
+sharing data types easier, but
+ the inherent complexity of th
+is problem requires users to u
+nderstand a
+number of basic concepts to ta
+ke advantage of the new featur
+es.
+
+Topics
+Basic Concepts
+Data Type Manager Window
+Working With Data Type Archive
+s
+Working With Categories
+Working With Data Types
+Managing Archives
+
+Basic Concepts
+
+Data Types
+Ghidra supports three kinds of
+ data types: "Built-in", user 
+defined, and
+derived.
+Built-in
+
+The built-in data types are
+implemented directly in Java a
+nd are
+used for the basic standard ty
+pes such
+as byte, word, string, etc. Th
+ey can't
+be changed, renamed, or moved
+within an archive.
+
+User Defined There are four us
+er defined data types:
+Structures, Unions, Enums, and
+Typedefs. They can be created,
+modified, and renamed as neede
+d.
+Derived
+
+There are two derivative data 
+types:
+Pointers and Arrays. Pointers 
+and
+arrays can be created and dele
+ted as
+
+Pointers and Arrays. Pointers
+ and
+arrays can be created and dele
+ted as
+needed, but they take on a nam
+e
+derived from their base type.
+
+Data Type Manager 2/20
+
+Data Type Archives
+Data type archives are used to
+ bundle and share data types b
+etween
+programs, projects, and users.
+ There are two different types
+ of user
+created archives: File data ty
+pe archives and Project data t
+ype archives.
+Data type archives can be acce
+ssed within the Data Type Mana
+ger
+window. When a data type archi
+ve is open, it is displayed as
+ a node in
+the Data Type Manager tree. Ar
+chives can be opened by the us
+er or
+automatically when a program i
+s opened which references that
+ archive.
+Data type archives can be open
+ for modification or as read-o
+nly. Within
+the Data Type Manager window t
+here are actions for opening, 
+closing,
+renaming, and making archives 
+modifiable.
+Built-In Data Type Archive
+The "Built-in" archive is a sp
+ecial archive that is always a
+vailable in the
+Data Type Manager window. It p
+rovides access to all of Ghidr
+a's
+"Built-in" data types. "Built-
+in" types are discovered by se
+arching
+through Ghidra's class path.
+
+In the unlikely event that new
+ data type class files or
+jar files are added while Ghid
+ra is running, there is a refr
+esh
+action which will find and add
+ the new data types to the
+"built-in" archive.
+
+File Data Type Archive
+File data type archives (or si
+mply: file archives) store dat
+a types in files
+and have ".gdt" filename exten
+sions. They can be located any
+where in
+the filesystem. File archives 
+can be open by more than one u
+ser at the
+same time (assuming it is loca
+ted on a shared filesystem), b
+ut only one
+of those users can have it ope
+n for modification.
+Project Data Type Archive
+Project data type archives (or
+ simply: project archives) sto
+re data types
+in Ghidra project database dir
+ectories, along with the progr
+ams for that
+project. The Ghidra Project Wi
+ndow will display project arch
+ives in the
+
+in Ghidra project database di
+rectories, along with the prog
+rams for that
+project. The Ghidra Project Wi
+ndow will display project arch
+ives in the
+Data Type Manager 3/20
+same tree structure used to sh
+ow the programs in the project
+. Project
+archives can be versioned and 
+shared in a multi-user environ
+ment just
+like programs. They use the sa
+me "check-in/checkout" semanti
+cs for
+updating and sharing changes.
+Data Types in a Program
+Besides being stored in archiv
+es, data types are also stored
+ inside
+programs.
+Any data type used in a progra
+m must be stored in that progr
+am
+even if it originally came fro
+m an archive.
+Because of this, the "same" da
+ta types can live in more than
+ one archive
+or program and can be modified
+ in different ways in each pla
+ce where it
+lives. Prior to Ghidra 4.3, ke
+eping data types consistent be
+tween
+archives and programs was a pr
+oblem because there was no way
+ to
+maintain an association, excep
+t by location and name, which 
+was
+difficult due to potential con
+flicts. Now additional informa
+tion such as
+source archive, unique ID and 
+various change times are maint
+ained to
+facilitate keeping data types 
+consistent across archives and
+ programs.
+
+Categories
+Within a program or data type 
+archive, data types can be org
+anized
+using categories. Categories a
+re like folders in a filesyste
+m and allow
+data types to be organized int
+o a hierarchical structure. Ca
+tegories are
+ignored for purposes of data t
+ype synchronization. In other 
+words, the
+same data type might be in a c
+ategory named "aaa" in an arch
+ive and be
+in a category named "bbb" in t
+he program. As far as Ghidra i
+s
+concerned, the different categ
+ory does not constitute a data
+ type
+difference.
+Data Type Manager Tree
+The Data Type Manager window o
+rganizes data types using a tr
+ee
+structure. At the first level 
+below the tree root, a node wi
+ll exist for each
+open archive and the "Built-in
+" archive. If a program is ope
+n, a node
+will also exist at this level 
+representing the program. In m
+any ways, an
+open program behaves like a da
+ta type archive.
+Applying Data Types
+
+Applying Data Types
+Data Type Manager 4/20
+
+The primary purpose of a data 
+type is to apply it to various
+ elements in a
+program. Data types can be app
+lied to memory locations to pr
+ovide
+interpretations of the bytes a
+t those locations. They can al
+so be used to
+describe function parameters a
+nd local variables.
+One way to apply data types is
+ to drag them from an archive 
+and drop
+them on an element in the prog
+ram Listing. This action will 
+cause a
+copy of the data type to be ad
+ded to the program and then a 
+reference to
+the copy will be used to annot
+ate the program element. There
+ are other
+ways of applying data types to
+ a program and they are descri
+bed in more
+detail later.
+Resolving Data Types
+When a data type from an archi
+ve is applied to a program, a 
+copy of that
+data type is created in the pr
+ogram. The process of making t
+hat copy is
+called resolving. This is a co
+mplicated process because data
+ types can
+contain or reference other dat
+a types, possibly in a circula
+r fashion (via
+pointers). These referred data
+ types may or may not already 
+exist in the
+program and the resolving proc
+ess must account for this. Som
+etimes, a
+data type might already exist 
+with the same name as the reso
+lving data
+type. Even if the conflicting 
+data type is equivalent, Ghidr
+a may not be
+able to determine if the exist
+ing data type is really meant 
+to be the same
+as the resolving data type. Ge
+nerally, such conflicts are re
+solved by
+renaming the new or moved type
+ by appending ".conflict" to i
+ts name.
+For many of the data type acti
+ons initiated from the Data Ty
+pe tree
+window, the specific conflict 
+resolution is determined by th
+e current
+Data Type Conflict Mode. In th
+e end, applying a single data 
+type to a
+program can cause many new dat
+a types to be added to the pro
+gram.
+Source Archive
+Whenever data types are resolv
+ed from an archive to a progra
+m or
+another archive, the default b
+ehavior is to tag the copied d
+ata types with
+information about the archive 
+from which the data types orig
+inated. So
+each archive or program mainta
+ins a list of source archives 
+from which
+it has associated data types. 
+Ghidra uses the term Source Ar
+chive as a
+descriptor that identifies a f
+ile or project data type archi
+ve where a data
+type originated. Whenever a pr
+ogram is opened, the Data Type
+ Manager
+gets a list of source archives
+ from the program and automati
+cally opens
+the corresponding data type ar
+chives if it can find them. Us
+ing
+information stored in the sour
+ce archive object along with i
+nformation
+from the actual archive and th
+e change time on a data type, 
+Ghidra can
+determine if data types are ou
+t-of-sync with their correspon
+ding data
+type in a program or other arc
+hive.
+
+The data type tree will indic
+ate data types that have a sou
+rce
+archive association by display
+ing the name of the source arc
+hive in
+parenthesis after the data typ
+e name.
+
+Data Type Manager 5/20
+
+DataTypeName (SourceArchiveNam
+e)
+
+Client Archive
+Ghidra uses the term client ar
+chive to represent the archive
+ that contains
+a data type taken from a sourc
+e archive. This includes norma
+l data type
+archives and the program.
+Update Source Archive Names
+When new releases of Ghidra ar
+e installed, old datatype arch
+ives may be
+dropped. In some cases these o
+ld archives may be replaced wi
+th a
+differently named archive. Whe
+n this happens, this popup act
+ion can be
+used on a client archive to up
+date the old source archive re
+ferences. This
+popup action is only available
+ when such an archive name cha
+nge has
+occurred. Any programs or othe
+r client archives which refere
+nce the old
+archive will have this popup a
+ction available to update the 
+source
+archive name reference.
+Committing Changes To Source A
+rchive
+If changes are made to a data 
+type that has an association w
+ith a source
+archive, those changes must be
+ applied to the original in th
+e source
+archive to keep the data types
+ in sync. Ghidra uses the term
+ commit to
+mean propagating changes from 
+a data type back to its corres
+ponding
+data type in the source archiv
+e.
+Updating Data Types From Sourc
+e Archive
+If changes are made to a data 
+type in an archive that has as
+sociated data
+types in a client archive, tho
+se changes can be pushed out t
+o those
+associations. Ghidra uses the 
+term update to mean propagatin
+g changes
+from a data type in a source a
+rchive to its associated copie
+s in a client
+archive.
+Reverting
+
+If changes are made to a data
+ type that has an association 
+with a sourceData Type Manager
+ 6/20
+archive, that data type is now
+ different from its source dat
+a type. Ghidra
+uses the term revert to throw 
+away the changes and put the d
+ata type
+back to the way it is in the s
+ource archive. If changes are 
+made in both
+the referenced data type and t
+he source data type, the rever
+t action will
+not be available because the o
+riginal state is not known. In
+ this case, you
+must either commit, which will
+ lose the changes in the sourc
+e archive,
+or update losing the changes i
+n the client archive. Currentl
+y, there is no
+merge capability.
+See Reverting Changes for more
+ information.
+Synchronizing an Archive
+When changes are made to data 
+types in either the source arc
+hive or
+client archive, the archive is
+ said to be out-of-sync. Ghidr
+a provides a
+capability known as synchroniz
+ing to find all the data types
+ that need to
+be committed, updated, or reve
+rted and allow the user to mak
+e a
+decision on each data type.
+File Archive Path
+Ghidra maintains a list of dir
+ectories used to search for fi
+le archives.
+This list is known as the arch
+ive path. Ghidra provides a di
+alog for
+adding, removing, and re-order
+ing the list of these director
+ies. When
+Ghidra maintains source archiv
+e information for a file data 
+type archive,
+it only stores the name of the
+ archive and not the entire fi
+le path.
+Storing absolute paths would m
+ake the file archive reference
+s very
+brittle when the program is sh
+ared or moved to another locat
+ion. By
+using archive paths, different
+ users can maintain copies of 
+the source
+archives in different location
+s on their computer and still 
+be able to find
+the archives in their shared p
+rograms.
+See also: editing archive path
+s.
+
+Working with Data Type Archive
+s
+There are two types of Data Ty
+pe Archives: File and Project.
+File Data Type Archives
+
+Files containing data type
+definitions, which have
+".gdt" as their file suffix.
+
+Project Data Type Archives
+
+Special files located
+within the Ghidra project
+directory structure, which
+also contain data type
+definitions. These are
+
+also contain data type
+definitions. These are
+available in the Ghidra
+Project Window and can
+be saved as versions in a
+shared project repository.
+
+Data Type Manager 7/20
+
+The data types contained in an
+ archive are organized into ca
+tegories similar to the
+way files are organized into d
+irectories in a filesystem. Ar
+chives are useful for
+sharing data types with other 
+users, or making your data typ
+es available for use in
+other projects. Normally, file
+ archives are opened in a read
+-only mode, but can
+optionally be opened for editi
+ng. Project archives are norma
+lly opened for editing,
+since they support sharing and
+ version control and therefore
+ allow more than one
+user to modify them at a time.
+ Only one user at a time can h
+ave a file archive opened
+for editing.
+
+Opening a File Data Type Archi
+ve
+From the local menu
+, select Open File Archive....
+ A file chooser
+will appear. Use the file choo
+ser to find and select the dat
+a type archive
+to open. A new node will appea
+r in the tree for the newly op
+ened
+archive. Also, the directory c
+ontaining the newly opened arc
+hive will be
+added to the archive path if i
+t is not already there.
+Opening a Project Data Type Ar
+chive
+From the local menu
+, select Open Project Archive.
+... A Ghidra
+project data type archive choo
+ser will appear. This chooser 
+will show all
+the project archives in the cu
+rrent project. Use the chooser
+ to find and
+select the project data type a
+rchive to open. A new node wil
+l appear in
+the tree for the newly opened 
+archive.
+Creating a New File Data Type 
+Archive
+From the local menu
+, select New File Archive.... 
+A file chooser will
+appear. Use the file chooser t
+o select a directory and enter
+ a name for
+the new archive. If an archive
+ already exists with that name
+, a dialog
+will appear asking if the exis
+ting archive should be over-wr
+itten. A new
+node will appear in the tree f
+or the newly created archive.
+Creating a New Project Data Ty
+pe Archive
+From the local menu
+, select New Project Archive..
+.. A Ghidra
+project data type archive choo
+ser will appear. Use the choos
+er to select a
+
+From the local menu
+, select New Project Archive..
+.. A Ghidra
+project data type archive choo
+ser will appear. Use the choos
+er to selectData
+a Type Manager 8/20
+folder and enter a name for th
+e new archive. A new node will
+ appear in
+the tree for the newly created
+ archive.
+
+You can also create a new Proj
+ect Data Type Archive
+by dragging a File Data Type A
+rchive (.gdt) file onto the
+Ghidra Project Window. This wi
+ll create a new Project Data
+Type Archive populated with th
+e same data types as the
+dragged File Data Type Archive
+.
+
+Closing a Data Type Archive
+Select the data type archive t
+o close, right-click on it and
+ select the
+Close Archive action. The arch
+ive will be removed from the t
+ree.
+Opening a File Data Type Archi
+ve for Editing
+When an archive is first opene
+d, it is not editable. In orde
+r to make any
+changes to the archive, it mus
+t be open for editing. Select 
+the archive to
+edit, right-click on it and se
+lect the Open for Editing acti
+on. If someone
+else is currently editing that
+ archive, this action will fai
+l and a dialog
+will appear explaining that so
+meone else is already editing 
+that archive.
+Closing a File Data Type Archi
+ve for Editing
+When an archive that is open f
+or editing no longer needs to 
+be edited,
+then it should be put back to 
+a read-only mode so that other
+ users can
+then modify it. Select the dat
+a type archive to close for ed
+iting,
+right-click on it and select t
+he Close for Editing action. I
+f the archive
+has unsaved changes, a dialog 
+will appear providing an oppor
+tunity to
+save the changes.
+Saving Changes to a File Data 
+Type Archive
+Whenever a data type archive h
+as been opened for editing and
+ has
+unsaved changes, the node will
+ display its name with '*' att
+ached. For
+example the archive "MyArchive
+" will display as "MyArchive *
+". To
+save these changes, right-clic
+k on the unsaved archive and s
+elect the
+Save Archive action. The chang
+es will be saved and the name 
+will be
+updated to not show a '*'.
+Saving a File Data Type Archiv
+e to a New File
+
+Saving a File Data Type Archi
+ve to a New File
+
+Data Type Manager 9/20
+
+Right-click on the file archiv
+e to be saved to a new file, a
+nd select the
+Save As... action. A file choo
+ser will appear which can be u
+sed to
+choose a location and filename
+ for the new archive that will
+ be created.
+The tree will be updated to sh
+ow the new name for the archiv
+e (the
+filename). The original archiv
+e file is unaffected.
+Deleting a Data Type Archive
+Deleting an archive will not o
+nly remove the archive from th
+e tree, but
+will permanently remove it fro
+m the filesystem. To delete an
+ archive,
+right-click on it and select t
+he Delete Archive action. An a
+rchive file
+must be open for editing befor
+e this action will appear (see
+ Opening a
+Data Type Archive for Editing)
+.
+Removing an Invalid Data Type 
+Archive
+When an archive file fails to 
+open (when Ghidra can't find t
+he file in the
+archive path or encounters a p
+ermission problem) it will be 
+displayed
+with the
+icon. If you wish to permanent
+ly remove the file path
+from the tool configuration an
+d the current program options,
+ you may
+right-click on it and select t
+he Remove Invalid Archive acti
+on.
+Aligning All Data Types In a P
+rogram or Archive
+Right-click on the program or 
+data type archive where data t
+ypes are to
+be aligned, and select the Ali
+gn All... action. A confirmati
+on dialog will
+appear to make sure you want t
+o align all the structures and
+ unions in
+the program or data type archi
+ve. If you continue, all struc
+tures and
+unions that are unaligned will
+ be changed to aligned data ty
+pes with no
+minimum alignment (the default
+) and no packing.
+Updating an Archive From a Sou
+rce Archive
+Datatypes within an archive th
+at originally came from some o
+ther source
+archive may need updating if t
+hey have been changed in the o
+riginating
+archive. If a an archive has o
+ne or more datatypes that need
+ updating, it
+will be marked with either the
+ or the
+icon.
+To update the datatypes, right
+-click on the node that needs 
+updating and
+select Update Datatypes From
+<Source Archive Name>. The
+Update Data Types dialog will 
+be shown allowing you to selec
+t the
+
+select Update Datatypes From
+<Source Archive Name>. The
+Update Data Types dialog will 
+be shown allowing you to selec
+t the Data Type Manager 10/20
+datatypes to update.
+
+Ghidra uses time stamps and fl
+ags to determine if an
+archive is out-of-sync. This c
+an result in Ghidra indicating
+the archive needs updating whe
+n actually it does not. For
+example, if a data type is cha
+nged and then changed back, it
+will cause Ghidra to think the
+ data type was changed. In thi
+s
+case, invoking the update acti
+on will cause Ghidra to search
+for updates, but when it finds
+ none, a message dialog will
+appear indicating that no chan
+ges were detected and the
+archive will be considered upd
+ated.
+
+Committing Changes in an Archi
+ve To a Source Archive
+Datatypes within an archive th
+at originally came from some o
+ther source
+archive may have been changed 
+and need to be pushed back (co
+mmitted)
+to the originating archive. If
+ a an archive has one or more 
+datatypes that
+need committing, it will be ma
+rked with either the or the
+icon.
+To commit the datatypes, right
+-click on the node that contai
+ns the
+changed datatypes and select C
+ommit Datatypes To
+<Source
+Archive Name>. The Commit Data
+ Types dialog will be shown al
+lowing
+you to select the datatypes to
+ commit.
+Ghidra uses time stamps and fl
+ags to determine if an archive
+ is
+out-of-sync. This can result i
+n Ghidra indicating the archiv
+e needs
+committing when actually it do
+es not. For example, if a data
+ type is
+changed and then changed back,
+ it will cause Ghidra to think
+ the data
+type was changed. In this case
+, invoking the commit action w
+ill cause
+Ghidra to search for commits, 
+but when it finds none, a mess
+age dialog
+will appear indicating that no
+ changes were detected.
+The source archive must be edi
+table in order to commit File
+archives must be open for edit
+ing and project archives that 
+are under
+version control must be checke
+d-out.
+Reverting Changes in an Archiv
+e Back To a Source Archive
+Datatypes within an archive th
+at originally came from some o
+ther source
+archive may have been changed 
+and need to be reverted back t
+o same
+state as the source archive (i
+.e. discard the local changes)
+ If a an archive
+has one or more datatypes that
+ can be reverted, it will be m
+arked with
+either the or the
+icon.
+
+has one or more datatypes tha
+t can be reverted, it will be 
+marked with
+either the or the
+icon.
+Data Type Manager 11/20
+To revert the datatypes, right
+-click on the node that contai
+ns the changed
+datatypes and select Revert Da
+tatypes To
+<Source Archive Name>.
+The Revert Data Types dialog w
+ill be shown allowing you to s
+elect the
+datatypes to revert.
+Disassociating Data Types in a
+n Archive From a Source Archiv
+e
+Datatypes within an archive th
+at originally came from some o
+ther source
+archive may be disassociated f
+rom their source archive. This
+ will
+prevent them from being update
+d or committed back to the sou
+rce
+archive. If a an archive has o
+ne or more datatypes that have
+ source
+archive relationships, the Dis
+associate action will be avail
+able.
+To disassociate datatypes, rig
+ht-click on the node that cont
+ains the
+datatypes and select Disassoci
+ate Datatypes From
+<Source Archive
+Name>. The Revert Data Types d
+ialog will be shown allowing y
+ou to
+select the datatypes to revert
+.
+Refreshing Data Type Sync Indi
+cators in an Archive For a Sou
+rce Archive
+Datatypes that are associated 
+with a source archive may have
+ a commit,
+update, or conflict icon indic
+ating they are out of sync wit
+h the data type
+in the source archive, when th
+e data type actually matches t
+he source
+datatype. This can happen if a
+ data type is changed, but cha
+nged to
+match its source. Invoke the R
+efresh action to refresh all t
+he sync
+indicators for that source arc
+hive.
+To refresh sync indicators for
+ datatypes associated with a p
+articular
+source archive, right-click on
+ the node that contains the da
+tatypes and
+select Refresh Sync Indicators
+ For
+<Source Archive Name>. <
+Version Control / Multi-user A
+ctions on Project Archives
+The full set of version contro
+l actions from the front-end p
+roject window are
+available when right-clicking 
+on a project archive. See the 
+Version Control section
+of the Project Window for more
+ information.
+
+Working with Categories
+Categories are used to organiz
+e data types into a hierarchic
+al structure. Categories
+can contain data types and oth
+er categories. Archive nodes r
+epresent the root or
+
+Categories are used to organi
+ze data types into a hierarchi
+cal structure. Categories
+can contain data types and oth
+er categories. Archive nodes r
+epresent the root
+or
+Data Type Manager 12/20
+default category for their cor
+responding archive they repres
+ent in addition to
+representing the archive itsel
+f. In other words, most of the
+ actions that apply to
+category nodes can also be app
+lied to archive nodes. The two
+ exceptions are Delete
+and Rename. The root category 
+in an archive cannot be delete
+d and to rename it,
+you must use the Save As... ac
+tion, since its name is the na
+me of the archive.
+Creating a New Category
+Right-click on the category wh
+ere the new category is to be 
+created.
+Select the New
+Category action and a new cate
+gory named "New
+Category" will be created.
+Renaming a Category
+Right-click on the category to
+ be renamed. Select the Rename
+ action
+and then type in the new name 
+in the in-place text edit box.
+Deleting a Category
+Right-click on the category to
+ be deleted. Select the Delete
+ action. A
+confirmation dialog will appea
+r since this action cannot be 
+undone
+(unless its in the program's a
+rchive)
+Moving a Category
+Categories can only be moved w
+ithin the same archive. Attemp
+ts to
+move categories across archive
+s are converted to a copy acti
+on. When a
+category is moved, effectively
+ all categories and data types
+ are contained
+in that category are moved as 
+well. There are two ways to mo
+ve a
+category:
+1. Drag-N-Drop
+
+Click on the category to be mo
+ved and
+drag it onto its new parent ca
+tegory.
+
+2. Cut/Paste
+
+Right-click on the category to
+ be
+moved and select the Cut actio
+n. Then
+right-click on the destination
+ parent
+category and select the Paste 
+action.
+
+Copying a Category
+Categories can be copied withi
+n an archive or from one archi
+ve to
+
+Categories can be copied with
+in an archive or from one arch
+ive to Data Type Manager 13/20
+another, but the behavior of t
+he copy is very different for 
+the two cases.
+When copying within an archive
+, the behavior is more natural
+. Copies
+are made of the source categor
+y and its children and placed 
+inside the
+destination category. However,
+ when copying from one archive
+ to
+another, the behavior is somew
+hat unusual. In this case, the
+ selected
+categories and contained data 
+types are copied into the dest
+ination
+category, but if there are add
+itional data types that are re
+ferenced by the
+copied data types, those are c
+opied into the destination arc
+hive as well.
+After the copy, the additional
+ data types will appear in the
+ same relative
+location as they exist in the 
+source archive.
+1. Drag-N-Drop
+
+Click on the category to be mo
+ved and
+copy drag (hold the <Ctrl> key
+ while
+dragging) it onto its new pare
+nt
+category.
+
+2. Copy/Paste
+
+Right-click on the category to
+ be
+moved and select the Copy acti
+on.
+Next, right-click on the desti
+nation
+parent category and select the
+ Paste
+action.
+
+Working with Data Types
+Data types are the actual usef
+ul objects within archives. Th
+ey can be applied to
+programs to bring meaning to t
+he data, parameters, local var
+iables and function
+return types contained in that
+ program. User defined data ty
+pes such as structures can
+be arbitrarily complex, consis
+ting of other data types which
+ can be built upon other
+data types and so on, until fi
+nally they are built on the pr
+imitive types (the built-in
+data types.)
+Built-in types have several re
+strictions. They always live i
+n the root category of
+an archive and they can't be r
+enamed.
+Applying Data Types to a Progr
+am
+Data types can be applied in s
+everal different ways:
+1. Drag-N-Drop
+
+Data types can be dragged dire
+ctly
+onto various locations in the 
+Listing
+view. If dropped onto undefine
+d bytes,
+a new Data object is created. 
+If
+dropped onto a function, the r
+eturn
+type can be set, etc.
+
+2. Favorites
+
+Data types can be set to be a 
+favorite.
+
+2. Favorites
+
+Data types can be set to be a 
+favorite.
+Data Type Manager 14/20
+This causes a popup menu actio
+n to be
+generated for that data type w
+henever
+the mouse is right-clicked ove
+r the
+appropriate location in the Li
+sting
+view.
+
+3. Last Used
+
+Whenever a data type is applie
+d to a
+program it is remembered as th
+e "last
+used" data type and can be eas
+ily
+applied to other locations usi
+ng a key
+binding or popup menu actions.
+
+Applying a data type from an a
+rchive will automatically add 
+that
+data type to the program's arc
+hive. Also, the archive will b
+ecome
+associated with the program an
+d automatically be opened when
+ever the
+program is opened.
+Creating New User Defined Data
+ Types
+There are seven types of data 
+types that users can create: S
+tructures,
+Unions, Enums, Function Defini
+tions, Typedefs and Pointers.
+Structures, unions, enums, and
+ function definitions can be c
+reated by
+right-clicking on the category
+ where the new type should be 
+located, and
+then choosing either the New
+Structure, New
+Union, New
+Enum or New
+Function Definition action res
+pectively. Each of
+these actions will bring up an
+ appropriate editor (structure
+ editor for
+structures and unions, the enu
+m editor for enums and the edi
+t function
+signature editor for function 
+definitions) for creating the 
+new desired
+data type.
+Creating a new typedef is even
+ easier. Right-click on the
+data type to be typedef'ed and
+ select the New
+Typedef on
+XYZ action. A new typedef will
+ be created on the XYZ data
+type in the same category as t
+he original data type.
+Alternatively, you can click N
+ew
+Typedef...,
+which will show a dialog that 
+allows you to
+choose a typedef name and the 
+data type from
+*
+
+which the typedef will be crea
+ted. This action
+can also be executed from any 
+folder instead of
+directly on another data type.
+
+To create a pointer, you can c
+lick New
+Pointer to XYZ.
+A new pointer will be created 
+to the XYZ data type in the
+
+To create a pointer, you can 
+click New
+Pointer to XYZ.
+A new pointer will be created 
+to the XYZ data type in the
+same category as the original 
+data type.
+
+*
+
+Data Type Manager 15/20
+
+*
+
+If you create a typedef or poi
+nter to a data type in the
+Built-in Data Type Manager, th
+e newly created type will
+be placed in program's data ty
+pe manager at the root
+category.
+Structures can also be created
+ directly in the Listing view.
+See creating structures in the
+ Browser for details.
+
+Renaming a Data Type
+Right-click on the data type t
+o be renamed. Select the Renam
+e action
+and then type in the new name 
+in the in-place text edit box.
+Editing a Data Type
+Only structures, unions, enums
+ and functionDefinitions can b
+e edited.
+To edit one of these data type
+s, either double-click on its 
+node or
+right-click its node and selec
+t the Edit action. For structu
+res and unions,
+the structure editor will appe
+ar, and for enums the enum edi
+tor will
+appear.
+Creating a new Enum from a Sel
+ection of Enums
+Select two or more existing en
+ums. Select the Create Enum fr
+om
+Selection action. A dialog wil
+l appear asking you for the ne
+w enum's
+name. This name must be unique
+ or you will be prompted to en
+ter a
+unique name. The resulting enu
+m will contain a combination o
+f all
+names and values from the sele
+cted enums. NOTE: If more than
+ one of
+the same value is contained in
+ the enums, they will all be a
+dded to the
+new enum. However, only the fi
+rst one entered will be applie
+d when this
+enum is used.
+Deleting a Data Type
+Right-click on the category to
+ be deleted. Select the Delete
+ action. A
+confirmation dialog will appea
+r since this action cannot be 
+undone
+(unless its in the program's a
+rchive)
+Moving a Data Type
+
+Moving a Data Type
+
+Data Type Manager 16/20
+
+Data types can only be moved w
+ithin the same archive. Attemp
+ts to
+move data types across archive
+s are converted to a copy acti
+on. There
+are two ways to move a data ty
+pe:
+1. Drag-N-Drop
+
+Click on the data type to be m
+oved
+and drag it onto its new paren
+t
+category.
+
+2. Cut/Paste
+
+Right-click on the data type t
+o be
+moved and select the Cut actio
+n. Next,
+right-click on the destination
+ parent
+category and select the Paste 
+action.
+
+Copying a Data Type
+Data types can be copied withi
+n an archive or from one archi
+ve to
+another, but the behavior of t
+he copy is very different for 
+the two cases.
+When copying within an archive
+, the behavior is more natural
+. A copy
+of the source data type is pla
+ced inside the destination cat
+egory.
+However, copying from one arch
+ive to another behaves somewha
+t
+unusually. In this case, the d
+estination folder is only rele
+vant as to which
+archive is the recipient of th
+e copy. After the copy, the de
+stination
+archive will contain the copie
+d data type. However, any data
+ types
+contained by the copied data t
+ype are also copied to exactly
+ the same
+relative (to the root category
+ node) category paths as the s
+ource archive.
+There are two ways to copy a d
+ata type:
+1.Drag-N-Drop
+
+Click on the data type to be m
+oved
+and copy drag (hold the <Ctrl>
+ key
+while dragging) it onto its ne
+w parent
+category.
+
+2.Copy/Paste
+
+Right-click on the data type t
+o be
+moved and select the Copy acti
+on.
+Then right-click on the destin
+ation
+parent category and select the
+ Paste
+action.
+
+Aligning a Data Type
+Right-click on the structure o
+r union to be aligned. Select 
+the Align
+action. If the data type is un
+aligned it will be changed to 
+an aligned data
+type with no minimum alignment
+ (the default) and no packing.
+Committing Changes To Source A
+rchive
+
+Committing Changes To Source 
+Archive
+
+Data Type Manager 17/20
+
+If changes are made to a data 
+type that has an association w
+ith a source
+archive, those changes must be
+ applied (committed) to the or
+iginal in the
+source archive as well to keep
+ the data types in sync. Right
+-click on the
+data type to be committed. Sel
+ect the Commit To Archive acti
+on and
+the changes will be applied ba
+ck to the source archive.
+Updating Data Types From Sourc
+e Archive
+If changes are made to a data 
+type in a source archive that 
+has associated
+data types in a client archive
+ (another archive or the progr
+am), the data
+type in the client archive can
+ be updated from the source ar
+chive.
+Right-click on the data type t
+o be updated. Select the Updat
+e From
+Archive action and the changes
+ will be applied from the arch
+ive.
+Reverting Changes
+If changes are made to a data 
+type that has an association w
+ith a source
+archive, that data type is now
+ different from its source dat
+a type. Those
+changes can be thrown away and
+ the data type can be reverted
+ back to its
+original state. Right-click on
+ the data type to be reverted 
+and select the
+Revert action and the changes 
+will be removed.
+Disassociate a Data Type
+To remove a data type associat
+ion with a source archive, rig
+ht-click on
+the data type in the client ar
+chive (another archive or the 
+program) and
+select the Disassociate From A
+rchive action. The data type w
+ill become
+a local data type within the c
+lient archive and any changes 
+to it will not
+affect the original data type 
+in the source archive.
+Associate a Data Type with a S
+ource Archive
+Whenever a data type is applie
+d to a program, or dragged to 
+a category
+under the program's node in th
+e data type manager tree from 
+a file or
+project archive, a copy of tha
+t data type is created in the 
+program. Also,
+an association back to the ori
+ginal data type is created. Th
+at is the
+normal case and it is designed
+ to be fairly intuitive. Less 
+intuitive is
+when a data type is originally
+ created in a program and then
+ is shared by
+dragging a copy to an archive.
+ Since programs cannot be the 
+source for
+a data type, a dialog is displ
+ayed asking the user if they w
+ant an
+association to be created. If 
+the user answers yes, an assoc
+iation is
+
+a data type, a dialog is disp
+layed asking the user if they 
+want an
+association to be created. If 
+the user answers yes, an assoc
+iation is Data Type Manager 18
+/20
+created, but the archive will 
+become the source and the prog
+ram's data
+type is the one that gets the 
+association. In other words, i
+t appears as if
+the data type were created in 
+the archive and copied to the 
+program.
+Handling Data Type Conflicts
+When you move or copy a data t
+ype to a category that has a d
+ata type
+with the same name, a conflict
+ occurs. If the data types are
+ not the same,
+then a dialog is displayed in 
+order to resolve the conflict,
+ as shown
+below:
+
+In this example, you dragged (
+or pasted) the data type "SIZE
+_T" from
+one category to the /basetsd.h
+ category; the one being dragg
+ed is
+different from the one that al
+ready exists in the /basetsd.h
+ category. The
+choices to resolve the conflic
+t are:
+1. Rename the data type that y
+ou are dragging to have ".conf
+lict"
+appended to it to make a uniqu
+e name.
+2. Replace the existing data t
+ype with the one you are dragg
+ing (or,
+pasting); this means any use o
+f the existing data types is r
+eplaced
+with the new data type; the ex
+isting data type is deleted.
+3. Use the existing data type;
+ if you did a cut/paste or dra
+g/move
+operation, the "cut" or "dragg
+ed" data type is removed from 
+its
+original category; the destina
+tion category is unaffected.
+
+Replacing a Data Type
+A data type can be replaced by
+ another data type. This means
+ that every
+occurrence of the original dat
+a type in a program is replace
+d by the new
+data type and the original dat
+a type is deleted. There are t
+wo ways to
+replace a data type.
+
+data type and the original da
+ta type is deleted. There are 
+two ways to
+replace a data type.
+Data Type Manager 19/20
+1. Drag-N-Drop
+
+Click on the replacement data 
+type and
+drag it onto the data type to 
+be
+replaced.
+
+2. Copy/Paste
+
+Right-click on the replacement
+ data
+type to be moved and select th
+e Cut
+action. Next, right-click on t
+he data
+type to be replaced and select
+ the
+Paste action.
+
+Either way, a confirmation dia
+log will appear.
+Setting Favorite Data Types
+Data types can be marked as fa
+vorites such that they show up
+ in the
+Data option menu and the Set D
+ata Type popup action menu in 
+the
+Browser. This is a quick way t
+o apply a data type to the Pro
+gram. The
+default Code Browser has most 
+of the well-known types in the
+BuiltInTypes category marked a
+s a favorite.
+To make a favorite, right-clic
+k on the data type and select 
+the Favorite
+action. Favorite data types ar
+e marked with the
+icon.
+
+To remove a favorite, right-cl
+ick on the data type and desel
+ect the
+Favorite action.
+
+Data Type Manager 20/20
+
+The favorites are identified b
+y name and must be unique, so 
+you
+cannot have data type "fred" i
+n one "categoryA" marked as a 
+favorite
+and "fred" in "categoryB" also
+ marked as a favorite.
+
+Any data type from any archive
+ type (Program, BuildInTypes, 
+or
+archive) can be marked as a fa
+vorite and used as such, howev
+er, only
+those marked in the BuiltInTyp
+es category will be saved as p
+art of your
+tool's state when you close th
+e Project or exit Ghidra. Your
+ list of
+favorites is restored when you
+ re-open your project or resta
+rt Ghidra.
+
+Provided by: DataTypeManagerPl
+ugin
+Related Topics:
+Data Types
+Edit Plugin Path
+Apply Data Types
+Edit Structure
+
+

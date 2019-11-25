@@ -1,0 +1,346 @@
+Ghidra Tips 1/5
+
+Ghidra Tips of the Day
+Ghidra provides context sensit
+ive help on menu items, dialog
+s, buttons, and tool
+windows. To access the help, p
+ress F1 or Help on any menu it
+em or dialog. If specific
+help is not available for an i
+tem, this page will be display
+ed.
+In sortable tables you can sor
+t on multiple columns by click
+ing on a column and then
+Control-clicking additional co
+lumns.
+You can add and remove table c
+olumns as desired by right-cli
+cking on a table header.
+You can change the look and fe
+el of your tools by using the 
+"Edit->Options" command.
+You can UNDO and REDO using th
+e curved arrows on the menu ba
+r.
+You can have more than one pro
+gram open in the same tool. Cl
+ick on the tabs to
+switch between them.
+You can bring a new program in
+to Ghidra by selecting File->I
+mport File from either
+the front end manager or any t
+ool.
+You can import programs by dra
+gging them onto the Ghidra Fro
+nt End Manager.
+You can assign keybindings to 
+actions, highlight an action a
+nd click the F4 key.
+The Program Tree is an organiz
+ational view of the program th
+at is initialized with the
+same organization as the memor
+y map. Changes to the Program 
+Tree only change your
+view of the program, not the M
+emory Map.
+The Program Tree allows a prog
+ram to be organized into a hie
+rarchy of folders and
+fragments. You can have multip
+le Program Trees.
+You can add memory overlays to
+ your program using the Memory
+ Map dialog.
+Did you know that you can crea
+te and edit structures from th
+e Decompiler?
+Did you know that you can appl
+y the local variables, paramet
+ers, and return values that
+the Decompiler figures out? Ju
+st right click on them and cho
+ose Apply Locals or
+Apply Params/Return to get the
+m all for a particular functio
+n. You can also run the
+Decompiler Parameter ID analys
+is option to apply the Decompi
+ler parameters when the
+program is initially being ana
+lyzed or choose Analyis-One Sh
+ot->Decompiler
+Parameter ID to do it after an
+alysis.
+
+program is initially being an
+alyzed or choose Analyis-One S
+hot->Decompiler
+Parameter ID to do it after an
+alysis.
+Ghidra Tips 2/5
+Did you know that you can run 
+various analyzers separately a
+nd after the initial
+analysis run? See Analysis->On
+e Shot for a list of them.
+Did you know that you can righ
+t-click on the marker margin t
+o learn the meaning of
+each color.
+The largest diamond that was e
+ver found was 3106.75 carats.
+You can edit program bytes usi
+ng the byte viewer provided th
+ose bytes are not
+disassembled.
+You can add URL's to your comm
+ents to link to other document
+s. Hit F1 while
+making a comment to learn how.
+You can embed links to other p
+rogram locations in your comme
+nts.
+A cubic yard of air weighs abo
+ut 2 pounds.
+You can create structures, uni
+ons, and enums using the Ghidr
+a data type manager.
+Use enums (not equates) to get
+ constant names to appear in t
+he decompiler. Enums are
+also listed in the Equates men
+u if you want to make one an e
+quate in the Listing.
+To edit a row in the datatype 
+(eg structure) editor, double-
+click on the "DataType"
+column.
+Ghidra can extract datatype an
+d function signatures from C h
+eader files using the
+CParser.
+You can drag datatypes from th
+e datatype manager and drop it
+ into the browser to
+apply at address.
+You can apply multiple copies 
+of a data type by making a sel
+ection and then dragging
+that data type from the Data T
+ype Manager onto the selection
+.
+You can find view information 
+about your current program by 
+selecting "Help ->
+About {program name}...".
+You can edit program informati
+on and analysis options by sel
+ecting "Edit->Options for
+{program name}".
+You can compare any two Ghidra
+ programs (or Ghidra versions 
+of a program) using
+the "Open Diff View" action fr
+om the Listing's toolbar.
+
+the "Open Diff View" action f
+rom the Listing's toolbar.
+Ghidra Tips 3/5
+
+Did you know that Ghidra does 
+version tracking? It includes 
+data version tracking as
+well as function version track
+ing. It also has numerous algo
+rithms for finding matches.
+Use the "Footprint" tool to ge
+t started.
+
+Did you know that you don't ha
+ve to remember a whole label t
+o navigate to it? Simply
+type 'g' to bring up the Goto 
+dialog and type in a partial l
+abel then a '*'. If there are
+more than one matches it will 
+bring up a navigable list of m
+atches.
+New processor languages can be
+ added to Ghidra using the Sle
+igh language syntax and
+compiler.
+You can bring up an online pro
+cessor manual (for most proces
+sors) by right mousing
+on an instruction and choosing
+ Processor Manual.
+You can have snapshot (disconn
+ected) views of the Listing, B
+yte Viewer, and
+Decompiler. Click the camera i
+con to create a snapshot.
+Windows within a Ghidra tool c
+an be moved, stacked, resized,
+ and undocked to suit
+your layout preferences.
+Did you know there is a Call T
+ree Window that shows calls to
+ and from a given
+function? Click on the green a
+rrow in the icon bar or choose
+ References->Show Call
+Trees.
+A jiffy is an actual unit of t
+ime for 1/100th of a second. T
+hus the saying, I will be
+there in a jiffy.
+Did you know that all searches
+ and selections work on the cu
+rrent selection?
+Did you know that you can rest
+ore your last Selection if you
+ accidentally clear it by
+choosing Select->Restore Selec
+tion?
+Did you know you can make a ta
+ble from a selection? See Sele
+ct->Create Table from
+Selection.
+Did you know that you can make
+ a selection from a table? Sim
+ply highlight one or
+more rows in the table and rig
+ht mouse choose Make Selection
+.
+Ghidra provides many customiza
+ble tool options, see Edit->To
+ol Options.
+You can add symbol information
+ to your comments that automat
+ically update when
+your symbols change. Hit F1 wh
+ile making a comment to learn 
+how.
+Bamboo plants can grow up to 3
+6 inches in a day.
+
+Bamboo plants can grow up to 
+36 inches in a day.
+
+Ghidra Tips 4/5
+
+To change direction of the "Ne
+xt/Previous Code Unit" buttons
+, use the UP or DOWN
+arrow in the toolbar.
+You can use the Byte Viewer to
+ display bytes not just in hex
+, but also octal, decimal,
+ascii, etc.
+You can use the Byte Viewer to
+ edit bytes. If you want to ed
+it in hex use the hex view.
+If you want to edit in ascii, 
+use the ascii view, etc...
+You can have more than one lab
+el at the same location.
+In 1890, there was no sunshine
+ for the whole month of Decemb
+er in Westminster,
+London.
+You can change the representat
+ion of scalars (hex, char, dec
+imal, octal, etc) by using
+the right mouse Convert comman
+d.
+You can clean up those pesky r
+uns of cc's, ff's, 90's, and/o
+r 00's by placing the cursor
+on the byte value you wish to 
+condense and running the Conde
+nseAllRepeatingBytes
+script.
+In 1992, the Antarctic Ozone h
+ole was larger than the contin
+ent of North America.
+Did you know you can see where
+ a register is initialized in 
+its current scope by clicking
+on it with the middle mouse bu
+tton? All instances of the reg
+ister in the current scope
+will highlight in bright yello
+w. The mustard yellow one is w
+here it is initialized in the
+current scope.
+You can perform a program memo
+ry search using a regular expr
+ession (regex).
+If a Windows executable contai
+ns Icons or Bitmap Resources, 
+they are displayed in the
+CodeBrowser. Do a Search -> Pr
+ogram Text on Labels for "Rsrc
+_Icon*" and
+"Rsrc_Bitmap*" to find them.
+The average temperature on Ear
+th is 15 degrees celsius.
+If you hover on a reference in
+ the XREF or operand fields, a
+ popup with the reference
+code or data will appear.
+If you hover on a data type in
+ the CodeBrowser or Data Type 
+Manager, a popup with
+the data type definition will 
+appear.
+You can add your own reference
+s just about anywhere and you 
+can have more than one
+
+You can add your own referenc
+es just about anywhere and you
+ can have more
+than
+Ghidra
+Tipsone
+5/5
+of them on an item. See the ri
+ght mouse References options.
+You can write Ghidra scripts u
+sing Java or Python.
+You can open Ghidra scripts in
+ Eclipse from the Script Manag
+er. Install the GhidraDev
+plugin for Eclipse to get star
+ted!
+Double-clicking on addresses a
+nd labels in the console will 
+navigate to them.
+Double-clicking on the "functi
+on" area of the tool status ba
+r will navigate to the
+function signature.
+Selection by flow can be confi
+gured to follow computed and c
+onditional calls and
+jumps.
+You can reconfigure the browse
+r display by adding / removing
+ / moving / resizing
+fields. (Be sure to save your 
+tool!)
+Did you know that you can run 
+Ghidra from the command line w
+ithout invoking the
+user interface? (See analyzeHe
+adlessREADME.html in the {Inst
+all Dir}/support folder.
+This is the last tip. You can 
+turn them off now.
+
+

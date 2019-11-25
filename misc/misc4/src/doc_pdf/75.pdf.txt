@@ -1,0 +1,185 @@
+Highlighting 1/4
+
+Highlighting
+A highlight is a more permanen
+t variation of a selection. As
+ you may recall, a
+selection can be cleared simpl
+y by clicking in the Code Brow
+ser. In order to clear a
+highlight, you must explicitly
+ select the Select
+Highlight
+option.
+You would commonly use a highl
+ight when you do not want to l
+ose a selection. For
+example, you just used Search 
+Memory to search for all the o
+ccurrences of a particular
+Ascii string. From the Query R
+esults window, you selected al
+l of the results. Now you
+wish to visit each code unit i
+n the selection and perform so
+me operations. A selection
+would not be entirely useful, 
+because, if you clicked anywhe
+re in the Code Browser,
+the selection would be lost. C
+onverting this selection to a 
+highlight enables you to visit
+each code unit and click aroun
+d in the browser, without losi
+ng the highlight for the
+search results.
+To set a highlight from a sele
+ction
+1. Create a selection in the C
+ode Browser
+2. From the menu-bar of the Co
+de Browser, select Select
+Highlight
+Selection
+OR
+From the right mouse popup men
+u of the Code Browser, select
+Highlight
+Entire Selection
+
+To clear a highlight
+1. From the menu-bar of the Co
+de Browser, select Select
+Highlight
+Clear
+OR
+From the right mouse popup men
+u of the Code Browser, select
+Highlight
+Clear
+
+To add a selection to a highli
+ght
+1. From the menu-bar of the Co
+de Browser, select Select
+Highlight
+Add Selection
+
+1. From the menu-bar of the C
+ode Browser, select Select
+Highlight
+Add Selection
+
+Highlighting 2/4
+
+OR
+From the right mouse popup men
+u of the Code Browser, select
+Highlight
+Add Selection
+
+To subtract a selection from a
+ highlight
+1. From the menu-bar of the Co
+de Browser, select Select
+Highlight
+Subtract Selection
+OR
+From the right mouse popup men
+u of the Code Browser, select
+Highlight
+Subtract Selection
+
+To create a selection from a h
+ighlight
+1. Create a highlight in the C
+ode Browser
+2. From the menu-bar of the Co
+de Browser, select Select
+Highlight
+
+From
+
+OR
+From the right mouse popup men
+u of the Code Browser, select
+Select
+Entire Highlight
+
+Provided By: Set Highlight Plu
+gin
+
+Navigating over a highlight
+A highlight will usually consi
+st of one or more address rang
+es. The address ranges do
+not have to be contiguous. Two
+ methods exist to allow naviga
+tion over these ranges:
+Using the Navigation Margin
+
+Using the Navigation Margin
+One or more yellow markers wil
+l appear in the Navigation Mar
+gin,
+where each yellow marker corre
+sponds to an address range inc
+luded
+in the highlight. Clicking on 
+a yellow marker will cause the
+ Code
+Browser to navigate to the beg
+inning of the corresponding ad
+dress
+range.
+Using the Navigation Menu
+From the menu-bar of the Code 
+Browser, select either
+Navigation
+Previous Highlighted Range or 
+Navigation
+Next Highlighted Range.
+OR
+From the tool-bar of the Code 
+Browser, select either the Go 
+to
+previous highlighted range ( )
+ and Go to next highlighted
+range ( ) buttons.
+Clicking on the menu-bar or to
+ol-bar options will cause the 
+Code
+Browser to navigate to the beg
+inning of the corresponding ad
+dress
+range.
+
+When the Code Browser is on or
+ before the first address rang
+e
+in the highlight, the "Previou
+s Highlight Range" menu-bar an
+d
+tool-bar options will be disab
+led. Similarly, when the Code 
+Browser
+is on or after the last addres
+s range in the highlight, the 
+"Next
+Highlight Range" menu and tool
+bar options will be disabled.
+
+Provided By: Next Prev Highlig
+ht Range Plugin
+
+Highlighting 3/4
+
+Related Topics:
+Selecting
+Code Browser
+Navigation Margin
+Query Results
+
+Highlighting 4/4
+
+

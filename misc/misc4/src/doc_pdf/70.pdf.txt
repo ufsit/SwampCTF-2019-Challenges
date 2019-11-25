@@ -1,0 +1,70 @@
+Property Viewer
+
+Property Viewer 1/2
+
+The Property Viewer window sho
+ws all of the properties in a 
+Program. Properties are assign
+ed to a code unit and can stor
+e values at addresses. Plugins
+ can define
+their own properties for stori
+ng plugin specific information
+ at an address. The display pr
+ovides a convenient way to see
+ all the properties that exist
+ in the Program.
+When you select a property, th
+e navigation margin in Code Br
+owser shows a pink marker for 
+each location of that property
+. The window provides a quick 
+way to
+remove all properties at once.
+
+To display the Property Viewer
+ window, select Window
+
+Manage Properties... from the 
+tool menu.
+
+In this example, a plugin has 
+placed several source related 
+properties on code units. Sele
+ct the row for "Source File" t
+o see all the locations in the
+ Code Browser
+where a "Source File" property
+ is defined, as shown in the i
+mage below. The left margin on
+ the shows marker for the "Sou
+rce File" property; the right 
+margin
+shows the other locations wher
+e the Space properties exist; 
+click on the right margin to n
+avigate to that location.
+
+To delete all properties in th
+e Program,
+1. Select a property to delete
+.
+2. Right mouse-click and selec
+t Delete.
+The property will be removed f
+rom the list of properties in 
+the dialog.
+To undo the delete, select the
+ button on the tool.
+
+Property Viewer 2/2
+
+Provided by: PropertyManagerPl
+ugin
+
+Related Topics:
+Code Browser
+Navigation Margin
+Marker Margin
+
+

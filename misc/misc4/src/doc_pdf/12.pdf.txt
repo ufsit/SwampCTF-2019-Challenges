@@ -1,0 +1,110 @@
+Open Project
+
+Opening a Ghidra Project 1/2
+
+When you open a Project, your 
+active project is closed; the 
+project identified in the Open
+ a Ghidra Project dialog will 
+be opened. If the
+active project has been modifi
+ed since it was last saved, Gh
+idra will prompt you to save t
+he active project before closi
+ng it. The project
+window is restored with any pl
+ugins it had when you last sav
+ed the project. Tools that wer
+e running when you last saved 
+the project are
+launched; programs that the to
+ols had open are opened. The l
+ast active workspace from this
+ project now shows up as the a
+ctive workspace.
+Other viewed projects are rest
+ored.
+Projects that were created usi
+ng a release of Ghidra prior t
+o 3.0 can be viewed only. You 
+can drag the data from the old
+ project to
+your current project.
+To open a project, choose it f
+rom a list of projects in the 
+default project directory. If 
+the project has been opened be
+fore, then the project
+will appear in the Reopen list
+. If the project is being shar
+ed by others, it may not resid
+e in the default project direc
+tory. Use the browse
+button, on the Open a Ghidra P
+roject dialog, to locate the t
+arget project.
+To open a project:
+1. From the Ghidra Project Win
+dow, select File
+
+Open Project.... The Open a Gh
+idra Project dialog appears.
+
+2. The dialog box filter defau
+lts to *.gpr (project file ext
+ension). Select the project fr
+om the Open a Ghidra Project d
+ialog.
+
+The project name can be of any
+ length. The name of the proje
+ct has the same restrictions t
+hat the operating system impos
+es on
+file names. A Ghidra Project n
+ame must have the .gpr extensi
+on.
+3. Click the Open Project butt
+on. The selected project appea
+rs in the Ghidra Project Windo
+w. If you are opening a shared
+ project, Ghidra
+attempts to connect to the Ghi
+dra Server. You may have to en
+ter a password, depending on t
+he type of user authentication
+ the Ghidra Server
+is using.
+
+Opening a Ghidra Project 2/2
+
+If this were a shared project,
+ the connection status button 
+(
+
+) would be displayed, indicati
+ng that the project was succes
+sfully
+
+connected to the server. If th
+e project failed to connect to
+ the server, the status button
+ would appear as
+. If the server comes up
+after you have opened the shar
+ed project, you can click on s
+tatus button to attempt to con
+nect to the server. You can st
+ill work offline
+in a shared project, however, 
+you will not be able to do any
+ check outs or check ins.
+
+Related Topics:
+Ghidra Projects
+Close Project
+Save Project
+Reopen Project
+Archive Current Project
+
+

@@ -1,0 +1,358 @@
+Bookmarks 1/4
+
+Bookmarks
+
+Bookmarks are used to flag add
+resses of interest in a Progra
+m. Each Bookmark consists of a
+n address, a type, a name, a c
+ategory (optional), and a desc
+ription (optional). Bookmarks 
+may
+be organized using the categor
+y field. Ghidra places various
+ Bookmark icons in the Marker 
+Margin of the Code Browser to 
+indicate locations of defined 
+bookmarks. The tooltip (shown
+when the mouse hovers over the
+ Bookmark icon in the Marker M
+argin) shows the Bookmark's ty
+pe and comment.
+The type refers to how the boo
+kmark was added. Ghidra suppli
+es five types of bookmarks:
+Bookmark Types
+Type (icon)
+
+How Bookmark is Added
+
+Navigator Color
+
+Note
+
+Added via the Note Bookmark di
+alog; Notes are intended to
+be user-defined only.
+
+Purple
+
+Info
+
+May be added by a plugin to ma
+rk an address of interest.
+
+Cyan
+
+Analysis
+
+Added during the Auto Analysis
+ process. Indicates
+automatic changes which have b
+een made to the program
+(e.g., code found, address tab
+les, etc.).
+
+Orange
+
+Error
+
+Added by the disassembler or A
+uto Analysis process when
+an unexpected condition is ide
+ntified at a specific address
+(e.g., bad instruction).
+
+Red
+
+Represents a custom Bookmark t
+ype which was added by a
+plugin not currently configure
+d into the tool. A properly
+designed plugin will assign a 
+custom icon and color to its
+custom type.
+
+Unknown
+
+Magenta
+
+Ghidra also places a marker fo
+r the bookmark in the Navigati
+on Margin of the Code Browser.
+ Clicking on the Navigation Ma
+rgin causes the Code Browser t
+o go to that address, and
+centers it in the browser.
+The following paragraphs descr
+ibes the Bookmarks window, and
+ how to add and remove bookmar
+ks.
+
+Add a Bookmark (in the CodeBro
+wser)
+
+To add a Note Bookmark,
+1.
+2.
+3.
+4.
+5.
+6.
+
+Position the cursor at an addr
+ess
+Right-mouse-click in the Code 
+Browser, select Bookmark
+The Address field on the Note 
+Bookmark dialog shows the loca
+tion where the bookmark will b
+e added
+Enter a Category (optional) or
+ choose an existing one from t
+he combo box
+Enter a Description (optional)
+; if an end of line comment ex
+ists at this address, then thi
+s text becomes the default des
+cription of the bookmark, as s
+hown in the image above.
+Click on the OK button.
+
+When adding a bookmark with mu
+ltiple selections in the Code 
+Browser, the Bookmark Top of E
+ach Selection checkbox is both
+ enabled and selected by defau
+lt. Leave the
+checkbox selected to create a 
+bookmark at the start of each 
+address range in the selection
+. Deselecting the checkbox wil
+l cause the bookmark to be cre
+ated at the cursor location.
+
+Before Adding Bookmarks to Sel
+ection
+
+After Adding Bookmarks to Sele
+ction
+
+The following image depicts th
+e Code Browser with Bookmarks.
+ Notice the checkmarks in the 
+Marker Margin on the left and 
+the markers in the Navigation 
+Margin on the right.
+
+Bookmarks 2/4
+
+Remove a Bookmark (in the Code
+Browser)
+To remove a bookmark,
+1. Position the cursor on the 
+address of the bookmark to be 
+deleted
+2. From the Marker Margin, rig
+ht-mouse-click, select Delete 
+Bookmark
+
+<type>: <description>
+
+Bookmarks Window
+The Bookmarks window lists all
+ of the bookmarks within a Pro
+gram, including the bookmark t
+ype, category, description, ad
+dress, label, and code unit wh
+ere the bookmark was
+placed. Click on a Bookmark to
+ navigate to the selected addr
+ess in the Code Browser.
+
+To display the Bookmarks windo
+w, click the bookmark icon
+
+in the Code Browser toolbar, o
+r select the Window
+
+Bookmarks option from the menu
+.
+
+Each of the columns may be sor
+ted by clicking on the header.
+ The sort graphic illustrates 
+which column is being sorted o
+n, and whether it is ascending
+ (
+) or descending (
+In the image above, the Previe
+w column is sorted in ascendin
+g alphabetical order. By defau
+lt, the bookmarks are sorted i
+n ascending order by the Type 
+column.
+
+).
+
+In the Bookmark table, only th
+e Category and Description col
+umns are editable. To edit ent
+ries in these columns, double-
+click on the appropriate cell 
+and begin typing. Click
+outside of the cell to apply t
+he changes. When the Category 
+column is being edited, it sho
+ws a combo box, listing all of
+ the categories. Choose an exi
+sting category or enter a new
+one. If a new category in ente
+red, the combo box is updated.
+
+The list of Bookmarks displaye
+d can be filtered by clicking 
+the Filter button
+checkboxes in the Bookmark Fil
+ter dialog.
+
+in the toolbar of the Bookmark
+ Window. The displayed bookmar
+ks will correspond to the sele
+cted
+
+You may also filter the conte
+nts of the bookmark table by u
+sing the filter text field.
+
+Bookmarks 3/4
+
+The following describes the fe
+atures available from the Book
+marks window (Note: some of th
+ese features are also availabl
+e from inside the CodeBrowser)
+:
+Edit Category
+1.
+2.
+3.
+4.
+
+Double click in a Category cel
+l to display the cell editor.
+Click on the down-arrow button
+ in the cell editor to display
+ the list of categories.
+Select a category from the lis
+t OR enter a new category in t
+he cell editor.
+Press the <Enter> key or click
+ outside of the editor.
+
+Edit Description
+1. Double click on a Descripti
+oncell to display the cell edi
+tor.
+2. Enter a new description.
+3. Press the <Enter> key or cl
+ick outside of the editor.
+
+Change the Sort Order
+Click on the desired column he
+ader to change the sort order.
+Navigate to a Bookmark
+Click anywhere in the row to n
+avigate to the bookmark.
+Filter Bookmarks
+1. Click the Filter
+button in the local toolbar of
+ the Bookmarks window to displ
+ay the Bookmark Filter dialog.
+2. Configure filter informatio
+n.
+3. Click on the OK button.
+
+If you have turned off some of
+ the filter types, then the fi
+lter icon will show a checkmar
+k (
+
+).
+
+You may save the settings of t
+he bookmark filter dialog by s
+aving the tool.
+In addition to filtering on th
+e type of bookmarks you may al
+so filter the contents of the 
+bookmark table by entering tex
+t into the filter text field f
+ound at the bottom of
+the bookmark table. This filte
+r will include only those Book
+marks whose Category or Descri
+ption contain the specified te
+xt. For example, to show only 
+the entry point
+bookmarks, you would enter "en
+try" in the filter field. The 
+results would show only those 
+bookmarks with a Category or D
+escription containing the word
+ "entry". The
+text filter is not case sensit
+ive, nor does it support regul
+ar expressions.
+Reorder Columns
+Reorder columns in the Bookmar
+ks window by dragging the colu
+mn header to another position 
+in the table.
+Make Selection in the Code Bro
+wser
+1.
+2.
+3.
+4.
+
+Select one or more rows in the
+ Bookmarks table.
+Click the Select Bookmark Loca
+tions
+button in the local toolbar.
+The corresponding addresses ar
+e selected in the browser.
+Navigate to the selected addre
+ssed by using the navigation b
+uttons (
+
+,
+
+) on the main tool bar.
+
+Remove Bookmarks
+1. Select one or more rows in 
+the Bookmarks table.
+2. Hit the <Delete> key, or pr
+ess the
+icon on the Bookmarks toolbar,
+ or right mouse click and choo
+se the Delete option.
+
+Dismiss the Bookmarks Window
+Click the Dismiss button to ex
+it the Bookmarks window.
+
+Provided by: Bookmarks Plugin
+Related Topics:
+Navigate on Selection
+Marker Margin
+
+Navigate on Selection
+Marker Margin
+Code Browser
+
+Bookmarks 4/4
+
+

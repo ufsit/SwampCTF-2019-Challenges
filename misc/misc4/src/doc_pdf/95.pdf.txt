@@ -1,0 +1,94 @@
+Headless Analyzer
+
+Headless Analyzer 1/2
+
+The Headless Analyzer is a com
+mand-line-based (non-GUI) vers
+ion of Ghidra that allows user
+s to:
+Create and populate projects
+Perform analysis on imported o
+r existing binaries
+Run non-GUI scripts in a proje
+ct (scripts may be program-dep
+endent or program-independent)
+The Headless Analyzer can be u
+seful when performing repetiti
+ve tasks on a project (i.e., i
+mporting and analyzing a
+directory of files or running 
+a script over all binaries).
+
+Headless Analyzer Options
+The following options are avai
+lable for the Headless Analyze
+r:
+analyzeHeadless [<project_loca
+tion> <project_name>[/<folder_
+path>]] |
+[ghidra://<server>[:<port>]/<r
+epository_name>[/<folder_path>
+]]
+[[-import [<directory>|<file>]
++] | [-process [<project_file>
+]]]
+[-preScript <ScriptName> [<arg
+>]*]
+[-postScript <ScriptName> [<ar
+g>]*]
+[-scriptPath "<path1>[;<path2>
+...]"]
+[-propertiesPath "<path1>[;<pa
+th2>...]"]
+[-scriptlog <path to script lo
+g file>]
+[-log <path to log file>]
+[-overwrite]
+[-recursive]
+[-readOnly]
+[-deleteProject]
+[-noanalysis]
+[-processor <languageID>]
+[-cspec <compilerSpecID>]
+[-analysisTimeoutPerFile <time
+out in seconds>]
+[-keystore <KeystorePath>]
+[-connect [<userID>]]
+[-p]
+[-commit ["<comment>"]]
+[-max-cpu <max cpu cores to us
+e>]
+[-loader <desired loader name>
+]
+
+Accessing the Headless Analyze
+r
+The shell script that launches
+ the Headless Analyzer can be 
+found in your Ghidra installat
+ion's support folder.
+
+ghidra_x.x/support/analyzeHead
+less[.bat]
+Execute the analyzeHeadless sh
+ell script from the command li
+ne with the desired options.
+
+Execute the analyzeHeadless s
+hell script from the command l
+ine with the desired options.
+Headless Analyzer 2/2
+
+Headless Analyzer Documentatio
+n
+The analyzeHeadlessREADME.html
+ file contains details on Head
+less Analyzer usage and option
+s. It is located in your
+Ghidra installation's support 
+folder.
+
+ghidra_x.x/support/analyzeHead
+lessREADME.html
+
+

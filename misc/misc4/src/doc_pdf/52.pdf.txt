@@ -1,0 +1,400 @@
+Disassembly 1/7
+
+Disassembly
+Disassembly is the process of 
+translating bytes into assembl
+y language instructions.
+Ghidra supports three differen
+t disassembly actions:
+Disassembly
+Disassembler Options
+Static Disassembly
+Restricted Disassembly
+
+Disassembly
+Disassembly starts disassembli
+ng at the current cursor locat
+ion. After
+disassembling an instruction, 
+it examines all possible execu
+tion flows from that
+instruction and disassembles a
+t all those locations.
+When disassembling in a select
+ion, the disassembly starts at
+ the first undefined
+byte within the selection. Aft
+er exhausting all possible flo
+ws from the
+instruction, disassembly begin
+s again at the next undefined 
+byte within the
+selection.
+To perform Disassembly:
+1. Place your cursor at the ta
+rget instruction
+2. Right-mouse-click
+3. Select Disassembly
+The disassembly progress is di
+splayed in the progress status
+ area (bottom right)
+of the tool. The progress stat
+us area displays the number of
+ instructions
+disassembled and provides a "C
+ancel" button. Press the "Canc
+el" button to stop
+the disassembly process. Note:
+ this will not undo any disass
+embly that has
+already occurred.
+Press the 'D' key to Disassemb
+le starting at the current cur
+sor location.
+Selecting Undo will return the
+ disassembled instructions to 
+undefined bytes.
+
+Disassembly 2/7
+
+Be aware that some processors 
+may allow for disassembly in d
+ifferent modes
+(eg: ARM vs. THUMB). Specific 
+commands may be provided for t
+hese and are
+not discussed here.
+
+Disassembler Options
+The following Disassembler opt
+ions exist which control certa
+in behaviors during
+Disassembly:
+Mark Bad Disassembly - places 
+an error bookmark on any instr
+uction or
+instruction flow which fails t
+o disassemble due to parse err
+or or instruction
+conflict (Enabled by default).
+Mark Unimplemented Pcode - pla
+ces a warning bookmark on any
+instruction which has unimplem
+ented pcode/semantics at the t
+ime
+disassembly was performed (Ena
+bled by default). The
+MarkUnimplementedPcode script 
+may be run to update these war
+nings
+since processor language updat
+es may implement previously
+unimplemented instruction pcod
+e.
+Restrict Disassembly to Execut
+able Memory - If enabled will 
+restrict
+disassembly to those memory bl
+ocks marked as executable (Not
+ restricted
+by default).
+The above Options may be chang
+ed via the program Options dia
+log which allows
+various program properties to 
+be examined or modified. This 
+dialog may be
+accessed via the menu action E
+dit Options for ... for the cu
+rrently active
+program. These options are pro
+gram specific and stored withi
+n the program
+database. The above program pr
+operties can be accessed by cl
+icking the
+Disassembler node within the P
+roperties tree. Any changes to
+ these options will
+be stored when the OK or Apply
+ button is clicked within the 
+dialog.
+These option settings will be 
+utilized for both forced disas
+sembly and during
+auto-analysis.
+
+Static Disassembly
+The difference between Disasse
+mbly and Static Disassembly is
+ that Static
+Disassembly does not follow fl
+ow and only disassembles one i
+nstruction.
+However, when disassembling in
+ a selection, the disassembly 
+starts at the first
+undefined byte within the sele
+ction and proceeds sequentiall
+y to the last byte.
+
+However, when disassembling i
+n a selection, the disassembly
+ starts at the first
+undefined byte within the sele
+ction and proceeds sequentiall
+y to the last byte.Disassembly
+ 3/7
+To perform Static Disassembly:
+1. Place the cursor in the Cod
+e Browser on an undefined byte
+2. Right-mouse-click
+3. Select Disassemble (Static)
+.
+The disassembly progress is di
+splayed in the progress status
+ area (bottom right)
+of the tool. The progress stat
+us area displays the number of
+ instructions
+disassembled and provides a "C
+ancel" button. Press the "Canc
+el" button to stop
+the disassembly process. Note:
+ this will not undo any disass
+embly that has
+already occurred.
+
+Press the 'Ctrl-D' key to Stat
+ic Disassemble one instruction
+ starting at the
+current cursor location.
+
+Selecting Undo will return the
+ disassembled instruction to u
+ndefined bytes.
+
+Disassembly (Restricted)
+Restricted Disassembly is simi
+lar to Disassembly, except tha
+t only bytes in the
+current selection can be disas
+sembled. Flows will be followe
+d only if they are in
+the current selection. If ther
+e is no selection, only one in
+struction will be
+disassembled.
+To perform Restricted Disassem
+bly:
+1. Place the cursor in the Cod
+e Browser on an undefined byte
+.
+2. Right-mouse-click, and sele
+ct Disassemble (Restricted).
+The disassembly progress is di
+splayed in the progress status
+ area (bottom right)
+of the tool. The progress stat
+us area displays the number of
+ instructions
+disassembled and provides a "C
+ancel" button. Press the "Canc
+el" button to stop
+the disassembly process. Note:
+ this will not undo any disass
+embly that has
+already occurred.
+
+Press the 'Alt-D' key to Disa
+ssemble only in a selected are
+a.
+
+Disassembly 4/7
+
+Selecting Undo will return the
+ disassembled instruction to u
+ndefined bytes.
+
+Disassemble ARM / Disassemble 
+Thumb
+Disassemble ARM and Disassembl
+e Thumb will only be available
+ if the program
+you are working with is an ARM
+ based processor. ARM processo
+rs have two
+states, ARM and Thumb mode. Th
+e instructions available in AR
+M mode are 4
+bytes long. In Thumb mode, the
+ instructions are "generally" 
+2 bytes long. ARM
+and Thumb mode are mutually ex
+clusive, the processor is eith
+er executing
+Thumb encoded instructions or 
+ARM encoded instructions. Howe
+ver, certain
+branching instructions can cau
+se the processor to switch mod
+es. The default
+mode for disassembly in an ARM
+ program is to disassemble in 
+ARM mode. If
+you come across a section of T
+humb code that has not been di
+sassembled,
+Disassemble Thumb will set the
+ disassembler into Thumb mode 
+and begin
+disassembly.
+The actions work exactly like 
+Disassemble in that they start
+ disassembling at the
+address under the cursor, and 
+will follow the execution flow
+.
+To perform Disassemble ARM or 
+Disassemble Thumb:
+1. Place the cursor in the Cod
+e Browser on an undefined byte
+.
+2. Right-mouse-click, and choo
+se the appropriate option for 
+the mode you
+believe the processor is using
+ at the address.
+The disassembly progress is di
+splayed in the progress status
+ area (bottom right)
+of the tool. The progress stat
+us area displays the number of
+ instructions
+disassembled and provides a "C
+ancel" button. Press the "Canc
+el" button to stop
+the disassembly process. Note:
+ this will not undo any disass
+embly that has
+
+disassembled and provides a "
+Cancel" button. Press the "Can
+cel" button to stop
+the disassembly process. Note:
+ this will not undo any disass
+embly that has Disassembly 5/7
+already occurred.
+Press the 'F11' key to Disasse
+mble in ARM mode and press the
+ "F12" key
+to disassemble in Thumb mode.
+Selecting Undo will return the
+ disassembled instruction to u
+ndefined bytes.
+
+Modify Instruction Flow
+With certain processors and si
+tuations it may be desirable t
+o modify the default
+flow of an instruction to bett
+er reflect the nature of its f
+low. For example a jump
+may actually be performing a c
+all type operation, a call may
+ be performing a
+long-jump. This distinction pr
+imarily affects the subroutine
+ models and flow
+analysis performed within Ghid
+ra.
+The following basic flow types
+ may be imposed upon the defau
+lt flow of an
+instruction:
+BRANCH
+CALL
+CALL_RETURN
+RETURN
+In all situations the conditio
+nal nature of the original flo
+w is perserved.
+To Modify Instruction Flow:
+1. Place the cursor on an inst
+ruction within the Code Browse
+r. Note that
+instructions which are purely 
+fall-through can not be modifi
+ed.
+2. Right-mouse-click
+3. Select Modify Instruction F
+low... menu item.
+4. Within the Modify Instructi
+on Flow dialog select the desi
+red basic flow
+behavior.
+5. Click OK in the dialog
+
+An instruction whose flow has 
+been modified will have its' m
+nemonic color
+modified.
+
+Processor Options
+
+Disassembly 6/7
+
+Some processors have "modes" o
+r state information that affec
+ts how they will
+interpret and execute the byte
+s that make up an instruction.
+ To support this,
+Ghidra creates a psuedo regist
+er called the "contextRegister
+" that contains bits
+corresponding to the different
+ modes or options of the proce
+ssor. The language
+specifies a default for these 
+modes, but the user can effect
+ively change the
+defaults using the Processor O
+ptions dialog.
+
+The options are specific to th
+e processor and the user shoul
+d refer to the
+processor manual for a descrip
+tion of a processors modes. Wh
+enever,
+disassembly takes place these 
+are the assumed values that wi
+ll be used to initiate
+disassembly, unless the user h
+as specifically set the values
+ at an address using the
+Register Manager Window.
+To changes the default process
+or options:
+1. Place the cursor in the Cod
+e Browser.
+
+1. Place the cursor in the Co
+de Browser.
+2. Right-mouse-click, and sele
+ct the "Processor Options" men
+u item.
+3. Enter the values and press 
+the "Ok" button.
+
+Provided by: Disassembler plug
+in
+Related Topics:
+Clear
+Importing Files
+Languages
+
+Disassembly 7/7
+
+

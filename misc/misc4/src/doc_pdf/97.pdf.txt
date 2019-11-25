@@ -1,0 +1,47 @@
+Ghidra What's New 1/1
+
+What's New in Ghidra 9.0
+Ghidra: NSA Reverse Engineerin
+g Software
+
+Ghidra is a software reverse e
+ngineering (SRE) framework dev
+eloped by NSA's Research
+Directorate. This framework in
+cludes a suite of full-feature
+d, high-end software analysis
+tools that enable users to ana
+lyze compiled code on a variet
+y of platforms including
+Windows, Mac OS, and Linux. Ca
+pabilities include disassembly
+, assembly, decompilation,
+graphing, and scripting, along
+ with hundreds of other featur
+es. Ghidra supports a wide
+variety of process instruction
+ sets and executable formats a
+nd can be run in both
+user-interactive and automated
+ modes. Users may also develop
+ their own Ghidra plug-in
+components and/or scripts usin
+g the exposed API.
+In support of NSA's Cybersecur
+ity mission, Ghidra was built 
+to solve scaling and teaming
+problems on complex SRE effort
+s, and to provide a customizab
+le and extensible SRE
+research platform. NSA has app
+lied Ghidra SRE capabilities t
+o a variety of problems that
+involve analyzing malicious co
+de and generating deep insight
+s for NSA analysts who seek a
+better understanding of potent
+ial vulnerabilities in network
+s and systems.
+https://www.nsa.gov/ghidra
+
+

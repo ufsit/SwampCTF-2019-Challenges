@@ -1,0 +1,156 @@
+Program Tree Manager
+
+View Manager 1/2
+
+Program Trees are used to orga
+nize programs into a tree stru
+cture. Nodes within the a prog
+ram tree can be used to naviga
+te to the corresponding addres
+s in the Code
+Browser. Also, the program tre
+e can be used to restrict the 
+view (set of addresses) that a
+re displayed in the Code Brows
+er. The Program Tree Manager a
+llows you to create
+, delete, rename, and close pr
+ogram tree views.
+
+The following paragraphs descr
+ibe features of the Program Tr
+ee Manager.
+Create a Default Program Tree
+A default tree has a fragment 
+for each memory block in the p
+rogram; the fragments are name
+d the same as the memory block
+s.
+When you bring up a Code Brows
+er, the Program Tree Manager (
+the tabbed pane on the left si
+de of the Code Browser) shows 
+a default view with no program
+ open.
+When you open a program, the P
+rogram Tree Manager will creat
+e a tab for each tree view tha
+t is in the program. When you 
+re-open the project, the Progr
+am Tree
+Manager will show the view fro
+m when you last closed the pro
+ject.
+You can create a new default p
+rogram tree by selecting the
+icon. A new tab is displayed w
+ith the default name of the vi
+ew, "Program Tree." If a view 
+named
+"Program Tree" exists, then th
+e name has a one-up number app
+ended to it to ensure the name
+ is unique, e.g., "Program Tre
+e(1)."
+
+Provided by: ProgramTreePlugin
+
+Open Program Tree
+You can see a list of existing
+ Program Trees in the Program 
+by selecting the
+icon. Select the program tree 
+name from the popup menu; a ta
+b is created in the panel
+for this tree, if one does not
+ already exist. The selected t
+ree becomes the current tree i
+n the tabbed pane.
+
+Provided by: ProgramTreePlugi
+n
+
+View Manager 2/2
+Select Fragments Corresponding
+ to a Program Location
+The icon
+is a toggle button that contro
+ls whether the fragment(s) tha
+t correspond to the location i
+n the code browser should be s
+elected in the Program Tree. O
+n
+means to select the fragment(s
+) that contain the address of 
+the location. While the button
+ is On, the Program Tree will 
+track the location in the brow
+ser by selecting
+the appropriate fragments. The
+ toggle is Off by default.
+
+Provided by: ProgramTreePlugin
+Close a Program Tree
+To close a program tree, right
+-mouse click on the tab of tha
+t program tree and choose the 
+"Close" option. Closing a prog
+ram tree does not affect the P
+rogram.
+Re-open the program tree by se
+lecting it from the list of vi
+ews described above.
+You cannot close the last prog
+ram tree..
+Rename a Program Tree
+To rename a program tree,
+1. Right-mouse click on the ta
+b of the program tree.
+2. Choose the "Rename" option.
+3. A text field is created ove
+r the tab; the value defaults 
+to the current view name and i
+s selected. Enter a new name.
+If another view exists with th
+is name, a message is displaye
+d in the status area of the to
+ol. The list of existing views
+ will show the new name.
+
+If you move focus out of the e
+dit window, the edit window is
+ removed, and no change is mad
+e to the name.
+Click the
+
+button to undo the rename.
+
+Delete a Program Tree
+To delete a program tree,
+1. Right-mouse click on the ta
+b of the program tree.
+2. Choose the "Delete" option.
+
+You cannot delete the last pro
+gram tree. You must first crea
+te a new default tree, then de
+lete your other tree.
+Click the
+
+button to undo the Delete.
+
+Change to Other Program Tree
+To switch to another tree view
+, either click on another tab,
+ OR select a program tree name
+ from the list of program tree
+s.
+
+Provided By: View Manager Plug
+in
+Related Topics:
+Program Tree
+Program Organizations
+Code Browser
+
+

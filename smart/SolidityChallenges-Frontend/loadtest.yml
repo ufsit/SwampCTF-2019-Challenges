@@ -1,0 +1,32 @@
+config:
+  target: "http://localhost:3000"
+  phases:
+    - duration: 60
+      arrivalRate: 10
+scenarios:
+  - name: "Get Homepage"
+    weight: 2
+    flow:
+      - get:
+          url: "/"
+  - name: "Get Challenge"
+    weight: 2
+    flow:
+      - get:
+          url: "/challenge/1"
+  - name: "Get Flag - Not Cached"
+    weight: 5
+    flow:
+      - post:
+          url: "/api/getflag"
+          json:
+            challengeNum: '4'
+            signedMsg: "0x8ff10c309c008e82007f008677d7d970699f21b899e15d66226513ac055bf00f0baf05e32ce8c6cccbbe6958dc480516b20c9868e3cfbb5760140558f57cce4e1b"
+  - name: "Get Flag - Cached"
+    weight: 1
+    flow:
+      - post:
+          url: "/api/getflag"
+          json:
+            challengeNum: '0'
+            signedMsg: "0x87f1399bbb98e2674ea8dfd3f56a9b3666a8231c23636a8616c989a496cefa0462c752dd578b42bde44ee6b1e443f946c1eaa0cd8ab6400b3d32dbb72b3482061c"

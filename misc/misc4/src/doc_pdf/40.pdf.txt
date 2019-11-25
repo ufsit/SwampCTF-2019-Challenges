@@ -1,0 +1,1106 @@
+Decompiler
+
+Decompiler 1/9
+
+The Decompiler plugin is a sop
+histicated transformation engi
+ne which automatically convert
+s the binary representation of
+ individual functions into a h
+igh-level C
+representation. The Decompiler
+ presents a view of a program 
+which is interactive and dynam
+ically updated as the user add
+s or makes changes to the anno
+tations associated with
+the program. A Decompiler wind
+ow maintains the correspondenc
+e between the C representation
+ and the assembly representati
+on displayed in the Code Brows
+er window, to the
+extent possible. The window al
+lows instant visual associatio
+n and navigation between C lan
+guage expressions and their co
+rresponding assembly instructi
+ons.
+To display the decompiler wind
+ow, position the cursor on a f
+unction in the Code Browser, t
+hen select the
+Window menu in the tool.
+
+icon from the tool bar, or the
+ Decompile option from the
+
+Some of the primary capabiliti
+es of the decompiler include:
+Recovers Expressions: The deco
+mpiler does full dataflow anal
+ysis which allows it to perfor
+m slicing on functions. The mo
+st tangible benefit to the use
+r is that
+complicated expressions, which
+ have been split into distinct
+ operations/instructions and t
+hen mixed together with other 
+instructions by the compiling/
+optimizing process,
+are reconstituted into a singl
+e expression again by the deco
+mpiler.
+Recovers High-Level Scoped Var
+iables: The decompiler underst
+ands how compilers use process
+or stacks and registers to imp
+lement variables with differen
+t scopes
+within a function. Data-flow a
+llows it to follow what was or
+iginally a single variable as 
+it moves from the stack, into 
+a register, into a different r
+egister, etc. Thus it can
+effectively recover the origin
+al programs concept of a varia
+ble, minimizing the need to in
+troduce artificial variables i
+n the output.
+Recovers Function Parameters: 
+The decompiler understands the
+ parameter passing conventions
+ of the compiler and can recon
+struct the form of the origina
+l function call.
+Uses Data type, Name, and Sign
+ature Annotations: The decompi
+ler automatically pulls in all
+ the different data types and 
+variable names that the user h
+as applied to
+functions, and the C output is
+ altered to reflect this. High
+-level variables are appropria
+tely named, structure fields a
+nd array indices are calculate
+d and displayed with
+correct syntax, constant char 
+pointers are replaced with app
+ropriate quoted strings, etc.
+Performs Local Type Propagatio
+n: In the absence of informati
+on, the decompiler does its be
+st to fill in information from
+ what it does know. Variables 
+whose data type
+has not been explicitly labele
+d by the user can often by rec
+overed by seeing how the varia
+ble is used or by allowing the
+ known data types to propagate
+.
+Can be used to Automatically R
+ecover Structure Fields: The d
+ecompiler can be leveraged to 
+recover references to a struct
+ure.
+
+Variables
+The decompiler will attempt to
+ combine different locations (
+stack, memory, register) for v
+ariables within a function. Da
+ta type information for variab
+les is
+gathered automatically from se
+veral sources. Any annotated f
+unction signatures, both of th
+e function and of any sub-func
+tions it calls, provide type i
+nformation. If
+the function contains referenc
+es to global memory locations 
+that have a data type applied 
+to them, these will also be us
+ed, and any local variables of
+ the function
+can be annotated directly with
+ data types. The user can prov
+ide data-type information to t
+he decompiler by annotating al
+l these sources. The more info
+rmation that
+can be provided the better the
+ produced C-code will be.
+Variables not labeled directly
+ are assigned types by analyzi
+ng local type propagation. Typ
+ically, assigning data types t
+o a few key variables dramatic
+ally improves
+the readability of the C-code,
+ as propagation will accuratel
+y fill in all the other data t
+ypes. Assigning types in funct
+ion signatures and to global v
+ariables is
+particularly effective because
+ of their effect across multip
+le functions simultaneously.
+If you have C-header files for
+ an API a program is using, th
+ere is a prototype C-Code pars
+er than can extract the Data T
+ype information from C-Code an
+d
+create a Ghidra Data Type Arch
+ive (.gdt). The interface is c
+urrently fairly crude, but it 
+handles most C syntax includin
+g macro expansion. The functio
+n signatures
+and data types extracted can b
+e applied to the program. Just
+ open the archive in the Data 
+Type Manager window, select th
+e archive, right mouse click, 
+and select
+Apply Function DataTypes. Ghid
+ra currently provides definiti
+ons for the majority of window
+s API functions and data types
+ automatically.
+Parameter Variables
+Specifying data types for func
+tion parameters is especially 
+useful. A function that has da
+ta types defined for its param
+eters will propagate these typ
+es into the
+variables of any calling funct
+ions.
+
+Specifying data types for fun
+ction parameters is especially
+ useful. A function that has d
+ata types defined for its para
+meters will propagate these ty
+pes into the
+variables of any calling funct
+ions.
+
+Decompiler 2/9
+
+C variable argument convention
+s, or varargs, are are also su
+pported. For instance, if the 
+user has identified the standa
+rd C library routine printf, t
+he signature can
+be defined to be void printf (
+char *, ...). Now whenever pri
+ntf() is called, the decompile
+r will display the correct num
+ber of variable arguments.
+
+Function signatures can be app
+lied from a Ghidra data type d
+atabase. Windows data types an
+d standard C library function 
+signatures are included with t
+he standard
+distribution. More definitions
+ will be added in the future.
+Internal Decompiler Functions
+Occasionally, the decompiler m
+ay use one of several internal
+ decompiler functions that don
+'t get transformed into more '
+C'-like expressions. Use of th
+ese can
+indicate that the pcode is inc
+orrect or needs to be "Tuned" 
+to make the decompiler output 
+better. It can also mean that 
+the decompiler needs an additi
+onal
+simplification rule to take ca
+re of that particular situatio
+n.
+SUB41(x,c) - truncation operat
+ion
+The 4 is the size of the input
+ operand (x) in bytes.
+The 1 is the size of the outpu
+t value in bytes.
+The x is the thing being trunc
+ated
+The c is the number of least s
+ignificant bytes being truncat
+ed
+
+SUB42(0xaabbccdd,1) = 0xbbcc
+When "c" is 0, the operation i
+s almost always a cast between
+ integer sizes, where the deco
+mpiler didn't quite figure it 
+out. Usually the
+decompiler didn't figure out t
+hat "x" was an integer type or
+ was forced to assume otherwis
+e.
+SUB41(x,0) is usually a cast f
+rom "int" to "char".
+SUB42(x,0) is a cast from "int
+" to "short" and so on.
+SUB84(x,4) is probably part of
+ an extended precision multipl
+ication but also turns up in o
+ther things like division stre
+ngth reduction.
+CONCAT31(x,y) - concatenates t
+wo operands together into a la
+rger size object
+The "3" is the size of x in by
+tes.
+The "1" is the size of y in by
+tes.
+The result is the 4-byte conca
+tenation of the bits in "x" wi
+th the bits
+in "y". The "x" forms the most
+ signifigant part of the resul
+t, "y" the
+least.
+
+CONCAT31(0xaabbcc,0xdd) = 0xaa
+bbccdd
+This usually crops up when a 1
+-byte sized (char) variable is
+ being stored in a 4-byte regi
+ster. All the basic arithmetic
+/logical ops on the
+4-byte register give the corre
+ct result for doing the operat
+ion on a 1-byte variable; the 
+compiler just has to make sure
+ to ignore the 3 most
+significant bytes of the regis
+ter. The CONCAT31 is the decom
+piler keeping track of these m
+ost significant bytes that the
+ compiler was
+ignoring because it is mistake
+nly interpreting the register 
+variable as being a 4-byte var
+iable. In many cases the decom
+piler can figure this
+out, but especially in looping
+ constructs, it cannot. This i
+s really a dead code issue. Th
+e decompiler currently makes j
+udgements about
+dead code for entire varnodes.
+ A full fix of this problem wo
+uld require a dead code elimin
+ation algorithm that could dec
+ide if part of a
+varnode were dead.
+ZEXT14(x) - zero extension
+The 1 is the size of the opera
+nd x
+The 4 is the size of the outpu
+t in bytes
+
+This is almost always a cast f
+rom small integer types to big
+ unsigned types.
+SEXT14(x) - signed extension
+The 1 is the size of the opera
+nd x
+The 4 is the size of the outpu
+t in bytes
+
+This is probably a cast from a
+ small signed integer into a b
+ig signed integer.
+SBORROW4(x,y) - true if subtra
+cting the signed numbers would
+ cause a borrow
+The 4 is the size of both x an
+d y in bytes
+
+Returns "true" if there is an 
+arithmetic overflow when subtr
+acting "y" from "x" as signed 
+integers. These are generated 
+particularly by
+signed integer comparisons. Th
+ere are rules in place for rec
+overing the original compariso
+n, but this is a missed one sp
+ecial case. These
+could also conceivably be gene
+rated in extended precision su
+btraction.
+CARRY4(x,y) - true if there wo
+uld be a carry adding x to y
+SCARRY4(x,y) - true if there w
+ould be a signed overflow addi
+ng x to y
+The 4 is the size of both x an
+d y in bytes
+
+The 4 is the size of both x a
+nd y in bytes
+
+Decompiler 3/9
+Returns "true" if there would 
+be a carry adding x to y.
+If these are turning up everyw
+here in a particular binary, i
+t could be a missed simplifica
+tion that could be easily fixe
+d.
+
+Register Settings
+Occasionally a program will us
+e a register to store a global
+ constant. By using the <Set R
+egister> function on the right
+ mouse pop-up menu, the user c
+an specify
+this value to the decompiler. 
+The constant will be propagate
+d automatically throughout the
+ function, and the resulting c
+ode may be greatly simplified.
+Decompiler Options
+The following Decompiler Analy
+sis Options are available ( Ed
+it->Options Decompiler/Analysi
+s ):
+Eliminate unreachable code - c
+auses the decompiler to elimin
+ate branch paths which it cons
+iders unreachable as a result 
+of constant propagation.
+Ignore unimplemented instructi
+ons - causes the decompiler to
+ ignore instructions whose sem
+antics have been marked as uni
+mplemented. Otherwise a
+halt_unimplemented call will a
+ppear in the decompilation for
+ such cases.
+Infer constant pointers - allo
+ws the decompiler to infer a d
+ata-type for constants it dete
+rmines are likely pointers. In
+ the basic heuristic, each con
+stant is
+treated as an address, and if 
+that address starts a known da
+ta or function element in the 
+program, the constant is assum
+ed to be a pointer.
+Respect read-only flags - caus
+es the decompiler to treat any
+ values in memory or blocks of
+ memory marked read-only as co
+nstant values. Normally global
+memory is considered public wr
+itable, meaning you cannot dep
+end on the initial value at a 
+location. Any global value cou
+ld be changed by another
+function. For areas of memory 
+that are really read-only and 
+never change their statically 
+initialized value, mark the me
+mory area as read only in the
+Memory Manager or specific Dat
+a locations as Constant (see D
+ata Mutability below).
+Typically as part of the impor
+t process, memory blocks are m
+arked as read-only if the memo
+ry block is tagged as such in 
+the imported binary.
+Simplify predication - causes 
+the decompiler to simplify cod
+e that employs conditional (pr
+edicated) instructions, mergin
+g if/else blocks of code that 
+share
+the same condition.
+Simplify extended integer oper
+ations - causes the decompiler
+ to simplify integer operation
+s, where a single logical valu
+e is split into high and low p
+ieces
+that are acted on in multiple 
+stages. The decompiler tries t
+o identify these constructions
+ and replaces the multiple sta
+ges with a single operation.
+Use in-place assignment operat
+ors - causes the decompiler to
+ employ in-place C assignment 
+operators such as += in the de
+compiled syntax.
+Decompiler Timeout (seconds) -
+ the number of seconds to allo
+w the decompiler to run before
+ terminating the decompiler. C
+urrently this does not affect
+the UI, which will run indefin
+itely. This setting currently 
+only affects background analys
+is that uses the decompiler. s
+yntax.
+
+Data Mutability
+Decompiler output can be influ
+enced by the mutability of dat
+a locations within memory. Sup
+ported mutability settings inc
+lude:
+Read-only/Constant - indicates
+ that a memory locations value
+ never changes and the current
+ly stored value can be treated
+ as a constant.
+Volatile - indicates that a me
+mory location's value may chan
+ge asynchronously between read
+s. Reads and writes to such lo
+cations are never simplified b
+y
+the decompiler and are wrapped
+ with specially named function
+ calls (e.g., volatile_read, v
+olatile_write). The language d
+efinition and compiler specifi
+cation
+may predefine specific volatil
+e regions of memory and may al
+so override the default volati
+le read/write function names.
+Data mutability may be control
+led by the user in one of two 
+ways:
+1. Memory Block Settings
+2. Data Settings
+
+Tips:
+
+It is important to note that t
+he decompiler is only as good 
+as the definition of the the u
+nderlying assembly language co
+de. Each assembly instruction 
+has an
+associated PCODE definition th
+at describes what the instruct
+ion does, essentially an RTL (
+Register Transfer Language). F
+or example, the following MOV
+instruction which moves a valu
+e into an offset onto the stac
+k also has a PCODE definition.
+MOV local_1c[ESP], 0x804aac8
+temp1 = INT_ADD 0x4, ESP
+temp2 = COPY 0x804aac8
+STORE ram(temp1), temp2
+Irregularities in the produced
+ C-code can often be attribute
+d to errors in this underlying
+ definition. Such errors can u
+sually be fixed quickly. Pleas
+e feedback any
+problems or issues you find.
+A good way to start using the 
+decompiler is by defining the 
+parameters to functions that a
+re obviously "char *" string r
+eferences. This allows the dec
+ompiler to discover
+and display any static strings
+ referenced anywhere the funct
+ion is called.
+
+The decompiler can work out r
+eferences to fields of a data 
+structure and figure out array
+ indexing given enough informa
+tion about data types. Buildin
+g these data
+type definitions greatly enhan
+ces readability of the C-code 
+and is a natural way to encaps
+ulate reverse engineering know
+ledge. If you notice many offs
+et
+references 4/9
+Decompiler
+from a base value other than t
+he frame or stack pointer, tha
+t value is probably pointing t
+o a structure or an array. Not
+ice psParm1 in the code below.
+ There are
+several different references o
+ff of it. The parameter can be
+ annotated to point to a struc
+ture. The user can create a ne
+w structure or use one from a 
+Ghidra data type
+library.
+Without knowing the data type,
+ the decompiler produces the f
+ollowing C-code.
+
+After applying the appropriate
+ structure, the code becomes:
+
+The parameters shown where a f
+unction is called may not agre
+e with the parameters where th
+e function is defined. This ca
+n be caused by several things:
+The function takes variable ar
+guments.
+The parameters are not actuall
+y referenced (used) by the fun
+ction.
+The decompiler does not see th
+e parameter location being fil
+led.
+Parameters determined from the
+ function definition are more 
+likely to be correct.
+
+Decompiler Window
+To display the decompiler wind
+ow, position the cursor on a f
+unction in the Code Browser, t
+hen select the
+menu in the tool.
+
+icon from the tool bar, or the
+ Decompile option from the Win
+dow
+
+Errors from the decompiler pro
+cess are reported in the statu
+s area of the tool and sometim
+es at the end of the C code in
+ the decompiler window.
+
+Mouse Actions
+Double-click - Navigates to th
+e symbol that was clicked.
+Control-double-click - Navigat
+es to the symbol that was clic
+ked, opening the results in a 
+new window.
+Control-shift-click - Triggers
+ the Listing in a Snapshots vi
+ew to navigate to the address 
+denoted by the symbol that was
+ clicked.
+
+If you press the middle mouse 
+button (the button changed in 
+the tool options under Browser
+ Field->Cursor Text Highlight)
+, the decompiler will highligh
+t every
+occurrence of a variable or co
+nstant under the current curso
+r location.
+
+Other actions available in the
+ decompiler are described in t
+he following paragraphs.
+Copy/Copy Special...
+C Code from the decompiler win
+dow can be copied and pasted i
+nto any other system text wind
+ow. Select the text to copy, a
+nd then choose Copy from the p
+opup menu.
+Comments->Set...
+Set a comment on a line of C-C
+ode. The comment will be store
+d in the program database at t
+he closest assembly line assoc
+iated with the generated C-Cod
+e. Any type of
+comment (EOL, Post, Pre, Plate
+) can be attached to the repre
+sentative C-Code. When this fu
+nction is re-displayed at some
+ later point, the comment will
+ persist.
+Commit Params/Return
+
+Commit Params/Return
+
+Decompiler 5/9
+By default, the decompiler wil
+l analyze the code to try to d
+iscover function parameters, r
+eturn type, and local variable
+s. Each time the decompiler di
+splays C-code for a
+function it does this analysis
+ again. Commit Params/Return c
+auses any parameter names and 
+types and return type to be sa
+ved in the program database so
+ that next time
+the function is decompiled the
+ current definitions will be u
+sed. This is useful for "synci
+ng" the function signature wit
+h the disassembly display. Thi
+s causes the names and
+types of parameters and return
+s in the disassembly to agree 
+with the decompiler names and 
+types.
+Ghidra will do stack analysis 
+that will recover parameters a
+nd return types, but for many 
+programs, the analysis the dec
+ompiler does is better.
+There is a prototype plug-in t
+hat automatically pulls in the
+ decompiler derived informatio
+n and applies it to each funct
+ion as the function is created
+.
+If a variable displayed in the
+ assembly window has an undefi
+ned type, the decompiler will 
+still respect the name of the 
+variable.
+Commit Locals
+By default, the decompiler wil
+l analyze the code to try to d
+iscover function parameters, r
+eturn type, and local variable
+s. Each time the decompiler di
+splays C-code for a
+function it does this analysis
+ again. Commit Locals causes a
+ny local variable names and ty
+pes to be saved in the program
+ database so that next time th
+e function is
+decompiled the current local v
+ariable definitions will be us
+ed. This is useful for "syncin
+g" the local variable definiti
+ons with the disassembly displ
+ay. This causes the names
+and types of locals in the dis
+assembly to agree with the dec
+ompiler names and types.
+Ghidra will do stack analysis 
+that will recover local variab
+les on the stack, but for many
+ programs, the analysis the de
+compiler does is better.
+There is a prototype plug-in t
+hat automatically pulls in the
+ decompiler derived informatio
+n and applies it to each funct
+ion as the function is created
+. The plugin by
+default will not commit local 
+variable definitions, either s
+tack or register locals. Commi
+tting locals automatically can
+ be turned on by changing the 
+analysis options for the
+Decompiler Parameter ID plugin
+. In most cases it is better t
+o commit locals only for certa
+in functions that you really c
+are about, or after the data t
+ype definitions
+(structures, etc...) have sett
+led down for the program you a
+re Reverse Engineering.
+If a variable displayed in the
+ assembly window has an undefi
+ned type, the decompiler will 
+still respect the name of the 
+variable.
+Auto Create Structure / Auto F
+ill in Structure
+Automatically creates a struct
+ure definition for the pointed
+ to structure, and fills it ou
+t based on the references foun
+d by the decompiler.
+To use this, place the cursor 
+on a function parameter variab
+le, or any variable within a f
+unction that is a pointer to a
+ structure. It could currently
+ have a data type of
+undefined, int, void *, char *
+, etc... For example: func(int
+ *this), (for a C++ this call 
+function).
+If the variable is already a s
+tructure pointer, any new refe
+rences found will be added to 
+the structure, even if the str
+ucture must grow in size. This
+ is very useful as you
+find more places the structure
+ is used. If you have already 
+started recovering a portion o
+f a structure and find it used
+ in another function. Retype t
+he variable to be the
+structure, and then use Auto F
+ill in Structure to add any ne
+w fields recovered for the str
+ucture.
+This feature is also available
+ in the assembly listing when 
+the cursor is placed on a defi
+ned parameter or return variab
+le.
+Currently this only recovers t
+he structure by following the 
+structure pointer through the 
+current function and any funct
+ion the structure is passed in
+to within the
+current function. Eventually t
+his will be put into a global 
+type analyzer, but for now it 
+is most useful interactively.
+For best results, the function
+ should be well formed with go
+od flow, and all the switch st
+atements should be recoverable
+.
+There is also a script called 
+CreateStructure that you can u
+se for automated structure rec
+overy. For instance if you hav
+e a set of ThisCall routines w
+here the first
+parameter to all the routines 
+is a pointer to a shared class
+ structure, the script could b
+e modified to recover the stru
+cture for each this parameter.
+Highlight Def-Use
+Highlights all places a value 
+is used, starting at the place
+ it is first written, and incl
+uding all the places where tha
+t one value is read. This is u
+sually a proper subset
+of all the places a variable a
+ppears in the function Place t
+he cursor over a variable you 
+would like to highlight and se
+lect Highlight Def-Use from th
+e pop-up menu.
+As an example the a at the top
+ of the function is under the 
+cursor when Highlight Def-Use 
+is chosen.
+
+Decompiler 6/9
+
+Notice that the first three re
+ferences to a are highlighted 
+but the final use of a is not 
+because the value might have c
+hanged in the else clause.
+Highlight Forward Slice
+Highlight Forward Slice highli
+ghts each variable whose value
+ may be affected by the value 
+in the variable under the curs
+or.
+As an example, b, the output o
+f max_alpha, is under the curs
+or when Highlight Forward Slic
+e is chosen.
+
+We can see that c is tainted b
+y the value of b all the way t
+hrough to the bottom of the fu
+nction.
+Highlight Backward Slice
+Highlight Backward Slice highl
+ights all points in the functi
+on that contain a value involv
+ed in the creation of the valu
+e in the variable under the cu
+rsor.
+As an example the final a of t
+he function is under the curso
+r when Highlight Backward Slic
+e is chosen.
+
+We can see that the final valu
+e of a is affected by the loop
+ and by the input parameter bu
+t never by b and c.
+Highlight Forward Instruction 
+Slice
+Highlight Forward Inst Slice h
+ighlights each instruction who
+se value may be affected by th
+e value in the variable under 
+the cursor, rather than the va
+lues
+themselves.
+Highlight Backward Instruction
+ Slice
+
+Highlight Backward Inst Slice
+ highlights all instructions i
+n the function that contribute
+ to the creation of the value 
+in the variable under the curs
+or.
+
+Decompiler 7/9
+Rename Variable
+Any parameter or local variabl
+e can be renamed. Just place t
+he cursor over a variable defi
+nition, or any use of the vari
+able and choose Rename Variabl
+e from the
+popup menu. The name will now 
+be saved for this function, so
+ the next time the decompiler 
+displays the code for the func
+tion, the same name is used.
+Rename Function
+A shortcut for renaming the fu
+nction from within the decompi
+ler window.
+Retype Variable
+The decompiler does its best t
+o recover the type of a variab
+le automatically but often onl
+y has limited information for 
+analysis. Explicitly changing 
+the type of a
+variable can dramatically impr
+ove the C-code produced. This 
+is especially true for structu
+res. Changing the type of a pa
+rameter variable will affect t
+he display for
+every place the function is ca
+lled.
+To change a variables data typ
+e; place the cursor over the v
+ariable definition or use of t
+he variable, select Retype Var
+iable from the popup menu, and
+ then enter
+the name of the type. The name
+ of any data type known to the
+ program can be used.
+A simple code improvement is t
+o locate any functions with ob
+vious string parameters and re
+-type the parameter to be a "c
+har *". Any references to defi
+ned
+memory will now display the pa
+ssed parameter as a character 
+"string".
+Edit Data Type of Variable
+Only structure, union, and enu
+m data types can be edited. If
+ a variable's data type is one
+ of these it can be edited. Al
+so, if the data type is a type
+ definition, array,
+or pointer based on an editabl
+e data type, then the base dat
+a type can be edited. For exam
+ple, if you have a structure p
+ointer for a variable then you
+ can edit the
+structure. To edit a variable'
+s data type; place the cursor 
+over the variable definition o
+r use of the variable and sele
+ct Edit Data Type... from the 
+popup menu. For
+structures and unions, the str
+ucture editor will appear, and
+ for enums the enum editor wil
+l appear. If the data type for
+ a variable can't be edited, t
+he action will be
+disabled in the popup.
+Edit Function Signature
+The Edit Function Signature di
+alog allows you to change the 
+function's signature, the call
+ing convention, whether the fu
+nction is inline and whether t
+he function
+has no return.
+
+The function signature include
+s
+function name
+return type
+number of parameters
+parameter names
+parameter type
+varargs (variable arguments)
+
+parameter type
+varargs (variable arguments)
+
+Decompiler 8/9
+This features allows you to ed
+it a function signature text s
+tring to change any of these.
+For example if a function is a
+ctually printf(), instead of c
+hanging the name, return type,
+ and parameters individually, 
+the entire function signature 
+can be changed
+all at once. To do this you co
+uld enter
+void printf( char *fmt, ...)
+within the Signature field and
+ then select the OK button.
+In addition, you can select th
+e Calling Convention for this 
+function from a list of availa
+ble calling conventions as det
+ermined by the program's langu
+age.
+Selecting the Inline checkbox 
+indicates that the function is
+ in-lined. Selecting the No Re
+turn checkbox indicates that t
+he function does not return.
+The signature of the current f
+unction, or any called functio
+n can be changed.
+To edit a function's signature
+ from the Decompile window. Ju
+st place the cursor over any f
+unction name, select Edit Func
+tion Signature from the popup 
+menu,
+and the dialog will appear wit
+h the function's current infor
+mation.
+Override Signature
+Overrides the signature of a c
+alled function at the point it
+ is called. This allows you to
+ set the parameter values for 
+a particular call.
+Remove Signature Override
+This action allows you to remo
+ve a previously added function
+ signature override.
+Find...
+Find any string of text within
+ the currently decompiled func
+tion.
+Debug Function Decompilation
+For certain functions, the dec
+ompiler may produce an error m
+essage, produce incorrect code
+, or simply exit without produ
+cing results. Selecting Debug
+Function Decompilation, from t
+he decompiler provider window 
+toolbar, will run the decompil
+er again, and save all relevan
+t information to an XML file. 
+Instead
+of submitting the entire progr
+am to be analyzed to discover 
+the problem, only a small XML 
+file is needed.
+Export to C
+You can export the current dec
+ompiled function to a file by 
+selecting the
+icon in the local tool bar of 
+the decompiler window. A file 
+chooser dialog is displayed
+for you to select the name of 
+the output file. If you do not
+ specify a file extension, ".c
+" is appended to the filename.
+Snapshot
+Creates a Snapshot of the curr
+ent decompiler window, which a
+llows you to leave the current
+ decompiled function in place 
+while navigating to other func
+tions.
+Properties
+The colors used in the decompi
+ler window can be changed by e
+diting the C Display Options t
+hrough the Edit Options dialog
+. To edit the options, choose 
+Edit
+Tool Options... from the tool 
+menu. Click on the C Display n
+ode in the Options tree. A pan
+el shows the colors that can b
+e customized. Click on the col
+or bar to
+bring up the color chooser to 
+change the color.
+The other options allow you to
+ change the maximum characters
+ in a line displayed in the de
+compiler window, and the numbe
+r of characters for indenting 
+in the
+code.
+
+Mouse Hovers
+These function similarly to Co
+de Browser Mouse Hovers
+
+Provided by: Decompiler Plugin
+Related Topics:
+Code Browser
+Snapshots
+
+Code Browser
+Snapshots
+
+Decompiler 9/9
+
+
